@@ -1,6 +1,6 @@
 <template>
   <div class="grid w-screen h-screen">
-    <div class="bg-gradient-to-r from-[#1C2365] to-[#163B85] fondo z-10  "
+    <div class="bg-gradient-to-r from-[#1C2365] to-[#163B85] fondo z-10  text-white "
       style="border-bottom-left-radius: 18rem; border-bottom-right-radius: 18rem;">
       <div>
         <div>
