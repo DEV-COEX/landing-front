@@ -6,7 +6,7 @@
       py-2
       px-4
       rounded-md
-      btn
+      transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300
     "
     @click="metodoBoton"
   >
@@ -34,9 +34,5 @@ export default {
 </script>
 
 <style>
-.btn:hover{
-transition-duration: 0.5s;
-padding-left: 1.25rem;
-padding-right: 1.25rem;
-}
+
 </style>
