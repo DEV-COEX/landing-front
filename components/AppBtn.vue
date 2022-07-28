@@ -6,6 +6,7 @@
       py-2
       px-4
       rounded-md
+      btn
     "
     @click="metodoBoton"
   >
@@ -31,3 +32,11 @@ export default {
   }
 }
 </script>
+
+<style>
+.btn:hover{
+transition-duration: 0.5s;
+padding-left: 1.25rem;
+padding-right: 1.25rem;
+}
+</style>

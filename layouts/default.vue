@@ -9,38 +9,30 @@
           <div class="flex items-center">
             <div class="flex">
               <div v-for="(item, i) in navItems" :key="i">
-                <NuxtLink
-                  :to="item.path"
-                  class="flex items-center p-2 text-base font-medium text-white"
-                >
-                  <span
-                    class="
+                <NuxtLink :to="item.path" class="flex items-center p-2 text-base font-medium text-white">
+                  <span class="
                       mx-6
                       hover:text-transparent
                       bg-clip-text bg-gradient-to-r
                       from-red-500
                       to-red-400
-                    "
-                    >{{ item.name }}</span
-                  >
+                    ">{{ item.name }}</span>
                 </NuxtLink>
               </div>
-              <div>
-                <app-btn
-                  class="
+              <div class="w-56">
+                <app-btn class="
                     bg-gradient-to-r
                     from-red-500
                     to-red-400
                     p-1
                     mx-6
                     text-white
-                    hover:bg-gradient-to-r
-                    from-red-300
-                    to-red-500
-                  "
-                  @metodoBoton="serTalento"
-                  >Ser talento Coex</app-btn
-                >
+            
+                    
+                 
+                    hover:from-red-400 hover:to-red-500
+               
+                  " @metodoBoton="serTalento">Ser talento Coex</app-btn>
               </div>
             </div>
             <div class="px-4">
@@ -71,7 +63,7 @@ export default {
           path: '',
         },
         {
-          name: 'Fabrica de software',
+          name: 'Fábrica de software',
           path: '',
         },
         {
@@ -79,11 +71,11 @@ export default {
           path: '/contrata-talento',
         },
         {
-          name: 'Educacion',
+          name: 'Educación',
           path: '',
         },
         {
-          name: 'Fundacion',
+          name: 'Fundación',
           path: '',
         },
       ],
