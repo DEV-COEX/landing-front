@@ -16,10 +16,11 @@
                       bg-clip-text bg-gradient-to-r
                       from-red-500
                       to-red-400
+                      transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300
                     ">{{ item.name }}</span>
                 </NuxtLink>
               </div>
-              <div class="w-56">
+              <div class="w-56 ">
                 <app-btn class="
                     bg-gradient-to-r
                     from-red-500
@@ -28,6 +29,7 @@
                     mx-6
                     text-white              
                     hover:from-red-400 hover:to-red-500
+                    
                
                   " @metodoBoton="serTalento">Ser talento Coex</app-btn>
               </div>

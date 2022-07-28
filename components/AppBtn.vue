@@ -1,22 +1,18 @@
 <template>
-  <button
-    :type="tipo"
-    :disabled="disabled"
-    class="
+  <button :type="tipo" :disabled="disabled" class="
       py-2
       px-4
       rounded-md
+     bx-shadow
       transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300
-    "
-    @click="metodoBoton"
-  >
+    " @click="metodoBoton">
     <slot />
   </button>
 </template>
 <script>
 export default {
   name: 'AppButton',
-   props: {
+  props: {
     tipo: {
       type: String,
       default: null,
@@ -25,7 +21,7 @@ export default {
       type: Boolean
     }
   },
-  methods:{
+  methods: {
     metodoBoton() {
       this.$emit("metodoBoton")
     }
@@ -34,5 +30,7 @@ export default {
 </script>
 
 <style>
-
+.bx-shadow:hover{
+  box-shadow: 0px 0px 4px 0px white;
+}
 </style>
