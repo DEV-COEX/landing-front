@@ -8,7 +8,7 @@
                         <p class="text-5xl w-4/6 text-center"> ¿Necesitas talento Tecnológico para tu empresa?</p>
                     </div>
                     <div class="flex justify-center p-10">
-                        <p class="text-xl  text-center w-3/6">En Coex,formamos el mejor talento para tu empresa,
+                        <p class="text-xl  text-center w-3/6">En Coex, formamos el mejor talento para tu empresa,
                             aplicando las estrategias mas usadas para
                             la
                             industria.</p>

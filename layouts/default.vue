@@ -63,7 +63,7 @@ export default {
         },
         {
           name: 'Fábrica de software',
-          path: '',
+          path: '/fabrica',
         },
         {
           name: 'Contrata talentos',

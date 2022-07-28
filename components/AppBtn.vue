@@ -4,7 +4,7 @@
       px-4
       rounded-md
      bx-shadow
-      transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300
+      transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-1000
     " @click="metodoBoton">
     <slot />
   </button>

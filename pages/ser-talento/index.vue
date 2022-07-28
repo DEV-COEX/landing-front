@@ -32,7 +32,7 @@
 
 
     </div>
-    <div class=" z-0 flex bg-gradient-to-r from-[#000A65] to-[#2F00B5] h-screen w-screen " style="position:absolute;">
+    <div class=" z-0 flex bg-gradient-to-r from-[#000A65] via-[#4736df] to-[#2F00B5] background-animate h-screen w-screen " style="position:absolute;">
     </div>
   </div>
 </template>
@@ -51,7 +51,23 @@ export default {
 
 <style scoped>
 .fondo {
-  height: 80vh;
+  height: 70vh;
 
 }
+.background-animate {
+    background-size: 200%;
+    -webkit-animation: AnimationName 1s ease infinite;
+    -moz-animation: AnimationName 1s ease infinite;
+    animation: AnimationName 8s ease infinite;
+  }
+
+  @keyframes AnimationName {
+    0%,
+    100% {
+      background-position: 0% 100%;
+    }
+    50% {
+      background-position: 100% 30%;
+    }
+  }
 </style>
