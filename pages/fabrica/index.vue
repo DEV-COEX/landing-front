@@ -6,10 +6,10 @@
           <p class="text-5xl font-bold  text-center text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
-                      to-[#dab255]">{{ pageText[0]?.tittle }}</p>
+                      to-[#dab255]">{{pageText[0] ? pageText[0].tittle:''}}</p>
         </div>
         <div class="flex justify-center">
-          <p class="text-3xl w-3/6 text-center text-white py-10">{{ pageText[0]?.description }}</p>
+          <p class="text-3xl w-3/6 text-center text-white py-10">{{pageText[0] ? pageText[0].description:'' }}</p>
         </div>
         <div class="flex justify-center">
           <app-btn class="

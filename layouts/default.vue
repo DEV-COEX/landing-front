@@ -75,7 +75,7 @@ export default {
         },
         {
           name: 'Fundación',
-          path: '',
+          path: '/fundacion',
         },
       ],
     }
