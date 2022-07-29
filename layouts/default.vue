@@ -59,7 +59,7 @@ export default {
         },
         {
           name: '¿Quienes somos?',
-          path: '',
+          path: '/about',
         },
         {
           name: 'Fábrica de software',

@@ -118,8 +118,8 @@
               :job="'TI-E-SO'"
               :image="'https://i.pravatar.cc/300?img=2'"
             /><app-talents-card
-              :name="'JuanMaincra'"
-              :job="'Montar Servers del maincra'"
+              :name="'Juan ekis'"
+              :job="'Maincra'"
               :image="'https://i.pravatar.cc/300?img=3'"
             />
             <app-talents-card
@@ -232,7 +232,7 @@
       >
         Founders
       </div>
-      <app-founder-card class="mb-[10rem]"/>
+      <app-founder-card :image="'https://i.pravatar.cc/300?img=10'" :name="'Valesita'" :job="'Asencer a cliente'" :descript="'Bfa de NataFit'" :about="'Lorem ipsus maracus asdasd as dasd asdmas da sd  as d  as d asd  as dasdasd asdasd '"  class="mb-[10rem]"/>
     </section>
   </div>
 </template>
