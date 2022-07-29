@@ -1,5 +1,6 @@
 <template>
-    <div class="bg-black w-screen h-screen flex justify-center items-center">
+    <div
+        class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-screen h-screen flex justify-center items-center">
         <div class="flex justify-center items-center">
             <div class="">
                 <div class="flex justify-center">
@@ -13,13 +14,13 @@
                     <p class="text-3xl w-3/6 text-center text-white py-10">¡Conoce como!</p>
                 </div>
                 <div class="flex justify-center">
-                    <div class=" w-20 h-20 rounded-full border-2 border-bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]  animate-bounce p-1 flex items-center justify-center" >
-                        <button
-                            class="
+                    <div v-if="btnStar"
+                        class="w-24 h-24 rounded-full border-2 border-bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]  animate-bounce p-1 flex items-center justify-center">
+                        <button class="
                         bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]
-                        
                         m-0
-                         text-blue-400  dark:bg-slate-800 p-2 w-16 h-16 ring-1 ring-slate-900/5 dark:ring-slate-200/20 shadow-lg rounded-full ">Star</button>
+                         text-blue-400   p-2 w-20 h-20 ring-1   rounded-full  text-xl font-semibold"
+                            @click="btnStarEducacion">Star</button>
                     </div>
 
                 </div>
@@ -31,9 +32,37 @@
 
 <script>
 export default {
-    name: "FabricaSoftware"
+    name: "FabricaSoftware",
+    data() {
+        return {
+            btnStar: true
+        }
+    },
+    methods: {
+        btnStarEducacion() {
+            this.btnStar = !this.btnStar
+        }
+    }
 }
 </script>
 
 <style>
+.background-animate {
+    background-size: 150%;
+    -webkit-animation: AnimationName 1s ease infinite;
+    -moz-animation: AnimationName 7s ease infinite;
+    animation: AnimationName 5s ease infinite;
+}
+
+@keyframes AnimationName {
+
+    0%,
+    100% {
+        background-position: 0% 100%;
+    }
+
+    50% {
+        background-position: 100% 30%;
+    }
+}
 </style>
