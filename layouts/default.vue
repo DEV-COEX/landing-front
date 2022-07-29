@@ -27,11 +27,11 @@
                     to-red-400
                     p-1
                     mx-6
-                    text-white              
+                    text-white
                     hover:from-red-400 hover:to-red-500
-                    
-               
-                  " @metodoBoton="serTalento">Ser talento Coex</app-btn>
+
+
+                  " @click="serTalento">Ser talento Coex</app-btn>
               </div>
             </div>
             <div class="px-4">

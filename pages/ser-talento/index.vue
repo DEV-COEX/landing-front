@@ -5,12 +5,10 @@
       <div class="">
         <div class="flex-col justify-center items-center pt-28 ">
           <div class="flex justify-center">
-            <p class="text-5xl"> ¿Quieres ser parte de la industria tecnológica?</p>
+            <p class="text-5xl"> {{ pageText[0]?.tittle }} </p>
           </div>
           <div class="flex justify-center p-10" >
-            <p class="text-xl  text-center w-3/6">En coex, ofrecemos formación ¡GRATUITA! para que puedas
-              llevar tus conocimientos al siguiente nivel y
-              liderar el desarrollo de la industria digital en el país.</p>
+            <p class="text-xl  text-center w-3/6"> {{ pageText[0]?.description }} </p>
           </div>
           <div class="flex justify-center ">
             <app-btn class="
@@ -19,9 +17,9 @@
                     to-red-400
                     p-1
                     mx-6
-                    text-white              
+                    text-white
                     hover:from-red-400 hover:to-red-500
-               
+
                   ">Quiero ser talento Coex</app-btn>
           </div>
         </div>
@@ -42,9 +40,21 @@ export default {
   name: 'SerTalento',
   data() {
     return {
-      show: false
+      show: false,
+      pageText: {}
     }
-
+  },
+  async mounted() {
+    this.getPageText()
+    await this.$store.dispatch("fetchTexts");
+    this.getPageText()
+  },
+  methods: {
+    getPageText() {
+      this.$store.commit("filterText", "talento-coex")
+      this.pageText = this.$store.state.text
+      console.log(this.pageText)
+    }
   }
 }
 </script>

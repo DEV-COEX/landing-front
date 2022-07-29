@@ -5,7 +5,7 @@
       rounded-md
      bx-shadow
       transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-1000
-    " @click="metodoBoton">
+    " @click="click">
     <slot />
   </button>
 </template>
@@ -22,8 +22,8 @@ export default {
     }
   },
   methods: {
-    metodoBoton() {
-      this.$emit("metodoBoton")
+    click() {
+      this.$emit("click")
     }
   }
 }
