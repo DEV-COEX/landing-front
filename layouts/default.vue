@@ -71,7 +71,7 @@ export default {
         },
         {
           name: 'Educación',
-          path: '',
+          path: '/educacion',
         },
         {
           name: 'Fundación',
