@@ -1,6 +1,6 @@
 <template>
     <div
-        class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-screen h-screen flex justify-center items-center">
+        class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-ful h-screen flex justify-center items-center">
         <div class="flex justify-center items-center">
             <div class="" id="educacion" >
                 <div class="flex justify-center " >
