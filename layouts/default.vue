@@ -51,7 +51,6 @@
 </template>
 
 <script>
-import 'animate.css';
 export default {
   name: 'NavbarDefault',
   data() {
