@@ -44,6 +44,7 @@
     <div class="">
       <Nuxt />
     </div>
+    <app-footer :navitems="navItems"/>
   </div>
 </template>
 
