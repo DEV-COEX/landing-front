@@ -1,6 +1,6 @@
 <template>
   <div class="h-screen w-full">
-    <div class="p-2 px-14 pt-8 fixed z-50 ">
+    <div class="p-2 px-14 pt-8 fixed z-50 w-full">
       <aside class="h-full">
         <div class="flex w-full h-full p-5 justify-between">
           <div class="flex items-center">
