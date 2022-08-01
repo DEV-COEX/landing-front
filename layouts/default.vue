@@ -1,6 +1,6 @@
 <template>
-  <div class="h-screen">
-    <div class="p-2 px-14 pt-8 fixed z-50 w-screen">
+  <div class="h-screen w-full">
+    <div class="p-2 px-14 pt-8 fixed z-50 ">
       <aside class="h-full">
         <div class="flex w-full h-full p-5 justify-between">
           <div class="flex items-center">
@@ -44,7 +44,7 @@
     <div class="">
       <Nuxt />
     </div>
-    <app-footer :navitems="navItems"/>
+    <app-footer :navitems="navItems" class="w-full" />
   </div>
 </template>
 
