@@ -26,7 +26,7 @@
                         <div class="flex  justify-center">
                             <div class="linea bg-gradient-to-r from-[#4A5B95]  to-[#90BEFF] bx-shadow"></div>
                         </div>
-                        
+
                         <div class="cuadrado"></div>
                     </div>
 
@@ -57,7 +57,6 @@ export default {
     getPageText() {
       this.$store.commit("filterText", "educacion")
       this.pageText = this.$store.state.text
-      console.log(this.pageText)
     },
     btnStarEducacion() {
       this.isActive = !this.isActive

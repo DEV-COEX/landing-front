@@ -53,7 +53,6 @@ export default {
     getPageText() {
       this.$store.commit("filterText", "talento-coex")
       this.pageText = this.$store.state.text
-      console.log(this.pageText)
     }
   }
 }

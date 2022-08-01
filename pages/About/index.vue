@@ -215,7 +215,6 @@ export default {
         this.$store.commit("filterText", String(el.name))
         this.pageTexts[el.name] = this.$store.state.text
       })
-      console.log(this.pageTexts);
     },
     async getTalents() {
       const { data } = await this.$axios.get('talents');
