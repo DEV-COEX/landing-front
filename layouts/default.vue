@@ -42,15 +42,16 @@
       </aside>
     </div>
     <div  class="animate__animated animate__bounce">
-     
+
         <Nuxt />
-   
+
     </div>
     <app-footer :navitems="navItems"/>
   </div>
 </template>
 
 <script>
+import 'animate.css';
 export default {
   name: 'NavbarDefault',
   data() {
