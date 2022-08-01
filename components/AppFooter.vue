@@ -1,5 +1,5 @@
 <template>
-  <div class="h-auto bg-[#171929] text-white">
+  <div class="h-auto bg-[#171929] text-white ">
     <div class="grid grid-cols-3 justify-between">
       <div class="flex flex-col p-20 pb-10">
         <img

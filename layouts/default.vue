@@ -1,7 +1,7 @@
 <template>
-  <div class="h-screen w-full">
-    <div class="p-2 px-14 pt-8 fixed z-50 ">
-      <aside class="h-full">
+  <div class="h-screen w-screen">
+    <div class="p-2 px-14 pt-8 fixed z-50 w-screen ">
+      <aside class="h-full ">
         <div class="flex w-full h-full p-5 justify-between">
           <div class="flex items-center">
             <img src="/Nav/CoexLogo.svg" alt="" />
@@ -41,12 +41,12 @@
         </div>
       </aside>
     </div>
-    <div  class="animate__animated animate__bounce">
-
+    <div class="">
+      <transition name="fade">
         <Nuxt />
-
+      </transition>
     </div>
-    <app-footer :navitems="navItems" class="w-full" />
+    <app-footer :navitems="navItems" />
   </div>
 </template>
 
@@ -58,7 +58,7 @@ export default {
       navItems: [
         {
           name: 'Inicio',
-          path: '',
+          path: ''
         },
         {
           name: '¿Quienes somos?',
@@ -95,15 +95,18 @@ export default {
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 2s
+  transition:  2s;
+ 
 }
 
-.fade-enter,
+.fade-enter{
+  opacity: 0;
+  transition:  1s;
+}
 .fade-leave-to
 
 /* .fade-leave-active below version 2.1.8 */
   {
-  opacity: 0
+   opacity: 0;
 }
-
 </style>
