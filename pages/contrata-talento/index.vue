@@ -74,7 +74,6 @@ export default {
     getPageText() {
       this.$store.commit("filterText", "contratar-talento")
       this.pageText = this.$store.state.text
-      console.log(this.pageText)
     }
   }
 }
