@@ -5,10 +5,10 @@
       <div class="">
         <div class="flex-col justify-center items-center pt-28 ">
           <div class="flex justify-center">
-            <p class="text-5xl"> {{ pageText[0]?.tittle }} </p>
+            <p class="text-5xl"> {{pageText[0] ? pageText[0].tittle:''}} </p>
           </div>
           <div class="flex justify-center p-10" >
-            <p class="text-xl  text-center w-3/6"> {{ pageText[0]?.description }} </p>
+            <p class="text-xl  text-center w-3/6"> {{pageText[0] ? pageText[0].description:'' }} </p>
           </div>
           <div class="flex justify-center ">
             <app-btn class="

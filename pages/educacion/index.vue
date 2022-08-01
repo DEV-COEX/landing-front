@@ -7,21 +7,31 @@
           <p class="text-5xl font-bold  w-3/6 text-center text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
-                      to-[#dab255]">{{ pageText[0]?.tittle }}</p>
-        </div>
-        <div class="flex justify-center">
-          <p class="text-3xl w-3/6 text-center text-white py-10"> {{ pageText[0]?.description }} </p>
-        </div>
-        <div class="flex justify-center">
-          <div v-if="btnStar"
-               class="w-24 h-24 rounded-full border-2 border-bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]  animate-bounce p-1 flex items-center justify-center">
-            <button class="
+                      to-[#dab255]">Especialízate en desarrollo de software con nuestra increíble metodología en tan
+                        solo 10 meses.</p>
+                </div>
+                <div class="flex justify-center">
+                    <p class="text-3xl w-3/6 text-center text-white py-10">¡Conoce como!</p>
+                </div>
+                <div class="grid justify-center">
+                    <div v-bind:class="[isActive ? 'animate-bounce' : '']"
+                        class="w-32 h-32  ml-1 rounded-full border-4 border-bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]  p-1 flex items-center justify-center">
+                        <button class="
                         bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]
                         m-0
-                         text-blue-400   p-2 w-20 h-20 ring-1   rounded-full  text-xl font-semibold"
-                    @click="btnStarEducacion">Star
-            </button>
-          </div>
+                         text-blue-400   p-2 w-24 h-24   rounded-full  text-xl font-semibold"
+                            @click="btnStarEducacion">Star</button>
+                    </div>
+                    <div class="grid items-center justify-center">
+                        <div class="flex  justify-center">
+                            <div class="linea bg-gradient-to-r from-[#4A5B95]  to-[#90BEFF] bx-shadow"></div>
+                        </div>
+                        
+                        <div class="cuadrado"></div>
+                    </div>
+
+                </div>
+            </div>
         </div>
       </div>
     </div>
@@ -34,7 +44,8 @@ export default {
   data() {
     return {
       pageText: {},
-      btnStar: true
+      btnStar: true,
+      isActive: true,
     }
   },
   async mounted() {
@@ -49,7 +60,7 @@ export default {
       console.log(this.pageText)
     },
     btnStarEducacion() {
-      this.btnStar = !this.btnStar
+      this.isActive = !this.isActive
     }
   }
 }
@@ -70,8 +81,22 @@ export default {
     background-position: 0% 100%;
   }
 
-  50% {
-    background-position: 100% 30%;
-  }
+    50% {
+        background-position: 100% 30%;
+    }
+
+}
+
+.cuadrado {
+    width: 100px;
+    height: 100px;
+    background: #428bca;
+}
+.linea {
+    width: 3px;
+    height: 170px;
+}
+.bx-shadow{
+  box-shadow: 0px 0px 4px 0px white;
 }
 </style>

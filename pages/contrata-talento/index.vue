@@ -6,10 +6,10 @@
       <div class="">
         <div>
           <div class="flex justify-center pt-28">
-            <p class="text-5xl w-4/6 text-center"> {{ pageText[0]?.tittle }} </p>
+            <p class="text-5xl w-4/6 text-center"> {{ pageText[0] ? pageText[0].tittle:'' }} </p>
           </div>
           <div class="flex justify-center p-10">
-            <p class="text-xl  text-center w-3/6">{{ pageText[0]?.description }}</p>
+            <p class="text-xl  text-center w-3/6">{{ pageText[0] ? pageText[0].description:'' }}</p>
           </div>
 
           <div class="flex justify-center ">
@@ -93,10 +93,12 @@ export default {
 }
 
 @keyframes AnimationName {
+
   0%,
   100% {
     background-position: 0% 100%;
   }
+
   50% {
     background-position: 100% 30%;
   }
