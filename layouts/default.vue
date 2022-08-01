@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen w-screen">
+  <div class="h-screen w-screen bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477]">
     <div class="p-2 px-14 pt-8 fixed z-50 w-screen ">
       <aside class="h-full ">
         <div class="flex w-full h-full p-5 justify-between">
@@ -95,14 +95,11 @@ export default {
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition:  2s;
+  transition:  3s;
  
 }
 
-.fade-enter{
-  opacity: 0;
-  transition:  1s;
-}
+.fade-enter
 .fade-leave-to
 
 /* .fade-leave-active below version 2.1.8 */
