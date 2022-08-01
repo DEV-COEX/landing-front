@@ -21,13 +21,10 @@
           to-[#FF9838]
         "
       >
-        COEX MODEL:
+       {{ pageTexts["coex-model"] ? pageTexts["coex-model"][0].tittle: ' '}}
       </div>
       <div class="max-w-[42%] text-center text-3xl text-white py-8 leading-10">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias soluta
-        fuga culpa, voluptas incidunt omnis maxime, sapiente dignissimos
-        consequatur possimus placeat facere exercitationem tempora rem minima
-        impedit quibusdam. Sint, corrupti.
+        {{ pageTexts["coex-model"] ? pageTexts["coex-model"][0].description: ' ' }}
       </div>
       <div class="absolute bottom-28">
         <svg
@@ -55,13 +52,10 @@
           to-[#FF9838]
         "
       >
-        Nuestra historia:
+        {{ pageTexts["historia"] ? pageTexts["historia"][0].tittle: ' '}}
       </div>
       <div class="max-w-[42%] text-center text-3xl text-white py-8 leading-10">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias soluta
-        fuga culpa, voluptas incidunt omnis maxime, sapiente dignissimos
-        consequatur possimus placeat facere exercitationem tempora rem minima
-        impedit quibusdam. Sint, corrupti.
+        {{ pageTexts["historia"] ? pageTexts["historia"][0].description: ' '}}
       </div>
       <div
         class="
@@ -74,10 +68,10 @@
           to-[#FF9838]
         "
       >
-        Nuestra misión:
+        {{ pageTexts["mision"] ? pageTexts["mision"][0].tittle: ' '}}
       </div>
       <div class="max-w-[42%] text-center text-3xl text-white py-8 leading-10">
-        Plata o plomoooooo xdddd carlos agarra pitos que geeeiii
+        {{ pageTexts["mision"] ? pageTexts["mision"][0].description: ' '}}
       </div>
     </section>
     <section
@@ -109,32 +103,11 @@
           </div>
           <div class="w-full flex justify-center">
             <app-talents-card
-              :name="'NataFit'"
-              :job="'Cliente'"
-              :image="'https://i.pravatar.cc/300?img=1'"
-            />
-            <app-talents-card
-              :name="'Yonitiso'"
-              :job="'TI-E-SO'"
-              :image="'https://i.pravatar.cc/300?img=2'"
-            /><app-talents-card
-              :name="'Juan ekis'"
-              :job="'Maincra'"
-              :image="'https://i.pravatar.cc/300?img=3'"
-            />
-            <app-talents-card
-              :name="'Tomas'"
-              :job="'Pedir Apis'"
-              :image="'https://i.pravatar.cc/300?img=4'"
-            /><app-talents-card
-              :name="'Psicoloca'"
-              :job="'Cliente'"
-              :image="'https://i.pravatar.cc/300?img=5'"
-            />
-            <app-talents-card
-              :name="'Waskeador'"
-              :job="'Wasker baños'"
-              :image="'https://i.pravatar.cc/300?img=6'"
+              v-for="talent in talents"
+              :key="talent.id"
+              :name="talent.name"
+              :job="talent.job"
+              :image="talent.imagen.url"
             />
           </div>
           <app-btn
@@ -170,40 +143,12 @@
           </div>
           <div class="w-full grid grid-cols-3 justify-center h-full">
             <app-talents-card
-              :name="'NataFit'"
-              :job="'Cliente'"
-              :image="'https://i.pravatar.cc/300?img=1'"
-              :details="'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam dicta quas ratione illum architecto asperiores temporibus reiciendis labore, corrupti adipisci mollitia odio. Voluptas laboriosam velit quas consequatur repellendus incidunt fuga?'"
-            />
-            <app-talents-card
-              :name="'Yonitiso'"
-              :job="'TI-E-SO'"
-              :image="'https://i.pravatar.cc/300?img=2'"
-              :details="'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam dicta quas ratione illum architecto asperiores temporibus reiciendis labore, corrupti adipisci mollitia odio. Voluptas laboriosam velit quas consequatur repellendus incidunt fuga?'"
-            />
-            <app-talents-card
-              :name="'JuanMaincra'"
-              :job="'Montar Servers del maincra'"
-              :image="'https://i.pravatar.cc/300?img=3'"
-              :details="'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam dicta quas ratione illum architecto asperiores temporibus reiciendis labore, corrupti adipisci mollitia odio. Voluptas laboriosam velit quas consequatur repellendus incidunt fuga?'"
-            />
-            <app-talents-card
-              :name="'Tomas'"
-              :job="'Pedir Apis'"
-              :image="'https://i.pravatar.cc/300?img=4'"
-              :details="'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam dicta quas ratione illum architecto asperiores temporibus reiciendis labore, corrupti adipisci mollitia odio. Voluptas laboriosam velit quas consequatur repellendus incidunt fuga?'"
-            />
-            <app-talents-card
-              :name="'Psicoloca'"
-              :job="'Cliente'"
-              :image="'https://i.pravatar.cc/300?img=5'"
-              :details="'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam dicta quas ratione illum architecto asperiores temporibus reiciendis labore, corrupti adipisci mollitia odio. Voluptas laboriosam velit quas consequatur repellendus incidunt fuga?'"
-            />
-            <app-talents-card
-              :name="'Waskeador'"
-              :job="'Wasker baños'"
-              :image="'https://i.pravatar.cc/300?img=6'"
-              :details="'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam dicta quas ratione illum architecto asperiores temporibus reiciendis labore, corrupti adipisci mollitia odio. Voluptas laboriosam velit quas consequatur repellendus incidunt fuga?'"
+              v-for="employe in employes"
+              :key="employe.id"
+              :name="employe.name"
+              :job="employe.job"
+              :image="employe.image.url"
+              :details="employe.description"
             />
           </div>
         </div>
@@ -232,16 +177,68 @@
       >
         Founders
       </div>
-      <app-founder-card :image="'https://i.pravatar.cc/300?img=10'" :name="'Valesita'" :job="'Asencer a cliente'" :descript="'Bfa de NataFit'" :about="'Lorem ipsus maracus asdasd as dasd asdmas da sd  as d  as d asd  as dasdasd asdasd '"  class="mb-[10rem]"/>
+      <app-founder-card
+        v-for="founder in founders"
+        :key="founder.id"
+        :image="founder.image.url"
+        :name="founder.name"
+        :job="founder.job"
+        :description="`${founder.age} years old, ${founder.country}`"
+        :about="founder.description"
+        class="mb-[10rem]"/>
     </section>
   </div>
 </template>
 
 <script>
-import AppTalentsCard from '~/components/AppTalentsCard.vue'
 export default {
-  components: { AppTalentsCard },
   name: 'IndexPage',
+  data() {
+    return {
+      talents: null,
+      employes: null,
+      founders: null,
+      pageTexts: {}
+    }
+  },
+  async mounted() {
+      await this.getPageText()
+      await this.getTalents();
+      await this.getEmployes();
+      await this.getFounders();
+  },
+  methods: {
+    async getPageText() {
+      await this.$store.dispatch("fetchTexts");
+      const data = this.$store.state.texts
+      data.forEach( (el) => {
+        this.$store.commit("filterText", String(el.name))
+        this.pageTexts[el.name] = this.$store.state.text
+      })
+      console.log(this.pageTexts);
+    },
+    async getTalents() {
+      const { data } = await this.$axios.get('talents');
+      this.talents = data;
+      this.talents.forEach( (el) => {
+        el.imagen.url = `https://api.cms.coex.com.co${el.imagen?.url}`
+      });
+    },
+    async getEmployes() {
+      const { data } = await this.$axios.get('employes');
+      this.employes = data;
+      this.employes.forEach( (el) => {
+        el.image.url = `https://api.cms.coex.com.co${el.image?.url}`
+      });
+    },
+    async getFounders() {
+      const { data } = await this.$axios.get('founders');
+      this.founders = data;
+      this.founders.forEach( (el) => {
+        el.image.url = `https://api.cms.coex.com.co${el.image?.url}`
+      });
+    }
+  }
 }
 </script>
 

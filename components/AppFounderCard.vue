@@ -43,7 +43,7 @@
       </div>
       <div></div>
       <div class="py-3 font-extrabold text-3xl">{{job}}</div>
-      <div class="py-3 font-extrabold text-3xl">{{descript}}</div>
+      <div class="py-3 font-extrabold text-3xl">{{description}}</div>
       <div class="text-xl">
         {{about}}
       </div>
@@ -67,7 +67,7 @@ export default {
       type: String,
       default: 'anonymous',
     },
-    descript: {
+    description: {
       type: String,
       default: 'anonymous',
     },
