@@ -1,5 +1,5 @@
 <template>
-  <div class="grid w-screen h-screen">
+  <div class="grid w-full h-screen">
     <div class="bg-gradient-to-r from-[#1A0F5B] to-[#24228A] fondo z-10  text-white  flex justify-center items-center"
       style="border-bottom-left-radius: 18rem; border-bottom-right-radius: 18rem;">
       <div class="">
@@ -30,7 +30,7 @@
 
 
     </div>
-    <div class=" z-0 flex bg-gradient-to-r from-[#000A65] via-[#4736df] to-[#2F00B5] background-animate h-screen w-screen " style="position:absolute;">
+    <div class=" z-0 flex bg-gradient-to-r from-[#000A65] via-[#4736df] to-[#2F00B5] background-animate h-screen w-full " style="position:absolute;">
     </div>
   </div>
 </template>
