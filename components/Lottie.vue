@@ -1,0 +1,44 @@
+<template>
+  <div :style="style" ref="lavContainer"></div>
+</template>
+
+<script>
+// eslint-disable-next-line
+import lottie from "lottie-web";
+export default {
+  props: {
+    options: {
+      type: Object,
+      required: true
+    },
+    height: Number,
+    width: Number
+  },
+
+  data() {
+    return {
+      // eslint-disable-next-line
+      name:'LottieComponent',
+      style: {
+        width: this.width ? `${this.width}px` : "100%",
+        height: this.height ? `${this.height}px` : "auto",
+
+        overflow: "hidden",
+        margin: "0 auto"
+      }
+    };
+  },
+  mounted() {
+    console.log(this.options.animationData.default);
+    this.anim = lottie.loadAnimation({
+      container: this.$refs.lavContainer,
+      renderer: "svg",
+      loop: this.options.loop !== false,
+      autoplay: this.options.autoplay !== false,
+      animationData: this.options.animationData.default, // ここだけ変更何故かデフォルトを入れないと動かなかった… (要検証)
+      rendererSettings: this.options.rendererSettings
+    });
+    this.$emit("animCreated", this.anim);
+  }
+};
+</script>
