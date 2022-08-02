@@ -1,6 +1,6 @@
 <template>
     <div
-        class="bg-[#1b2233] w-screen h-screen flex justify-center items-center">
+        class="bg-[#1b2233] w-full h-screen flex justify-center items-center">
         <!-- <div class="w-1/5 h-2/6 rounded-full bg-black absolute"></div>-->
         <div class="flex justify-center items-center">
             

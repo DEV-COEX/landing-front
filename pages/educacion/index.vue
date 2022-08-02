@@ -1,9 +1,9 @@
 <template>
-    <div
+    <div id="educacion"
         class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-full h-screen flex justify-center items-center">
         <div class="flex justify-center items-center">
-            <div class="" id="educacion" >
-                <div class="flex justify-center " >
+            <div class="">
+                <div class="flex justify-center ">
                     <p class="text-5xl font-bold  w-4/5 text-center text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
@@ -28,33 +28,26 @@
                         </div>
                     </div>
                     <transition name="fade">
-                        <div v-if="show" class="grid items-center justify-center pb-32">
-                            <div class="">
+                        <div v-if="show" class="grid items-center justify-center pb-44">
+                            <div class="flex-col">
                                 <div class="flex  justify-center">
                                     <div class="linea bg-gradient-to-r from-[#4A5B95]  to-[#90BEFF] "></div>
 
                                 </div>
 
                                 <div class="cuadrado border-2 border-bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE] ">
-                                    <div class="img">
-                                        SEXO
+                                    <div>
+                                        <img src="/educacion.png" alt="" class="img">
                                     </div>
+                                </div>
+                                <div class="p-4 text-white absolute">
+                                    <p class="text-xl font-medium">SEXO uno</p>
+                                    <p class="font-semibold">sexo sexo ssexo sexo sexo sexo ssexo sexo sexo sexo ssexo
+                                        sexo</p>
                                 </div>
 
                             </div>
-                            <div>
-                                <div class="flex  justify-center">
-                                    <div class="linea bg-gradient-to-r from-[#4A5B95]  to-[#90BEFF] "></div>
 
-                                </div>
-
-                                <div class="cuadrado border-2 border-bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]">
-                                    <div class="img">
-                                        SEXO
-                                    </div>
-                                </div>
-
-                            </div>
 
 
 
@@ -94,12 +87,18 @@ export default {
         btnStarEducacion() {
             this.isActive = !this.isActive
             this.show = !this.show
-          if(this.show===false){
-            document.getElementById("educacion").style.paddingTop="0"
-           }
-           else{
-            document.getElementById("educacion").style.paddingTop="90rem"
-           } 
+            if (this.show === false) {
+                document.getElementById("educacion").style.paddingTop = "0rem"
+
+                document.getElementById("educacion").style.alignItems = "center"
+                document.getElementById("educacion").style.height = "100vh"
+
+            }
+            else {
+                document.getElementById("educacion").style.paddingTop = "20rem"
+                document.getElementById("educacion").style.alignItems = "center"
+                document.getElementById("educacion").style.height = "100%"
+            }
         }
     }
 }
@@ -141,7 +140,7 @@ export default {
 .img {
     width: 35.5rem;
     height: 19.5rem;
-    background: red;
+    background-color: azure;
     border-radius: 12px;
 
 
@@ -164,6 +163,7 @@ export default {
 
 /* .fade-leave-active below version 2.1.8 */
     {
-    opacity: 0
+    opacity: 0;
+    transition: opacity .1s
 }
 </style>
