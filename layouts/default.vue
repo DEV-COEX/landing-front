@@ -16,7 +16,7 @@
                       from-red-500
                       to-red-400
                       transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300
-                    ">
+                    " @click="item.method">
                     {{ item.name }}
                   </span>
                 </NuxtLink>
@@ -60,27 +60,45 @@ export default {
       navItems: [
         {
           name: 'Inicio',
-          path: '/'
+          path: '/',
+          method: () => {
+            console.log('prueba')
+          }
         },
         {
           name: '¿Quienes somos?',
           path: '/about',
+          method: () => {
+            console.log('prueba')
+          }
         },
         {
           name: 'Fábrica de software',
           path: '/fabrica',
+          method: () => {
+            console.log('prueba')
+          }
         },
         {
           name: 'Contrata talentos',
           path: '/contrata-talento',
+          method: () => {
+            console.log('prueba')
+          }
         },
         {
           name: 'Educación',
           path: '/educacion',
+          method: () => {
+            console.log('prueba')
+          }
         },
         {
           name: 'Fundación',
           path: '/fundacion',
+          method: () => {
+            console.log('prueba')
+          }
         },
       ],
     }
@@ -89,7 +107,9 @@ export default {
     serTalento() {
       this.$router.push('/ser-talento')
     },
-
+    prueba() {
+      console.log('prueba')
+    }
   },
 
 
