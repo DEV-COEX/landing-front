@@ -1,7 +1,7 @@
 <template>
-  <div class="grid w-full h-screen">
-    <div class="bg-gradient-to-r from-[#1A0F5B] to-[#24228A] fondo z-10  text-white  flex justify-center items-center"
-      style="border-bottom-left-radius: 18rem; border-bottom-right-radius: 18rem;">
+  <div class="grid">
+    <div class=" z-10  text-white  flex justify-center items-center"
+     >
       <div class="">
         <div class="flex-col justify-center items-center pt-28 ">
           <div class="flex justify-center">
@@ -35,7 +35,7 @@
 
 <script>
 export default {
-  name: 'SerTalento',
+  name: 'HomeSerTalento',
   data() {
     return {
       show: false,

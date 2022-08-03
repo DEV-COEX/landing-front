@@ -1,7 +1,6 @@
 <template>
-    <div class="grid w-full h-screen">
-        <div class=" z-10  text-white  flex justify-center items-center "
-            style="border-bottom-left-radius: 18rem; border-bottom-right-radius: 18rem;">
+    <div class="grid">
+        <div class=" z-10  text-white  flex justify-center items-center ">
             <div class="">
                 <div>
                     <div class="flex justify-center pt-28">
@@ -54,7 +53,7 @@
 
 <script>
 export default {
-    name: "AppContrataTalento",
+    name: "HomeContrataTalento",
     data() {
         return {
             pageText: {}

@@ -1,10 +1,19 @@
 <template>
   <div class="grid w-full h-screen">
     <div id="contenedor"
-      class="bg-gradient-to-r from-[#1C2365]   to-[#163B85] contenedor   text-white  flex justify-center items-center ">
-      <div>
-        <app-contratra-talento/>
-      </div>
+      class="bg-gradient-to-r from-[#1C2365]   to-[#163B85] contenedor   text-white   ">
+      <transition name="fade">
+        <div v-if="contrataTalento" id="contrataTalento" class=" h-[80vh] w-full flex justify-center">
+          <home-contrata-talento />
+        </div>
+      </transition>
+      <transition name="fade">
+        <div v-if="serTalento" class=" h-[70vh] w-full flex justify-center">
+          <home-ser-talento />
+        </div>
+      </transition>
+
+
     </div>
 
     <div
@@ -25,7 +34,9 @@ export default {
   data() {
     return {
       pageText: {},
-      contenedor: true
+      contenedor: true,
+      serTalento: false,
+      contrataTalento: true
     }
   },
   async mounted() {
@@ -40,10 +51,13 @@ export default {
     },
     metodoCambio() {
       this.contenedor = !this.contenedor
+      this.serTalento = !this.serTalento
+      this.contrataTalento = !this.contrataTalento
       if (this.contenedor === false) {
         document.getElementById("contenedor").style.transition = "2s"
         document.getElementById("contenedor").style.height = "70vh"
         document.getElementById("contenedor").style.background = "linear-gradient(#1A0F5B, #24228A)"
+
 
       } else {
         document.getElementById("contenedor").style.transition = "2s"
@@ -89,5 +103,18 @@ export default {
   50% {
     background-position: 100% 30%;
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 5s
+}
+
+.fade-enter,
+.fade-leave-to
+
+/* .fade-leave-active below version 2.1.8 */
+  {
+ transition: opacity .7s
 }
 </style>
