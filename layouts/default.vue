@@ -10,17 +10,19 @@
             <div class="flex">
               <div v-for="(item, i) in navItems" :key="i">
                 <NuxtLink :to="item.path" class="flex items-center p-2 text-base font-medium text-white">
-                  <span class="
-                      mx-6
+                  <span class=" mx-6
                       hover:text-transparent
                       bg-clip-text bg-gradient-to-r
                       from-red-500
                       to-red-400
                       transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 duration-300
-                    ">{{ item.name }}</span>
+                    ">
+                    {{ item.name }}
+                  </span>
                 </NuxtLink>
               </div>
               <div class="w-56 ">
+
                 <app-btn class="
                     bg-gradient-to-r
                     from-red-500
@@ -58,7 +60,7 @@ export default {
       navItems: [
         {
           name: 'Inicio',
-          path: ''
+          path: '/'
         },
         {
           name: '¿Quienes somos?',
@@ -87,7 +89,11 @@ export default {
     serTalento() {
       this.$router.push('/ser-talento')
     },
+
   },
+
+
+
 }
 </script>
 
@@ -95,15 +101,14 @@ export default {
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition:  3s;
- 
+  transition: 3s;
+
 }
 
-.fade-enter
-.fade-leave-to
+.fade-enter .fade-leave-to
 
 /* .fade-leave-active below version 2.1.8 */
   {
-   opacity: 0;
+  opacity: 0;
 }
 </style>

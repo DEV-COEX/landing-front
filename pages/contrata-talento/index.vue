@@ -1,58 +1,26 @@
 <template>
-  <div class="grid w-full h-screen">
-    <div
-      class="bg-gradient-to-r from-[#1C2365]   to-[#163B85] fondo z-10  text-white  flex justify-center items-center "
-      style="border-bottom-left-radius: 18rem; border-bottom-right-radius: 18rem;">
+  <div id=""
+    class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-full h-screen flex justify-center items-center">
+    <div class="flex justify-center items-center">
       <div class="">
-        <div>
-          <div class="flex justify-center pt-28">
-            <p class="text-5xl w-4/6 text-center"> {{ pageText[0] ? pageText[0].tittle:'' }} </p>
-          </div>
-          <div class="flex justify-center p-10">
-            <p class="text-xl  text-center w-3/6">{{ pageText[0] ? pageText[0].description:'' }}</p>
-          </div>
-
-          <div class="flex justify-center ">
-            <app-btn class="
-                    bg-gradient-to-r
-                    from-blue-500
-                    to-blue-400
-                    p-1
-                    mx-6
-                    text-white
-                    hover:from-blue-400 hover:to-blue-500
-
-                  ">Contrata talentos
-            </app-btn>
-          </div>
+        <div class="flex justify-center ">
+          <p class="text-5xl leading-normal font-bold  w-4/5 text-center text-transparent bg-clip-text bg-gradient-to-r
+                      from-[#FFDF8D]
+                      via-[#FF9838]
+                      to-[#dab255]">¿Necesitas talento T.I para tu empresa?</p>
         </div>
-        <div class="flex justify-center items-center pt-8">
-          <div class="p-2">
-            <img src="/tecnologias/python.svg" alt="">
-          </div>
-          <div class="p-2">
-            <img src="/tecnologias/nosql.svg" alt="">
-          </div>
-          <div class="p-2">
-            <img src="/tecnologias/js.svg" alt="">
-          </div>
-          <div class="p-2">
-            <img src="/tecnologias/nest.svg" alt="">
-          </div>
-          <div class="p-2">
-            <img src="/tecnologias/vue.svg" alt="">
-          </div>
-          <div class="p-2">
-            <img src="/tecnologias/laravel.svg" alt="">
-          </div>
+        <div class="flex justify-center">
+          <p class="text-3xl w-2/5 text-center text-white py-10">Nuestra metodología está orientada a satisfacer el
+            mercado laboral de programadores, mediante las siguientes dos modalidades de oferta:
+
+          </p>
+
+        </div>
+        <div class="grid justify-center items-center ">
+         <app-card-oferta/>
+
         </div>
       </div>
-
-
-    </div>
-    <div
-      class=" z-0 flex bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477] background-animate  h-screen w-full "
-      style="position:absolute;">
     </div>
   </div>
 </template>

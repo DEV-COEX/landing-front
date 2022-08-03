@@ -47,6 +47,10 @@
                                 </div>
 
                             </div>
+
+
+
+
                         </div>
 
                     </transition>
@@ -84,18 +88,16 @@ export default {
             this.isActive = !this.isActive
             this.show = !this.show
             if (this.show === false) {
-                document.getElementById("educacion").style.paddingTop = "10rem"
+                document.getElementById("educacion").style.paddingTop = "0rem"
+
                 document.getElementById("educacion").style.alignItems = "center"
                 document.getElementById("educacion").style.height = "100vh"
-                document.getElementById("educacion").style.transition = "2s"
-                
+
             }
             else {
                 document.getElementById("educacion").style.paddingTop = "20rem"
-                document.getElementById("educacion").style.paddingBottom = "10rem"
                 document.getElementById("educacion").style.alignItems = "center"
                 document.getElementById("educacion").style.height = "100%"
-
             }
         }
     }

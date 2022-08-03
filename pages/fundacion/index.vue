@@ -7,7 +7,7 @@
             <div class="">
                 
                 <div class="flex justify-center">
-                    <p class="text-5xl font-bold  w-3/6 text-center text-transparent bg-clip-text bg-gradient-to-r
+                    <p class="text-5xl leading-normal  font-bold  w-3/6 text-center text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
                       to-[#dab255]">¿Quieres apoyar el talento joven en tecnología?</p>
