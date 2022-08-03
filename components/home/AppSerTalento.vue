@@ -30,8 +30,6 @@
 
 
     </div>
-    <div class=" z-0 flex bg-gradient-to-r from-[#000A65] via-[#4736df] to-[#2F00B5] background-animate h-screen w-full " style="position:absolute;">
-    </div>
   </div>
 </template>
 

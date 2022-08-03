@@ -1,6 +1,6 @@
 <template>
     <div class="grid w-full h-screen">
-        <div class="bg-gradient-to-r from-[#1C2365]   to-[#163B85] fondo z-10  text-white  flex justify-center items-center "
+        <div class=" z-10  text-white  flex justify-center items-center "
             style="border-bottom-left-radius: 18rem; border-bottom-right-radius: 18rem;">
             <div class="">
                 <div>
@@ -48,9 +48,6 @@
             </div>
 
 
-        </div>
-        <div class=" z-0 flex bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477] background-animate  h-screen w-full "
-            style="position:absolute;">
         </div>
     </div>
 </template>
