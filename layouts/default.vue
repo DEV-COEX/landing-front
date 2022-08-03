@@ -9,7 +9,7 @@
           <div class="flex items-center">
             <div class="flex">
               <div v-for="(item, i) in navItems" :key="i">
-                <NuxtLink :to="item.path" class="flex items-center p-2 text-base font-medium text-white">
+                <NuxtLink :to="item.path" id="sexo" class="flex items-center p-2 text-base font-medium text-white">
                   <span class=" mx-6
                       hover:text-transparent
                       bg-clip-text bg-gradient-to-r
@@ -45,7 +45,7 @@
     </div>
     <div class="">
       <transition name="fade">
-        <Nuxt />
+        <Nuxt ref="home" />
       </transition>
     </div>
     <app-footer :navitems="navItems" />
@@ -62,7 +62,8 @@ export default {
           name: 'Inicio',
           path: '/',
           method: () => {
-            console.log('prueba')
+             const estado = true
+             this.$store.dispatch('animation', estado);
           }
         },
         {
