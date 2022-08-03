@@ -1,6 +1,6 @@
 <template>
   <div id=""
-    class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-full h-screen flex justify-center items-center">
+    class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-full h-full flex justify-center items-center pt-[13rem] pb-[8rem]">
     <div class="flex justify-center items-center">
       <div class="">
         <div class="flex justify-center ">
@@ -16,9 +16,11 @@
           </p>
 
         </div>
-        <div class="grid justify-center items-center ">
-         <app-card-oferta/>
-
+        <div class="grid justify-center items-center">
+          <div class="p-7">
+            <app-card-oferta />
+          </div>
+         
         </div>
       </div>
     </div>

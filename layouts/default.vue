@@ -36,9 +36,6 @@
                   " @click="serTalento">Ser talento Coex</app-btn>
               </div>
             </div>
-            <div class="px-4">
-              <nuxt-link to=""><img src="/Nav/user.svg" alt="" /></nuxt-link>
-            </div>
           </div>
         </div>
       </aside>
@@ -70,35 +67,35 @@ export default {
           name: '¿Quienes somos?',
           path: '/about',
           method: () => {
-            console.log('prueba')
+          
           }
         },
         {
           name: 'Fábrica de software',
           path: '/fabrica',
           method: () => {
-            console.log('prueba')
+        
           }
         },
         {
           name: 'Contrata talentos',
           path: '/contrata-talento',
           method: () => {
-            console.log('prueba')
+          
           }
         },
         {
           name: 'Educación',
           path: '/educacion',
           method: () => {
-            console.log('prueba')
+          
           }
         },
         {
           name: 'Fundación',
           path: '/fundacion',
           method: () => {
-            console.log('prueba')
+            
           }
         },
       ],
@@ -108,9 +105,6 @@ export default {
     serTalento() {
       this.$router.push('/ser-talento')
     },
-    prueba() {
-      console.log('prueba')
-    }
   },
 
 
