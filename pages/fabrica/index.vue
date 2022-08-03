@@ -11,7 +11,9 @@
             <button @click="SetDesarrollo(desarrollo)" class="w-full mr-2">
               {{ desarrollo.titulo }}
             </button>
-            <div  @click="SetDesarrollo(desarrollo)" class="h-3 w-3 cursor-pointer bg-white rounded-full"></div>
+            <div v-if="desarrollo.selected" @click="SetDesarrollo(desarrollo)" class="h-7 w-7 cursor-pointer bg-white rounded-full"></div>
+            <div v-else @click="SetDesarrollo(desarrollo)" class="h-3 w-3 cursor-pointer bg-white rounded-full"></div>
+
           </div>
         </div>
         <!-- card -->
@@ -58,7 +60,9 @@ export default {
   data() {
     return {
 
-      desarrollo: {},
+      desarrollo: {
+        selected: false,
+      },
       showButton: [],
       ShowPanel: false,
       isCardShown: true,
@@ -114,9 +118,12 @@ export default {
   methods: {
     MountedDesarrollo() {
       this.desarrollo = this.desarrollos[0]
+      this.desarrollo.selected = true
     },
     SetDesarrollo(desarrollo) {
+      this.desarrollo.selected = false
       this.desarrollo = desarrollo
+      this.desarrollo.selected = true
         this.isCardShown = false
       setTimeout(() => {
         this.isCardShown = true
