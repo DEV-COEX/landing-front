@@ -4,22 +4,22 @@
       <div v-if="ShowPanel" class="flex justify-end h-[31rem] w-full">
         <div class="flex flex-col justify-evenly w-auto mx-auto">
           <div
-            v-for="(des, index) in desarrollos"
+            v-for="(desarrollo, index) in desarrollos"
             :key="index"
             class=" w-full h-auto "
           >
-          <div v-if="des.selected" class="flex justify-center w-full h-10 items-center" >
-            <button @click="SetDesarrollo(des)" class="w-full mr-2">
-              {{ des.titulo }}
+          <div v-if="desarrollo.selected" class="flex justify-center w-full h-10 items-center" >
+            <button @click="SetDesarrollo(desarrollo)" class="w-full mr-2">
+              {{ desarrollo.titulo }}
             </button>
 
-            <div  @click="SetDesarrollo(des)" class="h-10 w-10 relative flex items-center justify-center "> <img class="cursor-pointer " src="/iconPlane.svg" alt="iconAirplane"></div>
+            <div  @click="SetDesarrollo(desarrollo)" class="h-10 w-10 relative flex items-center justify-center "> <img class="cursor-pointer " src="/iconPlane.svg" alt="iconAirplane"></div>
            </div>
            <div v-else class="flex justify-center w-full h-10 items-center" >
-            <button @click="SetDesarrollo(des)" class="w-full  text-[#6A84A8] mr-2">
-              {{ des.titulo }}
+            <button @click="SetDesarrollo(desarrollo)" class="w-full  text-[#6A84A8] mr-2">
+              {{ desarrollo.titulo }}
             </button>
-            <div  @click="SetDesarrollo(des)" class=" h-10 w-10  relative flex items-center justify-center "><img class="cursor-pointer absolute" src="/Ellipse.svg" alt="iconAirplane"></div>
+            <div  @click="SetDesarrollo(desarrollo)" class=" h-10 w-10  relative flex items-center justify-center "><img class="cursor-pointer absolute" src="/Ellipse.svg" alt="iconAirplane"></div>
            </div>
           </div>
         </div>
@@ -31,14 +31,14 @@
           >
             <img
               class="bg-transparent h-80 w-full rounded-3xl mb-3"
-              :src="showDes?.imagen"
+              :src="desarrollo?.imagen"
               alt="imgDev"
             />
             <div class="text-left w-full font-bold text-2xl py-4">
-              {{ showDes?.titulo }}
+              {{ desarrollo?.titulo }}
             </div>
             <div class="text-left mb-4 w-full">
-              {{ showDes?.descripcion }}
+              {{ desarrollo?.descripcion }}
             </div>
             <div class="w-full">
               <app-btn
@@ -62,11 +62,12 @@
 
 <script>
 export default {
-  name: 'FabricaSoftware',
+  name: 'FactoryComponent',
   data() {
     return {
-      showDes: {},
-      showButton: [],
+      desarrollo: {
+        selected: false,
+      },
       ShowPanel: false,
       isCardShown: true,
       pageText: {},
@@ -77,7 +78,6 @@ export default {
             'Desarrollo de aplicaciones para empresas y personas independientes asdasdasd ddddsdasdsd  dsdsds cscascasc asdas dsad.',
           imagen:
             'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=100',
-            selected: false,
         },
         {
           titulo: 'CRM',
@@ -85,7 +85,6 @@ export default {
             'Desarrollo de aplicaciones para empresas y personas independientes asdasdasd ddddsdasdsd  dsdsds cscascasc asdas dsad.',
           imagen:
             'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=202',
-            selected: false,
 
         },
         {
@@ -94,7 +93,6 @@ export default {
             'Desarrollo de aplicaciones para empresas y personas independientes asdasdasd ddddsdasdsd  dsdsds cscascasc asdas dsad.',
           imagen:
             'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=230',
-            selected: false,
 
         },
         {
@@ -103,7 +101,6 @@ export default {
             'Desarrollo de aplicaciones para empresas y personas independientes asdasdasd ddddsdasdsd  dsdsds cscascasc asdas dsad.',
           imagen:
             'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=20',
-            selected: false,
 
         },
         {
@@ -112,7 +109,6 @@ export default {
             'Desarrollo de aplicaciones para empresas y personas independientes asdasdasd ddddsdasdsd  dsdsds cscascasc asdas dsad.',
           imagen:
             'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=240',
-            selected: false,
 
         },
       ],
@@ -130,8 +126,12 @@ export default {
   methods: {
     MountedDesarrollo() {
       this.desarrollos[0].selected = true
+      this.desarrollo = this.desarrollos[0]
     },
     SetDesarrollo(desarrollo) {
+      this.desarrollo.selected = false
+      this.desarrollo = desarrollo
+      this.desarrollo.selected = true
       this.showDes = desarrollo;
         this.isCardShown = false
       setTimeout(() => {
