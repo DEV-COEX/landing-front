@@ -1,6 +1,7 @@
 export const state = () => ({
   texts: [],
   text: {},
+  offers: [],
   transition: true
 });
 
@@ -11,6 +12,10 @@ export const getters = {
 
   getTrasition(state) {
     return state.texts;
+  },
+
+  getOffers(state) {
+    return state.offers;
   }
 }
 
@@ -21,6 +26,10 @@ export const mutations = {
 
   filterText(state, uid) {
     state.text = state.texts.filter((el) => el.name === uid);
+  },
+
+  setOffers(state, offers) {
+    state.offers = offers;
   },
 
   changeTrasition(state, estado) {
@@ -43,11 +52,15 @@ export const actions = {
   async fetchTexts ({ commit }) {
     const { data } = await this.$axios.get('page-texts');
     commit('setTexts', data);
-    return 123;
+  },
+
+  async fetchOffers ({ commit }) {
+    const { data } = await this.$axios.get('offers');
+    commit('setOffers', data);
   },
 
   animation({commit}, estado) {
     commit('changeTrasition', estado)
-   
+
   }
 }

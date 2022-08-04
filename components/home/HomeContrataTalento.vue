@@ -62,6 +62,7 @@ export default {
     async mounted() {
         this.getPageText()
         await this.$store.dispatch("fetchTexts");
+        await this.$store.dispatch("fetchOffers");
         this.getPageText()
     },
     methods: {

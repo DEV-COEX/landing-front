@@ -33,9 +33,11 @@ export default {
     }
   },
   async mounted() {
-    await this.getOffers();
+    this.getOffers();
     this.getPageText()
+    await this.$store.dispatch("fetchOffers");
     await this.$store.dispatch("fetchTexts");
+    this.getOffers();
     this.getPageText()
 
   },
@@ -44,9 +46,8 @@ export default {
       this.$store.commit("filterText", "contratar-talento")
       this.pageText = this.$store.state.text[0]
     },
-    async getOffers() {
-      const response = await this.$axios.get("offers");
-      this.offers = response.data;
+    getOffers() {
+      this.offers = this.$store.state.offers;
     }
   }
 }

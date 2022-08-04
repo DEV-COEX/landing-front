@@ -59,8 +59,10 @@ export default {
           name: 'Inicio',
           path: '/',
           method: () => {
+            if (this.$route.path === '/') {
              const estado = true
              this.$store.dispatch('animation', estado);
+            }
           }
         },
         {
