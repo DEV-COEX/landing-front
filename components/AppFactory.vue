@@ -10,14 +10,14 @@
           >
           <div v-if="desarrollo.selected" class="flex justify-center w-full h-10 items-center" >
             <button @click="SetDesarrollo(desarrollo)" class="w-full mr-2">
-              {{ desarrollo.titulo }}
+              {{ desarrollo.tittle }}
             </button>
 
-            <div  @click="SetDesarrollo(desarrollo)" class="h-10 w-10 relative flex items-center justify-center "> <img class="cursor-pointer " src="/iconPlane.svg" alt="iconAirplane"></div>
+            <div  @click="SetDesarrollo(desarrollo)" class="h-10 w-10 relative flex items-center justify-center "> <img class="cursor-pointer " :src="desarrollo.icon.url" alt="iconAirplane"></div>
            </div>
            <div v-else class="flex justify-center w-full h-10 items-center" >
             <button @click="SetDesarrollo(desarrollo)" class="w-full  text-[#6A84A8] mr-2">
-              {{ desarrollo.titulo }}
+              {{ desarrollo.tittle }}
             </button>
             <div  @click="SetDesarrollo(desarrollo)" class=" h-10 w-10  relative flex items-center justify-center "><img class="cursor-pointer absolute" src="/Ellipse.svg" alt="iconAirplane"></div>
            </div>
@@ -31,14 +31,14 @@
           >
             <img
               class="bg-transparent h-80 w-full rounded-3xl mb-3"
-              :src="des?.imagen"
+              :src="des?.image.url"
               alt="imgDev"
             />
             <div class="text-left w-full font-bold text-2xl py-4">
-              {{ des?.titulo }}
+              {{ des?.tittle }}
             </div>
             <div class="text-left mb-4 w-full">
-              {{ des?.descripcion }}
+              {{ des?.description }}
             </div>
             <div class="w-full">
               <app-btn
@@ -69,63 +69,19 @@ export default {
       ShowPanel: false,
       isCardShown: true,
       pageText: {},
-      desarrollos: [
-        {
-          titulo: 'Landing page',
-          descripcion:
-            'Desarrollo de aplicaciones para empresas y personas independientes asdasdasd ddddsdasdsd  dsdsds cscascasc asdas dsad.',
-          imagen:
-            'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=100',
-        },
-        {
-          titulo: 'CRM',
-          descripcion:
-            'Desarrollo de aplicaciones para empresas y personas independientes asdasdasd ddddsdasdsd  dsdsds cscascasc asdas dsad.',
-          imagen:
-            'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=202',
-
-        },
-        {
-          titulo: 'Bromita',
-          descripcion:
-            'Desarrollo de aplicaciones para empresas y personas independientes asdasdasd ddddsdasdsd  dsdsds cscascasc asdas dsad.',
-          imagen:
-            'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=230',
-
-        },
-        {
-          titulo: 'Jhon M',
-          descripcion:
-            'Desarrollo de aplicaciones para empresas y personas independientes asdasdasd ddddsdasdsd  dsdsds cscascasc asdas dsad.',
-          imagen:
-            'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=20',
-
-        },
-        {
-          titulo: 'Carlos gei',
-          descripcion:
-            'Desarrollo de aplicaciones para empresas y personas independientes asdasdasd ddddsdasdsd  dsdsds cscascasc asdas dsad.',
-          imagen:
-            'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=240',
-
-        },
-      ],
+      desarrollos: [],
     }
   },
   async mounted() {
+    await this.getServices();
     this.getPageText()
     await this.$store.dispatch('fetchTexts')
     this.getPageText()
-    this.MountedDesarrollo()
     setTimeout(() => {
       this.ShowPanel = true
     }, 50)
   },
   methods: {
-    MountedDesarrollo() {
-      this.desarrollos[0].selected = true
-      this.des = this.desarrollos[0]
-    },
     SetDesarrollo(desarrollo) {
       this.des.selected = false
       this.des = desarrollo
@@ -141,6 +97,17 @@ export default {
       this.$store.commit('filterText', 'fabrica')
       this.pageText = this.$store.state.text
     },
+    async getServices() {
+      const { data } = await this.$axios.get('services');
+      console.log(data);
+      data.forEach(service => {
+        service.image.url =`https://api.cms.coex.com.co${service.image.url}`
+        service.icon.url =`https://api.cms.coex.com.co${service.icon.url}`
+      })
+      this.desarrollos = data;
+      this.desarrollos[0].selected = true
+      this.des = this.desarrollos[0]
+    }
   },
 }
 </script>
