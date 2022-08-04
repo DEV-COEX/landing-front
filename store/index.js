@@ -29,12 +29,18 @@ export const mutations = {
       document.getElementById("contenedor").style.transition = "2s"
       document.getElementById("contenedor").style.height = "70vh"
       document.getElementById("contenedor").style.background = "linear-gradient(#1A0F5B, #24228A)"
-
+      document.getElementById("next").style.display = "none"
+      document.getElementById("conoceMas").style.display = "flex"
 
     } else {
       document.getElementById("contenedor").style.transition = "2s"
       document.getElementById("contenedor").style.height = "80vh"
       document.getElementById("contenedor").style.background = "linear-gradient(#1C2365, #163B85)"
+      document.getElementById("next").style.display = "flex"
+      document.getElementById("conoceMas").style.display = "none"
+
+   
+      
     }
   }
 }

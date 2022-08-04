@@ -37,7 +37,7 @@
 
 <script>
 export default {
-  name: 'SerTalento',
+  name: 'HomeSerTalento',
   data() {
     return {
       show: false,
@@ -80,3 +80,7 @@ export default {
     }
   }
 </style>
+
+
+
+

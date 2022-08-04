@@ -14,10 +14,22 @@
         </div>
         <div class="grid justify-center items-center">
           <div class="p-7">
-            <app-card-oferta  v-for="offer in offers" :key="offer.id"  :offer="offer"/>
+              <app-card-oferta v-for="offer in offers" :key="offer.id" :offer="offer" />
           </div>
 
         </div>
+        <div class="flex justify-center ">
+            <app-btn class="
+                    bg-gradient-to-r
+                    from-red-500
+                    to-red-400
+                    p-1
+                    mx-6
+                    text-white
+                    hover:from-red-400 hover:to-red-500
+
+                  ">Contrata talento</app-btn>
+          </div>
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <template>
-  <div class="grid w-full h-screen" >
-    <div id="contenedor"
-      class="bg-gradient-to-r from-[#1C2365]   to-[#163B85] contenedor   text-white   ">
+  <div id="home" class="grid w-full h-screen bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477]">
+
+    <div id="contenedor" class="bg-gradient-to-r from-[#1C2365]   to-[#163B85] contenedor   text-white">
       <transition name="fade">
         <div v-if="this.$store.state.transition" id="contrataTalento" class=" h-[80vh] w-full flex justify-center">
           <home-contrata-talento />
@@ -13,17 +13,36 @@
         </div>
       </transition>
 
-
     </div>
-
     <div
-      class=" z-0 flex bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477] background-animate  h-screen w-full justify-center  pb-16 items-end"
+      class="z-0 flex bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477] background-animate  h-screen w-full justify-center  pb-16 items-end"
       style="position:absolute;">
-      <div class="btn">
+      <div id="next" class="btn">
         <button class="btn animate-ping opacity-75" @click="metodoCambio"></button>
       </div>
+      <div id="conoceMas" class="hidden">
+        <div
+          class=" w-24 h-24  ml-1 rounded-full border-4 border-bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]  p-1 flex items-center  justify-center">
+          <div class="btnDos bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE] flex items-center  justify-center">
+            <span class=" text-blue-400 text-sm font-semibold text-center ">Conoce más</span>
+            <button class="btnDos bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE] animate-ping opacity-75 absolute"
+              @click="conoceMas"></button>
+          </div>
 
+        </div>
+      </div>
     </div>
+    <transition name="fade" id="conoce">
+      <div v-if="show" class=" pt-[18rem] animate__animated animate__bounceInUp">
+        <home-fabrica />
+      </div>
+
+    </transition>
+
+
+
+
+
   </div>
 </template>
 
@@ -34,7 +53,8 @@ export default {
   data() {
     return {
       pageText: {},
- 
+      isActive: true,
+      show: false
     }
   },
   async mounted() {
@@ -49,10 +69,24 @@ export default {
     },
     metodoCambio() {
       const estado = false;
-      this.$store.dispatch('animation', estado );
-     
+      this.$store.dispatch('animation', estado);
+
+
+    },
+    conoceMas() {
+      this.show = !this.show
+      if (this.show === false) {
+
+        document.getElementById("home").style.height = "100vh"
+        document.getElementById("home").style.transition = "2s"
+
+      }
+      else {
+        document.getElementById("home").style.height = "100%"
+      }
 
     }
+
   }
 }
 </script>
@@ -62,6 +96,15 @@ export default {
   z-index: 10;
   border-bottom-left-radius: 18rem;
   border-bottom-right-radius: 18rem;
+}
+
+.btnDos {
+  width: 70px;
+  height: 70px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+
 }
 
 .btn {
@@ -102,6 +145,6 @@ export default {
 
 /* .fade-leave-active below version 2.1.8 */
   {
- transition: opacity .7s
+  transition: opacity .7s
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gradient-to-r from-[#1C233A] to-[#1C233A] w-[40rem]  rounded-2xl p-6 px-10 flex-col">
+    <div class="bg-gradient-to-r from-[#1C233A] to-[#1C233A] w-[40rem]  rounded-2xl p-6 px-10 flex-col mb-3">
         <div class="  ">
             <p class="text-xl leading-normal font-bold  text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
