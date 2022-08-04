@@ -99,7 +99,6 @@ export default {
     },
     async getServices() {
       const { data } = await this.$axios.get('services');
-      console.log(data);
       data.forEach(service => {
         service.image.url =`https://api.cms.coex.com.co${service.image.url}`
         service.icon.url =`https://api.cms.coex.com.co${service.icon.url}`
