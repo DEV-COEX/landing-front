@@ -67,35 +67,35 @@ export default {
           name: '¿Quienes somos?',
           path: '/about',
           method: () => {
-          
+
           }
         },
         {
           name: 'Fábrica de software',
           path: '/fabrica',
           method: () => {
-        
+
           }
         },
         {
           name: 'Contrata talentos',
           path: '/contrata-talento',
           method: () => {
-          
+
           }
         },
         {
           name: 'Educación',
           path: '/educacion',
           method: () => {
-          
+
           }
         },
         {
           name: 'Fundación',
           path: '/fundacion',
           method: () => {
-            
+
           }
         },
       ],
@@ -103,7 +103,9 @@ export default {
   },
   methods: {
     serTalento() {
-      this.$router.push('/ser-talento')
+      // this.$router.push('/ser-talento')
+      const estado = false
+      this.$store.dispatch('animation', estado);
     },
   },
 
