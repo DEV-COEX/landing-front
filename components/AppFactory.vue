@@ -31,14 +31,14 @@
           >
             <img
               class="bg-transparent h-80 w-full rounded-3xl mb-3"
-              :src="desarrollo?.imagen"
+              :src="des?.imagen"
               alt="imgDev"
             />
             <div class="text-left w-full font-bold text-2xl py-4">
-              {{ desarrollo?.titulo }}
+              {{ des?.titulo }}
             </div>
             <div class="text-left mb-4 w-full">
-              {{ desarrollo?.descripcion }}
+              {{ des?.descripcion }}
             </div>
             <div class="w-full">
               <app-btn
@@ -65,9 +65,7 @@ export default {
   name: 'FactoryComponent',
   data() {
     return {
-      desarrollo: {
-        selected: false,
-      },
+      des: {},
       ShowPanel: false,
       isCardShown: true,
       pageText: {},
@@ -126,13 +124,14 @@ export default {
   methods: {
     MountedDesarrollo() {
       this.desarrollos[0].selected = true
-      this.desarrollo = this.desarrollos[0]
+      this.des = this.desarrollos[0]
     },
     SetDesarrollo(desarrollo) {
-      this.desarrollo.selected = false
-      this.desarrollo = desarrollo
-      this.desarrollo.selected = true
+      this.des.selected = false
+      this.des = desarrollo
+      this.des.selected = true
       this.showDes = desarrollo;
+      this.showDes.selected = true;
         this.isCardShown = false
       setTimeout(() => {
         this.isCardShown = true
