@@ -1,56 +1,6 @@
 <template>
   <div class="bg-[#1C233A] w-full h-screen flex justify-center items-center">
-    <div class="flex items-center text-white w-full px-60">
-      <div v-if="ShowPanel" class="flex justify-end h-[31rem] w-full">
-        <div class="flex flex-col justify-evenly w-auto mx-auto">
-          <div
-            v-for="(desarrollo, index) in desarrollos"
-            :key="index"
-            class="flex justify-center w-full items-center"
-          >
-            <button @click="SetDesarrollo(desarrollo)" class="w-full mr-2">
-              {{ desarrollo.titulo }}
-            </button>
-            <div v-if="desarrollo.selected" @click="SetDesarrollo(desarrollo)" class="h-7 w-7 cursor-pointer bg-white rounded-full"></div>
-            <div v-else @click="SetDesarrollo(desarrollo)" class="h-3 w-3 cursor-pointer bg-white rounded-full"></div>
-
-          </div>
-        </div>
-        <!-- card -->
-        <transition name="fade" mode="out-in">
-          <div
-            v-if="isCardShown"
-            class="w-1/2 flex flex-col items-center justify-start"
-          >
-            <img
-              class="bg-transparent h-80 w-full rounded-3xl mb-3"
-              :src="desarrollo?.imagen"
-              alt="imgDev"
-            />
-            <div class="text-left w-full font-bold text-2xl py-4">
-              {{ desarrollo?.titulo }}
-            </div>
-            <div class="text-left mb-4 w-full">
-              {{ desarrollo?.descripcion }}
-            </div>
-            <div class="w-full">
-              <app-btn
-                class="
-                  bg-gradient-to-r
-                  from-red-500
-                  to-red-400
-                  p-1
-                  text-white
-                  hover:from-red-400 hover:to-red-500
-                "
-                >Quiero mi Landing</app-btn
-              >
-            </div>
-          </div>
-        </transition>
-        <!-- fin Card -->
-      </div>
-    </div>
+    <app-card-talents></app-card-talents>
   </div>
 </template>
 
