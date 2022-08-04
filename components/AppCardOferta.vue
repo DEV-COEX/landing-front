@@ -5,22 +5,22 @@
                       from-[#FFDF8D]
                       via-[#FF9838]
                       to-[#dab255]">{{ offer.tittle }}</p>
-        </div>
-        <div class="">
-            <p class="text-xl  text-white py-3 ">{{ offer.description }}</p>
-        </div>
     </div>
+    <div class="">
+      <p class="text-xl  text-white py-3 ">{{ offer.description }}</p>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "CardOferta",
-    props: {
-        offer: {
-            type: Object,
-            required: true
-        }
-    },
+  name: "CardOferta",
+  props: {
+    offer: {
+      type: Object,
+      required: true
+    }
+  },
 }
 </script>
 

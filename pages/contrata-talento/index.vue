@@ -1,10 +1,11 @@
 <template>
-  <div id=""
+  <div
     class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-full h-full flex justify-center items-center pt-[13rem] pb-[8rem]">
     <div class="flex justify-center items-center">
       <div class="">
         <div class="flex justify-center ">
-          <p class="text-5xl leading-normal font-bold  w-4/5 text-center text-transparent bg-clip-text bg-gradient-to-r
+          <p
+            class="text-5xl leading-normal font-bold  w-4/5 text-center text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
                       to-[#dab255]">{{ pageText?.tittle }}</p>
@@ -45,9 +46,11 @@ export default {
     }
   },
   async mounted() {
-    await this.getOffers();
+    this.getOffers();
     this.getPageText()
+    await this.$store.dispatch("fetchOffers");
     await this.$store.dispatch("fetchTexts");
+    this.getOffers();
     this.getPageText()
 
   },
@@ -56,9 +59,8 @@ export default {
       this.$store.commit("filterText", "contratar-talento")
       this.pageText = this.$store.state.text[0]
     },
-    async getOffers() {
-      const response = await this.$axios.get("offers");
-      this.offers = response.data;
+    getOffers() {
+      this.offers = this.$store.state.offers;
     }
   }
 }

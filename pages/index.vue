@@ -33,7 +33,7 @@
       </div>
     </div>
     <transition name="fade" id="conoce">
-      <div v-if="show" class=" pt-[18rem] animate__animated animate__bounceInUp">
+      <div v-if="this.$store.state.home" class=" pt-[18rem] animate__animated animate__bounceInUp">
         <home-fabrica />
       </div>
 
@@ -67,6 +67,9 @@ export default {
       this.$store.commit("filterText", "contratar-talento")
       this.pageText = this.$store.state.text
     },
+    gethome(){
+
+    },
     metodoCambio() {
       const estado = false;
       this.$store.dispatch('animation', estado);
@@ -74,17 +77,8 @@ export default {
 
     },
     conoceMas() {
-      this.show = !this.show
-      if (this.show === false) {
-
-        document.getElementById("home").style.height = "100vh"
-        document.getElementById("home").style.transition = "2s"
-
-      }
-      else {
-        document.getElementById("home").style.height = "100%"
-      }
-
+     const estadoHome = true;
+     this.$store.dispatch('home', estadoHome)
     }
 
   }

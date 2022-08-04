@@ -1,7 +1,9 @@
 export const state = () => ({
   texts: [],
   text: {},
-  transition: true
+  offers: [],
+  transition: true,
+  home: false
 });
 
 export const getters = {
@@ -11,6 +13,12 @@ export const getters = {
 
   getTrasition(state) {
     return state.texts;
+  },
+getHome(state){
+  return state.texts;
+},
+  getOffers(state) {
+    return state.offers;
   }
 }
 
@@ -21,6 +29,10 @@ export const mutations = {
 
   filterText(state, uid) {
     state.text = state.texts.filter((el) => el.name === uid);
+  },
+
+  setOffers(state, offers) {
+    state.offers = offers;
   },
 
   changeTrasition(state, estado) {
@@ -37,10 +49,17 @@ export const mutations = {
       document.getElementById("contenedor").style.height = "80vh"
       document.getElementById("contenedor").style.background = "linear-gradient(#1C2365, #163B85)"
       document.getElementById("next").style.display = "flex"
-      document.getElementById("conoceMas").style.display = "none"
-
-   
-      
+      document.getElementById("conoceMas").style.display = "none" 
+    }
+  },
+  changeHome(state, estadoHome){
+    state.home = estadoHome
+    if(state.home ===false){
+        document.getElementById("home").style.height = "100vh"
+        document.getElementById("home").style.transition = "2s"    
+    }
+    else {
+      document.getElementById("home").style.height = "100%"
     }
   }
 }
@@ -49,11 +68,18 @@ export const actions = {
   async fetchTexts ({ commit }) {
     const { data } = await this.$axios.get('page-texts');
     commit('setTexts', data);
-    return 123;
+  },
+
+  async fetchOffers ({ commit }) {
+    const { data } = await this.$axios.get('offers');
+    commit('setOffers', data);
   },
 
   animation({commit}, estado) {
     commit('changeTrasition', estado)
-   
+
+  },
+  home({commit},estadoHome){
+    commit('changeHome',estadoHome)
   }
 }

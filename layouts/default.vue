@@ -4,13 +4,14 @@
       <aside class="h-full ">
         <div class="flex w-full h-full p-5 justify-between">
           <div class="flex items-center">
-            <img src="/Nav/CoexLogo.svg" alt="" />
+            <img src="/Nav/CoexLogo.svg" alt=""/>
           </div>
           <div class="flex items-center">
             <div class="flex">
               <div v-for="(item, i) in navItems" :key="i">
-                <NuxtLink :to="item.path" id="sexo" class="flex items-center p-2 text-base font-medium text-white">
-                  <span class=" mx-6
+                <NuxtLink id="sexo" :to="item.path" class="flex items-center p-2 text-base font-medium text-white">
+                  <span
+                    class=" mx-6
                       hover:text-transparent
                       bg-clip-text bg-gradient-to-r
                       from-red-500
@@ -23,7 +24,8 @@
               </div>
               <div class="w-56 ">
 
-                <app-btn class="
+                <app-btn
+                  class="
                     bg-gradient-to-r
                     from-red-500
                     to-red-400
@@ -33,7 +35,8 @@
                     hover:from-red-400 hover:to-red-500
 
 
-                  " @click="serTalento">Ser talento Coex</app-btn>
+                  " @click="serTalento">Ser talento Coex
+                </app-btn>
               </div>
             </div>
           </div>
@@ -42,10 +45,10 @@
     </div>
     <div class="">
       <transition name="fade">
-        <Nuxt ref="home" />
+        <Nuxt ref="home"/>
       </transition>
     </div>
-    <app-footer :navitems="navItems" />
+    <app-footer :navitems="navItems"/>
   </div>
 </template>
 
@@ -59,8 +62,12 @@ export default {
           name: 'Inicio',
           path: '/',
           method: () => {
-             const estado = true
-             this.$store.dispatch('animation', estado);
+            if (this.$route.path === '/') {
+              const estado = true
+              const estadoHome= false
+              this.$store.dispatch('home', estadoHome);
+              this.$store.dispatch('animation', estado);
+            }
           }
         },
         {
@@ -110,7 +117,6 @@ export default {
   },
 
 
-
 }
 </script>
 
@@ -124,8 +130,8 @@ export default {
 
 .fade-enter .fade-leave-to
 
-/* .fade-leave-active below version 2.1.8 */
-  {
+  /* .fade-leave-active below version 2.1.8 */
+{
   opacity: 0;
 }
 </style>
