@@ -20,7 +20,7 @@
                     text-white
                     hover:from-blue-400 hover:to-blue-500
 
-                  ">Contrata talentos
+                  " @click="goTo">Contrata talentos
                         </app-btn>
                     </div>
                 </div>
@@ -68,7 +68,10 @@ export default {
         getPageText() {
             this.$store.commit("filterText", "contratar-talento")
             this.pageText = this.$store.state.text
-        }
+        },
+      goTo(){
+        this.$router.push({ name: "contrata-talento" })
+      }
     }
 }
 </script>
