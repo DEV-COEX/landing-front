@@ -1,9 +1,9 @@
 <template>
   <div>
     <div
-    id="indexContrata"
+    
       class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-full h-full flex justify-center items-center pt-[13rem] pb-[8rem]">
-      <div class="flex justify-center items-center">
+      <div class="flex justify-center items-center" id="indexContrata">
         <div class="">
           <div class="flex justify-center ">
             <p class="text-5xl leading-normal font-bold  w-4/5 text-center text-transparent bg-clip-text bg-gradient-to-r
@@ -71,7 +71,7 @@ export default {
     },
     OPenModal() {
       this.modal = true
-      // document.getElementById("indexContrata").style.filter="blur(4px)";
+       // document.getElementById("indexContrata").style.position="fixed"
     }
   }
 }
