@@ -1,23 +1,62 @@
 <template>
-  <div v-if="state" class="centrar fondo-modal" style="left: 0; z-index: 20">
-    <div class="modal-principal opacity-95">
+  <div v-if="state" class="centrar fondo-modal z-50" style="left: 0;">
+    <div class="modal-principal opacity-95 ">
       <div class="centrar " style="position:relative; bottom:68px; left: 43px;">
-        <div class="border-uno  border-b-[30px] border-[#1C233A] "></div>
-        <div class="triandulo ">
+        <div class="border-uno  border-b-[30px] border-[#2B3348] "></div>
+        <div class="triangulo ">
           <div class="logo centrar">
             <img src="/Coex.svg" alt="" class="" />
           </div>
         </div>
-        <div class="border-dos  border-b-[30px] border-[#1C233A] "></div>
+        <div class="border-dos  border-b-[30px] border-[#2B3348] "></div>
       </div>
-      <div class="px-6">
-        <div class="centrar px-3 pb-8">
-         <div>sexo</div>
+      <div class="px-8">
+        <div class="grid justify-center px-3 pb-16 opacity-100">
+          <div class="flex justify-center p-2">
+
+            <app-btn class="
+                    bg-[#1C233A]
+                    p-1
+                    mx-6
+                    text-white
+                   w-full
+                   rounded-full 
+flex
+justify-center
+items-center
+                  "><img src="/whatsapp.svg" alt="" class="p-2">Contactarme por whatsapp</app-btn>
+          </div>
+          <div class="flex justify-center p-2">
+
+            <app-btn class="
+                    bg-[#1C233A]
+                    p-1
+                    mx-6
+                    text-white
+                   w-full
+                   rounded-full 
+flex
+justify-center
+items-center
+                  "><img src="/correo.svg" alt="" class="p-2">Contactarme por Correo</app-btn>
+
+          </div>
+          <div class="flex justify-center p-2">
+            <app-btn class="
+                    bg-[#1C233A]
+                    p-1
+                    mx-6
+                    text-white
+                   w-full
+                   rounded-full 
+flex
+justify-center
+items-center
+                  " @click="metodoBoton"><img src="/llamada.svg" alt="" class="p-2">Contactarme por Llamada</app-btn>
+          </div>
+
         </div>
 
-        <div class="end">
-          <app-button id="boton" :disabled="disabled" @click="metodoBoton">{{ textBtn }}</app-button>
-        </div>
       </div>
     </div>
   </div>
@@ -68,49 +107,52 @@ export default {
 
 <style scoped>
 .modal-principal {
-  background: #1C233A;
-  border-radius: 10px;
+  background: #2B3348;
+  border-radius: 40px;
   /* display: grid; */
 }
 
 
-.border-dos{
+.border-dos {
   width: 100px;
   height: 100px;
   background: transparent;
   border-bottom-left-radius: 77px;
   position: relative;
-  right: 101px;
-  bottom: 3px;
+  right: 105px;
+  bottom: 2px;
 }
+
 .border-uno {
   width: 100px;
   height: 100px;
   background: transparent;
-  border-bottom-right-radius: 77px;
+  border-bottom-right-radius: 78px;
   position: relative;
-  left: 11px;
+  left: 13px;
   /* top: -3px; */
   bottom: 3px;
+
 }
 
-.triandulo {
+.triangulo {
   width: 167px;
   border-right: 96px solid transparent;
   border-left: 96px solid transparent;
-  border-bottom: 103px solid #1C233A;
+  border-bottom: 103px solid #2B3348;
   position: relative;
   right: 45px;
+  top: 15px;
 }
 
 
 .logo {
-  width: 90px;
-  height: 90px;
+  width: 105px;
+  height: 105px;
   border-radius: 50%;
-  background: #1C233A;
+  background: #2B3348;
   position: absolute;
-  right: -45px;
+  right: -51px;
 
 }
 
@@ -130,6 +172,7 @@ export default {
   width: 100vw;
   background-color: rgb(131 131 131 / 20%);
   position: fixed;
+  
   top: 0;
 }
 

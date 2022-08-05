@@ -1,6 +1,6 @@
 <template>
   <div class="h-screen w-full bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477]">
-    <div class="p-2 px-14 pt-8 fixed z-50 w-full ">
+    <div class="p-2 px-14 pt-8 fixed z-40 w-full ">
       <aside class="h-full ">
         <div class="flex w-full h-full p-5 justify-between">
           <div class="flex items-center">
