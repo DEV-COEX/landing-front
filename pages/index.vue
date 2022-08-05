@@ -20,29 +20,24 @@
       <div id="next" class="btn">
         <button class="btn animate-ping opacity-75" @click="metodoCambio"></button>
       </div>
+
       <div id="conoceMas" class="hidden">
         <div
-          class=" w-24 h-24  ml-1 rounded-full border-4 border-bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]  p-1 flex items-center  justify-center">
+          class=" w-34 h-34  ml-1 rounded-full border-2 border-bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]  p-1 flex items-center  justify-center">
           <div class="btnDos bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE] flex items-center  justify-center">
-            <span class=" text-blue-400 text-sm font-semibold text-center ">Conoce más</span>
-            <button class="btnDos bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE] animate-ping opacity-75 absolute"
-              @click="conoceMas"></button>
+            <span class=" text-blue-400 text-sm font-semibold text-center absolute">Conoce más</span>
+            <a href="#conoce" class="animate-ping"><button
+                class="btnDos bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]  opacity-75 "
+                @click="conoceMas"></button></a>
           </div>
-
         </div>
       </div>
     </div>
-    <transition name="fade" id="conoce">
-      <div v-if="this.$store.state.home" class=" pt-[18rem] animate__animated animate__bounceInUp">
+ 
+      <div v-if="this.$store.state.home" class=" pt-[18rem] animate__animated animate__bounceInUp" id="conoce">
         <home-fabrica />
       </div>
-
-    </transition>
-
-
-
-
-
+   
   </div>
 </template>
 
@@ -67,7 +62,7 @@ export default {
       this.$store.commit("filterText", "contratar-talento")
       this.pageText = this.$store.state.text
     },
-    gethome(){
+    gethome() {
 
     },
     metodoCambio() {
@@ -77,8 +72,8 @@ export default {
 
     },
     conoceMas() {
-     const estadoHome = true;
-     this.$store.dispatch('home', estadoHome)
+      const estadoHome = true;
+      this.$store.dispatch('home', estadoHome)
     }
 
   }
@@ -93,8 +88,8 @@ export default {
 }
 
 .btnDos {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;

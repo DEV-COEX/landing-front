@@ -24,10 +24,10 @@
           </div>
         </div>
         <!-- card -->
-        <transition name="fade" mode="out-in">
+        <transition name="fade" mode="out-in" class="">
           <div
             v-if="isCardShown"
-            class="w-1/2 flex flex-col items-center justify-start"
+            class="w-1/2 flex flex-col items-center justify-start animate__animated animate__zoomInUp"
           >
             <img
               class="bg-transparent h-80 w-full rounded-3xl mb-3"

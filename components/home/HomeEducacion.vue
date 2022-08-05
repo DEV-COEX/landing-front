@@ -1,6 +1,6 @@
 <template>
     <div id="educacion"
-        class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-full h-screen flex justify-center items-center">
+        class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  h-screen w-full flex justify-center items-center">
         <div class="flex justify-center items-center">
             <div class="">
                 <div class="flex justify-center ">
@@ -27,35 +27,6 @@
                                 @click="btnStarEducacion">Star</button>
                         </div>
                     </div>
-                    <transition name="fade">
-                        <div v-if="show" class="grid items-center justify-center pb-44">
-                            <div class="flex-col">
-                                <div class="flex  justify-center">
-                                    <div class="linea bg-gradient-to-r from-[#4A5B95]  to-[#90BEFF] "></div>
-
-                                </div>
-
-                                <div class="cuadrado border-2 border-bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE] ">
-                                    <div>
-                                        <img src="/educacion.png" alt="" class="img">
-                                    </div>
-                                </div>
-                                <div class="p-4 text-white absolute">
-                                    <p class="text-xl font-medium">SEXO uno</p>
-                                    <p class="font-semibold">sexo sexo ssexo sexo sexo sexo ssexo sexo sexo sexo ssexo
-                                        sexo</p>
-                                </div>
-
-                            </div>
-
-
-
-
-                        </div>
-
-                    </transition>
-
-
                 </div>
             </div>
         </div>
@@ -71,7 +42,6 @@ export default {
             pageText: {},
             btnStar: true,
             isActive: true,
-            show: false,
         }
     },
     async mounted() {
@@ -86,19 +56,7 @@ export default {
         },
         btnStarEducacion() {
             this.isActive = !this.isActive
-            this.show = !this.show
-            if (this.show === false) {
-                document.getElementById("educacion").style.paddingTop = "0rem"
-
-                document.getElementById("educacion").style.alignItems = "center"
-                document.getElementById("educacion").style.height = "100vh"
-
-            }
-            else {
-                document.getElementById("educacion").style.paddingTop = "20rem"
-                document.getElementById("educacion").style.alignItems = "center"
-                document.getElementById("educacion").style.height = "100%"
-            }
+           
         }
     }
 }
