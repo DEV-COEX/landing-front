@@ -1,5 +1,5 @@
 <template>
-  <div id="home" class="grid w-full h-screen bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477]">
+  <div id="home" class=" w-full h-screen bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477] background-animate">
 
     <div id="contenedor" class="bg-gradient-to-r from-[#1C2365]   to-[#163B85] contenedor   text-white">
       <transition name="fade">
@@ -14,9 +14,7 @@
       </transition>
 
     </div>
-    <div
-      class="z-0 flex bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477] background-animate  h-screen w-full justify-center  pb-16 items-end"
-      style="position:absolute;">
+    <div class=" flex  justify-center pt-16 pb-16 ">
       <div id="next" class="btn">
         <button class="btn animate-ping opacity-75" @click="metodoCambio"></button>
       </div>
@@ -33,11 +31,13 @@
         </div>
       </div>
     </div>
- 
-      <div v-if="this.$store.state.home" class=" pt-[18rem] animate__animated animate__bounceInUp" id="conoce">
-        <home-fabrica />
+    <transition name="fade" class="animate__animated animate__zoomInUp">
+      <div v-if="this.$store.state.home" id="conoce">
+        <home />
       </div>
-   
+    </transition>
+
+
   </div>
 </template>
 
@@ -82,7 +82,7 @@ export default {
 <style scoped>
 .contenedor {
   height: 80vh;
-  z-index: 10;
+
   border-bottom-left-radius: 18rem;
   border-bottom-right-radius: 18rem;
 }
