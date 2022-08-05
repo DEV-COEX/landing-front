@@ -1,25 +1,25 @@
 <template>
-  <div
-    class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-full h-full flex justify-center items-center pt-[13rem] pb-[8rem]">
-    <div class="flex justify-center items-center">
-      <div class="">
-        <div class="flex justify-center ">
-          <p
-            class="text-5xl leading-normal font-bold  w-4/5 text-center text-transparent bg-clip-text bg-gradient-to-r
+  <div>
+    <div
+      class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-full h-full flex justify-center items-center pt-[13rem] pb-[8rem]">
+      <div class="flex justify-center items-center">
+        <div class="">
+          <div class="flex justify-center ">
+            <p class="text-5xl leading-normal font-bold  w-4/5 text-center text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
                       to-[#dab255]">{{ pageText?.tittle }}</p>
-        </div>
-        <div class="flex justify-center">
-          <p class="text-3xl w-2/5 text-center text-white py-10">{{ pageText?.description }}</p>
-        </div>
-        <div class="grid justify-center items-center">
-          <div class="p-7">
-              <app-card-oferta v-for="offer in offers" :key="offer.id" :offer="offer" />
           </div>
+          <div class="flex justify-center">
+            <p class="text-3xl w-2/5 text-center text-white py-10">{{ pageText?.description }}</p>
+          </div>
+          <div class="grid justify-center items-center">
+            <div class="p-7">
+              <app-card-oferta v-for="offer in offers" :key="offer.id" :offer="offer" />
+            </div>
 
-        </div>
-        <div class="flex justify-center ">
+          </div>
+          <div class="flex justify-center ">
             <app-btn class="
                     bg-gradient-to-r
                     from-red-500
@@ -29,11 +29,15 @@
                     text-white
                     hover:from-red-400 hover:to-red-500
 
-                  ">Contrata talento</app-btn>
+                  " @click="OPenModal">Contrata talento</app-btn>
           </div>
+        </div>
       </div>
+
     </div>
+    <app-modal-contactar v-model="modal"/>
   </div>
+
 </template>
 
 <script>
@@ -42,7 +46,8 @@ export default {
   data() {
     return {
       pageText: {},
-      offers: []
+      offers: [],
+      modal: false
     }
   },
   async mounted() {
@@ -61,6 +66,9 @@ export default {
     },
     getOffers() {
       this.offers = this.$store.state.offers;
+    },
+    OPenModal() {
+      this.modal = true
     }
   }
 }

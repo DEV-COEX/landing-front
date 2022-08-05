@@ -27,7 +27,7 @@
         <transition name="fade" mode="out-in" class="">
           <div
             v-if="isCardShown"
-            class="w-1/2 flex flex-col items-center justify-start animate__animated animate__zoomInUp"
+            class="w-1/2 flex flex-col items-center justify-start animate__animated animate__backInDown"
           >
             <img
               class="bg-transparent h-80 w-full rounded-3xl mb-3"
