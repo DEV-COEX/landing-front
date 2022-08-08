@@ -2,59 +2,20 @@
   <div v-if="state" class="centrar fondo-modal z-50" style="left: 0;" @click="close">
     <div class="modal-principal opacity-95 ">
       <div class="centrar " style="position:relative; bottom:68px; left: 43px;">
-        <div class="border-uno  border-b-[30px] border-[#2B3348] "></div>
-        <div class="triangulo ">
-          <div class="logo centrar">
-            <img src="/Coex.svg" alt="" class="" />
-          </div>
-        </div>
-        <div class="border-dos  border-b-[30px] border-[#2B3348] "></div>
+ 
       </div>
       <div class="px-8">
         <div class="grid justify-center px-3 pb-16 opacity-100">
           <div class="flex justify-center p-2">
 
-            <app-btn class="
-                    bg-[#1C233A]
-                    p-1
-                    mx-6
-                    text-white
-                   w-full
-                   rounded-full
-flex
-justify-center
-items-center
-                  "><img src="/whatsapp.svg" alt="" class="p-2">Contactarme por whatsapp</app-btn>
+        
           </div>
           <div class="flex justify-center p-2">
 
-            <app-btn class="
-                    bg-[#1C233A]
-                    p-1
-                    mx-6
-                    text-white
-                   w-full
-                   rounded-full
-flex
-justify-center
-items-center
-                  "><img src="/correo.svg" alt="" class="p-2">Contactarme por Correo</app-btn>
+           
 
           </div>
-          <div class="flex justify-center p-2">
-            <app-btn class="
-                    bg-[#1C233A]
-                    p-1
-                    mx-6
-                    text-white
-                   w-full
-                   rounded-full
-flex
-justify-center
-items-center
-                  " @click="metodoBoton"><img src="/llamada.svg" alt="" class="p-2">Contactarme por Llamada</app-btn>
-          </div>
-
+       
         </div>
 
       </div>

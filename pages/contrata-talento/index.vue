@@ -1,7 +1,6 @@
 <template>
-  <div >
+  <div>
     <div
-
       class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-full h-full flex justify-center items-center pt-[13rem] pb-[8rem]">
       <div class="flex justify-center items-center" id="indexContrata">
         <div class="">
@@ -36,8 +35,10 @@
       </div>
 
     </div>
+    <transition name="fade">
+      <app-modal-contactar v-model="modal" @close="closeModal" />
+    </transition>
 
-    <app-modal-contactar v-model="modal" @close="closeModal"/>
   </div>
 
 </template>
@@ -71,7 +72,7 @@ export default {
     },
     OPenModal() {
       this.modal = true
-       // document.getElementById("indexContrata").style.position="fixed"
+      // document.getElementById("indexContrata").style.position="fixed"
     },
     closeModal() {
       this.modal = false
@@ -102,5 +103,18 @@ export default {
   50% {
     background-position: 100% 30%;
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s
+}
+
+.fade-enter,
+.fade-leave-to
+
+/* .fade-leave-active below version 2.1.8 */
+  {
+  transition: opacity .7s
 }
 </style>

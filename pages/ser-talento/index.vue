@@ -1,61 +1,45 @@
 <template>
-    <div id="educacion"
-        class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-full h-screen flex justify-center items-center">
-        <div class="flex justify-center items-center">
-            <div class="">
-                <div class="flex justify-center ">
-                    <p class="text-5xl font-bold  w-4/5 text-center text-transparent bg-clip-text bg-gradient-to-r
-                      from-[#FFDF8D]
-                      via-[#FF9838]
-                      to-[#dab255]">Especialízate en desarrollo de software con nuestra increíble metodología en tan
-                        solo 10 meses.</p>
-                </div>
-                <div class="flex justify-center">
-                    <p class="text-3xl w-3/6 text-center text-white py-10">¡Conoce como!
-
-                    </p>
-
-                </div>
-                <div class="grid justify-center items-center ">
-                    <div class="grid items-center justify-center">
-                        <div v-bind:class="[isActive ? 'animate-bounce' : '']"
-                            class="w-32 h-32  ml-1 rounded-full border-4 border-bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]  p-1 flex items-center  justify-center">
-                            <button class="
-                        bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]
-                        m-0
-                         text-blue-400   p-2 w-24 h-24   rounded-full  text-xl font-semibold"
-                                @click="btnStarEducacion">Star</button>
-                        </div>
+    <div>
+        <div id="educacion"
+            class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-full h-screen flex justify-center items-center">
+            <div class="grid justify-center items-center">
+                <div class="">
+                    <div class="flex justify-center">
+                        <p class="text-3xl font-bold  w-3/6 text-center text-white py-10">Nuestro grupo COEX te da la
+                            bienvenida,
+                            queremos que seas parte de nuestro grupo de desarrolladores y formadores para que tengas la
+                            posibilidad de aprender y crecer profesionalmente.
+                        </p>
                     </div>
-                    <transition name="fade">
-                        <div v-if="show" class="grid items-center justify-center pb-44">
-                            <div class="flex-col">
-                                <div class="flex  justify-center">
-                                    <div class="linea bg-gradient-to-r from-[#4A5B95]  to-[#90BEFF] "></div>
+                </div>
+                <div class="flex justify-center ">
+                    <app-btn class="
+                    bg-gradient-to-r
+                    from-red-500
+                    to-red-400
+                    p-1
+                    mx-6
+                    text-white
+                    hover:from-red-400 hover:to-red-500
 
-                                </div>
+                  " @click="OpenModalEstudiante">Inscripción estudiante</app-btn>
+                    <app-btn class="
+                    bg-gradient-to-r
+                    from-red-500
+                    to-red-400
+                    p-1
+                    mx-6
+                    text-white
+                    hover:from-red-400 hover:to-red-500
 
-                                <div class="cuadrado border-2 border-bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE] ">
-                                    <div>
-                                        <img src="/educacion.png" alt="" class="img">
-                                    </div>
-                                </div>
-                                <div class="p-4 text-white absolute">
-                                    <p class="text-xl font-medium">SEXO uno</p>
-                                    <p class="font-semibold">sexo sexo ssexo sexo sexo sexo ssexo sexo sexo sexo ssexo
-                                        sexo</p>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </transition>
-
-
+                  ">Inscripción profesor</app-btn>
                 </div>
             </div>
         </div>
+
+        <app-modal-registrar-estudiante v-model="modalEstudiante" />
     </div>
+
 
 </template>
 
@@ -68,6 +52,7 @@ export default {
             btnStar: true,
             isActive: true,
             show: false,
+            modalEstudiante: false
         }
     },
     async mounted() {
@@ -80,23 +65,12 @@ export default {
             this.$store.commit("filterText", "educacion")
             this.pageText = this.$store.state.text
         },
-        btnStarEducacion() {
-            this.isActive = !this.isActive
-            this.show = !this.show
-            if (this.show === false) {
-                document.getElementById("educacion").style.paddingTop = "10rem"
-                document.getElementById("educacion").style.alignItems = "center"
-                document.getElementById("educacion").style.height = "100vh"
-                document.getElementById("educacion").style.transition = "2s"
-                
-            }
-            else {
-                document.getElementById("educacion").style.paddingTop = "20rem"
-                document.getElementById("educacion").style.paddingBottom = "10rem"
-                document.getElementById("educacion").style.alignItems = "center"
-                document.getElementById("educacion").style.height = "100%"
-
-            }
+        OpenModalEstudiante() {
+            this.modalEstudiante = true
+            // document.getElementById("indexContrata").style.position="fixed"
+        },
+        closeModal() {
+            this.modal = false
         }
     }
 }
