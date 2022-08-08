@@ -110,8 +110,12 @@ export default {
   },
   methods: {
     serTalento() {
-       this.$router.push('/ser-talento')
-     
+      if (this.$route.path === '/') {
+        const estado = false
+        this.$store.dispatch('animation', estado);
+      }else {
+        this.$router.push('/ser-talento')
+      }
     },
   },
 
