@@ -3,49 +3,44 @@
     class="
       flex
       w-full
-      h-[33rem]
-      py-10
-      bg-[#0A033C]
-      px-28
+      h-auto
+      lg:min-h-[33rem]
+      lg:py-10
+      py-5
+      bg-trasparent
+      lg:bg-[#0a033c3b]
+      lg:px-28
+      lg:text-left
+      text-center
       text-white
       justify-center
     "
   >
-    <div
-      class="
-        rounded-full
-        overflow-hidden
-        flex
-        items-center
-        justify-center
-        min-h-[22rem] min-w-[22rem]
-        mr-[2rem]
-      "
-    >
+
       <img
-        class="rounded-full min-h-[22rem] min-w-[22rem]"
+        class="rounded-full self-center lg:min-h-[22rem] lg:min-w-[22rem] max-h-[18rem] max-w-[18rem]"
         :src="image"
         alt=""
       />
-    </div>
-    <div class="max-w-[60%] pl-20 flex-col flex justify-center">
+    <div class=" w-full px-5 lg:max-w-[60%] lg:pl-20 flex-col flex justify-center">
       <div
         class="
-          py-3
+          lg:py-3
+          pb-1 pt-3
           font-extrabold
-          text-transparent text-5xl
+          text-transparent text-2xl lg:text-5xl
           bg-clip-text bg-gradient-to-r
           from-[#FFDF8D]
           to-[#FF9838]
         "
       >
-        {{name}}
+        {{ name }}
       </div>
       <div></div>
-      <div class="py-3 font-extrabold text-3xl">{{job}}</div>
-      <div class="py-3 font-extrabold text-3xl">{{description}}</div>
-      <div class="text-xl">
-        {{about}}
+      <div class="py-1 lg:py-3 text-center lg:text-left font-extrabold text-xl lg:text-3xl">{{ job }}</div>
+      <div class="py-1 lg:py-3 mb-2 text-center lg:text-left font-extrabold text-xl lg:text-3xl">{{ description }}</div>
+      <div class="text-xl text-left">
+        {{ about }}
       </div>
     </div>
   </div>

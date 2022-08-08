@@ -1,12 +1,12 @@
 <template>
   <div class="h-screen w-full bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477]">
-    <div class="p-2 px-14 pt-8 fixed z-40 w-full ">
-      <aside class="h-full ">
+    <div class="p-2 px-14 pt-8 fixed z-50 w-full hidden lg:block ">
+      <aside class="h-full w-full ">
         <div class="flex w-full h-full p-5 justify-between">
           <div class="flex items-center">
             <img src="/Nav/CoexLogo.svg" alt=""/>
           </div>
-          <div class="flex items-center">
+          <div class="flex items-center ">
             <div class="flex">
               <div v-for="(item, i) in navItems" :key="i">
                 <NuxtLink id="sexo" :to="item.path" class="flex items-center p-2 text-base font-medium text-white">
@@ -48,7 +48,7 @@
         <Nuxt ref="home"/>
       </transition>
     </div>
-    <app-footer :navitems="navItems"/>
+    <app-footer :navitems="navItems" class="hidden lg:block"/>
   </div>
 </template>
 

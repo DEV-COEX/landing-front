@@ -1,8 +1,6 @@
 <template>
-  <div class="mx-auto  flex flex-col rounded-xl p-3 text-white text-center items-center my-6">
-    <div class="rounded-[40%] bg-white h-36 w-36 overflow-hidden">
-      <img class="object-cover" :src="image" alt="imagensita">
-    </div>
+  <div class="mx-auto  flex flex-col rounded-xl p-3 text-white text-center items-center lg:my-6">
+      <img class="object-cover h-36 w-36 rounded-[40%]" :src="image" alt="imagensita">
     <div
       class="
         py-3
