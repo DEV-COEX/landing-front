@@ -1,5 +1,5 @@
 <template>
-  <div v-if="state" class="centrar fondo-modal z-50" style="left: 0;">
+  <div v-if="state" class="centrar fondo-modal z-50" style="left: 0;" @click="close">
     <div class="modal-principal opacity-95 ">
       <div class="centrar " style="position:relative; bottom:68px; left: 43px;">
         <div class="border-uno  border-b-[30px] border-[#2B3348] "></div>
@@ -20,7 +20,7 @@
                     mx-6
                     text-white
                    w-full
-                   rounded-full 
+                   rounded-full
 flex
 justify-center
 items-center
@@ -34,7 +34,7 @@ items-center
                     mx-6
                     text-white
                    w-full
-                   rounded-full 
+                   rounded-full
 flex
 justify-center
 items-center
@@ -48,7 +48,7 @@ items-center
                     mx-6
                     text-white
                    w-full
-                   rounded-full 
+                   rounded-full
 flex
 justify-center
 items-center
@@ -99,6 +99,9 @@ export default {
     },
     metodoBoton() {
       this.$emit("metodoBoton")
+    },
+    close() {
+      this.$emit("close", true)
     }
   }
 }
@@ -172,7 +175,7 @@ export default {
   width: 100vw;
   background-color: rgb(131 131 131 / 20%);
   position: fixed;
-  
+
   top: 0;
 }
 
