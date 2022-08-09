@@ -1,7 +1,6 @@
 <template>
     <div>
         <home-fabrica/>
-        <home-contrata/>
         <home-educacion/>
         <home-coex-model/>
     </div>

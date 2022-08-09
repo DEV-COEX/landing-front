@@ -32,6 +32,7 @@
                 hover:-translate-y-1 hover:scale-110
                 duration-300
               "
+              @click="item.method"
               >{{ item.name }}</span
             >
           </NuxtLink>

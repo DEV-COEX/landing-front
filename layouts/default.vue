@@ -141,38 +141,52 @@ export default {
           name: 'Inicio',
           path: '/',
           method: () => {
+            window.scrollY(0)
+            const estado = true
+            const estadoHome = false
             if (this.$route.path === '/') {
-              const estado = true
-              const estadoHome = false
               this.$store.dispatch('home', estadoHome)
               this.$store.dispatch('animation', estado)
+            }else {
+              this.$store.commit('changeHomeState', estadoHome)
+              this.$store.commit('changetransitionState', estado)
             }
           },
         },
         {
           name: '¿Quienes somos?',
           path: '/about',
-          method: () => { },
+          method: () => {
+            window.scrollY(0)
+          },
         },
         {
           name: 'Fábrica de software',
           path: '/fabrica',
-          method: () => { },
+          method: () => {
+            window.scrollY(0)
+          },
         },
         {
           name: 'Contrata talentos',
           path: '/contrata-talento',
-          method: () => { },
+          method: () => {
+            window.scrollY(0)
+          },
         },
         {
           name: 'Educación',
           path: '/educacion',
-          method: () => { },
+          method: () => {
+            window.scrollY(0)
+          },
         },
         {
           name: 'Fundación',
           path: '/fundacion',
-          method: () => { },
+          method: () => {
+            window.scrollY(0)
+          },
         },
       ],
     }

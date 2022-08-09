@@ -57,6 +57,14 @@ export const mutations = {
     }
   },
 
+  changeHomeState(state, estado) {
+    state.home = estado
+  },
+
+  changetransitionState(state, estado) {
+    state.transition = estado
+  },
+
   changeHome(state, estadoHome) {
     state.home = estadoHome
     if (state.home === false) {

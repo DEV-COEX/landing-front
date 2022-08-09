@@ -26,7 +26,7 @@
                     text-white
                      hover:from-red-400 hover:to-red-500
 
-                  ">Conoce más
+                  " @click="toAbout">Conoce más
                         </app-btn>
                     </div>
                 </div>
@@ -86,7 +86,10 @@ export default {
         getPageText() {
             this.$store.commit("filterText", "fabrica")
             this.pageText = this.$store.state.text;
-        }
+        },
+      toAbout() {
+        this.$router.push("/about");
+      }
     }
 }
 </script>

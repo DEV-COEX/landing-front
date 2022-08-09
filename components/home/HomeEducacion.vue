@@ -1,5 +1,5 @@
 <template>
-    <div 
+    <div
         id="educacion"
         class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  h-screen w-full flex justify-center items-center">
         <div class="flex justify-center items-center">
@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="flex justify-center pt-10">
-                    <app-btn 
+                    <app-btn
                     class="
                     bg-gradient-to-r
                     from-red-500
@@ -24,7 +24,7 @@
                     text-white
                      hover:from-red-400 hover:to-red-500
 
-                  ">¡Conoce como!
+                  " @click="toEducation">¡Conoce como!
                     </app-btn>
                 </div>
             </div>
@@ -56,7 +56,10 @@ export default {
         btnStarEducacion() {
             this.isActive = !this.isActive
 
-        }
+        },
+      toEducation() {
+        this.$router.push("/educacion");
+      }
     }
 }
 </script>

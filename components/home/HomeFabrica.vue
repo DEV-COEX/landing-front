@@ -25,14 +25,14 @@
                     text-white
                      hover:from-red-400 hover:to-red-500
 
-                  ">Necesito un desarrollo
+                  " @click="toFactory">Necesito un desarrollo
                         </app-btn>
                     </div>
                 </div>
             </div>
 
         </div>
-        
+
     </div>
 
 
@@ -55,8 +55,11 @@ export default {
         getPageText() {
             this.$store.commit("filterText", "fabrica")
             this.pageText = this.$store.state.text;
+        },
+        toFactory() {
+          this.$router.push("/fabrica");
         }
-    }
+      }
 }
 </script>
 
