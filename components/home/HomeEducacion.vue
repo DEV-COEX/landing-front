@@ -83,25 +83,8 @@ export default {
 
 }
 
-.cuadrado {
-    width: 38rem;
-    height: 22rem;
-    background: #1C233A;
-    border-radius: 26px;
-    box-shadow: 0px 0px 20px 0px #C8DEFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
 
 
-
-.linea {
-    width: 1px;
-    height: 15rem;
-    box-shadow: 0px 0px 3px 0px white;
-}
 
 
 .fade-enter-active,

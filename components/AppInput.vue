@@ -1,29 +1,17 @@
 <template>
   <div>
-    <label class="block text-[#A6CBFF] text-sm font-bold mb-2" :for="label">
+    <label class="block text-transparent bg-clip-text bg-gradient-to-r
+                      from-[#A6CBFF]
+                      to-[#C8DEFF] text-base font-medium mb-2" :for="label">
       {{ label }}
     </label>
-    <input
-      :id="label"
-      v-model="val"
-      class="shadow appearance-none bg-transparent
-      rounded-lg w-full py-2 px-3 text-[#B8B8B8] leading-tight
+    <input :id="label" v-model="val" class=" appearance-none bg-transparent
+      inp w-full py-2 px-3 text-[#B8B8B8] leading-tight
       border-[#FFFFFF] border-solid border
-      focus:outline-none focus:shadow-outline focus:border-gradient-to-r
-                      from-[#FFDF8D]
-                      via-[#FF9838]
-                      to-[#dab255]"
-      :type="type"
-      :placeholder="placeholder"
-      :required="required"
-      :disabled="disabled"
-      :readonly="readonly"
-      :min="min"
-      :minlength="minlength"
-      :maxlength="maxlength"
-      :max="max"
-      @change="$emit('change')"
-    />
+      focus:outline-none focus:shadow-outline focus:border-[#dab255]
+                     hover:border-[#FFDF8D]" :type="type" :placeholder="placeholder" :required="required"
+      :disabled="disabled" :readonly="readonly" :min="min" :minlength="minlength" :maxlength="maxlength" :max="max"
+      @change="$emit('change')" />
   </div>
 </template>
 
@@ -90,3 +78,13 @@ export default {
   }
 }
 </script>
+<style>
+.inp {
+  border-radius: 0.5rem;
+
+}
+
+.inp:focus {
+  box-shadow: 0px 0px 5px 0px #C8DEFF;
+}
+</style>

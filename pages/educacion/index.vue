@@ -36,7 +36,7 @@
 
                 </div>
 
-                <div class="cuadrado border-2 border-bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE] ">
+                <div class="cuadrado border-2 ">
                   <div>
                     <img :src="card.image.url" alt="" class="img">
                   </div>
@@ -61,7 +61,7 @@
 
 <script>
 export default {
-  name: "FabricaSoftware",
+  name: "HomeEducacion",
   data() {
     return {
       pageText: {},

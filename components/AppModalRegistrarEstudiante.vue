@@ -2,7 +2,7 @@
   <div v-if="state" class="centrar fondo-modal z-50" style="left: 0;" @click="close">
     <div class="modal-principal opacity-95">
       <div class="centrar px-10  py-5">
-        <p class="font-bold text-transparent bg-clip-text bg-gradient-to-r
+        <p class="font-bold  text-lg text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
                       to-[#dab255]">Inscripción estudiante</p>
@@ -10,12 +10,42 @@
       <div class="px-8">
         <div class="grid justify-center px-3 ">
           <div class="flex justify-center p-2">
-           <app-input />
+
+            <app-input label="Correo" />
+            <app-input label="¿Acepta ser contactado por nosotros?" />
+
+          </div>
+
+          <div class="flex justify-center p-2">
+            <div class=" p-2">
+              <div class="flex justify-center">
+                <app-input label="Nombre Completo" />
+                <app-input label="Edad" />
+              </div>
+              <div class="flex justify-center">
+                <app-input label="Género" />
+                <app-input label="Teléfono" />
+              </div>
+
+            </div>
+            <div class=" p-2">
+              <div class="flex ">
+                <app-input label="¿En que Barrio reside?" />
+                <app-input label="¿Con quien vive?" />
+              </div>
+              <div class="flex justify-center">
+                <app-input label="Mencione el colegio en donde cursa o curso su bachillerato" />
+                <app-input label="Nivel educativo Actual" />
+              </div>
+
+            </div>
 
           </div>
           <div class="flex justify-center p-2">
 
-            hola
+            <app-input
+              label="De aprobar nuestro proceso de inscripción, indique el horario asistencia a clases (De lunes a viernes)" />
+
 
           </div>
 
@@ -29,7 +59,7 @@
 
 <script>
 export default {
-  name: "AppModal",
+  name: "AppModalEstudiante",
   props: {
     disabled: {
       type: Boolean

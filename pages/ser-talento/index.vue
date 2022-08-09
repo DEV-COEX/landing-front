@@ -45,7 +45,7 @@
 
 <script>
 export default {
-    name: "FabricaSoftware",
+    name: "IndexSerTalento",
     data() {
         return {
             pageText: {},
