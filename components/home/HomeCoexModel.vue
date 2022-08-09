@@ -71,7 +71,7 @@
 
 <script>
 export default {
-    name: "CoexModel",
+    name: "HomeCoexModel",
     data() {
         return {
             pageText: {}

@@ -1,21 +1,24 @@
 <template>
   <div v-if="state" class="centrar fondo-modal z-50" style="left: 0;" @click="close">
-    <div class="modal-principal opacity-95 ">
-      <div class="centrar " style="position:relative; bottom:68px; left: 43px;">
- 
+    <div class="modal-principal opacity-95">
+      <div class="centrar px-10  py-5">
+        <p class="font-bold text-transparent bg-clip-text bg-gradient-to-r
+                      from-[#FFDF8D]
+                      via-[#FF9838]
+                      to-[#dab255]">Inscripción estudiante</p>
       </div>
       <div class="px-8">
-        <div class="grid justify-center px-3 pb-16 opacity-100">
+        <div class="grid justify-center px-3 ">
           <div class="flex justify-center p-2">
+           <app-input />
 
-        
           </div>
           <div class="flex justify-center p-2">
 
-           
+            hola
 
           </div>
-       
+
         </div>
 
       </div>
@@ -72,7 +75,7 @@ export default {
 <style scoped>
 .modal-principal {
   background: #2B3348;
-  border-radius: 40px;
+  border-radius: 25px;
   /* display: grid; */
 }
 
@@ -114,5 +117,4 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
 </style>

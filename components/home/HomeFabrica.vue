@@ -40,7 +40,7 @@
 
 <script>
 export default {
-    name: "FabricaSoftware",
+    name: "HomeFabricaSoftware",
     data() {
         return {
             pageText: {}

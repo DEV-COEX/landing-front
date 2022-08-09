@@ -36,7 +36,7 @@
 
 <script>
 export default {
-    name: "HomeFabricaSoftware",
+    name: "HomeEducacion",
     data() {
         return {
             pageText: {},

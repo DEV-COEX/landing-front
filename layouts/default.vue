@@ -68,7 +68,7 @@
       </div>
     </div>
     <div
-      :class="[show ? 'blur-sm' : 'blur-none']"
+      :class="[show ? 'blur-sm' : '']"
       class="lg:p-2 lg:px-14 pt-8 fixed z-50 w-full"
     >
       <aside class="h-full w-full">
@@ -141,10 +141,10 @@
     </div>
     <div class="">
       <transition name="fade">
-        <Nuxt ref="home" :class="[show? 'blur-sm':'blur-none']"  />
+        <Nuxt ref="home" :class="[show? 'blur-sm':'']"  />
       </transition>
     </div>
-    <app-footer :class="[show? 'blur-sm':'blur-none']" :navitems="navItems" class="z-10" />
+    <app-footer  :class="[show? 'blur-sm':'']" :navitems="navItems" />
   </div>
 </template>
 

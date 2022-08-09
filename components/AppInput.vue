@@ -6,10 +6,13 @@
     <input
       :id="label"
       v-model="val"
-      class="shadow appearance-none
-      rounded w-full py-2 px-3 text-[#B8B8B8] leading-tight
-      border-[#FFFFFF] border-solid border-2
-      focus:outline-none focus:shadow-outline"
+      class="shadow appearance-none bg-transparent
+      rounded-lg w-full py-2 px-3 text-[#B8B8B8] leading-tight
+      border-[#FFFFFF] border-solid border
+      focus:outline-none focus:shadow-outline focus:border-gradient-to-r
+                      from-[#FFDF8D]
+                      via-[#FF9838]
+                      to-[#dab255]"
       :type="type"
       :placeholder="placeholder"
       :required="required"
