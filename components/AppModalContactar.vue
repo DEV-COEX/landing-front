@@ -1,5 +1,5 @@
 <template>
-  <div v-if="state" class="centrar fondo-modal z-50 overscroll-none" style="left: 0;" @click="close">
+  <div v-if="state" class="centrar fondo-modal z-50" style="left: 0;" @click="close">
     <div class="modal-principal opacity-95 ">
       <div class="centrar " style="position:relative; bottom:68px; left: 43px;">
         <div class="border-uno  border-b-[30px] border-[#2B3348] "></div>

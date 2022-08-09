@@ -1,32 +1,31 @@
 <template>
-    <div id="educacion"
+    <div 
+        id="educacion"
         class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  h-screen w-full flex justify-center items-center">
         <div class="flex justify-center items-center">
             <div class="">
                 <div class="flex justify-center ">
-                    <p class="text-5xl font-bold  w-4/5 text-center text-transparent bg-clip-text bg-gradient-to-r
+                    <p
+                     class="text-5xl font-bold  w-4/5 text-center text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
                       to-[#dab255]">Especialízate en desarrollo de software con nuestra increíble metodología en tan
                         solo 10 meses.</p>
                 </div>
-                <div class="flex justify-center">
-                    <p class="text-3xl w-3/6 text-center text-white py-10">¡Conoce como!
 
-                    </p>
+                <div class="flex justify-center pt-10">
+                    <app-btn 
+                    class="
+                    bg-gradient-to-r
+                    from-red-500
+                    to-red-400
+                    p-1
+                    mx-6
+                    text-white
+                     hover:from-red-400 hover:to-red-500
 
-                </div>
-                <div class="grid justify-center items-center ">
-                    <div class="grid items-center justify-center">
-                        <div v-bind:class="[isActive ? 'animate-bounce' : '']"
-                            class="w-32 h-32  ml-1 rounded-full border-4 border-bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]  p-1 flex items-center  justify-center">
-                            <button class="
-                        bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]
-                        m-0
-                         text-blue-400   p-2 w-24 h-24   rounded-full  text-xl font-semibold"
-                                @click="btnStarEducacion">Star</button>
-                        </div>
-                    </div>
+                  ">¡Conoce como!
+                    </app-btn>
                 </div>
             </div>
         </div>
@@ -56,7 +55,7 @@ export default {
         },
         btnStarEducacion() {
             this.isActive = !this.isActive
-           
+
         }
     }
 }
