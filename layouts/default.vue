@@ -20,11 +20,16 @@
         lg:hidden
       ">
       <div class="flex h-full w-full flex-col items-center justify-center z-50">
-        <div class="w-full h-auto text-white text-center" @click="show = !show">Sexo Cerrador de navbars 🥵 🥵 🥵 🥵 🥵
+        <div class="w-full h-auto text-white text-center" @click="ChangeShow">
+          Sexo Cerrador de navbars 🥵 🥵 🥵 🥵 🥵
         </div>
-        <div v-for="(item, i) in navItems" :key="i" @click="show = !show">
-          <NuxtLink :to="item.path" class="flex my-1 text-base font-normal text-white">
-            <span class="
+        <div v-for="(item, i) in navItems" :key="i" @click="ChangeShow">
+          <NuxtLink
+            :to="item.path"
+            class="flex my-1 text-base font-normal text-white"
+          >
+            <span
+              class="
                 p-1
                 my-3
                 hover:text-transparent
@@ -41,8 +46,9 @@
             </span>
           </NuxtLink>
         </div>
-        <div @click="show = !show">
-          <app-btn class="
+        <div @click="ChangeShow">
+          <app-btn
+            class="
               bg-gradient-to-r
               from-red-500
               to-red-400
@@ -54,15 +60,10 @@
         </div>
       </div>
     </div>
-    <div class="lg:p-2 lg:px-14 pt-8 fixed z-50 w-full blur-3xl flex justify-center bg-gradient-to-r
-      from-[#321586]
-      via-[#4736df]
-      to-[#2E1477]
-      opacity-90
-      h-28">
-
-    </div>
-    <div :class="[show ? 'blur-sm' : '']" class="lg:p-2 lg:px-14 pt-8 fixed z-50 w-full">
+    <div
+      :class="[show ? 'blur-sm' : '']"
+      class="lg:p-2 lg:px-14 pt-8 fixed z-50 w-full bg-clip-padding " style="backdrop-filter: blur(10px);"
+    >
       <aside class="h-full w-full">
         <div class="
             flex
@@ -77,7 +78,7 @@
           <div class="flex items-center">
             <img src="/Nav/CoexLogo.svg" class="w-[8rem]" alt="LogoCoex" />
           </div>
-          <div class="text-white lg:hidden" @click="show = !show">
+          <div class="text-white lg:hidden" @click="ChangeShow">
             <img src="/Nav/menu.svg" alt="desplegable" />
           </div>
           <!-- navbar mobile -->
@@ -122,10 +123,10 @@
     </div>
     <div class="">
       <transition name="fade">
-        <Nuxt ref="home" :class="[show ? 'blur-sm' : '']" />
+        <Nuxt ref="home" :class="[show ? 'blur-sm' : '']" class="lg:blur-0" />
       </transition>
     </div>
-    <app-footer :class="[show ? 'blur-sm' : '']" :navitems="navItems" />
+    <app-footer :class="[show ? 'blur-sm' : '']" class="lg:blur-0" :navitems="navItems" />
   </div>
 </template>
 
@@ -179,6 +180,14 @@ export default {
   methods: {
     serTalento() {
       this.$router.push('/ser-talento')
+    },
+    ChangeShow() {
+      this.show = !this.show
+      if (this.show) {
+        document.querySelector('body').classList.add('overflow-hidden')
+      } else {
+        document.querySelector('body').classList.remove('overflow-hidden')
+      }
     },
   },
 }
