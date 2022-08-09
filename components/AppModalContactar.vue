@@ -171,8 +171,8 @@ export default {
 }
 
 .fondo-modal {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-color: rgb(131 131 131 / 40%);
   position: fixed;
 

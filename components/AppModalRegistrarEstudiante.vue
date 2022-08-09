@@ -77,38 +77,6 @@ export default {
 }
 
 
-.border-dos {
-  width: 100px;
-  height: 100px;
-  background: transparent;
-  border-bottom-left-radius: 77px;
-  position: relative;
-  right: 105px;
-  bottom: 2px;
-}
-
-.border-uno {
-  width: 100px;
-  height: 100px;
-  background: transparent;
-  border-bottom-right-radius: 78px;
-  position: relative;
-  left: 13px;
-  /* top: -3px; */
-  bottom: 3px;
-
-}
-
-.triangulo {
-  width: 167px;
-  border-right: 96px solid transparent;
-  border-left: 96px solid transparent;
-  border-bottom: 103px solid #2B3348;
-  position: relative;
-  right: 45px;
-  top: 15px;
-}
-
 
 .logo {
   width: 105px;
@@ -132,8 +100,8 @@ export default {
 }
 
 .fondo-modal {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-color: rgb(131 131 131 / 40%);
   position: fixed;
 
