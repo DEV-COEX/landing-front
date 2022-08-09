@@ -144,7 +144,7 @@
         <Nuxt ref="home" :class="[show? 'blur-sm':'blur-none']"  />
       </transition>
     </div>
-    <app-footer :class="[show? 'blur-sm':'blur-none']" :navitems="navItems" />
+    <app-footer :class="[show? 'blur-sm':'blur-none']" :navitems="navItems" class="z-10" />
   </div>
 </template>
 

@@ -35,7 +35,7 @@
       </div>
 
     </div>
-    <transition name="fade">
+    <transition name="fade" >
       <app-modal-contactar v-model="modal" @close="closeModal" />
     </transition>
 
@@ -72,10 +72,11 @@ export default {
     },
     OPenModal() {
       this.modal = true
-      // document.getElementById("indexContrata").style.position="fixed"
+      document.getElementById("indexContrata").style.filter="blur(5px)"
     },
     closeModal() {
       this.modal = false
+      document.getElementById("indexContrata").style.filter="blur(0)"
     }
   }
 }
