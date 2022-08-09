@@ -36,7 +36,7 @@
 
 <script>
 export default {
-    name: "FabricaSoftware",
+    name: "HomeFabricaSoftware",
     data() {
         return {
             pageText: {},
@@ -95,14 +95,7 @@ export default {
 
 }
 
-.img {
-    width: 35.5rem;
-    height: 19.5rem;
-    background-color: azure;
-    border-radius: 12px;
 
-
-}
 
 .linea {
     width: 1px;

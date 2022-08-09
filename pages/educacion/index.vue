@@ -144,7 +144,6 @@ export default {
 .img {
   width: 35.5rem;
   height: 19.5rem;
-  background-color: azure;
   border-radius: 12px;
 
 
