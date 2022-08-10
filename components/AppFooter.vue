@@ -1,7 +1,7 @@
 <template>
-  <div class="h-screen flex flex-col justify-end lg:block lg:h-auto bg-[#171929] text-white z-10 relative text-sm lg:text-base">
+  <div class="h-[40rem] flex flex-col justify-end lg:block lg:h-auto bg-[#171929] text-white z-10 relative text-sm lg:text-base md:text-lg">
     <div class="flex flex-col justify-between lg:grid lg:grid-cols-3 lg:justify-between">
-      <div class="flex items-center lg:items-start flex-col lg:p-20 lg:pb-10 px-5 py-8">
+      <div class="flex items-center lg:items-start flex-col lg:p-10 xl:p-20 xl:pb-10 px-5 py-8">
         <img
           class="lg:w-[18rem] w-[10rem] pb-5"
           src="/footer/coexGroup.svg"
@@ -51,7 +51,7 @@
         </div>
       </div></div>
     </div>
-    <div class="border-t-[1px] border-white lg:mx-20 flex text-white pb-6">
+    <div class="border-t-[1px] border-white lg:mx-10 xl:mx-20 flex text-white pb-6">
       <div class="flex flex-col w-full lg:w-[55%]">
         <span class="hidden lg:block">Coex</span>
         <div class="flex lg:flex-row flex-col mt-6 lg:mt-0 items-center justify-between">

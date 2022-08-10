@@ -15,7 +15,7 @@
       class="
         h-screen
         w-full
-        z-10
+        z-30
         bg-[#1719298c]
         fixed
         top-0
@@ -71,18 +71,18 @@
     </div>
     <div
       :class="[show ? 'blur-sm' : '']"
-      class="lg:p-2 lg:px-14 pt-8 fixed z-10 w-full bg-clip-padding"
-      style="backdrop-filter: blur(10px)"
+      class="lg:p-2 lg:px-14  fixed z-50 w-full bg-clip-padding"
+      style="backdrop-filter: blur(5px)"
     >
       <aside class="h-full w-full">
         <div
           class="
             flex
             w-full
-            h-full
+            h-[3.5rem]
+            md-[5rem]
             px-5
             Z-40
-            lg:p-5
             justify-between
             items-center
           "
