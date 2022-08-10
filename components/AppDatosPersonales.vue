@@ -37,7 +37,7 @@
                     mx-4
                     text-white
                    w-full
-                  " @click="cerrarModal">Cerrar</app-btn>
+                  " @click="close">Cerrar</app-btn>
                         </div>
 
                     </div>

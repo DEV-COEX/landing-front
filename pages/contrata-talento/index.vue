@@ -74,10 +74,12 @@ export default {
     OPenModal() {
       this.modal = true
       document.getElementById("indexContrata").style.filter="blur(5px)"
+      
     },
     closeModal() {
       this.modal = false
       document.getElementById("indexContrata").style.filter="blur(0)"
+  
     }
   }
 }

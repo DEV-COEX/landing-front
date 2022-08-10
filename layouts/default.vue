@@ -15,7 +15,7 @@
       class="
         h-screen
         w-full
-        z-30
+        z-10
         bg-[#1719298c]
         fixed
         top-0
@@ -71,7 +71,7 @@
     </div>
     <div
       :class="[show ? 'blur-sm' : '']"
-      class="lg:p-2 lg:px-14 pt-8 fixed z-50 w-full bg-clip-padding"
+      class="lg:p-2 lg:px-14 pt-8 fixed z-10 w-full bg-clip-padding"
       style="backdrop-filter: blur(10px)"
     >
       <aside class="h-full w-full">
@@ -88,7 +88,7 @@
           "
         >
           <div class="flex items-center">
-            <img src="/Nav/CoexLogo.svg" class="w-[8rem]" alt="LogoCoex" />
+            <img src="/Nav/Group.svg" class="w-[8rem]" alt="LogoCoex" />
           </div>
           <div class="text-white lg:hidden" @click="ChangeShow">
             <img src="/Nav/menu.svg" alt="desplegable" />

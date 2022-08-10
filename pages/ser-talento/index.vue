@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div id="educacion"
+        <div id="serTalento"
             class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-full h-screen flex justify-center items-center">
             <div class="grid justify-center items-center">
                 <div class="">
@@ -36,18 +36,13 @@
                 </div>
             </div>
         </div>
-        <transition >
-            <div class="animate__animated animate__bounceInUp">
-                <app-datos-personales v-model="DatosPersonales" @metodoBoton=metodoBoton />
-            </div>
-
+        <transition name="fade">
+            <app-datos-personales v-model="DatosPersonales" @metodoBoton=metodoBoton @close="closeModal" />
         </transition>
-
-
-        <app-modal-registrar-estudiante v-model="Estudiante" />
+        <transition name="fade">
+            <app-modal-registrar-estudiante v-model="Estudiante" />
+        </transition>
     </div>
-
-
 </template>
 
 <script>
@@ -75,10 +70,13 @@ export default {
         },
         OPenDatosPersonales() {
             this.DatosPersonales = true
-            // document.getElementById("indexContrata").style.position="fixed"
+            document.getElementById("serTalento").style.filter = "blur(5px)"
+            document.querySelector('body').classList.add('overflow-hidden')
         },
         closeModal() {
-            this.modal = false
+            this.DatosPersonales = false
+            document.getElementById("serTalento").style.filter = "blur(0)"
+            document.querySelector('body').classList.remove('overflow-hidden')
         },
         metodoBoton() {
             this.DatosPersonales = false
@@ -139,7 +137,7 @@ export default {
 
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity .2s
+    transition: opacity 1s
 }
 
 .fade-enter,
@@ -147,7 +145,6 @@ export default {
 
 /* .fade-leave-active below version 2.1.8 */
     {
-    opacity: 0;
-    transition: opacity .1s
+    transition: opacity .7s
 }
 </style>
