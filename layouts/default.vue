@@ -194,6 +194,7 @@ export default {
   methods: {
     serTalento() {
       this.$router.push('/ser-talento')
+      window.scrollY(0)
     },
     ChangeShow() {
       this.show = !this.show

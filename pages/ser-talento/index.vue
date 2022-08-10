@@ -22,7 +22,7 @@
                     text-white
                     hover:from-red-400 hover:to-red-500
 
-                  " @click="OpenModalEstudiante">Inscripción estudiante</app-btn>
+                  " @click="OPenDatosPersonales">Inscripción estudiante</app-btn>
                     <app-btn class="
                     bg-gradient-to-r
                     from-red-500
@@ -36,8 +36,15 @@
                 </div>
             </div>
         </div>
+        <transition >
+            <div class="animate__animated animate__bounceInUp">
+                <app-datos-personales v-model="DatosPersonales" @metodoBoton=metodoBoton />
+            </div>
 
-        <app-modal-registrar-estudiante v-model="modalEstudiante" />
+        </transition>
+
+
+        <app-modal-registrar-estudiante v-model="Estudiante" />
     </div>
 
 
@@ -52,7 +59,8 @@ export default {
             btnStar: true,
             isActive: true,
             show: false,
-            modalEstudiante: false
+            DatosPersonales: false,
+            Estudiante: false
         }
     },
     async mounted() {
@@ -65,12 +73,16 @@ export default {
             this.$store.commit("filterText", "educacion")
             this.pageText = this.$store.state.text
         },
-        OpenModalEstudiante() {
-            this.modalEstudiante = true
+        OPenDatosPersonales() {
+            this.DatosPersonales = true
             // document.getElementById("indexContrata").style.position="fixed"
         },
         closeModal() {
             this.modal = false
+        },
+        metodoBoton() {
+            this.DatosPersonales = false
+            this.Estudiante = true
         }
     }
 }
