@@ -1,53 +1,74 @@
 <template>
   <div v-if="state" class="centrar fondo-modal z-50" style="left: 0;" @click="close">
     <div class="modal-principal opacity-95">
-      <div class="centrar px-10  py-5">
-        <p class="font-bold  text-lg text-transparent bg-clip-text bg-gradient-to-r
+      <div class="flex justify-center px-10  py-5">
+        <p class="font-bold  text-xl text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
                       to-[#dab255]">Inscripción estudiante</p>
+
       </div>
       <div class="px-8">
         <div class="grid justify-center px-3 ">
-          <div class="flex justify-center p-2">
 
-            <app-input label="Correo" />
-            <app-input label="¿Acepta ser contactado por nosotros?" />
+          <div class="flex justify-evenly p-2">
+            <div class="flex items-center border-r-2 border-[#4736df]">
+              <div class="p-2">
+                <div class="flex justify-center">
+                  <app-input label="Nombre Completo" />
+                  <app-input label="Edad" />
+                </div>
+                <div class="flex justify-center p-2">
+                  <app-input label="Correo" />
+                  <app-input label="Teléfono" />
 
-          </div>
+                </div>
+                <div class="">
+                  <app-input label="Mencione el colegio en donde cursa o curso su bachillerato" />
+                  <app-input label="indique el horario en el cual podria asistir(De lunes a viernes)" />
 
-          <div class="flex justify-center p-2">
-            <div class=" p-2">
-              <div class="flex justify-center">
-                <app-input label="Nombre Completo" />
-                <app-input label="Edad" />
+                </div>
+
               </div>
-              <div class="flex justify-center">
-                <app-input label="Género" />
-                <app-input label="Teléfono" />
-              </div>
-
             </div>
-            <div class=" p-2">
-              <div class="flex ">
-                <app-input label="¿En que Barrio reside?" />
-                <app-input label="¿Con quien vive?" />
-              </div>
-              <div class="flex justify-center">
-                <app-input label="Mencione el colegio en donde cursa o curso su bachillerato" />
-                <app-input label="Nivel educativo Actual" />
-              </div>
+            <div class="flex items-center">
+              <div class=" p-2">
+                <div class=" ">
+                  <app-input label="¿En que Barrio reside?" />
+                  <app-input label="¿Con quien vive?" />
+                </div>
+                <div class="">
+                  <app-input label="Género" />
+                  <app-input label="Nivel educativo Actual" />
 
+                </div>
+
+              </div>
             </div>
 
-          </div>
-          <div class="flex justify-center p-2">
-
-            <app-input
-              label="De aprobar nuestro proceso de inscripción, indique el horario asistencia a clases (De lunes a viernes)" />
 
 
           </div>
+          <div class="flex justify-center py-4 ">
+            <app-btn class="
+                    bg-gradient-to-r
+                    from-red-500
+                    to-red-400
+                    p-1
+                    mx-2
+                    text-white
+                    hover:from-red-400 hover:to-red-500
+
+                  ">Enviar Formulario</app-btn>
+            <app-btn class="
+                     bg-[#1C233A]
+                    p-1
+                    mx-4
+                    text-white
+
+                  " @click="close">Cerrar</app-btn>
+          </div>
+
 
         </div>
 

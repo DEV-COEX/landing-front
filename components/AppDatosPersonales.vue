@@ -17,7 +17,8 @@
                             finalidades incorporadas en la Política de Tratamiento de la Información publicada en
                             www.uts.edu.co y en Calle de los estudiantes 9-82 Ciudadela Real de Minas, que declaro
                             conocer y estar informado que en ella se presentan los derechos que me asisten como titular
-                            y los canales de atención donde ejercerlos.”
+                            y los canales de atención donde ejercerlos.” ¿Acepta que sus datos sean tratados según la
+                            política establecida en la Ley 1581 de 2012, de Protección de datos personales?
                         </p>
                     </div>
 
@@ -46,7 +47,7 @@
 
             </div>
         </div>
-        
+
     </div>
 </template>
 
@@ -81,8 +82,8 @@ export default {
             }
         }
     },
-    data(){
-        return{
+    data() {
+        return {
             Estudiante: false
         }
     },
