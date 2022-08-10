@@ -1,5 +1,5 @@
 <template>
-  <div v-if="state" class="centrar fondo-modal z-50" style="left: 0;" @click="close">
+  <div v-if="state" class="centrar fondo-modal z-50" style="left: 0;">
     <div class="modal-principal opacity-95">
       <div class="flex justify-center px-10  py-5">
         <p class="font-bold  text-xl text-transparent bg-clip-text bg-gradient-to-r
@@ -8,49 +8,50 @@
                       to-[#dab255]">Inscripción estudiante</p>
 
       </div>
-      <div class="px-8">
-        <div class="grid justify-center px-3 ">
-
-          <div class="flex justify-evenly p-2">
-            <div class="flex items-center border-r-2 border-[#4736df]">
-              <div class="p-2">
-                <div class="flex justify-center">
-                  <app-input label="Nombre Completo" />
-                  <app-input label="Edad" />
+      <form @submit.prevent="register">
+        <div class="px-8">
+          <div class="grid justify-center px-3 ">
+            <div class="flex justify-evenly p-2">
+              <div class="flex items-center border-r-2 border-[#4736df]">
+                <div class="p-2">
+                  <div class="flex justify-center">
+                    <app-input v-model="form.name" required label="Nombre Completo"/>
+                    <app-input v-model="form.age" type="number" required label="Edad"/>
+                  </div>
+                  <div class="flex justify-center p-2">
+                    <app-input v-model="form.email" type="email" required label="Correo"/>
+                    <app-input v-model="form.phone" type="number" required label="Teléfono"/>
+                  </div>
+                  <div class="">
+                    <app-input v-model="form.school" required label="Mencione el colegio en donde cursa o curso su bachillerato"/>
+                    <app-input v-model="form.schedule" required label="indique el horario en el cual podria asistir(De lunes a viernes)"/>
+                  </div>
                 </div>
-                <div class="flex justify-center p-2">
-                  <app-input label="Correo" />
-                  <app-input label="Teléfono" />
-
+              </div>
+              <div class="flex items-center">
+                <div class=" p-2">
+                  <div class=" ">
+                    <app-input v-model="form.barrio" required label="¿En que Barrio reside?"/>
+                    <app-input v-model="form.roomies" required label="¿Con quien vive?"/>
+                  </div>
+                  <div class="">
+                    <select required v-model="form.gender">
+                      <option value="male">Hombre</option>
+                      <option value="female">Mujer</option>
+                    </select>
+                    <select required v-model="form.education">
+                      <option value="Bachillerato">Bachillerato</option>
+                      <option value="Tecnico">Tecnico</option>
+                      <option value="Tecnologo">Tecnologo</option>
+                      <option value="Universitario">Universitario</option>
+                    </select>
+                  </div>
                 </div>
-                <div class="">
-                  <app-input label="Mencione el colegio en donde cursa o curso su bachillerato" />
-                  <app-input label="indique el horario en el cual podria asistir(De lunes a viernes)" />
-
-                </div>
-
               </div>
             </div>
-            <div class="flex items-center">
-              <div class=" p-2">
-                <div class=" ">
-                  <app-input label="¿En que Barrio reside?" />
-                  <app-input label="¿Con quien vive?" />
-                </div>
-                <div class="">
-                  <app-input label="Género" />
-                  <app-input label="Nivel educativo Actual" />
-
-                </div>
-
-              </div>
-            </div>
-
-
-
-          </div>
-          <div class="flex justify-center py-4 ">
-            <app-btn class="
+            <div class="flex justify-center py-4 ">
+              <app-btn type="submit"
+                       class="
                     bg-gradient-to-r
                     from-red-500
                     to-red-400
@@ -58,21 +59,20 @@
                     mx-2
                     text-white
                     hover:from-red-400 hover:to-red-500
-
-                  ">Enviar Formulario</app-btn>
-            <app-btn class="
+                  ">Enviar Formulario
+              </app-btn>
+              <app-btn type="button"
+                       class="
                      bg-[#1C233A]
                     p-1
                     mx-4
                     text-white
-
-                  " @click="close">Cerrar</app-btn>
+                  " @click="close">Cerrar
+              </app-btn>
+            </div>
           </div>
-
-
         </div>
-
-      </div>
+      </form>
     </div>
   </div>
 </template>
@@ -98,6 +98,22 @@ export default {
       default: false
     }
   },
+  data() {
+    return {
+      form: {
+        name: null,
+        age: null,
+        email: null,
+        phone: null,
+        school: null,
+        schedule: null,
+        barrio: null,
+        roomies: null,
+        gender: null,
+        education: null
+      }
+    }
+  },
   computed: {
     state: {
       set(value) {
@@ -117,6 +133,9 @@ export default {
     },
     close() {
       this.$emit("close", true)
+    },
+    async register() {
+      await this.$axios.post('students', this.form);
     }
   }
 }
@@ -131,7 +150,6 @@ export default {
 }
 
 
-
 .logo {
   width: 105px;
   height: 105px;
@@ -141,7 +159,6 @@ export default {
   right: -51px;
 
 }
-
 
 
 .btn-cerrar {

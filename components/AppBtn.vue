@@ -1,5 +1,5 @@
 <template>
-  <button :type="tipo" :disabled="disabled" class="
+  <button :type="type" :disabled="disabled" class="
       py-2
       px-4
       rounded-md
@@ -13,7 +13,7 @@
 export default {
   name: 'AppButton',
   props: {
-    tipo: {
+    type: {
       type: String,
       default: null,
     },
