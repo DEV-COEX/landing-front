@@ -250,7 +250,7 @@ export default {
     onResize() {
       if (process.client) {
         this.windowWidth = window.innerWidth
-        if (this.windowWidth > 1024 && this.show) {
+        if (this.windowWidth > 991 && this.show) {
           this.ChangeShow()
         }
       }
