@@ -157,9 +157,11 @@
 
 <script>
 export default {
+
   name: 'NavbarDefault',
   data() {
     return {
+      scroll: 0,
       windowWidth: null,
       show: false,
       navItems: [
@@ -167,7 +169,9 @@ export default {
           name: 'Inicio',
           path: '/',
           method: () => {
-            window.scrollY(0)
+           if (process.client) {
+            window.scrollTo(0, 0)
+            }
             const estado = true
             const estadoHome = false
             if (this.$route.path === '/') {
@@ -182,57 +186,47 @@ export default {
         {
           name: '¿Quienes somos?',
           path: '/about',
-<<<<<<< Updated upstream
           method: () => {
-            window.scrollY(0)
+            if (process.client) {
+            window.scrollTo(0, 0)
+            }
           },
-=======
-          method: () => {},
->>>>>>> Stashed changes
         },
         {
           name: 'Fábrica de software',
           path: '/fabrica',
-<<<<<<< Updated upstream
           method: () => {
-            window.scrollY(0)
+            if (process.client) {
+            window.scrollTo(0, 0)
+            }
           },
-=======
-          method: () => {},
->>>>>>> Stashed changes
         },
         {
           name: 'Contrata talentos',
           path: '/contrata-talento',
-<<<<<<< Updated upstream
           method: () => {
-            window.scrollY(0)
+            if (process.client) {
+            window.scrollTo(0, 0)
+            }
           },
-=======
-          method: () => {},
->>>>>>> Stashed changes
         },
         {
           name: 'Educación',
           path: '/educacion',
-<<<<<<< Updated upstream
           method: () => {
-            window.scrollY(0)
+           if (process.client) {
+            window.scrollTo(0, 0)
+            }
           },
-=======
-          method: () => {},
->>>>>>> Stashed changes
         },
         {
           name: 'Fundación',
           path: '/fundacion',
-<<<<<<< Updated upstream
           method: () => {
-            window.scrollY(0)
+           if (process.client) {
+            window.scrollTo(0, 0)
+            }
           },
-=======
-          method: () => {},
->>>>>>> Stashed changes
         },
       ],
     }
@@ -263,6 +257,9 @@ export default {
     },
     serTalento() {
       this.$router.push('/ser-talento')
+      if (process.client) {
+        window.scrollTo(0, 0)
+      }
     },
     ChangeShow() {
       this.show = !this.show
