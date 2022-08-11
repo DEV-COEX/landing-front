@@ -82,7 +82,7 @@
             h-[3.5rem]
             md-[5rem]
             px-5
-            Z-40
+            z-30
             justify-between
             items-center
           "
@@ -100,7 +100,7 @@
               <div v-for="(item, i) in navItems" :key="i">
                 <NuxtLink
                   :to="item.path"
-                  class="flex items-center p-2 text-base font-medium text-white"
+                  class="flex items-center p-2 md:text-sm  lg:text-base font-medium text-white"
                 >
                   <span
                     class="
@@ -124,6 +124,7 @@
               <div class="w-56">
                 <app-btn
                   class="
+                   md:text-sm  lg:text-base
                     bg-gradient-to-r
                     from-red-500
                     to-red-400
