@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="serTalento"
-         class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-full h-screen flex justify-center items-center">
+      class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-full h-screen flex justify-center items-center">
       <div class="grid justify-center items-center">
         <div class="">
           <div class="flex justify-center">
@@ -33,16 +33,22 @@
                     text-white
                     hover:from-red-400 hover:to-red-500
 
-                  ">Inscripción profesor
+                  " @click="OPenDatosPersonalesProfe">Inscripción profesor
           </app-btn>
         </div>
       </div>
     </div>
     <transition name="fade">
-      <app-datos-personales v-model="DatosPersonales" @metodoBoton=metodoBoton @close="closeModal"/>
+      <app-datos-personales v-model="DatosPersonales" @metodoBoton=metodoBoton @close="closeModal" />
     </transition>
     <transition name="fade">
-      <app-modal-registrar-estudiante @close="closeEstudents" v-model="Estudiante"/>
+      <app-datos-personales v-model="DatosPersonalesProfesor" @metodoBoton=metodoBotonprofe @close="closeModal" />
+    </transition>
+    <transition name="fade">
+      <app-modal-registrar-profe v-model="Profesor" @close="closeProfe" />
+    </transition>
+    <transition name="fade">
+      <app-modal-registrar-estudiante @close="closeEstudents" v-model="Estudiante" />
     </transition>
   </div>
 </template>
@@ -57,7 +63,9 @@ export default {
       isActive: true,
       show: false,
       DatosPersonales: false,
-      Estudiante: false
+      Estudiante: false,
+      Profesor: false,
+      DatosPersonalesProfesor: false,
     }
   },
   async mounted() {
@@ -75,8 +83,14 @@ export default {
       document.getElementById("serTalento").style.filter = "blur(5px)"
       document.querySelector('body').classList.add('overflow-hidden')
     },
+    OPenDatosPersonalesProfe() {
+      this.DatosPersonalesProfesor = true
+      document.getElementById("serTalento").style.filter = "blur(5px)"
+      document.querySelector('body').classList.add('overflow-hidden')
+    },
     closeModal() {
       this.DatosPersonales = false
+      this.DatosPersonalesProfesor = false
       document.getElementById("serTalento").style.filter = "blur(0)"
       document.querySelector('body').classList.remove('overflow-hidden')
     },
@@ -85,9 +99,18 @@ export default {
       document.getElementById("serTalento").style.filter = "blur(0)"
       document.querySelector('body').classList.remove('overflow-hidden')
     },
+    closeProfe() {
+      this.Profesor = false
+      document.getElementById("serTalento").style.filter = "blur(0)"
+      document.querySelector('body').classList.remove('overflow-hidden')
+    },
     metodoBoton() {
       this.DatosPersonales = false
       this.Estudiante = true
+    },
+    metodoBotonprofe() {
+      this.DatosPersonales = false
+      this.Profesor = true
     }
   }
 }
@@ -150,8 +173,8 @@ export default {
 .fade-enter,
 .fade-leave-to
 
-  /* .fade-leave-active below version 2.1.8 */
-{
+/* .fade-leave-active below version 2.1.8 */
+  {
   transition: opacity .7s
 }
 </style>

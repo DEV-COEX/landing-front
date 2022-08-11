@@ -8,7 +8,7 @@
     <input :id="label" v-model="val" class=" appearance-none bg-transparent
       inp w-full py-2 px-3 text-[#B8B8B8] leading-tight
       border-[#FFFFFF] border-solid border
-      focus:outline-none focus:shadow-outline focus:border-[#dab255]
+      focus:outline-none focus:shadow-outline focus:border-[#dab255] focus:bg-transparent
                      hover:border-[#FFDF8D]" :type="type" :placeholder="placeholder" :required="required"
       :disabled="disabled" :readonly="readonly" :min="min" :minlength="minlength" :maxlength="maxlength" :max="max"
       @change="$emit('change')" />

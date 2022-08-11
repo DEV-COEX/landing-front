@@ -30,7 +30,7 @@
               incluyendo el consentimiento explicito para tratar datos sensibles
               aun conociendo la posibilidad de oponerme a ello, conforme a las
               finalidades incorporadas en la Política de Tratamiento de la
-              Información publicada en www.uts.edu.co y en Calle de los
+              Información publicada en "2" y en Calle de los
               estudiantes 9-82 Ciudadela Real de Minas, que declaro conocer y
               estar informado que en ella se presentan los derechos que me
               asisten como titular y los canales de atención donde ejercerlos.”

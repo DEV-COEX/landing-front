@@ -15,43 +15,42 @@
               <div class="flex items-center border-r-2 border-[#4736df]">
                 <div class="p-2">
                   <div class="flex justify-center">
-                    <app-input v-model="form.name" required label="Nombre Completo"/>
-                    <app-input v-model="form.age" type="number" required label="Edad"/>
+                    <app-input v-model="form.name" required label="Nombre Completo" />
+                    <app-input v-model="form.age" type="number" required label="Edad" />
                   </div>
                   <div class="flex justify-center p-2">
-                    <app-input v-model="form.email" type="email" required label="Correo"/>
-                    <app-input v-model="form.phone" type="number" required label="Teléfono"/>
+                    <div>
+                      <app-input v-model="form.email" type="email" required label="Correo" />
+                      <label id="errorPosicion" class="lbl-validation" style="display: flex">Este correo ya tiene sexo</label>
+                    </div>
+
+                    <app-input v-model="form.phone" type="number" required label="Teléfono" />
                   </div>
                   <div class="">
-                    <app-input v-model="form.school" required label="Mencione el colegio en donde cursa o curso su bachillerato"/>
-                    <app-input v-model="form.schedule" required label="indique el horario en el cual podria asistir(De lunes a viernes)"/>
+                    <app-input v-model="form.school" required
+                      label="Mencione el colegio en donde cursa o curso su bachillerato" />
+
+
+                    <app-select v-model="form.schedule" :items="horario"
+                      label="indique el horario en el cual podria asistir(De lunes a viernes)" />
                   </div>
                 </div>
               </div>
               <div class="flex items-center">
                 <div class=" p-2">
                   <div class=" ">
-                    <app-input v-model="form.barrio" required label="¿En que Barrio reside?"/>
-                    <app-input v-model="form.roomies" required label="¿Con quien vive?"/>
+                    <app-input v-model="form.barrio" required label="¿En que Barrio reside?" />
+                    <app-input v-model="form.roomies" required label="¿Con quien vive?" />
                   </div>
                   <div class="">
-                    <select required v-model="form.gender">
-                      <option value="male">Hombre</option>
-                      <option value="female">Mujer</option>
-                    </select>
-                    <select required v-model="form.education">
-                      <option value="Bachillerato">Bachillerato</option>
-                      <option value="Tecnico">Tecnico</option>
-                      <option value="Tecnologo">Tecnologo</option>
-                      <option value="Universitario">Universitario</option>
-                    </select>
+                    <app-select required v-model="form.gender" label="Genero" />
+                    <app-select required v-model="form.education" label="Nivel educativo Actual" />
                   </div>
                 </div>
               </div>
             </div>
             <div class="flex justify-center py-4 ">
-              <app-btn type="submit"
-                       class="
+              <app-btn type="submit" class="
                     bg-gradient-to-r
                     from-red-500
                     to-red-400
@@ -61,8 +60,7 @@
                     hover:from-red-400 hover:to-red-500
                   ">Enviar Formulario
               </app-btn>
-              <app-btn type="button"
-                       class="
+              <app-btn type="button" class="
                      bg-[#1C233A]
                     p-1
                     mx-4
@@ -110,7 +108,10 @@ export default {
         barrio: null,
         roomies: null,
         gender: null,
-        education: null
+        education: null,
+
+
+
       }
     }
   },
@@ -138,6 +139,10 @@ export default {
       await this.$axios.post('students', this.form);
       this.$emit("close", true)
       this.form = {}
+      
+          document.getElementById("errorPosicion").style.display = "flex";
+        
+
     }
   }
 }
@@ -180,6 +185,15 @@ export default {
 
   top: 0;
 }
+.lbl-validation{
+    text-align: left;
+    font: normal  13px/15px sans-serif;
+    letter-spacing: 0px;
+    color: #df0909;
+    margin-bottom: 0;
+    margin-left: 10px;
+}
+
 
 /*ajuste en pantalla*/
 .centrar {
