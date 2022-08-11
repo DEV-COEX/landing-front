@@ -136,6 +136,8 @@ export default {
     },
     async register() {
       await this.$axios.post('students', this.form);
+      this.$emit("close", true)
+      this.form = {}
     }
   }
 }

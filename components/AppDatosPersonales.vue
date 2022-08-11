@@ -26,7 +26,7 @@
             <p class="text-lg text-white py-5">
               “Al enviar mis datos personales y/o del menor de edad que
               represento, autorizo de manera previa, expresa e inequívoca a
-              UNIDADES TECNOLÓGICAS DE SANTANDER a darles tratamiento,
+              INFINITY PRIME S.A.S a darles tratamiento,
               incluyendo el consentimiento explicito para tratar datos sensibles
               aun conociendo la posibilidad de oponerme a ello, conforme a las
               finalidades incorporadas en la Política de Tratamiento de la
