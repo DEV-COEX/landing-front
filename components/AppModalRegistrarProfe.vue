@@ -174,7 +174,6 @@ export default {
     async register() {
       try {
         await this.$axios.post('teachers', this.form);
-        console.log('registrado');
         this.$emit("close", true)
         this.form = {}
         document.getElementById("errorPosicion").style.display = "flex";

@@ -22,7 +22,7 @@
                     <div>
                       <app-input v-model="form.email" type="email" required label="Correo"/>
                       <label v-if="error" id="errorPosicion" class="lbl-validation" style="display: flex">Este correo ya
-                        tiene sexo</label>
+                        esta registrado</label>
                     </div>
 
                     <app-input v-model="form.phone" type="number" required label="Teléfono"/>
@@ -40,7 +40,7 @@
               <div class="flex items-center">
                 <div class=" p-2">
                   <div class=" ">
-                    <app-input v-model="form.barrio" required label="¿En que Barrio reside?"/>
+                    <app-input v-model="form.address" required label="¿En que Barrio reside?"/>
                     <app-input v-model="form.roomies" required label="¿Con quien vive?"/>
                   </div>
                   <div class="">
@@ -157,7 +157,7 @@ export default {
         phone: null,
         school: null,
         schedule: null,
-        barrio: null,
+        address: null,
         roomies: null,
         gender: null,
         education: null,

@@ -10,9 +10,9 @@
       focus:outline-none focus:shadow-outline focus:border-[#dab255] focus:bg-transparent
                      hover:border-[#FFDF8D]" :name='label' :required='required' :disabled='disabled'>
       <option selected :value='null' class='bg-[#FFFFFF] hover:bg-[#E2DCFF]'>Seleccionar...</option>
-      <option v-for='(item, key) in items' :key='key' :value='item.llave'
+      <option v-for='(item, key) in items' :key='key' :value='item?.llave'
               class='bg-[#FFFFFF] hover:bg-[#E2DCFF]'>
-        {{ item.attribute }}
+        {{ item?.attribute }}
       </option>
     </select>
   </div>
