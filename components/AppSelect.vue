@@ -7,7 +7,7 @@
     <select :id='label' v-model='val' class=" appearance-none bg-transparent
       inp w-full py-2 px-3 text-[#B8B8B8] leading-tight
       border-[#FFFFFF] border-solid border
-      focus:outline-none focus:shadow-outline focus:border-[#dab255] focus:bg-transparent
+      focus:outline-none focus:shadow-outline focus:border-[#dab255] focus:bg-transparent active:bg-[#2B3348]
                      hover:border-[#FFDF8D]" :name='label' :required='required' :disabled='disabled'>
       <option selected :value='null' class='bg-[#FFFFFF] hover:bg-[#E2DCFF]'>Seleccionar...</option>
       <option v-for='(item, key) in items' :key='key' :value='item?.llave'
@@ -65,4 +65,7 @@ export default {
 </script>
 
 <style scoped>
+option{
+        background:transparent;
+    }
 </style>
