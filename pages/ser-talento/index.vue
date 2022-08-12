@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <div id="serTalento"
       class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-full h-screen flex justify-center items-center">
       <div class="grid justify-center items-center">
@@ -22,7 +22,7 @@
                     text-white
                     hover:from-red-400 hover:to-red-500
 
-                  " @click="OPenDatosPersonales">Inscripción estudiante
+                  " @click="OPenDatosPersonales"><a href="#serTalento">Inscripción estudiante</a>
           </app-btn>
           <app-btn class="
                     bg-gradient-to-r
@@ -33,7 +33,7 @@
                     text-white
                     hover:from-red-400 hover:to-red-500
 
-                  " @click="OPenDatosPersonalesProfe">Inscripción profesor
+                  " @click="OPenDatosPersonalesProfe"><a href="#serTalento"> Inscripción profesor</a>
           </app-btn>
         </div>
       </div>
@@ -107,10 +107,14 @@ export default {
     metodoBoton() {
       this.DatosPersonales = false
       this.Estudiante = true
+      document.getElementById("serTalento").style.filter = "blur(5px)"
+      document.querySelector('body').classList.add('overflow-hidden')
     },
     metodoBotonprofe() {
-      this.DatosPersonales = false
+      this.DatosPersonalesProfesor = false
       this.Profesor = true
+      document.getElementById("serTalento").style.filter = "blur(5px)"
+      document.querySelector('body').classList.add('overflow-hidden')
     }
   }
 }

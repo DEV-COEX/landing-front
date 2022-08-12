@@ -27,7 +27,7 @@
                     text-white
                      hover:from-red-400 hover:to-red-500
 
-                  " @click="OPenModal">Quiero donar
+                  " @click="OPenModal"><a href="#indexDonar">Quiero donar</a>
             </app-btn>
           </div>
         </div>
@@ -92,10 +92,12 @@ export default {
     OPenModal() {
       this.modal = true
       document.getElementById('indexDonar').style.filter = 'blur(5px)'
+      document.querySelector('body').classList.add('overflow-hidden')
     },
     closeModal() {
       this.modal = false
       document.getElementById('indexDonar').style.filter = 'blur(0)'
+       document.querySelector('body').classList.remove('overflow-hidden')
     },
   }
 }

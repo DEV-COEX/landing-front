@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div
-      class="
+    <div id="indexContrata" class="
         pt-[5rem]
         lg:pt-[6rem]
         min-h-screen
@@ -16,13 +15,11 @@
         justify-center
         items-center
         px-5 lg:px-0
-      "
-    >
-      <div id="indexContrata" class="flex justify-center items-center">
+      ">
+      <div class="flex justify-center items-center">
         <div>
           <div class="flex justify-center w-full">
-            <p
-              class="
+            <p class="
                 px-2
                 md:px-4
                 lg:text-5xl
@@ -34,8 +31,7 @@
                 from-[#FFDF8D]
                 via-[#FF9838]
                 to-[#dab255]
-              "
-            >
+              ">
               {{ pageText?.tittle }}
             </p>
           </div>
@@ -46,16 +42,11 @@
           </div>
           <div class="grid justify-center items-center">
             <div class="lg:p-7">
-              <app-card-oferta
-                v-for="offer in offers"
-                :key="offer.id"
-                :offer="offer"
-              />
+              <app-card-oferta v-for="offer in offers" :key="offer.id" :offer="offer" />
             </div>
           </div>
           <div class="flex justify-center ">
-            <app-btn
-              class="
+            <app-btn class="
 
                 bg-gradient-to-r
                 from-red-500
@@ -66,10 +57,7 @@
                 mb-2
                 text-white
                 hover:from-red-400 hover:to-red-500
-              "
-              @click="OPenModal"
-              >Contactar</app-btn
-            >
+              " @click="OPenModal"><a href="#indexContrata">Contactar</a></app-btn>
           </div>
         </div>
       </div>
@@ -110,10 +98,12 @@ export default {
     OPenModal() {
       this.modal = true
       document.getElementById('indexContrata').style.filter = 'blur(5px)'
+      document.querySelector('body').classList.add('overflow-hidden')
     },
     closeModal() {
       this.modal = false
       document.getElementById('indexContrata').style.filter = 'blur(0)'
+      document.querySelector('body').classList.remove('overflow-hidden')
     },
   },
 }
@@ -131,6 +121,7 @@ export default {
 }
 
 @keyframes AnimationName {
+
   0%,
   100% {
     background-position: 0% 100%;
@@ -149,9 +140,11 @@ export default {
 .fade-enter,
 .fade-leave-to
 
-/* .fade-leave-active below version 2.1.8 */ {
+/* .fade-leave-active below version 2.1.8 */
+  {
   transition: opacity 0.7s;
 }
+
 body::-webkit-scrollbar {
   width: 2px;
   /* width of the entire scrollbar */
@@ -159,7 +152,7 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar:hover {
   width: 5px;
-  
+
   /* width of the entire scrollbar */
 }
 

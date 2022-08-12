@@ -15,21 +15,21 @@
                             <div class="flex items-center ">
                                 <div class="p-2">
                                     <div class="flex justify-center">
-                                        <app-input required label="Nombres" />
-                                        <app-input required label="Apellidos" />
+                                        <app-input required label="Nombre completo" />
+                                        <app-input required label="Cedula" />
 
 
                                     </div>
                                     <div class="flex justify-center p-2">
-                                        <app-input required label="Cedula" />
+                                        <app-input type="number" required label="Telefono" />
                                         <app-input type="email" required label="Correo" />
                                     </div>
                                     <div class="flex justify-center p-2">
                                         <app-input type="number" required label="CVC" />
-                                        <app-input type="number" required label="Teléfono" />
+                                        <app-input type="number" required label="Cantidad" />
                                     </div>
-                                    <div class="">
-                                        <app-select required label="Metodo de donacion"/>
+                                    <div class="p-2">
+                                        <app-metodo-donar label="Metodos de Donación"/>
                                     </div>
                                 </div>
                             </div>
@@ -146,7 +146,7 @@ export default {
 .fondo-modal {
     height: 100%;
     width: 100%;
-    background-color: rgb(131 131 131 / 40%);
+    background-color: rgb(131 131 131 / 20%);
     position: fixed;
 
     top: 0;
