@@ -27,7 +27,7 @@
                 md:px-4
                 lg:text-5xl
                 md:text-3xl
-                leading-normal
+                lg:leading-relaxed
                 font-bold
                 text-2xl text-center text-transparent
                 bg-clip-text bg-gradient-to-r
@@ -151,5 +151,29 @@ export default {
 
 /* .fade-leave-active below version 2.1.8 */ {
   transition: opacity 0.7s;
+}
+body::-webkit-scrollbar {
+  width: 2px;
+  /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar:hover {
+  width: 5px;
+  
+  /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(0, 0, 0);
+  /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #4A5B95 0%, #90BEFF 100%);
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* border: 1px solid rgb(217 70 239);
+  /* roundness of the scroll thumb */
+  /* creates padding around scroll thumb */
 }
 </style>

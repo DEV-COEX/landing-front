@@ -189,6 +189,7 @@ export default {
         await this.$axios.post('students', this.form);
         this.$emit("close", true)
         this.form = {}
+        this.error = false
         document.getElementById("errorPosicion").style.display = "flex";
       } catch (e) {
         this.error = true
