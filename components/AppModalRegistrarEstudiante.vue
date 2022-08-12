@@ -15,36 +15,37 @@
               <div class="flex items-center border-r-2 border-[#4736df]">
                 <div class="p-2">
                   <div class="flex justify-center">
-                    <app-input v-model="form.name" required label="Nombre Completo" />
-                    <app-input v-model="form.age" type="number" required label="Edad" />
+                    <app-input v-model="form.name" required label="Nombre Completo"/>
+                    <app-input v-model="form.age" type="number" required label="Edad"/>
                   </div>
                   <div class="flex justify-center p-2">
                     <div>
-                      <app-input v-model="form.email" type="email" required label="Correo" />
-                      <label id="errorPosicion" class="lbl-validation" style="display: flex">Este correo ya tiene sexo</label>
+                      <app-input v-model="form.email" type="email" required label="Correo"/>
+                      <label v-if="error" id="errorPosicion" class="lbl-validation" style="display: flex">Este correo ya
+                        tiene sexo</label>
                     </div>
 
-                    <app-input v-model="form.phone" type="number" required label="Teléfono" />
+                    <app-input v-model="form.phone" type="number" required label="Teléfono"/>
                   </div>
                   <div class="">
                     <app-input v-model="form.school" required
-                      label="Mencione el colegio en donde cursa o curso su bachillerato" />
+                               label="Mencione el colegio en donde cursa o curso su bachillerato"/>
 
 
-                    <app-select v-model="form.schedule" :items="horario"
-                      label="indique el horario en el cual podria asistir(De lunes a viernes)" />
+                    <app-select v-model="form.schedule" :items="schedules" required
+                                label="Indique el horario en el cual podria asistir(De lunes a viernes)"/>
                   </div>
                 </div>
               </div>
               <div class="flex items-center">
                 <div class=" p-2">
                   <div class=" ">
-                    <app-input v-model="form.barrio" required label="¿En que Barrio reside?" />
-                    <app-input v-model="form.roomies" required label="¿Con quien vive?" />
+                    <app-input v-model="form.barrio" required label="¿En que Barrio reside?"/>
+                    <app-input v-model="form.roomies" required label="¿Con quien vive?"/>
                   </div>
                   <div class="">
-                    <app-select required v-model="form.gender" label="Genero" />
-                    <app-select required v-model="form.education" label="Nivel educativo Actual" />
+                    <app-select :items="genders" required v-model="form.gender" label="Genero"/>
+                    <app-select :items="academic" required v-model="form.education" label="Nivel educativo Actual"/>
                   </div>
                 </div>
               </div>
@@ -98,6 +99,57 @@ export default {
   },
   data() {
     return {
+      error: false,
+      academic: [
+        {
+          llave: 'bachiller',
+          attribute: 'Bachiller',
+        },
+        {
+          llave: 'tecnico',
+          attribute: 'Técnico',
+        },
+        {
+          llave: 'tecnologico',
+          attribute: 'Técnologico',
+        },
+        {
+          llave: 'universitario',
+          attribute: 'Universitario',
+        },
+      ],
+      genders: [
+        {
+          llave: 'masculino',
+          attribute: 'Masculino',
+        },
+        {
+          llave: 'femenino',
+          attribute: 'Femenino',
+        },
+      ],
+      schedules: [
+        {
+          llave: '6am a 10am',
+          attribute: '6am a 10am',
+        },
+        {
+          llave: '10am a 2pm',
+          attribute: '10am a 2pm',
+        },
+        {
+          llave: '2pm a 6pm',
+          attribute: '2pm a 6pm',
+        },
+        {
+          llave: '6pm a 10pm',
+          attribute: '6pm a 10pm',
+        },
+        {
+          llave: 'ninguno',
+          attribute: 'Ninguno de los horarios ofrecidos',
+        },
+      ],
       form: {
         name: null,
         age: null,
@@ -109,9 +161,6 @@ export default {
         roomies: null,
         gender: null,
         education: null,
-
-
-
       }
     }
   },
@@ -136,13 +185,14 @@ export default {
       this.$emit("close", true)
     },
     async register() {
-      await this.$axios.post('students', this.form);
-      this.$emit("close", true)
-      this.form = {}
-      
-          document.getElementById("errorPosicion").style.display = "flex";
-        
-
+      try {
+        await this.$axios.post('students', this.form);
+        this.$emit("close", true)
+        this.form = {}
+        document.getElementById("errorPosicion").style.display = "flex";
+      } catch (e) {
+        this.error = true
+      }
     }
   }
 }
@@ -185,13 +235,14 @@ export default {
 
   top: 0;
 }
-.lbl-validation{
-    text-align: left;
-    font: normal  13px/15px sans-serif;
-    letter-spacing: 0px;
-    color: #df0909;
-    margin-bottom: 0;
-    margin-left: 10px;
+
+.lbl-validation {
+  text-align: left;
+  font: normal 13px/15px sans-serif;
+  letter-spacing: 0px;
+  color: #df0909;
+  margin-bottom: 0;
+  margin-left: 10px;
 }
 
 
