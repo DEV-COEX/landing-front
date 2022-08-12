@@ -29,8 +29,8 @@
                                         <app-input type="number" required label="Cantidad" />
                                     </div>
                                     <div class="p-2">
-                                        <app-select required label="etodos de Donación" />
-                                        <!--<app-metodo-donar label="Metodos de Donación"/>-->
+                                        <!--<app-select required label="Metodos de Donación" />-->
+                                        <app-metodo-donar label="Metodos de Donación"/>
                                     </div>
                                 </div>
                             </div>

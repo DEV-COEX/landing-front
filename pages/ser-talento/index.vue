@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <div id="serTalento"
       class="bg-gradient-to-r from-[#000A65] via-[#2c2191] to-[#2F00B5] background-animate  w-full h-screen flex justify-center items-center">
       <div class="grid justify-center items-center">
@@ -13,7 +13,8 @@
           </div>
         </div>
         <div class="flex justify-center ">
-          <app-btn class="
+          <a href="#serTalento">
+            <app-btn class="
                     bg-gradient-to-r
                     from-red-500
                     to-red-400
@@ -22,9 +23,11 @@
                     text-white
                     hover:from-red-400 hover:to-red-500
 
-                  " @click="OPenDatosPersonales"><a href="#serTalento">Inscripción estudiante</a>
-          </app-btn>
-          <app-btn class="
+                  " @click="OPenDatosPersonales">Inscripción estudiante
+            </app-btn>
+          </a>
+          <a href="#serTalento">
+            <app-btn class="
                     bg-gradient-to-r
                     from-red-500
                     to-red-400
@@ -33,8 +36,10 @@
                     text-white
                     hover:from-red-400 hover:to-red-500
 
-                  " @click="OPenDatosPersonalesProfe"><a href="#serTalento"> Inscripción profesor</a>
-          </app-btn>
+                  " @click="OPenDatosPersonalesProfe"> Inscripción profesor
+            </app-btn>
+          </a>
+
         </div>
       </div>
     </div>
@@ -190,7 +195,7 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar:hover {
   width: 5px;
-  
+
   /* width of the entire scrollbar */
 }
 

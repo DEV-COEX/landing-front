@@ -46,7 +46,8 @@
             </div>
           </div>
           <div class="flex justify-center ">
-            <app-btn class="
+            <a href="#indexContrata">
+              <app-btn class="
 
                 bg-gradient-to-r
                 from-red-500
@@ -57,7 +58,9 @@
                 mb-2
                 text-white
                 hover:from-red-400 hover:to-red-500
-              " @click="OPenModal"><a href="#indexContrata">Contactar</a></app-btn>
+              " @click="OPenModal">Contactar</app-btn>
+            </a>
+
           </div>
         </div>
       </div>

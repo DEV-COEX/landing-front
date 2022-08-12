@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="indexDonar" class="bg-[#1b2233] w-full h-screen flex justify-center items-center" >
+    <div id="indexDonar" class="bg-[#1b2233] w-full h-screen flex justify-center items-center">
       <!-- <div class="w-1/5 h-2/6 rounded-full bg-black absolute"></div>-->
       <div class="flex justify-center items-center">
 
@@ -18,7 +18,8 @@
             </p>
           </div>
           <div class="flex justify-center">
-            <app-btn class="
+            <a href="#indexDonar">
+              <app-btn class="
                     bg-gradient-to-r
                     from-red-500
                     to-red-400
@@ -27,8 +28,10 @@
                     text-white
                      hover:from-red-400 hover:to-red-500
 
-                  " @click="OPenModal"><a href="#indexDonar">Quiero donar</a>
-            </app-btn>
+                  " @click="OPenModal">Quiero donar
+              </app-btn>
+            </a>
+
           </div>
         </div>
       </div>
@@ -97,7 +100,7 @@ export default {
     closeModal() {
       this.modal = false
       document.getElementById('indexDonar').style.filter = 'blur(0)'
-       document.querySelector('body').classList.remove('overflow-hidden')
+      document.querySelector('body').classList.remove('overflow-hidden')
     },
   }
 }
