@@ -1,24 +1,24 @@
 <template>
-  <div
-    class="bg-[#1b2233] w-full h-screen flex justify-center items-center">
-    <!-- <div class="w-1/5 h-2/6 rounded-full bg-black absolute"></div>-->
-    <div class="flex justify-center items-center">
+  <div>
+    <div id="indexDonar" class="bg-[#1b2233] w-full h-screen flex justify-center items-center" >
+      <!-- <div class="w-1/5 h-2/6 rounded-full bg-black absolute"></div>-->
+      <div class="flex justify-center items-center">
 
-      <div class="">
+        <div class="">
 
-        <div class="flex justify-center">
-          <p class="text-5xl leading-normal  font-bold  w-3/6 text-center text-transparent bg-clip-text bg-gradient-to-r
+          <div class="flex justify-center">
+            <p class="text-5xl leading-normal  font-bold  w-3/6 text-center text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
                       to-[#dab255]">¿Quieres apoyar el talento joven en tecnología?</p>
-        </div>
-        <div class="flex justify-center">
-          <p class="text-3xl w-3/6 text-center text-white py-10">Contribuye financiando la educación de uno de
-            nuestros talentos COEX. Con un aporte de desde 1 usd puedes cambiar la vida de toda una familia.
-          </p>
-        </div>
-        <div class="flex justify-center">
-          <app-btn class="
+          </div>
+          <div class="flex justify-center">
+            <p class="text-3xl w-3/6 text-center text-white py-10">Contribuye financiando la educación de uno de
+              nuestros talentos COEX. Con un aporte de desde 1 usd puedes cambiar la vida de toda una familia.
+            </p>
+          </div>
+          <div class="flex justify-center">
+            <app-btn class="
                     bg-gradient-to-r
                     from-red-500
                     to-red-400
@@ -27,29 +27,37 @@
                     text-white
                      hover:from-red-400 hover:to-red-500
 
-                  ">Quiero donar
-          </app-btn>
+                  " @click="OPenModal">Quiero donar
+            </app-btn>
+          </div>
         </div>
       </div>
+
     </div>
+    <transition name="fade">
+      <app-modal-donar v-model="modal" @close="closeModal" />
+
+    </transition>
 
   </div>
+
 </template>
 
 <script>
-import {SANDBOX_PUBLIC_API_KEY, SANDBOX_URL} from "~/plugins/BASE_CONFIG";
-import { generateUUID, verifyUUID} from "~/plugins/Donations";
+import { SANDBOX_PUBLIC_API_KEY, SANDBOX_URL } from "~/plugins/BASE_CONFIG";
+import { generateUUID, verifyUUID } from "~/plugins/Donations";
 
 export default {
   name: "IndexFundacion",
   data() {
     return {
-      wompi: {}
+      wompi: {},
+      modal: false
     }
   },
   async mounted() {
     // const { data } = await this.$axios.get(`https://sandbox.wompi.co/v1/merchants/${SANDBOX_PUBLIC_API_KEY}`);
-    const { data } = await this.$axios.post(`${SANDBOX_URL}/tokens/cards`,{
+    const { data } = await this.$axios.post(`${SANDBOX_URL}/tokens/cards`, {
       number: '4242424242424242',
       cvc: '789',
       exp_month: '12',
@@ -66,7 +74,7 @@ export default {
     const donations = await this.$axios.get('donations');
     const verify = verifyUUID(donations.data, ref);
     if (!verify) {
-      const res = await this.$axios.post('donations',{
+      const res = await this.$axios.post('donations', {
         name: 'Jhon',
         lastname: 'Perez',
         email: 'lopez@gmail.com',
@@ -80,7 +88,16 @@ export default {
     }
     console.log(data.data.id);
   },
-  methods: {}
+  methods: {
+    OPenModal() {
+      this.modal = true
+      document.getElementById('indexDonar').style.filter = 'blur(5px)'
+    },
+    closeModal() {
+      this.modal = false
+      document.getElementById('indexDonar').style.filter = 'blur(0)'
+    },
+  }
 }
 </script>
 
@@ -103,6 +120,7 @@ export default {
     background-position: 100% 30%;
   }
 }
+
 body::-webkit-scrollbar {
   width: 2px;
   /* width of the entire scrollbar */
@@ -110,7 +128,7 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar:hover {
   width: 5px;
-  
+
   /* width of the entire scrollbar */
 }
 
@@ -127,5 +145,4 @@ body::-webkit-scrollbar-thumb {
   /* roundness of the scroll thumb */
   /* creates padding around scroll thumb */
 }
-
 </style>
