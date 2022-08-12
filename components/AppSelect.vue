@@ -9,9 +9,9 @@
       border-[#FFFFFF] border-solid border
       focus:outline-none focus:shadow-outline focus:border-[#dab255] focus:bg-transparent active:bg-[#2B3348]
                      hover:border-[#FFDF8D]" :name='label' :required='required' :disabled='disabled'>
-      <option selected :value='null' class='bg-[#FFFFFF] hover:bg-[#E2DCFF]'>Seleccionar...</option>
+      <option selected :value='null' class='hover:bg-[#E2DCFF]'>Seleccionar...</option>
       <option v-for='(item, key) in items' :key='key' :value='item?.llave'
-              class='bg-[#FFFFFF] hover:bg-[#E2DCFF]'>
+              class=' hover:bg-[#E2DCFF]'>
         {{ item?.attribute }}
       </option>
     </select>
@@ -67,5 +67,6 @@ export default {
 <style scoped>
 option{
         background:transparent;
+        border-radius: 10px;
     }
 </style>
