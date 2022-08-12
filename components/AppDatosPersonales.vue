@@ -3,7 +3,6 @@
     v-if="state"
     class="items-end flex fondo-modal px-5 py-5 z-50"
     style="left: 0"
-    @click="close"
   >
     <div class="modal-principal opacity-95">
       <div class="centrar px-10 pt-8">

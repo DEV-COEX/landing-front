@@ -27,18 +27,16 @@
                     mx-6
                     text-white
                      hover:from-red-400 hover:to-red-500
-
                   " @click="OPenModal">Quiero donar
               </app-btn>
             </a>
-
           </div>
         </div>
       </div>
 
     </div>
     <transition name="fade">
-      <app-modal-donar v-model="modal" @close="closeModal" />
+      <app-modal-donar v-model="modal" @close="closeModal"/>
 
     </transition>
 
@@ -47,49 +45,13 @@
 </template>
 
 <script>
-import { SANDBOX_PUBLIC_API_KEY, SANDBOX_URL } from "~/plugins/BASE_CONFIG";
-import { generateUUID, verifyUUID } from "~/plugins/Donations";
-
 export default {
   name: "IndexFundacion",
   data() {
     return {
-      wompi: {},
+
       modal: false
     }
-  },
-  async mounted() {
-    // const { data } = await this.$axios.get(`https://sandbox.wompi.co/v1/merchants/${SANDBOX_PUBLIC_API_KEY}`);
-    const { data } = await this.$axios.post(`${SANDBOX_URL}/tokens/cards`, {
-      number: '4242424242424242',
-      cvc: '789',
-      exp_month: '12',
-      exp_year: '29',
-      card_holder: 'Juan Perez',
-    }, {
-      headers: {
-        Authorization: `Bearer ${SANDBOX_PUBLIC_API_KEY}`,
-      }
-    });
-    // this.wompi = data.data;
-    // console.log(this.wompi);
-    const ref = generateUUID();
-    const donations = await this.$axios.get('donations');
-    const verify = verifyUUID(donations.data, ref);
-    if (!verify) {
-      const res = await this.$axios.post('donations', {
-        name: 'Jhon',
-        lastname: 'Perez',
-        email: 'lopez@gmail.com',
-        document: '123456789',
-        phone: '123456789',
-        amount: '100',
-        reference: ref,
-      });
-
-      console.log(res);
-    }
-    console.log(data.data.id);
   },
   methods: {
     OPenModal() {
