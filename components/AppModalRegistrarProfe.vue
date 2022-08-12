@@ -191,7 +191,7 @@ export default {
 .modal-principal {
   background: #2B3348;
   border-radius: 25px;
- 
+  box-shadow: 0px 0px 10px 0px rgb(165, 182, 231);
   /* display: grid; */
 }
 

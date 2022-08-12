@@ -29,7 +29,8 @@
                                         <app-input type="number" required label="Cantidad" />
                                     </div>
                                     <div class="p-2">
-                                        <app-metodo-donar label="Metodos de Donación"/>
+                                        <app-select required label="etodos de Donación" />
+                                        <!--<app-metodo-donar label="Metodos de Donación"/>-->
                                     </div>
                                 </div>
                             </div>
@@ -119,6 +120,7 @@ export default {
 .modal-principal {
     background: #2B3348;
     border-radius: 25px;
+     box-shadow: 0px 0px 10px 0px rgb(165, 182, 231);
     /* display: grid; */
 }
 
