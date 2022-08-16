@@ -8,7 +8,7 @@
                       to-[#dab255]">Información del Donante</p>
 
       </div>
-      <form @submit.prevent="saveCard">
+      <form @submit.prevent="payment">
         <div class="px-8">
           <div class="grid justify-center px-3 ">
             <div class="flex justify-evenly p-2">
@@ -18,20 +18,40 @@
                     <!--<app-select required label="Metodos de Donación" />-->
                     <app-metodo-donar v-model="typePay" label="Metodos de Donación"/>
                   </div>
-                  <div class="flex justify-center">
-                    <app-input v-model="form.name" required label="Nombre completo"/>
-                    <app-input v-model="form.document" required label="Cedula / NIT"/>
+                  <div v-if="typePay === 'card' ">
+                    <div class="flex justify-center">
+                      <app-input v-model="form.name" required label="Nombre completo"/>
+                      <app-input v-model="form.document" required label="Cedula / NIT"/>
+                    </div>
+                    <div class="flex justify-center p-2">
+                      <app-input v-model="form.phone" type="number" required label="Telefono"/>
+                      <app-input v-model="form.email" type="email" required label="Correo"/>
+                    </div>
+                    <div class="flex justify-center p-2">
+                      <app-input v-model="form.cardNumber" type="number" required label="Numero de tarjeta"/>
+                      <app-input v-model="form.cvc" type="number" required label="CVC"/>
+                    </div>
+                    <div class="flex justify-center p-2">
+                      <app-input v-model="form.amount" type="number" required label="Cantidad"/>
+                    </div>
                   </div>
-                  <div class="flex justify-center p-2">
-                    <app-input v-model="form.phone" type="number" required label="Telefono"/>
-                    <app-input v-model="form.email" type="email" required label="Correo"/>
-                  </div>
-                  <div class="flex justify-center p-2">
-                    <app-input v-model="form.cardNumber" type="number" required label="Numero de tarjeta"/>
-                    <app-input v-model="form.cvc" type="number" required label="CVC"/>
-                  </div>
-                  <div class="flex justify-center p-2">
-                    <app-input v-model="form.amount" type="number" required label="Cantidad"/>
+                  <div v-if="typePay === 'pse' ">
+                    <div class="flex justify-center">
+                      <app-input v-model="form.name" required label="Nombre completo"/>
+                      <app-input v-model="form.document" required label="Cedula / NIT"/>
+                    </div>
+                    <div class="flex justify-center p-2">
+                      <app-input v-model="form.phone" type="number" required label="Telefono"/>
+                      <app-input v-model="form.email" type="email" required label="Correo"/>
+                    </div>
+                    <div class="flex justify-center w-full">
+                      <app-select :items="pse" required label="Entidad Bancaria"/>
+                      <app-select :items="userTypes" required label="Tipo de persona"/>
+                    </div>
+                    <div class="flex justify-center">
+                      <app-select :items="documentTypes" required label="Tipo de documento"/>
+                      <app-input required label="Número de documento" placeholder="Número de documento"/>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -88,6 +108,26 @@ export default {
   },
   data() {
     return {
+      userTypes: [
+        {
+          llave: "0",
+          attribute: "Persona Natural"
+        },
+        {
+          llave: "1",
+          attribute: "Persona Juridica"
+        }
+      ],
+      documentTypes: [
+        {
+          llave: "CC",
+          attribute: "Cédula de Ciudadanía"
+        },
+        {
+          llave: "NIT",
+          attribute: "NIT"
+        }
+      ],
       typePay: "",
       paymentsMethods: [
         {
@@ -107,11 +147,13 @@ export default {
 
       },
       wompi: {},
+      pse: [],
       clientCard: {}
     }
   },
   mounted() {
     this.getWompi();
+    this.getPse();
   },
   computed: {
     state: {
@@ -145,6 +187,20 @@ export default {
       const {data} = await this.$axios.get(`https://sandbox.wompi.co/v1/merchants/${SANDBOX_PUBLIC_API_KEY}`);
       this.wompi = data.data;
     },
+    async getPse() {
+      const {data} = await this.$axios.get(`${SANDBOX_URL}/pse/financial_institutions`, {
+        headers: {
+          Authorization: `Bearer ${SANDBOX_PUBLIC_API_KEY}`
+        }
+      });
+      const pse = data.data.map(item => {
+        return {
+          llave: item.financial_institution_code,
+          attribute: item.financial_institution_name
+        }
+      });
+      this.pse = pse;
+    },
     async saveCard() {
       const {data} = await this.$axios.post(`${SANDBOX_URL}/tokens/cards`, {
         number: this.form.cardNumber,
@@ -158,8 +214,7 @@ export default {
         }
       });
       this.clientCard = data.data;
-      await this.generatePay();
-      await this.transaction();
+
     },
     async generatePay() {
       this.reference = generateUUID();
@@ -174,9 +229,15 @@ export default {
           amount: this.form.amount,
           reference: this.reference,
         });
+        const payment = {
+          type: 'CARD',
+          token: this.clientCard.id,
+          installments: 2,
+        }
+        await this.transaction(payment);
       }
     },
-    async transaction() {
+    async transaction(payment) {
       const amountInCents = this.form.amount * 100;
       await this.$axios.post(`${SANDBOX_URL}/transactions`, {
         acceptance_token: this.wompi.presigned_acceptance.acceptance_token,
@@ -184,17 +245,36 @@ export default {
         currency: 'COP',
         customer_email: this.form.email,
         reference: this.reference,
-        payment_method: {
-          type: 'CARD',
-          token: this.clientCard.id,
-          installments: 2,
-        }
+        payment_method: payment,
       }, {
         headers: {
           Authorization: `Bearer ${SANDBOX_PUBLIC_API_KEY}`,
         }
       });
     },
+    async payment() {
+      let payment = {}
+      switch (this.typePay) {
+        case 'card':
+          await this.saveCard();
+          await this.generatePay();
+          payment = {
+            type: 'CARD',
+            token: this.clientCard.id,
+            installments: 2,
+          }
+          await this.transaction(payment);
+          break;
+        case 'pse':
+          await this.generatePay();
+          payment = {
+            type: 'PSE',
+          }
+          break;
+        default:
+          break;
+      }
+    }
   }
 }
 </script>

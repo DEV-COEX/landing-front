@@ -1,6 +1,6 @@
 <template>
 
-  <div class="m-2">
+  <div class="m-2 w-full">
     <label class="block text-transparent bg-clip-text bg-gradient-to-r
                       from-[#A6CBFF]
                       to-[#C8DEFF] text-base font-medium mb-2" :for='label'>{{ label }}</label>
