@@ -4,15 +4,19 @@
                       from-[#A6CBFF]
                       to-[#C8DEFF] text-base font-medium mb-2" :for='label'>{{ label }}</label>
     <div>
+
       <div class="flex items-center justify-between">
-        <div>
+        <Transition name="fade" mode="out-in">
+
           <app-btn type="button">
-            <img :src="selected"/>
+            <img :src="selected" />
           </app-btn>
-        </div>
+
+        </Transition>
+
         <div class="flex ">
           <div v-for="(item, i) in metodos" :key="i">
-            <app-btn type="button" class="m-2" @click="changeImage(item)"><img class="h-10" :src="item.image"/>
+            <app-btn type="button" class="m-2" @click="changeImage(item)"><img class="h-10" :src="item.image" />
             </app-btn>
           </div>
         </div>
@@ -41,8 +45,8 @@ export default {
       metodos: [
         {
           name: "paypal",
-          type: "pse",
-          image: "/Metodos/paypal.svg"
+          type: "paypal",
+          image: "/Metodos/cc-paypal.svg"
         },
         {
           name: "paypal",
@@ -55,7 +59,7 @@ export default {
           image: "/Metodos/mastercard.svg"
         }
       ],
-      selected: "/Metodos/paypal.svg",
+      selected: "",
       payMethod: ""
     }
   },
@@ -70,4 +74,13 @@ export default {
 </script>
 
 <style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>
