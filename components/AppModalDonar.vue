@@ -20,37 +20,37 @@
                   </div>
                   <div v-if="typePay === 'card' ">
                     <div class="flex justify-center">
-                      <app-input v-model="form.name" required label="Nombre completo"/>
-                      <app-input v-model="form.document" required label="Cedula / NIT"/>
+                      <app-input v-model="formUser.name" required label="Nombre completo"/>
+                      <app-input v-model="formUser.document" required label="Cedula / NIT"/>
                     </div>
                     <div class="flex justify-center p-2">
-                      <app-input v-model="form.phone" type="number" required label="Telefono"/>
-                      <app-input v-model="form.email" type="email" required label="Correo"/>
+                      <app-input v-model="formUser.phone" type="number" required label="Telefono"/>
+                      <app-input v-model="formUser.email" type="email" required label="Correo"/>
                     </div>
                     <div class="flex justify-center p-2">
-                      <app-input v-model="form.cardNumber" type="number" required label="Numero de tarjeta"/>
-                      <app-input v-model="form.cvc" type="number" required label="CVC"/>
+                      <app-input v-model="formCard.cardNumber" type="number" required label="Numero de tarjeta"/>
+                      <app-input v-model="formCard.cvc" type="number" required label="CVC"/>
                     </div>
                     <div class="flex justify-center p-2">
-                      <app-input v-model="form.amount" type="number" required label="Cantidad"/>
+                      <app-input v-model="amount" type="number" required label="Cantidad"/>
                     </div>
                   </div>
                   <div v-if="typePay === 'pse' ">
                     <div class="flex justify-center">
-                      <app-input v-model="form.name" required label="Nombre completo"/>
-                      <app-input v-model="form.document" required label="Cedula / NIT"/>
+                      <app-input v-model="formUser.name" required label="Nombre completo"/>
+                      <app-input v-model="formUser.document" required label="Cedula / NIT"/>
                     </div>
                     <div class="flex justify-center p-2">
-                      <app-input v-model="form.phone" type="number" required label="Telefono"/>
-                      <app-input v-model="form.email" type="email" required label="Correo"/>
+                      <app-input v-model="formUser.phone" type="number" required label="Telefono"/>
+                      <app-input v-model="formUser.email" type="email" required label="Correo"/>
                     </div>
                     <div class="flex justify-center w-full">
-                      <app-select :items="pse" required label="Entidad Bancaria"/>
-                      <app-select :items="userTypes" required label="Tipo de persona"/>
+                      <app-select :items="pse" v-model="formPse.bank" required label="Entidad Bancaria"/>
+                      <app-select :items="userTypes" v-model="formPse.userType" required label="Tipo de persona"/>
                     </div>
                     <div class="flex justify-center">
-                      <app-select :items="documentTypes" required label="Tipo de documento"/>
-                      <app-input required label="Número de documento" placeholder="Número de documento"/>
+                      <app-select :items="documentTypes" v-model="formPse.documentType" required label="Tipo de documento"/>
+                      <app-input required v-model="formPse.documentNumber" label="Número de documento" placeholder="Número de documento"/>
                     </div>
                   </div>
                 </div>
@@ -136,15 +136,24 @@ export default {
         }
       ],
       error: false,
-      form: {
+      amount: null,
+      formUser: {
         name: null,
         document: null,
         phone: null,
-        email: null,
+        email: null
+      },
+      formCard: {
         cardNumber: null,
         cvc: null,
-        amount: null,
-
+        exp_month: null,
+        exp_year: null
+      },
+      formPse: {
+        bank: null,
+        userType: null,
+        documentType: null,
+        documentNumber: null
       },
       wompi: {},
       pse: [],
@@ -203,11 +212,11 @@ export default {
     },
     async saveCard() {
       const {data} = await this.$axios.post(`${SANDBOX_URL}/tokens/cards`, {
-        number: this.form.cardNumber,
-        cvc: this.form.cvc,
-        exp_month: '12',
-        exp_year: '29',
-        card_holder: this.form.name,
+        number: this.formCard.cardNumber,
+        cvc: this.formCard.cvc,
+        exp_month: this.formCard.exp_month,
+        exp_year: this.formCard.exp_year,
+        card_holder: this.formUser.name,
       }, {
         headers: {
           Authorization: `Bearer ${SANDBOX_PUBLIC_API_KEY}`,
@@ -222,28 +231,22 @@ export default {
       const verify = verifyUUID(donations.data, this.reference);
       if (!verify) {
         await this.$axios.post('donations', {
-          name: this.form.name,
-          email: this.form.email,
-          document: this.form.document,
-          phone: this.form.phone,
-          amount: this.form.amount,
+          name: this.formUser.name,
+          email: this.formUser.email,
+          document: this.formUser.document,
+          phone: this.formUser.phone,
+          amount: this.amount,
           reference: this.reference,
         });
-        const payment = {
-          type: 'CARD',
-          token: this.clientCard.id,
-          installments: 2,
-        }
-        await this.transaction(payment);
       }
     },
     async transaction(payment) {
-      const amountInCents = this.form.amount * 100;
+      const amountInCents = this.amount * 100;
       await this.$axios.post(`${SANDBOX_URL}/transactions`, {
         acceptance_token: this.wompi.presigned_acceptance.acceptance_token,
         amount_in_cents: amountInCents,
         currency: 'COP',
-        customer_email: this.form.email,
+        customer_email: this.formUser.email,
         reference: this.reference,
         payment_method: payment,
       }, {
@@ -269,6 +272,11 @@ export default {
           await this.generatePay();
           payment = {
             type: 'PSE',
+            user_type: this.formPse.userType,
+            user_legal_id_type: this.formPse.documentType,
+            user_legal_id: this.formPse.documentNumber,
+            financial_institution_code: this.formPse.bank,
+            payment_description: 'Donación con referencia ' + this.reference,
           }
           break;
         default:
