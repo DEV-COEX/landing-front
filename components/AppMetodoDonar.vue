@@ -41,23 +41,29 @@ export default {
       metodos: [
         {
           name: "paypal",
+          type: "pse",
           image: "/Metodos/paypal.svg"
         },
         {
           name: "paypal",
+          type: "card",
           image: "/Metodos/visa.svg"
         },
         {
           name: "paypal",
+          type: "paypal",
           image: "/Metodos/mastercard.svg"
         }
       ],
-      selected: "/Metodos/paypal.svg"
+      selected: "/Metodos/paypal.svg",
+      payMethod: ""
     }
   },
   methods: {
     changeImage(item) {
       this.selected = item.image;
+      this.payMethod = item.type;
+      this.$emit('input', this.payMethod);
     }
   }
 }

@@ -16,7 +16,7 @@
                 <div class="p-2">
                   <div class="p-2">
                     <!--<app-select required label="Metodos de Donación" />-->
-                    <app-metodo-donar label="Metodos de Donación"/>
+                    <app-metodo-donar v-model="typePay" label="Metodos de Donación"/>
                   </div>
                   <div class="flex justify-center">
                     <app-input v-model="form.name" required label="Nombre completo"/>
@@ -88,6 +88,7 @@ export default {
   },
   data() {
     return {
+      typePay: "",
       paymentsMethods: [
         {
           llave: "card",
