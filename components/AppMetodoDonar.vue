@@ -6,13 +6,14 @@
     <div>
 
       <div class="flex items-center justify-between">
-        <Transition name="fade" mode="out-in">
-
+        <div v-if="metodo">
           <app-btn type="button">
             <img :src="selected" />
           </app-btn>
+        </div>
 
-        </Transition>
+
+
 
         <div class="flex ">
           <div v-for="(item, i) in metodos" :key="i">
@@ -22,7 +23,7 @@
         </div>
 
       </div>
-      <div class="flex justify-end">
+      <div id="label" class="flex justify-center">
         <label>seleccione uno de estos metodos</label>
       </div>
 
@@ -55,19 +56,22 @@ export default {
         },
         {
           name: "paypal",
-          type: "paypal",
+          type: "card",
           image: "/Metodos/mastercard.svg"
         }
       ],
       selected: "",
-      payMethod: ""
+      payMethod: "",
+      metodo: false
     }
   },
   methods: {
     changeImage(item) {
+      this.metodo=true
       this.selected = item.image;
       this.payMethod = item.type;
       this.$emit('input', this.payMethod);
+      document.getElementById("label").style.justifyContent="flex-end"
     }
   }
 }

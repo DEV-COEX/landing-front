@@ -27,7 +27,7 @@
 
                     <app-input v-model="form.phone" type="number" required label="Teléfono"/>
                   </div>
-                  <div class="">
+                  <div class="p-2">
                     <app-input v-model="form.academic" required label="Ultimo titulo académico finalizado"/>
                     <app-input v-model="form.languages" required label="Mencione los lenguajes de programación que maneja"/>
                   </div>

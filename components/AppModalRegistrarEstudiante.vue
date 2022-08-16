@@ -27,7 +27,7 @@
 
                     <app-input v-model="form.phone" type="number" required label="Teléfono"/>
                   </div>
-                  <div class="">
+                  <div class="p-2">
                     <app-input v-model="form.school" required
                                label="Mencione el colegio en donde cursa o curso su bachillerato"/>
 

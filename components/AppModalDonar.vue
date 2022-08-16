@@ -16,42 +16,50 @@
                 <div class="p-2">
                   <div class="p-2">
                     <!--<app-select required label="Metodos de Donación" />-->
-                    <app-metodo-donar v-model="typePay" label="Metodos de Donación"/>
+                    <app-metodo-donar v-model="typePay" label="Metodos de Donación" />
                   </div>
-                  <div v-if="typePay === 'card' ">
-                    <div class="flex justify-center">
-                      <app-input v-model="form.name" required label="Nombre completo"/>
-                      <app-input v-model="form.document" required label="Cedula / NIT"/>
+                  <div v-if="typePay === 'card'" class="flex  ">
+                    <div class="border-r-2 border-[#4736df] p-2">
+                      <div class="">
+                        <app-input v-model="form.name" required label="Nombre completo" />
+                        <app-input v-model="form.document" required label="Cedula / NIT" />
+                      </div>
+                      <div class=" ">
+                        <app-input v-model="form.phone" type="number" required label="Telefono" />
+                        <app-input v-model="form.email" type="email" required label="Correo" />
+                      </div>
+
                     </div>
-                    <div class="flex justify-center p-2">
-                      <app-input v-model="form.phone" type="number" required label="Telefono"/>
-                      <app-input v-model="form.email" type="email" required label="Correo"/>
+                    <div class="p-2">
+                      <div class=" ">
+                        <app-input v-model="form.cardNumber" type="number" required label="Numero de tarjeta" />
+                        <app-input v-model="form.cvc" type="number" required label="CVC" />
+                      </div>
+                      <div class="">
+                        <app-input v-model="form.amount" type="number" required label="Cantidad" />
+                        <app-input type="date" required label="Mes y año de vencimiento" />
+                      </div>
                     </div>
-                    <div class="flex justify-center p-2">
-                      <app-input v-model="form.cardNumber" type="number" required label="Numero de tarjeta"/>
-                      <app-input v-model="form.cvc" type="number" required label="CVC"/>
-                    </div>
-                    <div class="flex justify-center p-2">
-                      <app-input v-model="form.amount" type="number" required label="Cantidad"/>
-                    </div>
+
                   </div>
-                  <div v-if="typePay === 'pse' ">
+                  <div v-if="typePay === 'pse'">
                     <div class="flex justify-center">
-                      <app-input v-model="form.name" required label="Nombre completo"/>
-                      <app-input v-model="form.document" required label="Cedula / NIT"/>
+                      <app-input v-model="form.name" required label="Nombre completo" />
+                      <app-input v-model="form.document" required label="Cedula / NIT" />
                     </div>
                     <div class="flex justify-center p-2">
-                      <app-input v-model="form.phone" type="number" required label="Telefono"/>
-                      <app-input v-model="form.email" type="email" required label="Correo"/>
+                      <app-input v-model="form.phone" type="number" required label="Telefono" />
+                      <app-input v-model="form.email" type="email" required label="Correo" />
                     </div>
                     <div class="flex justify-center w-full">
-                      <app-select :items="pse" required label="Entidad Bancaria"/>
-                      <app-select :items="userTypes" required label="Tipo de persona"/>
+                      <app-select :items="pse" required label="Entidad Bancaria" />
+                      <app-select :items="userTypes" required label="Tipo de persona" />
                     </div>
                     <div class="flex justify-center">
-                      <app-select :items="documentTypes" required label="Tipo de documento"/>
-                      <app-input required label="Número de documento" placeholder="Número de documento"/>
+                      <app-select :items="documentTypes" required label="Tipo de documento" />
+                      <app-input required label="Número de documento" placeholder="Número de documento" />
                     </div>
+
                   </div>
                 </div>
               </div>
@@ -84,8 +92,8 @@
 
 
 <script>
-import {SANDBOX_PUBLIC_API_KEY, SANDBOX_URL} from "~/plugins/BASE_CONFIG";
-import {generateUUID, verifyUUID} from "~/plugins/Donations";
+import { SANDBOX_PUBLIC_API_KEY, SANDBOX_URL } from "~/plugins/BASE_CONFIG";
+import { generateUUID, verifyUUID } from "~/plugins/Donations";
 
 export default {
   name: "AppModalDonar",
@@ -184,11 +192,11 @@ export default {
       this.$emit("close", true)
     },
     async getWompi() {
-      const {data} = await this.$axios.get(`https://sandbox.wompi.co/v1/merchants/${SANDBOX_PUBLIC_API_KEY}`);
+      const { data } = await this.$axios.get(`https://sandbox.wompi.co/v1/merchants/${SANDBOX_PUBLIC_API_KEY}`);
       this.wompi = data.data;
     },
     async getPse() {
-      const {data} = await this.$axios.get(`${SANDBOX_URL}/pse/financial_institutions`, {
+      const { data } = await this.$axios.get(`${SANDBOX_URL}/pse/financial_institutions`, {
         headers: {
           Authorization: `Bearer ${SANDBOX_PUBLIC_API_KEY}`
         }
@@ -202,7 +210,7 @@ export default {
       this.pse = pse;
     },
     async saveCard() {
-      const {data} = await this.$axios.post(`${SANDBOX_URL}/tokens/cards`, {
+      const { data } = await this.$axios.post(`${SANDBOX_URL}/tokens/cards`, {
         number: this.form.cardNumber,
         cvc: this.form.cvc,
         exp_month: '12',
