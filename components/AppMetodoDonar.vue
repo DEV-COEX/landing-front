@@ -45,7 +45,7 @@ export default {
       metodos: [
         {
           name: "paypal",
-          type: "paypal",
+          type: "pse",
           image: "/Metodos/cc-paypal.svg"
         },
         {
