@@ -5,9 +5,9 @@
                       to-[#C8DEFF] text-base font-medium  " :for="label">
       Fecha de vencimiento
     </label>
-    <div class="flex justify-items-start">
-      <app-select v-model="formulario.exp_month" :items="months" required label="Mes" placeholder="Mes" class="w-20"/>
-      <app-select v-model="formulario.exp_year" :items="years" required label="Año" placeholder="Año" class="w-20"/>
+    <div class="flex justify-around">
+      <app-select v-model="formulario.exp_month" :items="months" required label="Mes" placeholder="Mes" class="w-32"/>
+      <app-select v-model="formulario.exp_year" :items="years" required label="Año" placeholder="Año" class="w-32"/>
     </div>
   </div>
 </template>
