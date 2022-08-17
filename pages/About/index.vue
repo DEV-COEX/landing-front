@@ -44,7 +44,7 @@
           pageTexts['coex-model'] ? pageTexts['coex-model'][0].description : ' '
         }}
       </div>
-      <div class="absolute bottom-28">
+      <div class="flex justify-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="33"
