@@ -5,18 +5,21 @@
                       to-[#C8DEFF] text-base font-medium mb-2" :for='label'>{{ label }}</label>
     <div>
 
-      <div class="flex items-center justify-between">
-        <div v-if="metodo">
+      <div class="sm:flex items-center justify-around ">
+        <div v-if="metodo" class="flex justify-center">
           <app-btn type="button">
-            <img :src="selected"/>
+            <img :src="selected" />
           </app-btn>
         </div>
-        <div class="flex ">
-          <div v-for="(item, i) in metodos" :key="i">
-            <app-btn type="button" class="m-2" @click="changeImage(item)"><img class="h-10" :src="item.image"/>
-            </app-btn>
+        <div class="flex justify-center">
+          <div v-for="(item, i) in metodos" :key="i" class="flex justify-center">
+            <div class="flex">
+              <app-btn type="button" class="m-2" @click="changeImage(item)"><img class="h-10 " :src="item.image" />
+              </app-btn>
+            </div>
           </div>
         </div>
+
       </div>
       <div id="label" class="flex justify-center">
         <label class="text-transparent bg-clip-text bg-gradient-to-r
@@ -44,17 +47,12 @@ export default {
         {
           name: "paypal",
           type: "pse",
-          image: "/Metodos/cc-paypal.svg"
+          image: "/Metodos/pse-seeklogo.com.svg"
         },
         {
-          name: "paypal",
+          name: "card",
           type: "card",
-          image: "/Metodos/visa.svg"
-        },
-        {
-          name: "paypal",
-          type: "card",
-          image: "/Metodos/mastercard.svg"
+          image: "/Metodos/credit-card.svg"
         }
       ],
       selected: "",
