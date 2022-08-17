@@ -1,5 +1,6 @@
 <template>
-  <div id="home" class=" w-full min-h-screen bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477] background-animate">
+  <div id="home"
+    class=" w-full min-h-screen bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477] background-animate">
 
     <div id="contenedor" class="bg-gradient-to-r from-[#1C2365]   to-[#163B85] contenedor   text-white">
       <transition name="fade">
@@ -87,7 +88,24 @@ export default {
   border-bottom-left-radius: 18rem;
   border-bottom-right-radius: 18rem;
 }
-
+@media (max-width: 800px) {
+  .contenedor {
+    border-bottom-left-radius: 14rem;
+    border-bottom-right-radius: 14rem;
+  }
+}
+@media (max-width: 600px) {
+  .contenedor {
+    border-bottom-left-radius: 7rem;
+    border-bottom-right-radius: 7rem;
+  }
+}
+@media (max-width: 300px) {
+  .contenedor {
+    border-bottom-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+  }
+}
 .btnDos {
   width: 80px;
   height: 80px;

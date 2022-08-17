@@ -8,7 +8,7 @@
       inp w-full py-2 px-3 text-[#B8B8B8] leading-tight
       border-[#FFFFFF] border-solid border
       focus:outline-none focus:shadow-outline focus:border-[#dab255] focus:bg-transparent active:bg-[#2B3348]
-                     hover:border-[#FFDF8D]" :name='label' :required='required' :disabled='disabled'>
+                     hover:border-[#FFDF8D]" :name='label' :required='required' :placeholder="placeholder" :disabled='disabled'>
       <option selected :value='null' class='hover:bg-[#E2DCFF]'>Seleccionar...</option>
       <option v-for='(item, key) in items' :key='key' :value='item?.llave'
               class=' hover:bg-[#E2DCFF]'>
@@ -25,6 +25,10 @@ export default {
   name: 'AppSelect',
   props: {
     label: {
+      type: String,
+      default: null
+    },
+    placeholder:{
       type: String,
       default: null
     },

@@ -26,9 +26,10 @@
     >
       <!-- pantalla navbvar -->
       <div class="flex h-full w-full flex-col items-center justify-center z-50">
-        <div class="w-full h-auto text-white text-center" @click="ChangeShow">
-          Sexo Cerrador de navbars 🥵 🥵 🥵 🥵 🥵
-        </div>
+        <div
+          class="w-full h-auto text-white text-center"
+          @click="ChangeShow"
+        ></div>
         <div v-for="(item, i) in navItems" :key="i" @click="ChangeShow">
           <NuxtLink
             :to="item.path"
@@ -96,7 +97,6 @@
               alt="LogoCoex"
             />
           </div>
-
 
           <!-- items navbar -->
           <div v-for="(item, i) in navItems" :key="i">
@@ -296,9 +296,4 @@ export default {
 /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
-
-
-
-
-
 </style>
