@@ -20,14 +20,14 @@
                     <app-metodo-donar v-model="typePay" label="Metodos de Donación" />
                   </div>
                 </div>
-                <div v-else class="xl:p-2 xl:overflow-hidden  lg:h-72  overflow-y-scroll h-56 ">
+                <div v-else class="xl:p-2 lg:overflow-hidden  lg:h-auto  overflow-y-scroll md:h-96 sm:h-80 h-56 ">
                   <div class="xl:p-2">
                     <!--<app-select required label="Metodos de Donación" />-->
                     <app-metodo-donar v-model="typePay" label="Metodos de Donación" />
                   </div>
                   <div v-if="typePay === 'card'" class="lg:flex  sm:p-2">
                     <div class="lg:border-r-2 border-[#4736df]  p-2">
-                      <div class="lg:flex justify-center">
+                      <div class="smsm:flex justify-center">
                         <app-input v-model="formUser.name" required label="Nombre completo" />
                         <app-input v-model="formUser.document" required label="Cedula / NIT" />
                       </div>

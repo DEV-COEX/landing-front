@@ -9,7 +9,7 @@
       border-[#FFFFFF] border-solid border
       focus:outline-none focus:shadow-outline focus:border-[#dab255] focus:bg-transparent active:bg-[#2B3348]
                      hover:border-[#FFDF8D]" :name='label' :required='required' :placeholder="placeholder" :disabled='disabled'>
-      <option selected :value='null' class='hover:bg-[#E2DCFF]'>Seleccionar...</option>
+      <option selected :value='null' class='hover:bg-[#E2DCFF]'>{{ firstOpt }}</option>
       <option v-for='(item, key) in items' :key='key' :value='item?.llave'
               class=' hover:bg-[#E2DCFF]'>
         {{ item?.attribute }}
@@ -53,6 +53,10 @@ export default {
     },
     disabled: {
       type: Boolean
+    },
+    firstOpt: {
+      type: String,
+      default: "Seleccionar..."
     }
   },
   computed: {
