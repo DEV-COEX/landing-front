@@ -18,11 +18,12 @@
         bottom-0
         overflow-hidden
         lg:hidden
-      ">
+      " @click="ChangeShow"
+    >
       <!-- pantalla navbvar -->
       <div class="flex h-full w-full flex-col items-center justify-center z-50">
-        <div class="w-full h-auto text-white text-center" @click="ChangeShow"></div>
-        <div v-for="(item, i) in navItems" :key="i" @click="ChangeShow">
+        <div class="w-full h-auto text-white text-center"></div>
+        <div v-for="(item, i) in navItems" :key="i">
           <NuxtLink :to="item.path" class="flex my-1 text-base font-normal text-white">
             <span class="
                 p-1
@@ -41,7 +42,7 @@
             </span>
           </NuxtLink>
         </div>
-        <div @click="ChangeShow">
+        <div>
           <app-btn class="
               bg-gradient-to-r
               from-red-500
