@@ -1,5 +1,5 @@
 <template>
-  <div id="home" class=" w-full h-screen bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477] background-animate">
+  <div id="home" class=" w-full min-h-screen bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477] background-animate">
 
     <div id="contenedor" class="bg-gradient-to-r from-[#1C2365]   to-[#163B85] contenedor   text-white">
       <transition name="fade">
@@ -14,7 +14,7 @@
       </transition>
 
     </div>
-    <div class=" flex  justify-center pt-16 pb-16 ">
+    <div class=" flex  justify-center py-5 md:py-8 xl:py-16 lg:py-8 ">
       <div id="next" class="btn">
         <button class="btn animate-ping opacity-75" @click="metodoCambio"></button>
       </div>
@@ -145,7 +145,7 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar:hover {
   width: 5px;
-  
+
   /* width of the entire scrollbar */
 }
 

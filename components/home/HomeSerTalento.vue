@@ -3,12 +3,12 @@
     <div class=" z-10  text-white  flex justify-center items-center"
     >
       <div class="">
-        <div class="flex-col justify-center items-center pt-28 ">
-          <div class="flex justify-center">
-            <p class="text-5xl"> {{ pageText[0] ? pageText[0].tittle : '' }} </p>
+        <div class="flex-col justify-center items-center ">
+          <div class="flex justify-center pt-5 xl:pt-28 lg:pt-24 md:pt-20">
+            <p class="xl:text-5xl lg:text-4xl md:text-3xl text-xl w-full sm:w-[80%] lg:w-4/6 text-center font-bold px-7"> {{ pageText[0] ? pageText[0].tittle : '' }} </p>
           </div>
-          <div class="flex justify-center p-10">
-            <p class="text-xl  text-center w-3/6"> {{ pageText[0] ? pageText[0].description : '' }} </p>
+          <div class="flex justify-center xl:p-10 lg:p-5 p-5 md:p-6">
+            <p class="xl:text-xl  lg:text-xl md:text-xl text-md text-center w-full sm:w-[80%] lg:w-3/6"> {{ pageText[0] ? pageText[0].description : '' }} </p>
           </div>
           <div class="flex justify-center ">
             <app-btn class="
