@@ -2,7 +2,7 @@
   <div>
     <section
       class="
-        h-screen
+        min-h-screen
         bg-[#1C233A]
         flex flex-col
         justify-center
@@ -14,7 +14,9 @@
         class="
           font-extrabold
           text-transparent
-          lg:text-6xl
+          xl:text-6xl
+          lg:text-5xl
+          md:text-4xl
           text-xl
           lg:p-4 lg:leading-[68px]
           bg-clip-text bg-gradient-to-r
@@ -30,7 +32,9 @@
           w-full
           px-5
           text-center text-lg
-          lg:text-3xl
+          xl:text-3xl
+          lg:text-2xl
+          md:text-xl
           text-white
           py-5
           lg:leading-10
@@ -53,13 +57,21 @@
       </div>
     </section>
     <section
-      class="h-screen bg-[#1C233A] flex flex-col justify-center items-center"
+      class="
+        min-h-screen
+        bg-[#1C233A]
+        flex flex-col
+        justify-center
+        items-center
+      "
     >
       <div
         class="
           font-extrabold
           text-transparent
-          lg:text-6xl
+          xl:text-6xl
+          lg:text-5xl
+          md:text-4xl
           text-xl
           lg:p-4 lg:leading-[68px]
           bg-clip-text bg-gradient-to-r
@@ -75,7 +87,9 @@
           w-full
           px-5
           text-center text-lg
-          lg:text-3xl
+          lg:text-2xl
+          md:text-xl
+          xl:text-3xl
           text-white
           py-5
           lg:leading-10
@@ -88,7 +102,9 @@
           mt-10
           font-extrabold
           text-transparent
-          lg:text-6xl
+          xl:text-6xl
+          md:text-4xl
+          lg:text-5xl
           text-xl
           lg:p-4 lg:leading-[68px]
           bg-clip-text bg-gradient-to-r
@@ -104,7 +120,9 @@
           w-full
           px-5
           text-center text-lg
-          lg:text-3xl
+          lg:text-2xl
+          xl:text-3xl
+          md:text-xl
           text-white
           py-5
           lg:leading-10
@@ -127,16 +145,26 @@
     >
       <div class="flex flex-col items-center">
         <div
-          class="flex flex-col items-center w-full lg:w-[70%] rounded-[40px] px-6 py-8"
+          class="
+            flex flex-col
+            items-center
+            w-full
+            lg:w-[70%]
+            rounded-[40px]
+            px-6
+            py-8
+          "
           style="background: rgba(47, 50, 125, 0.2)"
         >
           <div
             class="
-            mb-2
-            text-center
+              mb-2
+              text-center
               font-extrabold
               text-transparent
-              lg:text-6xl
+              xl:text-6xl
+              lg:text-5xl
+              md:text-4xl
               text-3xl
               lg:p-4 lg:leading-[68px]
               bg-clip-text bg-gradient-to-r
@@ -174,6 +202,7 @@
               :name="talent.name"
               :job="talent.job"
               :image="talent.imagen.url"
+              class="lg:w-[20rem]"
             />
           </div>
           <app-btn
@@ -193,7 +222,17 @@
       </div>
 
       <div class="flex flex-col items-center mt-3 lg:mt-14">
-        <div class="flex flex-col items-center w-full lg:w-[80%] rounded-[40px] lg:py-12 py-3">
+        <div
+          class="
+            flex flex-col
+            items-center
+            w-full
+            lg:w-[80%]
+            rounded-[40px]
+            lg:py-12
+            py-3
+          "
+        >
           <div
             class="
               mb-2
@@ -266,13 +305,13 @@
       <div
         class="
           font-extrabold
-          text-transparent lg:text-6xl
+          text-transparent
+          lg:text-6xl
           text-2xl
           mt-8
           lg:mt-0
           p-4
-          lg:mb-8
-          lg:leading-[68px]
+          lg:mb-8 lg:leading-[68px]
           bg-clip-text bg-gradient-to-r
           from-[#FFDF8D]
           to-[#FF9838]
@@ -354,7 +393,7 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar:hover {
   width: 5px;
-  
+
   /* width of the entire scrollbar */
 }
 
@@ -364,7 +403,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, #4A5B95 0%, #90BEFF 100%);
+  background: linear-gradient(90deg, #4a5b95 0%, #90beff 100%);
   /* color of the scroll thumb */
   border-radius: 20px;
   /* border: 1px solid rgb(217 70 239);
