@@ -20,7 +20,7 @@
                     <app-metodo-donar v-model="typePay" label="Metodos de Donación" />
                   </div>
                 </div>
-                <div v-else class="xl:p-2 lg:overflow-hidden  lg:h-auto  overflow-y-scroll md:h-96 h-56 ">
+                <div v-else class="xl:p-2 lg:overflow-hidden  lg:h-auto  overflow-y-scroll md:h-96 sm:h-80 h-56 ">
                   <div class="xl:p-2">
                     <!--<app-select required label="Metodos de Donación" />-->
                     <app-metodo-donar v-model="typePay" label="Metodos de Donación" />
