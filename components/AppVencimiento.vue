@@ -6,8 +6,8 @@
       Fecha de vencimiento
     </label>
     <div class="flex justify-around">
-      <app-select v-model="formulario.exp_month" :items="months" required label="Mes" placeholder="Mes" class="lg:w-32 xl:w-34"/>
-      <app-select v-model="formulario.exp_year" :items="years" required label="Año" placeholder="Año" class="lg:w-32 xl:w-34"/>
+      <app-select v-model="formulario.exp_month" :items="months" required label="Mes" placeholder="Mes" class="lg:w-32 xl:w-34 md:w-64 sm:w-60"/>
+      <app-select v-model="formulario.exp_year" :items="years" required label="Año" placeholder="Año" class="lg:w-32 xl:w-34 md:w-64 sm:w-60" />
     </div>
   </div>
 </template>
