@@ -24,7 +24,7 @@
                         bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]
                         m-0
                          text-blue-400   p-2 w-24 h-24   rounded-full  text-xl font-semibold"
-                      @click="btnStarEducacion">Star
+                      @click="btnStarEducacion">Start
               </button>
             </div>
           </div>
@@ -176,7 +176,7 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar:hover {
   width: 5px;
-  
+
   /* width of the entire scrollbar */
 }
 
