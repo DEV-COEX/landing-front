@@ -6,8 +6,8 @@
 
         <div class="">
 
-          <div class="flex justify-center pt-5 xl:pt-28 lg:pt-24 md:pt-20">
-            <p class="xl:text-5xl lg:text-4xl md:text-3xl text-xl w-full sm:w-[80%] lg:w-4/6 px-7  font-bold  text-center text-transparent bg-clip-text bg-gradient-to-r
+          <div class="flex justify-center pt-5 xl:pt-28 lg:pt-24 md:pt-20 ">
+            <p class=" lg:text-5xl md:text-3xl leading-tight text-xl w-full sm:w-[80%] pb-5 lg:w-4/6 px-7  font-bold  text-center text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
                       to-[#dab255]">¿Quieres apoyar el talento joven en tecnología?</p>
