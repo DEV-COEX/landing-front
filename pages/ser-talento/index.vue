@@ -23,7 +23,7 @@
                     text-white
                     hover:from-red-400 hover:to-red-500
 
-                  " @click="OPenDatosPersonales">Inscripción estudiante
+                  " @click="OPenDatosPersonales">Inscripción talento
             </app-btn>
           </a>
           <a href="#serTalento">
@@ -36,7 +36,7 @@
                     text-white
                     hover:from-red-400 hover:to-red-500
 
-                  " @click="OPenDatosPersonalesProfe"> Inscripción profesor
+                  " @click="OPenDatosPersonalesProfe"> Inscripción coach
             </app-btn>
           </a>
 
