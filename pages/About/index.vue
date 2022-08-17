@@ -2,6 +2,11 @@
   <div>
     <section
       class="
+      xl:pt-28
+      lg:pt-20
+      md:pt-16
+      pt-14
+
         min-h-screen
         bg-[#1C233A]
         flex flex-col
@@ -202,7 +207,7 @@
               :name="talent.name"
               :job="talent.job"
               :image="talent.imagen.url"
-              class="lg:w-[20rem]"
+              class="lg:w-[12rem]"
             />
           </div>
           <app-btn
@@ -272,13 +277,7 @@
           </div>
           <div
             class="
-              w-full
-              hidden
-              lg:grid
-              grid-cols-1
-              lg:grid-cols-3
-              justify-center
-              h-full
+              w-full flex-wrap justify-center lg:flex hidden
             "
           >
             <app-talents-card
@@ -288,6 +287,7 @@
               :job="employe.job"
               :image="employe.image.url"
               :details="employe.description"
+              class="lg:w-[20rem] xl:w-[25rem]"
             />
           </div>
         </div>
