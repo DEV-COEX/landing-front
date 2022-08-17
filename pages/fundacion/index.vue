@@ -6,14 +6,14 @@
 
         <div class="">
 
-          <div class="flex justify-center">
-            <p class="text-5xl leading-normal  font-bold  w-3/6 text-center text-transparent bg-clip-text bg-gradient-to-r
+          <div class="flex justify-center pt-5 xl:pt-28 lg:pt-24 md:pt-20">
+            <p class="xl:text-5xl lg:text-4xl md:text-3xl text-xl w-full sm:w-[80%] lg:w-4/6 px-7  font-bold  text-center text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
                       to-[#dab255]">¿Quieres apoyar el talento joven en tecnología?</p>
           </div>
-          <div class="flex justify-center">
-            <p class="text-3xl w-3/6 text-center text-white py-10">Contribuye financiando la educación de uno de
+          <div class="flex justify-center xl:p-10 lg:p-5 p-5 md:p-6">
+            <p class="xl:text-xl  lg:text-xl text-white  md:text-xl text-md text-center w-full sm:w-[80%] lg:w-3/6">Contribuye financiando la educación de uno de
               nuestros talentos COEX. Con un aporte de desde 1 usd puedes cambiar la vida de toda una familia.
             </p>
           </div>
