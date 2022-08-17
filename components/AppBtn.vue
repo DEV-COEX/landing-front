@@ -1,5 +1,5 @@
 <template>
-  <button :type="type" :disabled="disabled" class="
+  <button :type="type" :disabled='disabled' class="
       py-2
       px-4
       rounded-md

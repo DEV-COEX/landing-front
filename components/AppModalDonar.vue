@@ -16,64 +16,62 @@
                 <div class="p-2">
                   <div class="p-2">
                     <!--<app-select required label="Metodos de Donación" />-->
-                    <app-metodo-donar v-model="typePay" label="Metodos de Donación" />
+                    <app-metodo-donar v-model="typePay" label="Metodos de Donación"/>
                   </div>
                   <div v-if="typePay === 'card'" class="flex p-2">
                     <div class="border-r-2 border-[#4736df] p-2">
                       <div class="flex justify-center">
-                        <app-input v-model="formUser.name" required label="Nombre completo" />
-                        <app-input v-model="formUser.document" required label="Cedula / NIT" />
+                        <app-input v-model="formUser.name" required label="Nombre completo"/>
+                        <app-input v-model="formUser.document" required label="Cedula / NIT"/>
                       </div>
                       <div class="flex justify-center ">
-                        <app-input v-model="formUser.phone" type="number" required label="Telefono" />
-                        <app-input v-model="formUser.email" type="email" required label="Correo" />
+                        <app-input v-model="formUser.phone" type="number" required label="Telefono"/>
+                        <app-input v-model="formUser.email" type="email" required label="Correo"/>
                       </div>
                       <div class="">
-                        <app-input v-model="amount" type="number" required label="Cantidad" />
+                        <app-input v-model="amount" type="number" required label="Cantidad"/>
                       </div>
                     </div>
                     <div class="p-2">
                       <div class="">
-                        <app-input v-model="formCard.cardNumber" type="number" required label="Numero de tarjeta" />
-                        <app-input v-model="formCard.cvc" type="number" required label="CVC" />
+                        <app-input v-model="formCard.cardNumber" type="number" required label="Numero de tarjeta"/>
+                        <app-input v-model="formCard.cvc" type="number" required label="CVC"/>
                       </div>
                       <div class="">
 
-                        <app-vencimiento />
+                        <app-vencimiento v-model="formDate"/>
                       </div>
                     </div>
 
 
                   </div>
-                  <div v-if="typePay === 'pse'" >
+                  <div v-if="typePay === 'pse'">
                     <div class="flex border-b-2 border-[#4736df] pb-4">
                       <div>
                         <div class="">
-                          <app-input v-model="formUser.name" required label="Nombre completo" />
-                          <app-input v-model="formUser.document" required label="Cedula / NIT" />
+                          <app-input v-model="formUser.name" required label="Nombre completo"/>
+                          <app-input v-model="formUser.document" required label="Cedula / NIT"/>
                         </div>
                         <div class="">
-                          <app-input v-model="formUser.phone" type="number" required label="Telefono" />
-                          <app-input v-model="formUser.email" type="email" required label="Correo" />
+                          <app-input v-model="formUser.phone" type="number" required label="Telefono"/>
+                          <app-input v-model="formUser.email" type="email" required label="Correo"/>
                         </div>
 
                       </div>
                       <div>
                         <div class="">
-                          <app-select :items="pse" v-model="formPse.bank" required label="Entidad Bancaria" />
-                          <app-select :items="userTypes" v-model="formPse.userType" required label="Tipo de persona" />
+                          <app-select :items="pse" v-model="formPse.bank" required label="Entidad Bancaria"/>
+                          <app-select :items="userTypes" v-model="formPse.userType" required label="Tipo de persona"/>
                         </div>
                         <div class="">
                           <app-select :items="documentTypes" v-model="formPse.documentType" required
-                            label="Tipo de documento" />
-                          <app-input required v-model="formPse.documentNumber" label="Número de documento"
-                            placeholder="Número de documento" />
+                                      label="Tipo de documento"/>
                         </div>
                       </div>
                     </div>
 
                     <div class="">
-                      <app-input v-model="amount" type="number" required label="Cantidad" />
+                      <app-input v-model="amount" type="number" required label="Cantidad"/>
                     </div>
 
                   </div>
@@ -81,7 +79,10 @@
               </div>
             </div>
             <div class="flex justify-center py-4" id="btn-donacion">
-              <app-btn type="submit" class="
+              <app-btn type="submit"
+                       :disabled="typePay=== ''"
+                       v-if="typePay!== ''"
+                       class="
                     bg-gradient-to-r
                     from-red-500
                     to-red-400
@@ -108,8 +109,8 @@
 
 
 <script>
-import { SANDBOX_PUBLIC_API_KEY, SANDBOX_URL } from "~/plugins/BASE_CONFIG";
-import { generateUUID, verifyUUID } from "~/plugins/Donations";
+import {SANDBOX_PUBLIC_API_KEY, SANDBOX_URL} from "~/plugins/BASE_CONFIG";
+import {generateUUID, verifyUUID} from "~/plugins/Donations";
 
 export default {
   name: "AppModalDonar",
@@ -170,15 +171,13 @@ export default {
       formCard: {
         cardNumber: null,
         cvc: null,
-        exp_month: null,
-        exp_year: null
       },
       formPse: {
         bank: null,
         userType: null,
-        documentType: null,
-        documentNumber: null
+        documentType: null
       },
+      formDate: {},
       wompi: {},
       pse: [],
       clientCard: {}
@@ -214,16 +213,16 @@ export default {
       this.$emit("metodoBoton")
     },
     close() {
+      this.typePay = "";
       this.$emit("close", true)
     },
     async getWompi() {
-     /* document.getElementById("btn-donacion").style.display="none" */
-      const { data } = await this.$axios.get(`https://sandbox.wompi.co/v1/merchants/${SANDBOX_PUBLIC_API_KEY}`);
+      /* document.getElementById("btn-donacion").style.display="none" */
+      const {data} = await this.$axios.get(`https://sandbox.wompi.co/v1/merchants/${SANDBOX_PUBLIC_API_KEY}`);
       this.wompi = data.data;
     },
     async getPse() {
-      
-      const { data } = await this.$axios.get(`${SANDBOX_URL}/pse/financial_institutions`, {
+      const {data} = await this.$axios.get(`${SANDBOX_URL}/pse/financial_institutions`, {
         headers: {
           Authorization: `Bearer ${SANDBOX_PUBLIC_API_KEY}`
         }
@@ -232,18 +231,18 @@ export default {
         return {
           llave: item.financial_institution_code,
           attribute: item.financial_institution_name
-          
+
         }
       });
       this.pse = pse;
     },
     async saveCard() {
-      const { data } = await this.$axios.post(`${SANDBOX_URL}/tokens/cards`, {
+      const {data} = await this.$axios.post(`${SANDBOX_URL}/tokens/cards`, {
         number: this.formCard.cardNumber,
         cvc: this.formCard.cvc,
         exp_month: this.formCard.exp_month,
-        exp_year: this.formCard.exp_year,
-        card_holder: this.formUser.name,
+        exp_year: this.formDate.exp_year,
+        card_holder: this.formDate.name,
       }, {
         headers: {
           Authorization: `Bearer ${SANDBOX_PUBLIC_API_KEY}`,
@@ -283,7 +282,7 @@ export default {
       });
     },
     async payment() {
-     
+
       let payment = {}
       switch (this.typePay) {
         case 'card':
@@ -302,7 +301,7 @@ export default {
             type: 'PSE',
             user_type: this.formPse.userType,
             user_legal_id_type: this.formPse.documentType,
-            user_legal_id: this.formPse.documentNumber,
+            user_legal_id: this.formUser.document,
             financial_institution_code: this.formPse.bank,
             payment_description: 'Donación con referencia ' + this.reference,
           }
