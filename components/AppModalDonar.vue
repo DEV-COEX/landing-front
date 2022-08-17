@@ -1,7 +1,7 @@
 <template>
   <div v-if="state" class="centrar fondo-modal z-50" style="left: 0;">
     <div class="modal-principal opacity-95">
-      <div class="flex justify-center sm:px-10  py-5">
+      <div class="flex justify-center sm:px-10  xl:py-5 py-3">
         <p class="font-bold  text-xl text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
@@ -9,29 +9,29 @@
 
       </div>
       <form @submit.prevent="payment">
-        <div class=" sm:px-8">
-          <div class="grid justify-center sm:px-3 ">
-            <div class="flex justify-evenly sm:p-2">
+        <div class=" xl:px-8 px-2">
+          <div class="grid justify-center lg:px-3 ">
+            <div class="flex justify-evenly xl:p-2">
               <div class="flex items-center ">
                 <div v-if="typePay === ''"
                   >
-                  <div class="supersm:p-2">
+                  <div class="xl:p-2">
                     <!--<app-select required label="Metodos de Donación" />-->
                     <app-metodo-donar v-model="typePay" label="Metodos de Donación" />
                   </div>
                 </div>
-                <div v-else class="supersm:p-2 xl:overflow-hidden xl:h-auto   overflow-y-scroll h-56 ">
-                  <div class="supersm:p-2">
+                <div v-else class="xl:p-2 xl:overflow-hidden  lg:h-72  overflow-y-scroll h-56 ">
+                  <div class="xl:p-2">
                     <!--<app-select required label="Metodos de Donación" />-->
                     <app-metodo-donar v-model="typePay" label="Metodos de Donación" />
                   </div>
-                  <div v-if="typePay === 'card'" class="flex  p-2">
-                    <div class="border-r-2 border-[#4736df] p-2">
-                      <div class="flex justify-center">
+                  <div v-if="typePay === 'card'" class="lg:flex  sm:p-2">
+                    <div class="lg:border-r-2 border-[#4736df]  p-2">
+                      <div class="lg:flex justify-center">
                         <app-input v-model="formUser.name" required label="Nombre completo" />
                         <app-input v-model="formUser.document" required label="Cedula / NIT" />
                       </div>
-                      <div class="flex justify-center ">
+                      <div class="lg:flex justify-center ">
                         <app-input v-model="formUser.phone" type="number" required label="Telefono" />
                         <app-input v-model="formUser.email" type="email" required label="Correo" />
                       </div>
@@ -53,7 +53,7 @@
 
                   </div>
                   <div v-if="typePay === 'pse'" class="">
-                    <div class=" border-b-2 border-[#4736df] pb-4 ">
+                    <div class=" lg:border-b-2 border-b-0 border-[#4736df] pb-4 ">
                       <div class="smsm:flex ">
                         <div>
                           <div class="">
@@ -96,7 +96,7 @@
 
               </div>
             </div>
-            <div class="flex justify-center py-4" id="btn-donacion">
+            <div class="flex justify-center lg:py-2 py-4 border-[#4736df] lg:border-t-0 border-t-2" id="btn-donacion">
               <app-btn type="submit" :disabled="typePay === ''" v-if="typePay !== ''" class="
                     bg-gradient-to-r
                     from-red-500
