@@ -15,6 +15,7 @@
           <div class="flex justify-center">
             <p
               class="
+                pb-[10px]
                 xl:text-5xl
                 lg:text-4xl
                 md:text-3xl
@@ -72,6 +73,7 @@
           <div class="flex justify-center pt-5 lg:pt-0 md:pt-20">
             <p
               class="
+                pb-[10px]
                 xl:text-5xl
                 lg:text-4xl
                 md:text-3xl
