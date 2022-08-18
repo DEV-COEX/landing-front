@@ -1,5 +1,5 @@
 <template>
-  <div v-if="state" class="centrar fondo-modal z-50" style="left: 0;">
+  <div v-if="state" class="centrar fondo-modal md:px-[1.25rem] px-[0.50rem] z-50" style="left: 0;">
     <div class="modal-principal opacity-95">
       <div class="flex justify-center sm:px-10  xl:py-5 py-3">
         <p class="font-bold  text-xl text-transparent bg-clip-text bg-gradient-to-r
@@ -196,7 +196,8 @@ export default {
       formDate: {},
       wompi: {},
       pse: [],
-      clientCard: {}
+      clientCard: {},
+      transaction2: null
     }
   },
   computed: {
@@ -315,18 +316,21 @@ export default {
           Authorization: `Bearer ${key}`,
         }
       });
-      console.log(data);
+      this.transaction2 = data;
     },
-    endPse() {
+    endTransaction() {
       const longPolling = setInterval(async () => {
         const {data} = await this.$axios.get(`${SANDBOX_URL}/transactions?reference=${this.reference}`, {
           headers: {
             Authorization: `Bearer ${SANDBOX_PRIVATE_API_KEY}`,
           }
         });
+
         if (data.data[0].payment_method.extra){
-        window.open(data.data[0].payment_method.extra.async_payment_url, '_blank');
-          if (data.data[0].status === 'approved') {
+        if (this.typePay === "pse") {
+          window.open(data.data[0].payment_method.extra.async_payment_url, '_blank');
+        }
+          if (data.data[0].status === "APPROVED") {
             clearInterval(longPolling);
             this.close();
             this.$emit("payment", true);
@@ -340,8 +344,15 @@ export default {
         }
       }, 1000);
     },
+    async prueba() {
+      const {data} = await this.$axios.get(`${SANDBOX_URL}/transactions/${this.transaction2.data.id}`, {
+        headers: {
+          Authorization: `Bearer ${SANDBOX_PRIVATE_API_KEY}`,
+        }
+      });
+      console.log(data);
+    },
     async payment() {
-
       let payment = {}
       switch (this.typePay) {
         case 'card':
@@ -356,9 +367,11 @@ export default {
               installments: 2,
             }
             await this.transaction(payment, SANDBOX_PUBLIC_API_KEY);
+            await this.endTransaction();
             this.close();
             this.$emit("payment", true);
           } catch (error) {
+            this.loadingPayment = false;
             this.$emit("error", true);
           }
           break;
@@ -377,8 +390,9 @@ export default {
               payment_description: 'Donación con referencia ' + this.reference,
             }
             await this.transaction(payment, SANDBOX_PRIVATE_API_KEY);
-            this.endPse();
+            this.endTransaction();
           }catch (error) {
+            this.loadingPayment = false;
             this.$emit("error", true);
           }
           break;
