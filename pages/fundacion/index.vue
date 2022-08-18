@@ -37,12 +37,17 @@
 
     </div>
     <transition name="fade">
-      <app-modal-donar v-model="modal" @close="closeModal" @payment="OPenModalsexo"/>
+      <app-modal-donar v-model="modal" @close="closeModal" @payment="OPenModalsexo" @error="OPenModalError"/>
 
     </transition>
     <transition name="fade">
       <app-donar-exitosa v-model="modalsexo" @close="closeModalsexo" id="sexo"
         v-bind:class="[modalsexo ? 'animate__animated animate__heartBeat' : 'animate__animated animate__rollOut']" />
+
+    </transition>
+    <transition name="fade">
+      <app-donar-error v-model="modalerror" @close="closeModalError"
+        v-bind:class="[modalerror ? 'animate__animated animate__heartBeat' : 'animate__animated animate__rollOut']" />
 
     </transition>
   </div>
@@ -57,6 +62,7 @@ export default {
 
       modal: false,
       modalsexo: false,
+      modalerror: false
 
     }
   },
@@ -87,6 +93,18 @@ export default {
       document.getElementById('indexDonar').style.filter = 'blur(0)'
       document.querySelector('body').classList.remove('overflow-hidden')
     },
+
+    OPenModalError() {
+      this.modalerror = true
+      document.getElementById('indexDonar').style.filter = 'blur(5px)'
+      document.querySelector('body').classList.add('overflow-hidden')
+    },
+    closeModalError() {
+      this.modalerror = false
+      document.getElementById('indexDonar').style.filter = 'blur(0)'
+      document.querySelector('body').classList.remove('overflow-hidden')
+    },
+
   }
 }
 </script>
@@ -134,5 +152,15 @@ body::-webkit-scrollbar-thumb {
   /* border: 1px solid rgb(217 70 239);
   /* roundness of the scroll thumb */
   /* creates padding around scroll thumb */
+}
+.modal{
+
+}
+
+.modal .modal--open{
+
+}
+.modal .modal--open .modal--close{
+
 }
 </style>

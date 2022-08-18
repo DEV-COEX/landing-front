@@ -16,7 +16,7 @@
   >
     <div class="flex justify-center items-center">
       <div class="">
-        <div class="flex justify-center pt-5 xl:pt-28 lg:pt-24 md:pt-20">
+        <div class="flex justify-center pt-20 xl:pt-28 lg:pt-24 md:pt-20">
           <p
             class="
               xl:text-5xl

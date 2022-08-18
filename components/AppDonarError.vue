@@ -4,9 +4,9 @@
             <div class="">
                 <div class="flex flex-col justify-center items-center w-full  p-6 opacity-100">
 
-                    <img src="/check.gif" alt="iconAirplane" class="w-52" />
+                    <img src="/error.svg" alt="iconAirplane" class="w-52 p-7"  />
                     <p class="text-center text-white text-xl">
-                        Donación exitosa, gracias por tu colaboración
+                        Upsss! algo malio sal
                     </p>
                 </div>
             </div>
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-    name: 'AppDonarExitosa',
+    name: 'AppModal',
     props: {
         disabled: {
             type: Boolean,
@@ -54,7 +54,7 @@ export default {
         },
         close() {
             this.$emit('close', true)
-            this.$router.push('/')
+       
         },
     },
 }
