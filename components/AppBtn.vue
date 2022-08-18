@@ -4,7 +4,8 @@
     :disabled="disabled"
     class="
       py-2
-      px-4
+      md:px-4
+      px-2
       rounded-md
       disabled:bg-gradient-to-r disabled:from-[#fa645c] disabled:via-[#ff847e] disabled:to-[#fcc5c3]
       bx-shadow
