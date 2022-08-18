@@ -23,18 +23,17 @@
         <div class="grid justify-center px-3">
           <div class="flex justify-center">
             <p class="text-lg text-white py-5">
-              “Al enviar mis datos personales y/o del menor de edad que
-              represento, autorizo de manera previa, expresa e inequívoca a
-              INFINITY PRIME S.A.S a darles tratamiento,
-              incluyendo el consentimiento explicito para tratar datos sensibles
-              aun conociendo la posibilidad de oponerme a ello, conforme a las
-              finalidades incorporadas en la Política de Tratamiento de la
-              Información publicada en "2" y en Calle de los
-              estudiantes 9-82 Ciudadela Real de Minas, que declaro conocer y
-              estar informado que en ella se presentan los derechos que me
-              asisten como titular y los canales de atención donde ejercerlos.”
-              ¿Acepta que sus datos sean tratados según la política establecida
-              en la Ley 1581 de 2012, de Protección de datos personales?
+              “En cumplimiento de las disposiciones de la Ley 1581 de 2012 y del Decreto reglamentario 1377 de 2013 que
+              desarrollan el derecho de habeas data, solicitamos su autorización para que la empresa INFINITY PRIME SAS
+              (Marca Comercial COEX), en calidad de responsable del Tratamiento pueda recopilar, almacenar, archivar,
+              copiar, analizar, usar y consultar los datos que se señalan a continuación. Estos datos serán recolectados
+              por INFINITY PRIME SAS (Marca Comercial COEX) con las siguientes finalidades, todas relacionados con las
+              actividades de Infinity Prime y el ejercicio de su objeto y sus actividades: 1. Validar la veracidad de la
+              información; 2. Ser contactado por parte de Infinity Prime SAS; 3. envío de información relacionada con
+              programas, actividades, eventos, noticias, publicidad, contenidos por área de interés, productos y demás
+              bienes o servicios ofrecidos por la marca COEX; La autorización para adelantar el tratamiento de mis datos
+              personales, se extiende por tiempo indefinido, siempre que tal tratamiento se encuentre relacionado con
+              las finalidades para los cuales los datos personales fueron inicialmente suministrados. ¿Desea continuar?
             </p>
           </div>
 
@@ -51,12 +50,14 @@
                   hover:from-blue-400 hover:to-blue-500
                 "
                 @click="metodoBoton"
-                >Autorizo</app-btn
+              >Autorizo
+              </app-btn
               >
               <app-btn
                 class="bg-[#1C233A] p-1 mx-4 text-white w-full"
                 @click="close"
-                >Cerrar</app-btn
+              >Cerrar
+              </app-btn
               >
             </div>
           </div>

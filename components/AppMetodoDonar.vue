@@ -6,8 +6,8 @@
     <div>
 
       <div class="sm:flex items-center justify-around ">
-        <div v-if="metodo" class="flex justify-center">
-          <app-btn type="button">
+        <div v-show="metodo"  class="flex justify-center">
+          <app-btn  type="button">
             <img :src="selected" />
           </app-btn>
         </div>
@@ -62,9 +62,9 @@ export default {
   },
   methods: {
     changeImage(item) {
-      this.metodo = true
       this.selected = item.image;
       this.payMethod = item.type;
+      this.metodo = true
       this.$emit('input', this.payMethod);
       document.getElementById("label").style.justifyContent = "flex-end"
     }
