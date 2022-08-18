@@ -1,7 +1,7 @@
 <template>
   <div v-if="state" class="centrar fondo-modal md:px-[1.25rem] px-[0.25rem] z-50" style="left: 0;">
     <div class="modal-principal opacity-95">
-      <div class="flex justify-center px-10  xl:py-5 py-2">
+      <div class="flex justify-center px-10  py-5 ">
         <p class="font-bold  text-xl text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]

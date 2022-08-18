@@ -1,5 +1,5 @@
 <template>
-  <div v-if="state" class="centrar fondo-modal md:px-[1.25rem] px-[0.25rem] z-50" style="left: 0;">
+  <div v-if="state" class="centrar fondo-modal md:px-[1.25rem] px-[0.50rem] z-50" style="left: 0;">
     <div class="modal-principal opacity-95">
       <div class="flex justify-center sm:px-10  xl:py-5 py-3">
         <p class="font-bold  text-xl text-transparent bg-clip-text bg-gradient-to-r
@@ -324,9 +324,10 @@ export default {
             Authorization: `Bearer ${SANDBOX_PRIVATE_API_KEY}`,
           }
         });
+        
         if (data.data[0].payment_method.extra){
         window.open(data.data[0].payment_method.extra.async_payment_url, '_blank');
-          if (data.data[0].status === 'approved') {
+          if (data.data[0].status === "APPROVED") {
             clearInterval(longPolling);
             this.close();
             this.$emit("payment", true);

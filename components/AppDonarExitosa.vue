@@ -1,5 +1,5 @@
 <template>
-    <div v-if="state" id="donacion" class="centrar fondo-modal z-50" style="left: 0" @click="close">
+    <div v-if="state" id="donacion" class="centrar fondo-modal md:px-[1.25rem] px-[0.50rem] z-50" style="left: 0" @click="close">
         <div class="modal-principal opacity-95 ">
             <div class="">
                 <div class="flex flex-col justify-center items-center w-full  p-6 opacity-100">
