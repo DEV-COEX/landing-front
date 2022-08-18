@@ -17,20 +17,18 @@
     >
       <div class="grid justify-center items-center">
         <div class="pb-5">
-          <div class="flex justify-center pt-5 xl:pt-28 lg:pt-24 md:pt-20">
+          <div class="flex justify-center pt-5 pb-5 ">
             <p
               class="
-                xl:text-5xl
-                lg:text-4xl
-                md:text-3xl
+                xl:text-4xl
+                lg:text-3xl
+                md:text-2xl
                 text-xl
                 w-full
                 sm:w-[80%]
                 lg:w-4/6
                 text-center text-white
-                px-5
-                md:px-8
-                lg:px-0
+               
               "
             >
               Nuestro grupo COEX te da la bienvenida, queremos que seas parte de
