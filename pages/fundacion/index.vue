@@ -31,6 +31,16 @@
                   " @click="OPenModal">Quiero donar
               </app-btn>
             </a>
+            <app-btn class="
+                    bg-gradient-to-r
+                    from-red-500
+                    to-red-400
+                    p-1
+                    mx-6
+                    text-white
+                     hover:from-red-400 hover:to-red-500
+                  " @click="OPenModalError">Quiero
+              </app-btn>
           </div>
         </div>
       </div>
@@ -45,6 +55,11 @@
         v-bind:class="[modalsexo ? 'animate__animated animate__heartBeat' : 'animate__animated animate__rollOut']" />
 
     </transition>
+    <transition name="fade">
+      <app-donar-error v-model="modalerror" @close="closeModalError"
+        v-bind:class="[modalerror ? 'animate__animated animate__heartBeat' : 'animate__animated animate__rollOut']" />
+
+    </transition>
   </div>
 
 </template>
@@ -57,6 +72,7 @@ export default {
 
       modal: false,
       modalsexo: false,
+      modalerror: false
 
     }
   },
@@ -87,6 +103,18 @@ export default {
       document.getElementById('indexDonar').style.filter = 'blur(0)'
       document.querySelector('body').classList.remove('overflow-hidden')
     },
+    
+    OPenModalError() {
+      this.modalerror = true
+      document.getElementById('indexDonar').style.filter = 'blur(5px)'
+      document.querySelector('body').classList.add('overflow-hidden')
+    },
+    closeModalError() {
+      this.modalerror = false
+      document.getElementById('indexDonar').style.filter = 'blur(0)'
+      document.querySelector('body').classList.remove('overflow-hidden')
+    },
+    
   }
 }
 </script>
@@ -134,5 +162,15 @@ body::-webkit-scrollbar-thumb {
   /* border: 1px solid rgb(217 70 239);
   /* roundness of the scroll thumb */
   /* creates padding around scroll thumb */
+}
+.modal{
+
+}
+
+.modal .modal--open{
+
+}
+.modal .modal--open .modal--close{
+
 }
 </style>
