@@ -97,7 +97,7 @@
               </div>
             </div>
             <div class="flex justify-center lg:py-2 py-4 border-[#4736df] lg:border-t-0 border-t-2" id="btn-donacion">
-              <app-btn  v-if="typePay !== ''" type="submit" :disabled="typePay === ''" class="
+              <app-btn  v-if="typePay !== ''" type="submit" :disabled="loadingPayment" class="
                     bg-gradient-to-r
                     from-red-500
                     to-red-400
@@ -105,7 +105,7 @@
                     mx-2
                     text-white
                     hover:from-red-400 hover:to-red-500
-                  ">Enviar Donación
+                  ">{{ loadingPayment ? 'Enviando..' : 'Enviar donacion' }}
               </app-btn>
               <app-btn type="button" class="
                      bg-[#1C233A]
@@ -148,6 +148,7 @@ export default {
   },
   data() {
     return {
+      loadingPayment: false,
       userTypes: [
         {
           llave: "0",
@@ -247,6 +248,7 @@ export default {
       }
       this.formDate = {}
       this.amount = null;
+      this.loadingPayment = false;
       this.$emit("close", true)
     },
     async getWompi() {
@@ -301,7 +303,7 @@ export default {
     },
     async transaction(payment, key) {
       const amountInCents = this.amount * 100;
-      await this.$axios.post(`${SANDBOX_URL}/transactions`, {
+      const {data} = await this.$axios.post(`${SANDBOX_URL}/transactions`, {
         acceptance_token: this.wompi.presigned_acceptance.acceptance_token,
         amount_in_cents: amountInCents,
         currency: 'COP',
@@ -313,6 +315,7 @@ export default {
           Authorization: `Bearer ${key}`,
         }
       });
+      console.log(data);
     },
     endPse() {
       const longPolling = setInterval(async () => {
@@ -321,12 +324,17 @@ export default {
             Authorization: `Bearer ${SANDBOX_PRIVATE_API_KEY}`,
           }
         });
-        console.log(data);
         if (data.data[0].payment_method.extra){
-          clearInterval(longPolling);
-          window.open(data.data[0].payment_method.extra.async_payment_url, '_blank');
-          this.close();
-          this.$emit("payment", true);
+        window.open(data.data[0].payment_method.extra.async_payment_url, '_blank');
+          if (data.data[0].status === 'approved') {
+            clearInterval(longPolling);
+            this.close();
+            this.$emit("payment", true);
+          }else {
+            clearInterval(longPolling);
+            this.close();
+            this.$emit("error", true);
+          }
         }else {
           console.error("No se pudo obtener el token de pago", data);
         }
@@ -338,6 +346,7 @@ export default {
       switch (this.typePay) {
         case 'card':
           try {
+            this.loadingPayment = true;
             await this.getWompi();
             await this.saveCard();
             await this.generatePay();
@@ -350,11 +359,12 @@ export default {
             this.close();
             this.$emit("payment", true);
           } catch (error) {
-            console.log(error);
+            this.$emit("error", true);
           }
           break;
         case 'pse':
           try {
+            this.loadingPayment = true;
             await this.getWompi();
             await this.getPse();
             await this.generatePay();
@@ -369,7 +379,7 @@ export default {
             await this.transaction(payment, SANDBOX_PRIVATE_API_KEY);
             this.endPse();
           }catch (error) {
-            console.log(error);
+            this.$emit("error", true);
           }
           break;
         default:

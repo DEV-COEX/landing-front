@@ -31,23 +31,13 @@
                   " @click="OPenModal">Quiero donar
               </app-btn>
             </a>
-            <app-btn class="
-                    bg-gradient-to-r
-                    from-red-500
-                    to-red-400
-                    p-1
-                    mx-6
-                    text-white
-                     hover:from-red-400 hover:to-red-500
-                  " @click="OPenModalError">Quiero
-              </app-btn>
           </div>
         </div>
       </div>
 
     </div>
     <transition name="fade">
-      <app-modal-donar v-model="modal" @close="closeModal" @payment="OPenModalsexo"/>
+      <app-modal-donar v-model="modal" @close="closeModal" @payment="OPenModalsexo" @error="OPenModalError"/>
 
     </transition>
     <transition name="fade">
@@ -103,7 +93,7 @@ export default {
       document.getElementById('indexDonar').style.filter = 'blur(0)'
       document.querySelector('body').classList.remove('overflow-hidden')
     },
-    
+
     OPenModalError() {
       this.modalerror = true
       document.getElementById('indexDonar').style.filter = 'blur(5px)'
@@ -114,7 +104,7 @@ export default {
       document.getElementById('indexDonar').style.filter = 'blur(0)'
       document.querySelector('body').classList.remove('overflow-hidden')
     },
-    
+
   }
 }
 </script>

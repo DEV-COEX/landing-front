@@ -17,7 +17,7 @@
 
 <script>
 export default {
-    name: 'AppModal',
+    name: 'AppDonarExitosa',
     props: {
         disabled: {
             type: Boolean,
@@ -54,7 +54,7 @@ export default {
         },
         close() {
             this.$emit('close', true)
-       
+            this.$router.push('/')
         },
     },
 }
