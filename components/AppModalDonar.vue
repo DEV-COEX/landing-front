@@ -68,12 +68,12 @@
                         </div>
                         <div>
                           <div class="">
-                            <app-select :items="documentTypes" v-model="formPse.documentType" required
+                            <app-select v-model="formPse.documentType" :items="documentTypes" required
                               label="Tipo de documento" />
                           </div>
                           <div class="">
-                            <app-select :items="pse" v-model="formPse.bank" required label="Entidad Bancaria" />
-                            <app-select :items="userTypes" v-model="formPse.userType" required
+                            <app-select v-model="formPse.bank" :items="pse" required label="Entidad Bancaria" />
+                            <app-select v-model="formPse.userType" :items="userTypes" required
                               label="Tipo de persona" />
                           </div>
 
@@ -97,7 +97,7 @@
               </div>
             </div>
             <div class="flex justify-center lg:py-2 py-4 border-[#4736df] lg:border-t-0 border-t-2" id="btn-donacion">
-              <app-btn type="submit" :disabled="typePay === ''" v-if="typePay !== ''" class="
+              <app-btn  v-if="typePay !== ''" type="submit" :disabled="typePay === ''" class="
                     bg-gradient-to-r
                     from-red-500
                     to-red-400
@@ -124,7 +124,7 @@
 
 
 <script>
-import { SANDBOX_PUBLIC_API_KEY, SANDBOX_URL } from "~/plugins/BASE_CONFIG";
+import { SANDBOX_PUBLIC_API_KEY, SANDBOX_URL, SANDBOX_PRIVATE_API_KEY } from "~/plugins/BASE_CONFIG";
 import { generateUUID, verifyUUID } from "~/plugins/Donations";
 
 export default {
@@ -198,10 +198,6 @@ export default {
       clientCard: {}
     }
   },
-  mounted() {
-    this.getWompi();
-    this.getPse();
-  },
   computed: {
     state: {
       set(value) {
@@ -220,8 +216,13 @@ export default {
       }
     }
   },
+  mounted() {
+    this.getWompi();
+    this.getPse();
+  },
   methods: {
     cerrarModal() {
+
       this.state = false
     },
     metodoBoton() {
@@ -229,6 +230,23 @@ export default {
     },
     close() {
       this.typePay = "";
+      this.formUser = {
+        name: "",
+        document: "",
+        phone: null,
+        email: null
+      }
+      this.formCard = {
+        cardNumber: null,
+        cvc: null,
+      }
+      this.formPse = {
+        bank: null,
+        userType: null,
+        documentType: null
+      }
+      this.formDate = {}
+      this.amount = null;
       this.$emit("close", true)
     },
     async getWompi() {
@@ -255,9 +273,9 @@ export default {
       const { data } = await this.$axios.post(`${SANDBOX_URL}/tokens/cards`, {
         number: this.formCard.cardNumber,
         cvc: this.formCard.cvc,
-        exp_month: this.formCard.exp_month,
+        exp_month: this.formDate.exp_month,
         exp_year: this.formDate.exp_year,
-        card_holder: this.formDate.name,
+        card_holder: this.formUser.name,
       }, {
         headers: {
           Authorization: `Bearer ${SANDBOX_PUBLIC_API_KEY}`,
@@ -281,7 +299,7 @@ export default {
         });
       }
     },
-    async transaction(payment) {
+    async transaction(payment, key) {
       const amountInCents = this.amount * 100;
       await this.$axios.post(`${SANDBOX_URL}/transactions`, {
         acceptance_token: this.wompi.presigned_acceptance.acceptance_token,
@@ -292,33 +310,66 @@ export default {
         payment_method: payment,
       }, {
         headers: {
-          Authorization: `Bearer ${SANDBOX_PUBLIC_API_KEY}`,
+          Authorization: `Bearer ${key}`,
         }
       });
+    },
+    endPse() {
+      const longPolling = setInterval(async () => {
+        const {data} = await this.$axios.get(`${SANDBOX_URL}/transactions?reference=${this.reference}`, {
+          headers: {
+            Authorization: `Bearer ${SANDBOX_PRIVATE_API_KEY}`,
+          }
+        });
+        console.log(data);
+        if (data.data[0].payment_method.extra){
+          clearInterval(longPolling);
+          window.open(data.data[0].payment_method.extra.async_payment_url, '_blank');
+          this.close();
+          this.$emit("payment", true);
+        }else {
+          console.error("No se pudo obtener el token de pago", data);
+        }
+      }, 1000);
     },
     async payment() {
 
       let payment = {}
       switch (this.typePay) {
         case 'card':
-          await this.saveCard();
-          await this.generatePay();
-          payment = {
-            type: 'CARD',
-            token: this.clientCard.id,
-            installments: 2,
+          try {
+            await this.getWompi();
+            await this.saveCard();
+            await this.generatePay();
+            payment = {
+              type: 'CARD',
+              token: this.clientCard.id,
+              installments: 2,
+            }
+            await this.transaction(payment, SANDBOX_PUBLIC_API_KEY);
+            this.close();
+            this.$emit("payment", true);
+          } catch (error) {
+            console.log(error);
           }
-          await this.transaction(payment);
           break;
         case 'pse':
-          await this.generatePay();
-          payment = {
-            type: 'PSE',
-            user_type: this.formPse.userType,
-            user_legal_id_type: this.formPse.documentType,
-            user_legal_id: this.formUser.document,
-            financial_institution_code: this.formPse.bank,
-            payment_description: 'Donación con referencia ' + this.reference,
+          try {
+            await this.getWompi();
+            await this.getPse();
+            await this.generatePay();
+            payment = {
+              type: 'PSE',
+              user_type: this.formPse.userType,
+              user_legal_id_type: this.formPse.documentType,
+              user_legal_id: this.formUser.document,
+              financial_institution_code: this.formPse.bank,
+              payment_description: 'Donación con referencia ' + this.reference,
+            }
+            await this.transaction(payment, SANDBOX_PRIVATE_API_KEY);
+            this.endPse();
+          }catch (error) {
+            console.log(error);
           }
           break;
         default:

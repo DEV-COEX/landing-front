@@ -11,7 +11,12 @@ module.exports = {
       lg: '992px',
       xl: '1400px',
     },
-    extend: {},
+    extend: {
+      animation: {
+        'spin-slow': 'spin .1s linear infinite',
+        'modal-llega': 'animate__animated animate__heartBeat'
+      }
+    },
   },
   variants: {
     extend: {},
