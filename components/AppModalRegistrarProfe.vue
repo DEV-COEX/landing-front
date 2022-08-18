@@ -1,49 +1,52 @@
 <template>
-  <div v-if="state" class="centrar fondo-modal z-50" style="left: 0;">
+  <div v-if="state" class="centrar fondo-modal md:px-[1.25rem] px-[0.25rem] z-50" style="left: 0;">
     <div class="modal-principal opacity-95">
-      <div class="flex justify-center px-10  py-5">
-        <p class="font-bold  text-xl text-transparent bg-clip-text bg-gradient-to-r
+      <div class="flex justify-center sm:px-10  py-5">
+        <p class="font-bold  text-xl text-transparent bg-clip-text  text-center bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
-                      to-[#dab255]">Inscripción para profesor</p>
+                      to-[#dab255]">Inscripción para coach</p>
 
       </div>
       <form @submit.prevent="register">
-        <div class="px-8">
-          <div class="grid justify-center px-3 ">
-            <div class="flex justify-evenly p-2">
-              <div class="flex items-center border-r-2 border-[#4736df]">
-                <div class="p-2">
-                  <div class="flex justify-center">
-                    <app-input v-model="form.name" required label="Nombre Completo"/>
-                    <app-input v-model="form.age" type="number" required label="Edad"/>
+        <div class="xl:px-8">
+          <div class="grid justify-center lg:px-3">
+            <div
+              class="md:flex justify-evenly md:p-2 sm:h-[30rem] h-[20rem] overflow-y-auto md:border-b-0 border-b-2 border-[#4736df]">
+              <div class="flex items-center  md:border-r-2 border-[#4736df]">
+                <div class="md:p-2 p-0">
+                  <div class="sm:flex justify-center">
+                    <app-input v-model="form.name" required label="Nombre Completo" />
+                    <app-input v-model="form.age" type="number" required label="Edad" />
                   </div>
-                  <div class="flex justify-center p-2">
+                  <div class="sm:flex  justify-center md:p-2 p-0">
                     <div>
-                      <app-input v-model="form.email" type="email" required label="Correo"/>
+                      <app-input v-model="form.email" type="email" required label="Correo" />
                       <label v-if="error" id="errorPosicion" class="lbl-validation" style="display: flex">Este
                         correo ya esta registrado.</label>
                     </div>
 
-                    <app-input v-model="form.phone" type="number" required label="Teléfono"/>
+                    <app-input v-model="form.phone" type="number" required label="Teléfono" />
                   </div>
-                  <div class="p-2">
-                    <app-input v-model="form.academic" required label="Ultimo titulo académico finalizado"/>
-                    <app-input v-model="form.languages" required label="Mencione los lenguajes de programación que maneja"/>
+                  <div class="md:p-2 p-0">
+                    <app-input v-model="form.academic" required label="Ultimo titulo académico finalizado" />
+                    <app-input v-model="form.languages" required
+                      label="Mencione los lenguajes de programación que maneja" />
                   </div>
                 </div>
               </div>
-              <div class="flex items-center">
-                <div class=" p-2">
-                  <div class=" ">
-                    <app-input v-model="form.address" required label="¿En que Barrio reside?"/>
-                    <app-input v-model="form.roomies" required label="¿Con quien vive?"/>
+              <div class="sm:flex items-center">
+                <div class="md:p-2 p-0">
+                  <div class="md:block sm:flex">
+                    <app-input v-model="form.address" required label="¿En que Barrio reside?" />
+                    <app-input v-model="form.roomies" required label="¿Con quien vive?" />
 
                   </div>
                   <div class="">
-                    <app-select :items="genders" v-model="form.gender" required label="Genero"/>
-                    <app-select :items="academic" v-model="form.education" required label="Nivel educativo Actual"/>
-                    <app-select :items="experience" v-model="form.experience" required label="¿Tiene experiencia como profesor?"/>
+                    <app-select :items="genders" v-model="form.gender" required label="Genero" />
+                    <app-select :items="academic" v-model="form.education" required label="Nivel educativo Actual" />
+                    <app-select :items="experience" v-model="form.experience" required
+                      label="¿Tiene experiencia como profesor?" />
                   </div>
                 </div>
               </div>
