@@ -1,15 +1,17 @@
 <template>
   <div
     v-if="state"
-    class="items-end flex fondo-modal px-5 py-5 z-50"
+    class="items-end flex fondo-modal supersm:px-5 px-[0.25rem] py-5 z-50"
     style="left: 0"
   >
     <div class="modal-principal opacity-95">
-      <div class="centrar px-10 pt-8">
+      <div class="centrar supersm:px-10 pt-8 pb-2">
         <p
           class="
             font-bold
-            text-3xl text-transparent
+            text-center
+            text-2xl
+            lg:text-3xl text-transparent
             bg-clip-text bg-gradient-to-r
             from-[#FFDF8D]
             via-[#FF9838]
@@ -19,10 +21,10 @@
           Protección de datos Datos Personales
         </p>
       </div>
-      <div class="px-8">
+      <div class="supersm:px-8">
         <div class="grid justify-center px-3">
           <div class="flex justify-center">
-            <p class="text-lg text-white py-5">
+            <p class="text-lg text-white py-5 xl:h-auto lg:h-60 overflow-y-auto md:h-52 pr-2 h-44">
               “En cumplimiento de las disposiciones de la Ley 1581 de 2012 y del Decreto reglamentario 1377 de 2013 que
               desarrollan el derecho de habeas data, solicitamos su autorización para que la empresa INFINITY PRIME SAS
               (Marca Comercial COEX), en calidad de responsable del Tratamiento pueda recopilar, almacenar, archivar,
