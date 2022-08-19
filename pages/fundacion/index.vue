@@ -153,14 +153,5 @@ body::-webkit-scrollbar-thumb {
   /* roundness of the scroll thumb */
   /* creates padding around scroll thumb */
 }
-.modal{
 
-}
-
-.modal .modal--open{
-
-}
-.modal .modal--open .modal--close{
-
-}
 </style>
