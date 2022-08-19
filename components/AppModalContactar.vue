@@ -3,14 +3,13 @@
     v-if="state"
     class="centrar fondo-modal z-50"
     style="left: 0"
-    @click="close"
   >
     <div class="modal-principal opacity-95 w-[90%] sm:w-auto">
       <div class="centrar" style="position: relative; bottom: 68px; left: 43px">
         <div class="border-uno border-b-[30px] border-[#2B3348]"></div>
         <div class="triangulo">
           <div class="logo centrar">
-            <img src="/Coex.svg" alt="" class="" />
+            <img src="/Coex.svg" alt="" class=""/>
           </div>
         </div>
         <div class="border-dos border-b-[30px] border-[#2B3348]"></div>
@@ -18,8 +17,8 @@
       <div class="">
         <div class="flex flex-col justify-center w-full sm:w-auto px-3 pb-16 opacity-100">
           <div class="flex justify-center p-2">
-            <app-btn
-              class="
+            <app-btn @click="sendWsp"
+                     class="
                 bg-[#1C233A]
                 p-1
                 mx-6
@@ -30,8 +29,27 @@
                 justify-center
                 items-center
               "
-              ><img src="/whatsapp.svg" alt="" class="p-2" />Contactarme por
-              whatsapp</app-btn
+            ><img src="/whatsapp.svg" alt="" class="p-2"/>Contactarme por
+              whatsapp
+            </app-btn
+            >
+          </div>
+          <div class="flex justify-center p-2">
+            <app-btn @click="sendEmail"
+                     class="
+                bg-[#1C233A]
+                p-1
+                mx-6
+                text-white
+                w-full
+                rounded-full
+                flex
+                justify-center
+                items-center
+              "
+            ><img src="/correo.svg" alt="" class="p-2"/>Contactarme por
+              Correo
+            </app-btn
             >
           </div>
           <div class="flex justify-center p-2">
@@ -47,27 +65,24 @@
                 justify-center
                 items-center
               "
-              ><img src="/correo.svg" alt="" class="p-2" />Contactarme por
-              Correo</app-btn
+              @click="phoneCall"
+            ><img src="/llamada.svg" alt="" class="p-2"/>Contactarme por
+              Llamada
+            </app-btn
             >
           </div>
           <div class="flex justify-center p-2">
-            <app-btn
-              class="
-                bg-[#1C233A]
-                p-1
-                mx-6
-                text-white
-                w-full
-                rounded-full
-                flex
-                justify-center
-                items-center
-              "
-              @click="metodoBoton"
-              ><img src="/llamada.svg" alt="" class="p-2" />Contactarme por
-              Llamada</app-btn
-            >
+            <app-btn class="
+            mt-4
+            bg-gradient-to-r
+            from-red-500
+            to-red-400
+            p-1
+            text-white
+            hover:from-red-400 hover:to-red-500
+            " @click="close">
+              Cerrar
+            </app-btn>
           </div>
         </div>
       </div>
@@ -116,6 +131,24 @@ export default {
     close() {
       this.$emit('close', true)
     },
+    sendEmail() {
+      let text = "";
+      if (this.$route.path === 'contrata-talento') {
+        text = "Quiero contratar talentos"
+      } else if (this.$route.path === 'fabrica') {
+        text = "Quiero un desarrollo"
+      }
+      window.open(`mailto:gerencia@infinityprime.com.co?subject=${text}`, "_blank")
+      this.close()
+    },
+    sendWsp() {
+      window.open("https://api.whatsapp.com/send?phone=573185955481&text=Hola!", "_blank")
+      this.close()
+    },
+    phoneCall() {
+      window.open("tel:+573185955481", "_blank")
+      this.close()
+    },
   },
 }
 </script>
@@ -125,7 +158,7 @@ export default {
 .modal-principal {
   background: #2b3348;
   border-radius: 40px;
-   box-shadow: 0px 0px 10px 0px rgb(165, 182, 231);
+  box-shadow: 0px 0px 10px 0px rgb(165, 182, 231);
   /* display: grid; */
 }
 

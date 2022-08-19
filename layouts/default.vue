@@ -205,10 +205,9 @@ export default {
             }
           },
         },
-
         {
-          name: 'Educación',
-          path: '/educacion',
+          name: 'Fábrica de software',
+          path: '/fabrica',
           method: () => {
             if (process.client) {
               window.scrollTo(0, 0)
@@ -225,8 +224,8 @@ export default {
           },
         },
         {
-          name: 'Fábrica de software',
-          path: '/fabrica',
+          name: 'Educación',
+          path: '/educacion',
           method: () => {
             if (process.client) {
               window.scrollTo(0, 0)

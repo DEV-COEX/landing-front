@@ -1,13 +1,26 @@
 <template>
   <div class="bg-[#1C233A] w-full min-h-screen flex justify-center items-center">
-    <app-factory></app-factory>
+    <app-factory @openModal="openModal"></app-factory>
+    <app-modal-contactar v-model="modal" @close="closeModal" />
   </div>
 </template>
 
 <script>
 export default {
   name: 'FabricaSoftware',
-
+  data () {
+    return {
+      modal: false
+    }
+  },
+  methods: {
+    openModal () {
+      this.modal = true
+    },
+    closeModal () {
+      this.modal = false
+    }
+  }
 }
 </script>
 
@@ -19,7 +32,7 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar:hover {
   width: 5px;
-  
+
   /* width of the entire scrollbar */
 }
 

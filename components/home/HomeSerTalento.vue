@@ -55,6 +55,9 @@ export default {
     },
     toTalent(){
       this.$router.push("/ser-talento")
+      if (process.client) {
+        window.scrollTo(0, 0)
+      }
     }
   }
 }

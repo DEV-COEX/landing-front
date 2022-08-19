@@ -121,6 +121,7 @@
                 text-white
                 hover:from-red-400 hover:to-red-500
               "
+              @click="toFundation"
               >Quiero donar
             </app-btn>
           </div>
@@ -150,6 +151,15 @@ export default {
     },
     toAbout() {
       this.$router.push('/about')
+      if (process.client) {
+        window.scrollTo(0, 0)
+      }
+    },
+    toFundation() {
+      this.$router.push('/fundacion')
+      if (process.client) {
+        window.scrollTo(0, 0)
+      }
     },
   },
 }
