@@ -1,6 +1,6 @@
 <template>
-  <div class="mx-auto  flex flex-col rounded-xl p-3 text-white text-center items-center lg:my-6">
-      <img class="object-cover h-36 w-36 rounded-[40%]" :src="image" alt="imagensita">
+  <div class="lg:mx-0  flex flex-col rounded-xl p-3 text-white text-center items-center lg:my-6">
+      <img class="object-cover h-36 w-36 lg:w-28 lg:h-28 rounded-[40%]" :src="image" alt="imagensita">
     <div
       class="
         py-3

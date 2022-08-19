@@ -1,47 +1,48 @@
 <template>
-  <div
-    v-if="state"
-    class="items-end flex fondo-modal px-5 py-5 z-50"
-    style="left: 0"
-  >
-    <div class="modal-principal opacity-95">
-      <div class="centrar px-10 pt-8">
-        <p
-          class="
+
+  <div id="fondo" v-if="state" class="items-end flex fondo-modal supersm:px-5 px-[0.25rem] py-5 z-50" style="left: 0">
+    <div class="modal-principal bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477] background-animate opacity-95" id="personales">
+      <div class="centrar supersm:px-10 pt-8 pb-2">
+        <p class="
             font-bold
-            text-3xl text-transparent
+            text-center
+            text-2xl
+            lg:text-3xl text-transparent
             bg-clip-text bg-gradient-to-r
             from-[#FFDF8D]
             via-[#FF9838]
             to-[#dab255]
-          "
-        >
+          ">
           Protección de datos Datos Personales
         </p>
       </div>
-      <div class="px-8">
+      <div class="supersm:px-8">
         <div class="grid justify-center px-3">
           <div class="flex justify-center">
-            <p class="text-lg text-white py-5">
-              “Al enviar mis datos personales y/o del menor de edad que
-              represento, autorizo de manera previa, expresa e inequívoca a
-              INFINITY PRIME S.A.S a darles tratamiento,
-              incluyendo el consentimiento explicito para tratar datos sensibles
-              aun conociendo la posibilidad de oponerme a ello, conforme a las
-              finalidades incorporadas en la Política de Tratamiento de la
-              Información publicada en "2" y en Calle de los
-              estudiantes 9-82 Ciudadela Real de Minas, que declaro conocer y
-              estar informado que en ella se presentan los derechos que me
-              asisten como titular y los canales de atención donde ejercerlos.”
-              ¿Acepta que sus datos sean tratados según la política establecida
-              en la Ley 1581 de 2012, de Protección de datos personales?
+            <p class="text-lg text-white py-5 xl:h-auto lg:h-60 overflow-y-auto md:h-52 pr-2 h-44">
+              “En cumplimiento de las disposiciones de la Ley 1581 de 2012 y del Decreto reglamentario 1377 de 2013
+              que
+              desarrollan el derecho de habeas data, solicitamos su autorización para que la empresa INFINITY PRIME
+              SAS
+              (Marca Comercial COEX), en calidad de responsable del Tratamiento pueda recopilar, almacenar, archivar,
+              copiar, analizar, usar y consultar los datos que se señalan a continuación. Estos datos serán
+              recolectados
+              por INFINITY PRIME SAS (Marca Comercial COEX) con las siguientes finalidades, todas relacionados con las
+              actividades de Infinity Prime y el ejercicio de su objeto y sus actividades: 1. Validar la veracidad de
+              la
+              información; 2. Ser contactado por parte de Infinity Prime SAS; 3. envío de información relacionada con
+              programas, actividades, eventos, noticias, publicidad, contenidos por área de interés, productos y demás
+              bienes o servicios ofrecidos por la marca COEX; La autorización para adelantar el tratamiento de mis
+              datos
+              personales, se extiende por tiempo indefinido, siempre que tal tratamiento se encuentre relacionado con
+              las finalidades para los cuales los datos personales fueron inicialmente suministrados. ¿Desea
+              continuar?
             </p>
           </div>
 
           <div class="flex justify-center py-5">
             <div class="flex justify-center">
-              <app-btn
-                class="
+              <app-btn class="
                   bg-gradient-to-r
                   from-blue-500
                   to-blue-400
@@ -49,21 +50,18 @@
                   mx-4
                   text-white
                   hover:from-blue-400 hover:to-blue-500
-                "
-                @click="metodoBoton"
-                >Autorizo</app-btn
-              >
-              <app-btn
-                class="bg-[#1C233A] p-1 mx-4 text-white w-full"
-                @click="close"
-                >Cerrar</app-btn
-              >
+                " @click="metodoBoton">Autorizo
+              </app-btn>
+              <app-btn class="bg-[#1C233A] p-1 mx-4 text-white w-full" @click="close">Cerrar
+              </app-btn>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+
 </template>
 
 
@@ -111,6 +109,8 @@ export default {
     },
     close() {
       this.$emit('close', true)
+      document.getElementById('personales').classList.add('animate__animated', 'animate__rollOut')
+
     },
   },
 }
@@ -119,7 +119,7 @@ export default {
 
 <style scoped>
 .modal-principal {
-  background: #0b046e;
+  /* background: #0b046e; */
   border-radius: 25px;
   box-shadow: 0px 0px 10px 0px rgb(165, 182, 231);
   /* display: grid; */
@@ -146,7 +146,7 @@ export default {
 .fondo-modal {
   height: 100%;
   width: 100%;
-  background-color: rgb(131 131 131 / 40%);
+  /* background-color: rgb(131 131 131 / 40%); */
   position: fixed;
 
   top: 0;
@@ -158,5 +158,4 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
 </style>

@@ -108,6 +108,7 @@
                 text-white
                 hover:from-red-400 hover:to-red-500
               "
+              @click="openModal"
               >Quiero mi {{ des?.tittle }}</app-btn
             >
           </div>
@@ -164,6 +165,15 @@ export default {
       this.desarrollos = data
       this.desarrollos[0].selected = true
       this.des = this.desarrollos[0]
+    },
+    openModal() {
+      this.$emit('openModal', true)
+      if (process.client) {
+        window.scrollTo(0, 0)
+      }
+    },
+    closeModal() {
+      this.modal = false
     },
   },
 }

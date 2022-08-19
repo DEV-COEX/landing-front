@@ -1,17 +1,19 @@
 <template>
   <div>
-    <section
-      class="
+    <section class="
+      xl:pt-28
+      lg:pt-20
+      md:pt-16
+      pt-14
+
         min-h-screen
         bg-[#1C233A]
         flex flex-col
         justify-center
         items-center
         relative
-      "
-    >
-      <div
-        class="
+      ">
+      <div class="
           font-extrabold
           text-transparent
           xl:text-6xl
@@ -22,12 +24,10 @@
           bg-clip-text bg-gradient-to-r
           from-[#FFDF8D]
           to-[#FF9838]
-        "
-      >
+        ">
         {{ pageTexts['coex-model'] ? pageTexts['coex-model'][0].tittle : ' ' }}
       </div>
-      <div
-        class="
+      <div class="
           lg:max-w-[42%]
           w-full
           px-5
@@ -38,35 +38,25 @@
           text-white
           py-5
           lg:leading-10
-        "
-      >
+        ">
         {{
-          pageTexts['coex-model'] ? pageTexts['coex-model'][0].description : ' '
+            pageTexts['coex-model'] ? pageTexts['coex-model'][0].description : ' '
         }}
       </div>
       <div class="absolute bottom-28">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="33"
-          height="28"
-          viewBox="0 0 33 28"
-          fill="none"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="28" viewBox="0 0 33 28" fill="none">
           <path d="M16.5 28L32.5215 0.25H0.478531L16.5 28Z" fill="#FFB800" />
         </svg>
       </div>
     </section>
-    <section
-      class="
+    <section class="
         min-h-screen
         bg-[#1C233A]
         flex flex-col
         justify-center
         items-center
-      "
-    >
-      <div
-        class="
+      ">
+      <div class="
           font-extrabold
           text-transparent
           xl:text-6xl
@@ -77,12 +67,10 @@
           bg-clip-text bg-gradient-to-r
           from-[#FFDF8D]
           to-[#FF9838]
-        "
-      >
+        ">
         {{ pageTexts['historia'] ? pageTexts['historia'][0].tittle : ' ' }}
       </div>
-      <div
-        class="
+      <div class="
           lg:max-w-[42%]
           w-full
           px-5
@@ -93,12 +81,10 @@
           text-white
           py-5
           lg:leading-10
-        "
-      >
+        ">
         {{ pageTexts['historia'] ? pageTexts['historia'][0].description : ' ' }}
       </div>
-      <div
-        class="
+      <div class="
           mt-10
           font-extrabold
           text-transparent
@@ -110,12 +96,10 @@
           bg-clip-text bg-gradient-to-r
           from-[#FFDF8D]
           to-[#FF9838]
-        "
-      >
+        ">
         {{ pageTexts['mision'] ? pageTexts['mision'][0].tittle : ' ' }}
       </div>
-      <div
-        class="
+      <div class="
           lg:max-w-[42%]
           w-full
           px-5
@@ -126,13 +110,11 @@
           text-white
           py-5
           lg:leading-10
-        "
-      >
+        ">
         {{ pageTexts['mision'] ? pageTexts['mision'][0].description : ' ' }}
       </div>
     </section>
-    <section
-      class="
+    <section class="
         h-auto
         lg:py-40
         py-10
@@ -141,11 +123,9 @@
         from-[#000A65]
         via-[#321586]
         to-[#474EFF]
-      "
-    >
+      ">
       <div class="flex flex-col items-center">
-        <div
-          class="
+        <div class="
             flex flex-col
             items-center
             w-full
@@ -153,11 +133,8 @@
             rounded-[40px]
             px-6
             py-8
-          "
-          style="background: rgba(47, 50, 125, 0.2)"
-        >
-          <div
-            class="
+          " style="background: rgba(47, 50, 125, 0.2)">
+          <div class="
               mb-2
               text-center
               font-extrabold
@@ -170,43 +147,24 @@
               bg-clip-text bg-gradient-to-r
               from-[#FFDF8D]
               to-[#FF9838]
-            "
-          >
+            ">
             Nuestros primeros talentos COEX:
           </div>
           <div class="w-full justify-center lg:hidden">
-            <carousel
-              class="w-full justify-center"
-              :per-page-custom="[
-                [0, 1],
-                [768, 2],
-              ]"
-              :pagination-enabled="true"
-              :autoplay="true"
-              :autoplay-hover-pause="true"
-              :loop="true"
-            >
+            <carousel class="w-full justify-center" :per-page-custom="[
+              [0, 1],
+              [768, 2],
+            ]" :pagination-enabled="true" :autoplay="true" :autoplay-hover-pause="true" :loop="true">
               <slide v-for="talent in talents" :key="talent.id">
-                <app-talents-card
-                  :name="talent.name"
-                  :job="talent.job"
-                  :image="talent.imagen.url"
-                />
+                <app-talents-card :name="talent.name" :job="talent.job" :image="talent.imagen.url" />
               </slide>
             </carousel>
           </div>
           <div class="w-full flex-wrap justify-center lg:flex hidden">
-            <app-talents-card
-              v-for="talent in talents"
-              :key="talent.id"
-              :name="talent.name"
-              :job="talent.job"
-              :image="talent.imagen.url"
-              class="lg:w-[20rem]"
-            />
+            <app-talents-card v-for="talent in talents" :key="talent.id" :name="talent.name" :job="talent.job"
+              :image="talent.imagen.url" class="lg:w-[12rem]" />
           </div>
-          <app-btn
-            class="
+          <app-btn class="
               bg-gradient-to-r
               mt-2
               from-red-500
@@ -215,15 +173,12 @@
               mx-6
               text-white
               hover:from-red-400 hover:to-red-500
-            "
-            >Ser talento COEX</app-btn
-          >
+            " @click="goToSerTalento">Ser talento COEX</app-btn>
         </div>
       </div>
 
       <div class="flex flex-col items-center mt-3 lg:mt-14">
-        <div
-          class="
+        <div class="
             flex flex-col
             items-center
             w-full
@@ -231,10 +186,8 @@
             rounded-[40px]
             lg:py-12
             py-3
-          "
-        >
-          <div
-            class="
+          ">
+          <div class="
               mb-2
               font-extrabold
               text-transparent
@@ -244,66 +197,37 @@
               bg-clip-text bg-gradient-to-r
               from-[#FFDF8D]
               to-[#FF9838]
-            "
-          >
+            ">
             Nuestro Equipo:
           </div>
           <div class="w-full justify-center lg:hidden">
-            <carousel
-              class="w-full justify-center"
-              :per-page-custom="[
-                [0, 1],
-                [768, 2],
-              ]"
-              :pagination-enabled="true"
-              :autoplay="true"
-              :autoplay-hover-pause="true"
-              :loop="true"
-            >
+            <carousel class="w-full justify-center" :per-page-custom="[
+              [0, 1],
+              [768, 2],
+            ]" :pagination-enabled="true" :autoplay="true" :autoplay-hover-pause="true" :loop="true">
               <slide v-for="employe in employes" :key="employe.id">
-                <app-talents-card
-                  :name="employe.name"
-                  :job="employe.job"
-                  :image="employe.image.url"
-                  :details="employe.description"
-                />
+                <app-talents-card :name="employe.name" :job="employe.job" :image="employe.image.url"
+                  :details="employe.description" />
               </slide>
             </carousel>
           </div>
-          <div
-            class="
-              w-full
-              hidden
-              lg:grid
-              grid-cols-1
-              lg:grid-cols-3
-              justify-center
-              h-full
-            "
-          >
-            <app-talents-card
-              v-for="employe in employes"
-              :key="employe.id"
-              :name="employe.name"
-              :job="employe.job"
-              :image="employe.image.url"
-              :details="employe.description"
-            />
+          <div class="
+              w-full flex-wrap justify-center lg:flex hidden
+            ">
+            <app-talents-card v-for="employe in employes" :key="employe.id" :name="employe.name" :job="employe.job"
+              :image="employe.image.url" :details="employe.description" class="lg:w-[20rem] xl:w-[25rem]" />
           </div>
         </div>
       </div>
     </section>
-    <section
-      class="
+    <section class="
         min-h-screen
         bg-[#1C233A]
         flex flex-col
         justify-center
         items-center
-      "
-    >
-      <div
-        class="
+      ">
+      <div class="
           font-extrabold
           text-transparent
           lg:text-6xl
@@ -315,20 +239,12 @@
           bg-clip-text bg-gradient-to-r
           from-[#FFDF8D]
           to-[#FF9838]
-        "
-      >
+        ">
         Founders
       </div>
-      <app-founder-card
-        v-for="founder in founders"
-        :key="founder.id"
-        :image="founder.image.url"
-        :name="founder.name"
-        :job="founder.job"
-        :description="`${founder.age} years old, ${founder.country}`"
-        :about="founder.description"
-        class="lg:mb-[10rem] mb-[7rem] flex flex-col lg:flex-row"
-      />
+      <app-founder-card v-for="founder in founders" :key="founder.id" :image="founder.image.url" :name="founder.name"
+        :job="founder.job" :description="`${founder.age} years old, ${founder.country}`" :about="founder.description"
+        class="lg:mb-[10rem] mb-[7rem] flex flex-col lg:flex-row" />
     </section>
   </div>
 </template>
@@ -366,6 +282,12 @@ export default {
       this.talents.forEach((el) => {
         el.imagen.url = `https://api.cms.coex.com.co${el.imagen?.url}`
       })
+    },
+    goToSerTalento() {
+      this.$router.push({ name: "ser-talento" })
+      if (process.client) {
+        window.scrollTo(0, 0)
+      }
     },
     async getEmployes() {
       const { data } = await this.$axios.get('employes')

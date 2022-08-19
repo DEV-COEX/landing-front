@@ -13,7 +13,8 @@
                       to-[#dab255]">¿Quieres apoyar el talento joven en tecnología?</p>
           </div>
           <div class="flex justify-center xl:p-10 lg:p-5 p-5 md:p-6">
-            <p class="xl:text-xl  lg:text-xl text-white  md:text-xl text-md text-center w-full sm:w-[80%] lg:w-3/6">Contribuye financiando la educación de uno de
+            <p class="xl:text-xl  lg:text-xl text-white  md:text-xl text-md text-center w-full sm:w-[80%] lg:w-3/6">
+              Contribuye financiando la educación de uno de
               nuestros talentos COEX. Con un aporte de desde 1 usd puedes cambiar la vida de toda una familia.
             </p>
           </div>
@@ -36,10 +37,19 @@
 
     </div>
     <transition name="fade">
-      <app-modal-donar v-model="modal" @close="closeModal"/>
+      <app-modal-donar v-model="modal" @close="closeModal" @payment="OPenModalsexo" @error="OPenModalError"/>
 
     </transition>
+    <transition name="fade">
+      <app-donar-exitosa v-model="modalsexo" @close="closeModalsexo" id="sexo"
+        v-bind:class="[modalsexo ? 'animate__animated animate__heartBeat animate__infinite' : 'animate__animated animate__rollOut']" />
 
+    </transition>
+    <transition name="fade">
+      <app-donar-error v-model="modalerror" @close="closeModalError"
+        v-bind:class="[modalerror ? 'animate__animated animate__heartBeat animate__repeat-3' : 'animate__animated animate__rollOut']" />
+
+    </transition>
   </div>
 
 </template>
@@ -50,8 +60,14 @@ export default {
   data() {
     return {
 
-      modal: false
+      modal: false,
+      modalsexo: false,
+      modalerror: false
+
     }
+  },
+  mounted() {
+
   },
   methods: {
     OPenModal() {
@@ -61,9 +77,34 @@ export default {
     },
     closeModal() {
       this.modal = false
+      //  v-bind:class="[modalsexo ? 'animate__animated animate__heartBeat' : 'animate__animated animate__rollOut']"
       document.getElementById('indexDonar').style.filter = 'blur(0)'
       document.querySelector('body').classList.remove('overflow-hidden')
     },
+    OPenModalsexo() {
+      this.modalsexo = true
+      // document.querySelector('body').classList.add('animate__animated', 'animate__rollIn')
+      document.getElementById('indexDonar').style.filter = 'blur(5px)'
+      document.querySelector('body').classList.add('overflow-hidden')
+    },
+    closeModalsexo() {
+      this.modalsexo = false
+      //  document.querySelector('body').classList.add('animate__animated', 'animate__rollOut')
+      document.getElementById('indexDonar').style.filter = 'blur(0)'
+      document.querySelector('body').classList.remove('overflow-hidden')
+    },
+
+    OPenModalError() {
+      this.modalerror = true
+      document.getElementById('indexDonar').style.filter = 'blur(5px)'
+      document.querySelector('body').classList.add('overflow-hidden')
+    },
+    closeModalError() {
+      this.modalerror = false
+      document.getElementById('indexDonar').style.filter = 'blur(0)'
+      document.querySelector('body').classList.remove('overflow-hidden')
+    },
+
   }
 }
 </script>
@@ -112,4 +153,5 @@ body::-webkit-scrollbar-thumb {
   /* roundness of the scroll thumb */
   /* creates padding around scroll thumb */
 }
+
 </style>

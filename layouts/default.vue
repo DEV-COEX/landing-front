@@ -18,11 +18,11 @@
         bottom-0
         overflow-hidden
         lg:hidden
-      ">
+      " @click="ChangeShow">
       <!-- pantalla navbvar -->
-      <div class="flex h-full w-full flex-col items-center justify-center z-50">
-        <div class="w-full h-auto text-white text-center" @click="ChangeShow"></div>
-        <div v-for="(item, i) in navItems" :key="i" @click="ChangeShow">
+      <div class="flex h-full w-full flex-col items-center justify-center z-40">
+        <div class="w-full h-auto text-white text-center"></div>
+        <div v-for="(item, i) in navItems" :key="i">
           <NuxtLink :to="item.path" class="flex my-1 text-base font-normal text-white">
             <span class="
                 p-1
@@ -41,7 +41,7 @@
             </span>
           </NuxtLink>
         </div>
-        <div @click="ChangeShow">
+        <div>
           <app-btn class="
               bg-gradient-to-r
               from-red-500
@@ -54,7 +54,7 @@
         </div>
       </div>
     </div>
-    <div :class="[show ? 'blur-sm' : '']" class="lg:p-2 lg:px-14 fixed z-50 w-full bg-clip-padding"
+    <div :class="[show ? 'blur-sm' : '']" class="lg:p-2 lg:px-14 fixed z-40 w-full bg-clip-padding"
       style="backdrop-filter: blur(5px)">
       <aside class="h-full w-full">
         <div class="
@@ -144,6 +144,7 @@ export default {
             if (process.client) {
               window.scrollTo(0, 0)
             }
+            document.querySelector('body').classList.remove('overflow-hidden')
             const estado = true
             const estadoHome = false
             if (this.$route.path === '/') {
@@ -163,6 +164,7 @@ export default {
             if (process.client) {
               window.scrollTo(0, 0)
             }
+            document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
 
@@ -173,15 +175,7 @@ export default {
             if (process.client) {
               window.scrollTo(0, 0)
             }
-          },
-        },
-        {
-          name: 'Contrata talentos',
-          path: '/contrata-talento',
-          method: () => {
-            if (process.client) {
-              window.scrollTo(0, 0)
-            }
+            document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
         {
@@ -191,6 +185,17 @@ export default {
             if (process.client) {
               window.scrollTo(0, 0)
             }
+            document.querySelector('body').classList.remove('overflow-hidden')
+          },
+        },
+        {
+          name: 'Contrata talentos',
+          path: '/contrata-talento',
+          method: () => {
+            if (process.client) {
+              window.scrollTo(0, 0)
+            }
+            document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
         {
@@ -200,6 +205,7 @@ export default {
             if (process.client) {
               window.scrollTo(0, 0)
             }
+            document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
       ],
