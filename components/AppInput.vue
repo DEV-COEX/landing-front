@@ -9,8 +9,8 @@
       inp w-full py-2 px-3 text-[#B8B8B8] leading-tight
       border-[#FFFFFF] border-solid border
       focus:outline-none focus:shadow-outline focus:border-[#dab255] focus:bg-transparent active:bg-[#2B3348]
-                     hover:border-[#FFDF8D]" :type="type" :placeholder="placeholder" :required="required"
-      :disabled="disabled" :readonly="readonly" :min="min" :minlength="minlength" :maxlength="maxlength" :max="max"
+                     hover:border-[#FFDF8D]" :type="type" :placeholder="placeholder" :required="required" :pattern="pattern"
+      :disabled="disabled" :readonly="readonly" :min="min" :minlength="minlength" :maxlength="maxlength" :max="max" :title="title"
       @change="$emit('change')" />
   </div>
 </template>
@@ -20,6 +20,10 @@ export default {
   name: 'AppInput',
   props: {
     type: {
+      type: String,
+      default: 'text'
+    },
+    title: {
       type: String,
       default: 'text'
     },
@@ -54,6 +58,10 @@ export default {
       default: null
     },
     minlength: {
+      type: String,
+      default: null
+    },
+    pattern: {
       type: String,
       default: null
     },

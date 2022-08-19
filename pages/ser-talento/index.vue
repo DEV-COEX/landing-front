@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div
-      id="serTalento"
-      class="
+    <div id="serTalento" class="
         bg-gradient-to-r
         from-[#000A65]
         via-[#2c2191]
@@ -13,13 +11,11 @@
         flex
         justify-center
         items-center
-      "
-    >
+      ">
       <div class="grid justify-center items-center">
         <div class="pb-5">
           <div class="flex justify-center pt-5 pb-5 ">
-            <p
-              class="
+            <p class="
                 xl:text-4xl
                 lg:text-3xl
                 md:text-2xl
@@ -29,8 +25,7 @@
                 lg:w-4/6
                 text-center text-white
                
-              "
-            >
+              ">
               Nuestro grupo COEX te da la bienvenida, queremos que seas parte de
               nuestro grupo de desarrolladores y formadores para que tengas la
               posibilidad de aprender y crecer profesionalmente.
@@ -39,8 +34,7 @@
         </div>
         <div class="flex justify-center">
           <a href="#serTalento">
-            <app-btn
-              class="
+            <app-btn class="
                 bg-gradient-to-r
                 from-red-500
                 to-red-400
@@ -51,14 +45,11 @@
                 mx-4
                 text-white
                 hover:from-red-400 hover:to-red-500
-              "
-              @click="OPenDatosPersonales"
-              >Inscripción talento
+              " @click="OPenDatosPersonales">Inscripción talento
             </app-btn>
           </a>
           <a href="#serTalento">
-            <app-btn
-              class="
+            <app-btn class="
                 bg-gradient-to-r
                 from-red-500
                 to-red-400
@@ -69,9 +60,7 @@
                 mx-4
                 text-white
                 hover:from-red-400 hover:to-red-500
-              "
-              @click="OPenDatosPersonalesProfe"
-            >
+              " @click="OPenDatosPersonalesProfe">
               Inscripción coach
             </app-btn>
           </a>
@@ -79,27 +68,18 @@
       </div>
     </div>
     <transition name="fade">
-      <app-datos-personales
-        v-model="DatosPersonales"
-        @metodoBoton="metodoBoton"
-        @close="closeModal"
-      />
+      <app-datos-personales id="estudiantes" v-model="DatosPersonales" @metodoBoton="metodoBoton" @close="closeModal"
+        v-bind:class="[quitarclases ? '' : 'animate__animated animate__rollOut']" />
     </transition>
     <transition name="fade">
-      <app-datos-personales
-        v-model="DatosPersonalesProfesor"
-        @metodoBoton="metodoBotonprofe"
-        @close="closeModal"
-      />
+      <app-datos-personales id="profesores" v-model="DatosPersonalesProfesor" @metodoBoton="metodoBotonprofe" @close="closeModal"
+        v-bind:class="[quitarclases ? '' : 'animate__animated animate__rollOut']" />
     </transition>
     <transition name="fade">
       <app-modal-registrar-profe v-model="Profesor" @close="closeProfe" />
     </transition>
     <transition name="fade">
-      <app-modal-registrar-estudiante
-        @close="closeEstudents"
-        v-model="Estudiante"
-      />
+      <app-modal-registrar-estudiante @close="closeEstudents" v-model="Estudiante" />
     </transition>
   </div>
 </template>
@@ -117,6 +97,8 @@ export default {
       Estudiante: false,
       Profesor: false,
       DatosPersonalesProfesor: false,
+      quitarclases: false,
+     
     }
   },
   async mounted() {
@@ -131,21 +113,34 @@ export default {
     },
     OPenDatosPersonales() {
       this.DatosPersonales = true
+      this.quitarclases = true
+      document.getElementById('serTalento').style.transition = '.8s'
       document.getElementById('serTalento').style.filter = 'blur(5px)'
       document.querySelector('body').classList.add('overflow-hidden')
     },
     OPenDatosPersonalesProfe() {
       this.DatosPersonalesProfesor = true
+       this.quitarclases = true
       document.getElementById('serTalento').style.filter = 'blur(5px)'
       document.querySelector('body').classList.add('overflow-hidden')
     },
     closeModal() {
-      this.DatosPersonales = false
-      this.DatosPersonalesProfesor = false
+      document.getElementById('serTalento').style.transition = '1s'
       document.getElementById('serTalento').style.filter = 'blur(0)'
       document.querySelector('body').classList.remove('overflow-hidden')
+      document.querySelector('body').classList.add('overflow-x-hidden')
+      this.quitarclases = false
+      setTimeout(function () {
+        this.DatosPersonales = false;
+        this.DatosPersonalesProfesor = false
+        document.getElementById('personales').classList.remove('animate__animated', 'animate__rollOut')
+        document.getElementById('estudiantes').classList.add('hidden')
+        document.getElementById('profesores').classList.add('hidden')
+      }, 500);
+
     },
     closeEstudents() {
+
       this.Estudiante = false
       document.getElementById('serTalento').style.filter = 'blur(0)'
       document.querySelector('body').classList.remove('overflow-hidden')
@@ -156,8 +151,10 @@ export default {
       document.querySelector('body').classList.remove('overflow-hidden')
     },
     metodoBoton() {
+
       this.DatosPersonales = false
       this.Estudiante = true
+
       document.getElementById('serTalento').style.filter = 'blur(5px)'
       document.querySelector('body').classList.add('overflow-hidden')
     },
@@ -180,6 +177,7 @@ export default {
 }
 
 @keyframes AnimationName {
+
   0%,
   100% {
     background-position: 0% 100%;
@@ -222,7 +220,8 @@ export default {
 .fade-enter,
 .fade-leave-to
 
-/* .fade-leave-active below version 2.1.8 */ {
+/* .fade-leave-active below version 2.1.8 */
+  {
   transition: opacity 0.7s;
 }
 
@@ -239,15 +238,13 @@ body::-webkit-scrollbar:hover {
 
 body::-webkit-scrollbar-track {
   background: rgb(0, 0, 0);
-  /* color of the tracking area */
+
 }
 
 body::-webkit-scrollbar-thumb {
   background: linear-gradient(90deg, #4a5b95 0%, #90beff 100%);
-  /* color of the scroll thumb */
+
   border-radius: 20px;
-  /* border: 1px solid rgb(217 70 239);
-  /* roundness of the scroll thumb */
-  /* creates padding around scroll thumb */
+
 }
 </style>

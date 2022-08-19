@@ -16,7 +16,7 @@
               <div class="flex items-center  md:border-r-2 border-[#4736df]">
                 <div class="md:p-2 p-0">
                   <div class="sm:flex justify-center">
-                    <app-input v-model="form.name" required label="Nombre Completo" />
+                    <app-input v-model="form.name" minlength="4" required label="Nombre Completo" />
                     <app-input v-model="form.age" type="number" required label="Edad" />
                   </div>
                   <div class="sm:flex  justify-center md:p-2 p-0">
@@ -26,7 +26,7 @@
                         correo ya esta registrado.</label>
                     </div>
 
-                    <app-input v-model="form.phone" type="number" required label="Teléfono" />
+                    <app-input v-model="form.phone" type="number" minlength="10" required label="Teléfono" />
                   </div>
                   <div class="md:p-2 p-0">
                     <app-input v-model="form.academic" required label="Ultimo titulo académico finalizado" />
@@ -243,5 +243,27 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+body::-webkit-scrollbar {
+  width: 2px;
+  /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar:hover {
+  width: 5px;
+
+  /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(0, 0, 0);
+
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #4a5b95 0%, #90beff 100%);
+  
+  border-radius: 20px;
+ 
 }
 </style>

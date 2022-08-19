@@ -29,6 +29,7 @@
               text-center
               font-bold
               px-7
+              pb-1
               text-transparent
               bg-clip-text bg-gradient-to-r
               from-[#FFDF8D]
