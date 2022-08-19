@@ -69,10 +69,11 @@
     </div>
     <transition name="fade">
       <app-datos-personales id="este" v-model="DatosPersonales" @metodoBoton="metodoBoton" @close="closeModal"
-        v-bind:class="[quitarclases ? 'animate__animated animate__heartBeat ' : 'animate__animated animate__rollOut']" />
+        v-bind:class="[quitarclases ? '' : 'animate__animated animate__rollOut']" />
     </transition>
     <transition name="fade">
-      <app-datos-personales v-model="DatosPersonalesProfesor" @metodoBoton="metodoBotonprofe" @close="closeModal" />
+      <app-datos-personales v-model="DatosPersonalesProfesor" @metodoBoton="metodoBotonprofe" @close="closeModal"
+        v-bind:class="[quitarclases ? '' : 'animate__animated animate__rollOut']" />
     </transition>
     <transition name="fade">
       <app-modal-registrar-profe v-model="Profesor" @close="closeProfe" />
@@ -96,7 +97,8 @@ export default {
       Estudiante: false,
       Profesor: false,
       DatosPersonalesProfesor: false,
-      quitarclases: false
+      quitarclases: false,
+     
     }
   },
   async mounted() {
@@ -112,11 +114,13 @@ export default {
     OPenDatosPersonales() {
       this.DatosPersonales = true
       this.quitarclases = true
+      document.getElementById('serTalento').style.transition = '.8s'
       document.getElementById('serTalento').style.filter = 'blur(5px)'
       document.querySelector('body').classList.add('overflow-hidden')
     },
     OPenDatosPersonalesProfe() {
       this.DatosPersonalesProfesor = true
+       this.quitarclases = true
       document.getElementById('serTalento').style.filter = 'blur(5px)'
       document.querySelector('body').classList.add('overflow-hidden')
     },

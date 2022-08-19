@@ -1,7 +1,7 @@
 <template>
 
   <div id="fondo" v-if="state" class="items-end flex fondo-modal supersm:px-5 px-[0.25rem] py-5 z-50" style="left: 0">
-    <div class="modal-principal opacity-95" id="personales">
+    <div class="modal-principal bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477] background-animate opacity-95" id="personales">
       <div class="centrar supersm:px-10 pt-8 pb-2">
         <p class="
             font-bold
@@ -110,7 +110,7 @@ export default {
     close() {
       this.$emit('close', true)
       document.getElementById('personales').classList.add('animate__animated', 'animate__rollOut')
-     
+
     },
   },
 }
@@ -119,7 +119,7 @@ export default {
 
 <style scoped>
 .modal-principal {
-  background: #0b046e;
+  /* background: #0b046e; */
   border-radius: 25px;
   box-shadow: 0px 0px 10px 0px rgb(165, 182, 231);
   /* display: grid; */
@@ -146,7 +146,7 @@ export default {
 .fondo-modal {
   height: 100%;
   width: 100%;
-  background-color: rgb(131 131 131 / 40%);
+  /* background-color: rgb(131 131 131 / 40%); */
   position: fixed;
 
   top: 0;
