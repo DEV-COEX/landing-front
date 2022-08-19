@@ -166,6 +166,16 @@ export default {
             }
           },
         },
+        
+        {
+          name: 'Educación',
+          path: '/educacion',
+          method: () => {
+            if (process.client) {
+              window.scrollTo(0, 0)
+            }
+          },
+        },
         {
           name: 'Fábrica de software',
           path: '/fabrica',
@@ -178,15 +188,6 @@ export default {
         {
           name: 'Contrata talentos',
           path: '/contrata-talento',
-          method: () => {
-            if (process.client) {
-              window.scrollTo(0, 0)
-            }
-          },
-        },
-        {
-          name: 'Educación',
-          path: '/educacion',
           method: () => {
             if (process.client) {
               window.scrollTo(0, 0)

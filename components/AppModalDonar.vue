@@ -13,8 +13,7 @@
           <div class="grid justify-center lg:px-3 ">
             <div class="flex justify-evenly xl:p-2">
               <div class="flex items-center ">
-                <div v-if="typePay === ''"
-                  >
+                <div v-if="typePay === ''">
                   <div class="xl:p-2">
                     <!--<app-select required label="Metodos de Donación" />-->
                     <app-metodo-donar v-model="typePay" label="Metodos de Donación" />
@@ -28,21 +27,22 @@
                   <div v-if="typePay === 'card'" class="lg:flex  sm:p-2">
                     <div class="lg:border-r-2 border-[#4736df]  p-2">
                       <div class="smsm:flex justify-center">
-                        <app-input v-model="formUser.name" required label="Nombre completo" />
-                        <app-input v-model="formUser.document" required label="Cedula / NIT" />
+                        <app-input v-model="formUser.name" required minlength="4" label="Nombre completo" />
+                        <app-input v-model="formUser.document" type="number" required label="Cedula / NIT" />
                       </div>
                       <div class="lg:flex justify-center ">
-                        <app-input v-model="formUser.phone" type="number" required label="Telefono" />
+                        <app-input v-model="formUser.phone" type="text" pattern="[0-9]{10,20}" title="El numero debe contener minimo 10 caracteres" required label="Telefono" />
                         <app-input v-model="formUser.email" type="email" required label="Correo" />
                       </div>
                       <div class="">
-                        <app-input v-model="amount" type="number" required label="Cantidad" />
+                        <app-input v-model="amount" type="number" min="1500" required label="Cantidad" />
                       </div>
                     </div>
                     <div class="p-2">
                       <div class="">
-                        <app-input v-model="formCard.cardNumber" type="number" required label="Numero de tarjeta" />
-                        <app-input v-model="formCard.cvc" type="number" required label="CVC" />
+                        <app-input v-model="formCard.cardNumber" type="text" required label="Numero de tarjeta"
+                          pattern="[0-9]{16}" title="Tamaño de 16 caracteres tipo numero" />
+                        <app-input v-model="formCard.cvc" type="text" pattern="[0-9]{3,4}" title="Debe contener max 4 y min 3 caracteres"  required label="CVC" />
                       </div>
                       <div class="p-2">
 
@@ -57,11 +57,11 @@
                       <div class="smsm:flex ">
                         <div>
                           <div class="">
-                            <app-input v-model="formUser.name" required label="Nombre completo" />
-                            <app-input v-model="formUser.document" required label="Cedula / NIT" />
+                            <app-input v-model="formUser.name" minlength="4" required label="Nombre completo" />
+                            <app-input v-model="formUser.document" required type="number" label="Cedula / NIT" />
                           </div>
                           <div class="">
-                            <app-input v-model="formUser.phone" type="number" required label="Telefono" />
+                            <app-input v-model="formUser.phone" type="text" pattern="[0-9]{10,20}" title="El numero debe contener minimo 10 caracteres" required label="Telefono" />
 
                           </div>
 
@@ -88,7 +88,7 @@
                     </div>
 
                     <div class="">
-                      <app-input v-model="amount" type="number" required label="Cantidad" />
+                      <app-input v-model="amount" type="number" min="1500" required label="Cantidad" />
                     </div>
 
                   </div>
@@ -97,7 +97,7 @@
               </div>
             </div>
             <div class="flex justify-center lg:py-2 py-4 border-[#4736df] lg:border-t-0 border-t-2" id="btn-donacion">
-              <app-btn  v-if="typePay !== ''" type="submit" :disabled="loadingPayment" class="
+              <app-btn v-if="typePay !== ''" type="submit" :disabled="loadingPayment" class="
                     bg-gradient-to-r
                     from-red-500
                     to-red-400
@@ -304,7 +304,7 @@ export default {
     },
     async transaction(payment, key) {
       const amountInCents = this.amount * 100;
-      const {data} = await this.$axios.post(`${SANDBOX_URL}/transactions`, {
+      const { data } = await this.$axios.post(`${SANDBOX_URL}/transactions`, {
         acceptance_token: this.wompi.presigned_acceptance.acceptance_token,
         amount_in_cents: amountInCents,
         currency: 'COP',
@@ -320,32 +320,32 @@ export default {
     },
     endTransaction() {
       const longPolling = setInterval(async () => {
-        const {data} = await this.$axios.get(`${SANDBOX_URL}/transactions?reference=${this.reference}`, {
+        const { data } = await this.$axios.get(`${SANDBOX_URL}/transactions?reference=${this.reference}`, {
           headers: {
             Authorization: `Bearer ${SANDBOX_PRIVATE_API_KEY}`,
           }
         });
 
-        if (data.data[0].payment_method.extra){
-        if (this.typePay === "pse") {
-          window.open(data.data[0].payment_method.extra.async_payment_url, '_blank');
-        }
+        if (data.data[0].payment_method.extra) {
+          if (this.typePay === "pse") {
+            window.open(data.data[0].payment_method.extra.async_payment_url, '_blank');
+          }
           if (data.data[0].status === "APPROVED") {
             clearInterval(longPolling);
             this.close();
             this.$emit("payment", true);
-          }else {
+          } else {
             clearInterval(longPolling);
             this.close();
             this.$emit("error", true);
           }
-        }else {
+        } else {
           console.error("No se pudo obtener el token de pago", data);
         }
       }, 1000);
     },
     async prueba() {
-      const {data} = await this.$axios.get(`${SANDBOX_URL}/transactions/${this.transaction2.data.id}`, {
+      const { data } = await this.$axios.get(`${SANDBOX_URL}/transactions/${this.transaction2.data.id}`, {
         headers: {
           Authorization: `Bearer ${SANDBOX_PRIVATE_API_KEY}`,
         }
@@ -391,7 +391,7 @@ export default {
             }
             await this.transaction(payment, SANDBOX_PRIVATE_API_KEY);
             this.endTransaction();
-          }catch (error) {
+          } catch (error) {
             this.loadingPayment = false;
             this.$emit("error", true);
           }

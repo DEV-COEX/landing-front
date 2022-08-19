@@ -42,12 +42,12 @@
     </transition>
     <transition name="fade">
       <app-donar-exitosa v-model="modalsexo" @close="closeModalsexo" id="sexo"
-        v-bind:class="[modalsexo ? 'animate__animated animate__heartBeat' : 'animate__animated animate__rollOut']" />
+        v-bind:class="[modalsexo ? 'animate__animated animate__heartBeat animate__infinite' : 'animate__animated animate__rollOut']" />
 
     </transition>
     <transition name="fade">
       <app-donar-error v-model="modalerror" @close="closeModalError"
-        v-bind:class="[modalerror ? 'animate__animated animate__heartBeat' : 'animate__animated animate__rollOut']" />
+        v-bind:class="[modalerror ? 'animate__animated animate__heartBeat animate__repeat-3' : 'animate__animated animate__rollOut']" />
 
     </transition>
   </div>
