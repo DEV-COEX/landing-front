@@ -168,6 +168,9 @@ export default {
     },
     openModal() {
       this.$emit('openModal', true)
+      if (process.client) {
+        window.scrollTo(0, 0)
+      }
     },
     closeModal() {
       this.modal = false
