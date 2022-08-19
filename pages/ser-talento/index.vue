@@ -68,11 +68,11 @@
       </div>
     </div>
     <transition name="fade">
-      <app-datos-personales id="este" v-model="DatosPersonales" @metodoBoton="metodoBoton" @close="closeModal"
+      <app-datos-personales id="estudiantes" v-model="DatosPersonales" @metodoBoton="metodoBoton" @close="closeModal"
         v-bind:class="[quitarclases ? '' : 'animate__animated animate__rollOut']" />
     </transition>
     <transition name="fade">
-      <app-datos-personales v-model="DatosPersonalesProfesor" @metodoBoton="metodoBotonprofe" @close="closeModal"
+      <app-datos-personales id="profesores" v-model="DatosPersonalesProfesor" @metodoBoton="metodoBotonprofe" @close="closeModal"
         v-bind:class="[quitarclases ? '' : 'animate__animated animate__rollOut']" />
     </transition>
     <transition name="fade">
@@ -134,7 +134,8 @@ export default {
         this.DatosPersonales = false;
         this.DatosPersonalesProfesor = false
         document.getElementById('personales').classList.remove('animate__animated', 'animate__rollOut')
-        document.getElementById('este').classList.add('hidden')
+        document.getElementById('estudiantes').classList.add('hidden')
+        document.getElementById('profesores').classList.add('hidden')
       }, 500);
 
     },
