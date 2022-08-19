@@ -133,9 +133,9 @@ export default {
     },
     sendEmail() {
       let text = "";
-      if (this.$route.path === 'contrata-talento') {
+      if (this.$route.path === '/contrata-talento') {
         text = "Quiero contratar talentos"
-      } else if (this.$route.path === 'fabrica') {
+      } else if (this.$route.path === '/fabrica') {
         text = "Quiero un desarrollo"
       }
       window.open(`mailto:gerencia@infinityprime.com.co?subject=${text}`, "_blank")
