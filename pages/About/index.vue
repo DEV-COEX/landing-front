@@ -43,8 +43,14 @@
             pageTexts['coex-model'] ? pageTexts['coex-model'][0].description : ' '
         }}
       </div>
-      <div class="absolute bottom-28">
-        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="28" viewBox="0 0 33 28" fill="none">
+      <div class="flex justify-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="33"
+          height="28"
+          viewBox="0 0 33 28"
+          fill="none"
+        >
           <path d="M16.5 28L32.5215 0.25H0.478531L16.5 28Z" fill="#FFB800" />
         </svg>
       </div>

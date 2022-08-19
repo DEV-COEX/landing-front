@@ -96,7 +96,19 @@
             </div>
           </div>
           <transition name="fade">
-            <div v-if="show" class="grid items-center justify-center lg:pb-44 pb-28 md:pb-36 px-5 md:px-0">
+            <div
+              v-if="show"
+              class="
+                grid
+                items-center
+                justify-center
+                lg:pb-44
+                pb-28
+                md:pb-36
+                px-5
+                md:px-0
+              "
+            >
               <!--Aqui va el v-for-->
               <div class="flex-col" v-for="(card, index) in cards" :key="index">
                 <div class="flex justify-center">
@@ -105,9 +117,33 @@
                   ></div>
                 </div>
 
-                <div class="cuadrado object-cover lg:w-[38rem] lg:h-[22rem] md:w-[31rem] md:h-[18rem] sm:w-[25.5rem] sm:h-[15rem] px-5 md:px-0 w-full h-[11rem] border-2">
+                <div
+                  class="
+                    cuadrado
+                    object-cover
+                    lg:w-[38rem] lg:h-[22rem]
+                    md:w-[31rem] md:h-[18rem]
+                    sm:w-[25.5rem] sm:h-[15rem]
+                    px-5
+                    md:px-0
+                    w-full
+                    h-[11rem]
+                    border-2
+                  "
+                >
                   <div>
-                    <img :src="card.image.url" alt="" class="img lg:w-[36rem] lg:h-[20rem] md:w-[29rem] md:h-[16rem] sm:w-[23.5rem] sm:h-[13rem] w-full h-[9rem] " />
+                    <img
+                      :src="card.image.url"
+                      alt=""
+                      class="
+                        img
+                        lg:w-[36rem] lg:h-[20rem]
+                        md:w-[29rem] md:h-[16rem]
+                        sm:w-[23.5rem] sm:h-[13rem]
+                        w-full
+                        h-[9rem]
+                      "
+                    />
                   </div>
                 </div>
                 <div class="p-4 text-white absolute">
@@ -157,9 +193,10 @@ export default {
       if (this.show === false) {
         document.getElementById('educacion').style.alignItems = 'center'
         document.getElementById('educacion').style.height = '100vh'
+        document.getElementById('educacion').classList.remove('pb-40')
         document.getElementById('educacion').style.transition = '2s'
       } else {
-        document.getElementById('educacion').style.paddingBottom = '10rem'
+        document.getElementById('educacion').classList.add('pb-40')
         document.getElementById('educacion').style.alignItems = 'center'
         document.getElementById('educacion').style.height = '100%'
       }
@@ -197,7 +234,6 @@ export default {
 }
 
 .img {
-
   border-radius: 12px;
 }
 

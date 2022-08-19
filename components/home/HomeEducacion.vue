@@ -6,7 +6,7 @@
             <div class="">
                 <div class="flex justify-center pt-5 xl:pt-28 lg:pt-24 md:pt-20 ">
                     <p
-                     class=" xl:text-5xl lg:text-4xl md:text-3xl text-xl w-full sm:w-[80%] lg:w-4/6 px-7  font-bold  text-center text-transparent bg-clip-text bg-gradient-to-r
+                     class="pb-[10px] xl:text-5xl lg:text-4xl md:text-3xl text-xl w-full sm:w-[80%] lg:w-4/6 px-7  font-bold  text-center text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
                       to-[#dab255]">Especialízate en desarrollo de software con nuestra increíble metodología en tan
