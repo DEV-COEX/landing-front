@@ -59,6 +59,9 @@ export default {
         },
       toEducation() {
         this.$router.push("/educacion");
+        if (process.client) {
+          window.scrollTo(0, 0)
+        }
       }
     }
 }

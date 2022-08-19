@@ -58,6 +58,9 @@ export default {
         },
         toFactory() {
           this.$router.push("/fabrica");
+          if (process.client) {
+            window.scrollTo(0, 0)
+          }
         }
       }
 }

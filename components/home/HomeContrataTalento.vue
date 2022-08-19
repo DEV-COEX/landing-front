@@ -72,6 +72,9 @@ export default {
     },
     goTo() {
       this.$router.push({name: "contrata-talento"})
+      if (process.client) {
+        window.scrollTo(0, 0)
+      }
     }
   }
 }
