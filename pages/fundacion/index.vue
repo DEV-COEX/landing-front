@@ -37,17 +37,18 @@
 
     </div>
     <transition name="fade">
-      <app-modal-donar v-model="modal" @close="closeModal" @payment="OPenModalsexo" @error="OPenModalError"/>
+      <app-modal-donar v-model="modal" @close="closeModal" @payment="OPenModalsexo" @error="OPenModalError" />
 
     </transition>
     <transition name="fade">
-      <app-donar-exitosa v-model="modalsexo" @close="closeModalsexo" id="sexo"
-        v-bind:class="[modalsexo ? 'animate__animated animate__heartBeat animate__infinite' : 'animate__animated animate__rollOut']" />
+      <app-donar-exitosa v-model="modalsexo"
+        v-bind:class="[modalsexo ? 'animate__animated animate__heartBeat animate__infinite' : '']"
+        p="Donación exitosa, gracias por tu colaboración" @close="closeModalsexo" />
 
     </transition>
     <transition name="fade">
-      <app-donar-error v-model="modalerror" @close="closeModalError"
-        v-bind:class="[modalerror ? 'animate__animated animate__heartBeat animate__repeat-3' : 'animate__animated animate__rollOut']" />
+      <app-donar-error v-model="modalerror" 
+        v-bind:class="[modalerror ? 'animate__animated animate__heartBeat animate__repeat-3' : 'animate__animated animate__rollOut']" @close="closeModalError"/>
 
     </transition>
   </div>
@@ -153,5 +154,4 @@ body::-webkit-scrollbar-thumb {
   /* roundness of the scroll thumb */
   /* creates padding around scroll thumb */
 }
-
 </style>

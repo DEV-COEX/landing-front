@@ -68,18 +68,25 @@
       </div>
     </div>
     <transition name="fade">
-      <app-datos-personales id="estudiantes" v-model="DatosPersonales" @metodoBoton="metodoBoton" @close="closeModal"
-        v-bind:class="[quitarclases ? '' : 'animate__animated animate__rollOut']" />
+      <app-datos-personales id="estudiantes" v-model="DatosPersonales" 
+        v-bind:class="[quitarclases ? '' : 'animate__animated animate__rollOut']" @metodoBoton="metodoBoton" @close="closeModal"/>
     </transition>
     <transition name="fade">
-      <app-datos-personales id="profesores" v-model="DatosPersonalesProfesor" @metodoBoton="metodoBotonprofe" @close="closeModal"
-        v-bind:class="[quitarclases ? '' : 'animate__animated animate__rollOut']" />
+      <app-datos-personales id="profesores" v-model="DatosPersonalesProfesor"
+        v-bind:class="[quitarclases ? '' : 'animate__animated animate__rollOut']" @metodoBoton="metodoBotonprofe"
+        @close="closeModal" />
     </transition>
     <transition name="fade">
-      <app-modal-registrar-profe v-model="Profesor" @close="closeProfe" />
+      <app-modal-registrar-profe v-model="Profesor" @close="closeProfe" @exito="OPenModalexito"
+        @metodoBoton="OPenModalexito" />
     </transition>
     <transition name="fade">
-      <app-modal-registrar-estudiante @close="closeEstudents" v-model="Estudiante" />
+      <app-modal-registrar-estudiante v-model="Estudiante" @close="closeEstudents" @exito="OPenModalexito" />
+    </transition>
+    <transition name="fade">
+      <app-donar-exitosa v-model="modalExito"
+        v-bind:class="[modalExito ? 'animate__animated animate__heartBeat animate__infinite' : '']"
+        p="Registrado con exito" @close="closeModalexito" />
     </transition>
   </div>
 </template>
@@ -98,7 +105,8 @@ export default {
       Profesor: false,
       DatosPersonalesProfesor: false,
       quitarclases: false,
-     
+      modalExito: false
+
     }
   },
   async mounted() {
@@ -120,7 +128,7 @@ export default {
     },
     OPenDatosPersonalesProfe() {
       this.DatosPersonalesProfesor = true
-       this.quitarclases = true
+      this.quitarclases = true
       document.getElementById('serTalento').style.filter = 'blur(5px)'
       document.querySelector('body').classList.add('overflow-hidden')
     },
@@ -139,8 +147,17 @@ export default {
       }, 500);
 
     },
+    OPenModalexito() {
+      this.modalExito = true
+      document.getElementById('serTalento').style.filter = 'blur(5px)'
+      document.querySelector('body').classList.add('overflow-hidden')
+    },
+    closeModalexito() {
+      this.modalExito = false
+      document.getElementById('serTalento').style.filter = 'blur(0)'
+      document.querySelector('body').classList.remove('overflow-hidden')
+    },
     closeEstudents() {
-
       this.Estudiante = false
       document.getElementById('serTalento').style.filter = 'blur(0)'
       document.querySelector('body').classList.remove('overflow-hidden')

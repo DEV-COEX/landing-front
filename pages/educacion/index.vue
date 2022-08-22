@@ -110,7 +110,7 @@
               "
             >
               <!--Aqui va el v-for-->
-              <div class="flex-col" v-for="(card, index) in cards" :key="index">
+              <div  v-for="(card, index) in cards" :key="index" class="flex-col">
                 <div class="flex justify-center">
                   <div
                     class="linea bg-gradient-to-r from-[#4A5B95] to-[#90BEFF]"
