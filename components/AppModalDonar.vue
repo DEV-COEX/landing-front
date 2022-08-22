@@ -124,7 +124,13 @@
 
 
 <script>
-import { SANDBOX_PUBLIC_API_KEY, SANDBOX_URL, SANDBOX_PRIVATE_API_KEY } from "~/plugins/BASE_CONFIG";
+import {
+  SANDBOX_PUBLIC_API_KEY,
+  SANDBOX_URL,
+  SANDBOX_PRIVATE_API_KEY,
+  PRODUCTION_URL,
+  PRODUCTION_PUBLIC_API_KEY, PRODUCTION_PRIVATE_API_KEY
+} from "~/plugins/BASE_CONFIG";
 import { generateUUID, verifyUUID } from "~/plugins/Donations";
 
 export default {
@@ -258,9 +264,9 @@ export default {
       this.wompi = data.data;
     },
     async getPse() {
-      const { data } = await this.$axios.get(`${SANDBOX_URL}/pse/financial_institutions`, {
+      const { data } = await this.$axios.get(`${PRODUCTION_URL}/pse/financial_institutions`, {
         headers: {
-          Authorization: `Bearer ${SANDBOX_PUBLIC_API_KEY}`
+          Authorization: `Bearer ${PRODUCTION_PUBLIC_API_KEY}`
         }
       });
       const pse = data.data.map(item => {
@@ -273,7 +279,7 @@ export default {
       this.pse = pse;
     },
     async saveCard() {
-      const { data } = await this.$axios.post(`${SANDBOX_URL}/tokens/cards`, {
+      const { data } = await this.$axios.post(`${PRODUCTION_URL}/tokens/cards`, {
         number: this.formCard.cardNumber,
         cvc: this.formCard.cvc,
         exp_month: this.formDate.exp_month,
@@ -281,7 +287,7 @@ export default {
         card_holder: this.formUser.name,
       }, {
         headers: {
-          Authorization: `Bearer ${SANDBOX_PUBLIC_API_KEY}`,
+          Authorization: `Bearer ${PRODUCTION_PUBLIC_API_KEY}`,
         }
       });
       this.clientCard = data.data;
@@ -304,7 +310,7 @@ export default {
     },
     async transaction(payment, key) {
       const amountInCents = this.amount * 100;
-      const { data } = await this.$axios.post(`${SANDBOX_URL}/transactions`, {
+      const { data } = await this.$axios.post(`${PRODUCTION_URL}/transactions`, {
         acceptance_token: this.wompi.presigned_acceptance.acceptance_token,
         amount_in_cents: amountInCents,
         currency: 'COP',
@@ -320,9 +326,9 @@ export default {
     },
     endTransaction() {
       const longPolling = setInterval(async () => {
-        const { data } = await this.$axios.get(`${SANDBOX_URL}/transactions?reference=${this.reference}`, {
+        const { data } = await this.$axios.get(`${PRODUCTION_URL}/transactions?reference=${this.reference}`, {
           headers: {
-            Authorization: `Bearer ${SANDBOX_PRIVATE_API_KEY}`,
+            Authorization: `Bearer ${PRODUCTION_PRIVATE_API_KEY}`,
           }
         });
 
@@ -345,9 +351,9 @@ export default {
       }, 1000);
     },
     async prueba() {
-      const { data } = await this.$axios.get(`${SANDBOX_URL}/transactions/${this.transaction2.data.id}`, {
+      const { data } = await this.$axios.get(`${PRODUCTION_URL}/transactions/${this.transaction2.data.id}`, {
         headers: {
-          Authorization: `Bearer ${SANDBOX_PRIVATE_API_KEY}`,
+          Authorization: `Bearer ${PRODUCTION_PRIVATE_API_KEY}`,
         }
       });
       console.log(data);
@@ -366,7 +372,7 @@ export default {
               token: this.clientCard.id,
               installments: 2,
             }
-            await this.transaction(payment, SANDBOX_PUBLIC_API_KEY);
+            await this.transaction(payment, PRODUCTION_PUBLIC_API_KEY);
             await this.endTransaction();
             this.close();
             this.$emit("payment", true);
@@ -389,7 +395,7 @@ export default {
               financial_institution_code: this.formPse.bank,
               payment_description: 'Donación con referencia ' + this.reference,
             }
-            await this.transaction(payment, SANDBOX_PRIVATE_API_KEY);
+            await this.transaction(payment, PRODUCTION_PRIVATE_API_KEY);
             this.endTransaction();
           } catch (error) {
             this.loadingPayment = false;
