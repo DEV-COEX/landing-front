@@ -204,6 +204,11 @@ export default {
     background-position: 100% 30%;
   }
 }
+@media (max-width: 1024px) {
+  .modal {
+    top: -158px;
+  }
+}
 
 .cuadrado {
   width: 38rem;
