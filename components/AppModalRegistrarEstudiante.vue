@@ -6,7 +6,6 @@
                       from-[#FFDF8D]
                       via-[#FF9838]
                       to-[#dab255]">Inscripción talento</p>
-
       </div>
       <form @submit.prevent="register">
         <div class="xl:px-8">
@@ -25,7 +24,7 @@
                         esta registrado</label>
                     </div>
 
-                    <app-input v-model="form.phone" type="number" minlength="10" required label="Teléfono"/>
+                    <app-input v-model="form.phone" type="text" pattern="[0-9]{10,20}" title="El numero debe contener minimo 10 caracteres" required label="Teléfono"/>
                   </div>
                   <div class="md:p-2 p-0">
                     <app-input v-model="form.school" required
@@ -44,8 +43,8 @@
                     <app-input v-model="form.roomies" required label="¿Con quien vive?"/>
                   </div>
                   <div class="">
-                    <app-select :items="genders" required v-model="form.gender" label="Genero"/>
-                    <app-select :items="academic" required v-model="form.education" label="Nivel educativo Actual"/>
+                    <app-select v-model="form.gender" :items="genders"   required label="Genero"/>
+                    <app-select v-model="form.education"  :items="academic"  required label="Nivel educativo Actual"/>
                   </div>
                 </div>
               </div>
@@ -59,7 +58,7 @@
                     mx-2
                     text-white
                     hover:from-red-400 hover:to-red-500
-                  ">Enviar Formulario
+                  " @click="metodoBoton">Enviar Formulario
               </app-btn>
               <app-btn type="button" class="
                      bg-[#1C233A]
@@ -190,6 +189,7 @@ export default {
         this.$emit("close", true)
         this.form = {}
         this.error = false
+        this.$emit("exito", true);
         document.getElementById("errorPosicion").style.display = "flex";
       } catch (e) {
         this.error = true

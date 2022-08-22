@@ -98,7 +98,7 @@
           <transition name="fade">
             <div v-if="show" class="grid items-center justify-center lg:pb-44 pb-28 md:pb-36 px-5 md:px-0">
               <!--Aqui va el v-for-->
-              <div class="flex-col" v-for="(card, index) in cards" :key="index">
+              <div  v-for="(card, index) in cards" :key="index" class="flex-col">
                 <div class="flex justify-center">
                   <div
                     class="linea bg-gradient-to-r from-[#4A5B95] to-[#90BEFF]"
