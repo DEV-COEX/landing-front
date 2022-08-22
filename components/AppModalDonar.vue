@@ -257,7 +257,7 @@ export default {
     },
     async getWompi() {
       /* document.getElementById("btn-donacion").style.display="none" */
-      const { data } = await this.$axios.get(`https://sandbox.wompi.co/v1/merchants/${PRODUCTION_PUBLIC_API_KEY}`);
+      const { data } = await this.$axios.get(`${PRODUCTION_URL}/merchants/${PRODUCTION_PUBLIC_API_KEY}`);
       this.wompi = data.data;
     },
     async getPse() {
