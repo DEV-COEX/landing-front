@@ -126,6 +126,10 @@ export default {
           llave: 'femenino',
           attribute: 'Femenino',
         },
+        {
+          llave: 'otro',
+          attribute: 'No binario',
+        },
       ],
       schedules: [
         {
