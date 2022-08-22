@@ -24,11 +24,11 @@
                         esta registrado</label>
                     </div>
 
-                    <app-input v-model="form.phone" type="text" pattern="[0-9]{10,20}" title="El numero debe contener minimo 10 caracteres" required label="Teléfono"/>
+                    <app-input v-model="form.phone" type="text" pattern="[0-9]{10,20}" title="El número debe contener mínimo 10 caracteres" required label="Teléfono"/>
                   </div>
                   <div class="md:p-2 p-0">
                     <app-input v-model="form.school" required
-                               label="Mencione el colegio en donde cursa o curso su bachillerato"/>
+                               label="Mencione el colegio en donde cursa o cursó su bachillerato"/>
 
 
                     <app-select v-model="form.schedule" :items="schedules" required
@@ -43,7 +43,7 @@
                     <app-input v-model="form.roomies" required label="¿Con quien vive?"/>
                   </div>
                   <div class="">
-                    <app-select v-model="form.gender" :items="genders"   required label="Genero"/>
+                    <app-select v-model="form.gender" :items="genders"   required label="Género"/>
                     <app-select v-model="form.education"  :items="academic"  required label="Nivel educativo Actual"/>
                   </div>
                 </div>

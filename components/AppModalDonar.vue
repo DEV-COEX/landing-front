@@ -28,10 +28,10 @@
                     <div class="lg:border-r-2 border-[#4736df]  p-2">
                       <div class="smsm:flex justify-center">
                         <app-input v-model="formUser.name" required minlength="4" label="Nombre completo" />
-                        <app-input v-model="formUser.document" type="number" required label="Cedula / NIT" />
+                        <app-input v-model="formUser.document" type="number" required label="Cédula / NIT" />
                       </div>
                       <div class="lg:flex justify-center ">
-                        <app-input v-model="formUser.phone" type="text" pattern="[0-9]{10,20}" title="El numero debe contener minimo 10 caracteres" required label="Telefono" />
+                        <app-input v-model="formUser.phone" type="text" pattern="[0-9]{10,20}" title="El número debe contener mínimo 10 caracteres" required label="Telefono" />
                         <app-input v-model="formUser.email" type="email" required label="Correo" />
                       </div>
                       <div class="">
@@ -40,8 +40,8 @@
                     </div>
                     <div class="p-2">
                       <div class="">
-                        <app-input v-model="formCard.cardNumber" type="text" required label="Numero de tarjeta"
-                          pattern="[0-9]{16}" title="Tamaño de 16 caracteres tipo numero" />
+                        <app-input v-model="formCard.cardNumber" type="text" required label="Número de tarjeta"
+                          pattern="[0-9]{16}" title="Tamaño de 16 caracteres tipo número" />
                         <app-input v-model="formCard.cvc" type="text" pattern="[0-9]{3,4}" title="Debe contener max 4 y min 3 caracteres"  required label="CVC" />
                       </div>
                       <div class="p-2">
@@ -58,10 +58,10 @@
                         <div>
                           <div class="">
                             <app-input v-model="formUser.name" minlength="4" required label="Nombre completo" />
-                            <app-input v-model="formUser.document" required type="number" label="Cedula / NIT" />
+                            <app-input v-model="formUser.document" required type="number" label="Cdula / NIT" />
                           </div>
                           <div class="">
-                            <app-input v-model="formUser.phone" type="text" pattern="[0-9]{10,20}" title="El numero debe contener minimo 10 caracteres" required label="Telefono" />
+                            <app-input v-model="formUser.phone" type="text" pattern="[0-9]{10,20}" title="El número debe contener mínimo 10 caracteres" required label="Telefono" />
 
                           </div>
 
@@ -105,7 +105,7 @@
                     mx-2
                     text-white
                     hover:from-red-400 hover:to-red-500
-                  ">{{ loadingPayment ? 'Enviando..' : 'Enviar donacion' }}
+                  ">{{ loadingPayment ? 'Enviando..' : 'Enviar donación' }}
               </app-btn>
               <app-btn type="button" class="
                      bg-[#1C233A]

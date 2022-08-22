@@ -26,10 +26,10 @@
                         correo ya esta registrado.</label>
                     </div>
 
-                    <app-input v-model="form.phone" type="text" pattern="[0-9]{10,20}" title="El numero debe contener minimo 10 caracteres" required label="Teléfono" />
+                    <app-input v-model="form.phone" type="text" pattern="[0-9]{10,20}" title="El número debe contener mínimo 10 caracteres" required label="Teléfono" />
                   </div>
                   <div class="md:p-2 p-0">
-                    <app-input v-model="form.academic" required label="Ultimo titulo académico finalizado" />
+                    <app-input v-model="form.academic" required label="Último titulo académico finalizado" />
                     <app-input v-model="form.languages" required
                       label="Mencione los lenguajes de programación que maneja" />
                   </div>
@@ -39,11 +39,11 @@
                 <div class="md:p-2 p-0">
                   <div class="md:block sm:flex">
                     <app-input v-model="form.address" required label="¿En que Barrio reside?" />
-                    <app-input v-model="form.roomies" required label="¿Con quien vive?" />
+                    <app-input v-model="form.roomies" required label="¿Con quién vive?" />
 
                   </div>
                   <div class="">
-                    <app-select v-model="form.gender" :items="genders" required label="Genero" />
+                    <app-select v-model="form.gender" :items="genders" required label="Género" />
                     <app-select  v-model="form.education"  :items="academic" required label="Nivel educativo Actual" />
                     <app-select v-model="form.experience" :items="experience"  required
                       label="¿Tiene experiencia como profesor?" />
