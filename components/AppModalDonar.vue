@@ -125,9 +125,6 @@
 
 <script>
 import {
-  SANDBOX_PUBLIC_API_KEY,
-  SANDBOX_URL,
-  SANDBOX_PRIVATE_API_KEY,
   PRODUCTION_URL,
   PRODUCTION_PUBLIC_API_KEY, PRODUCTION_PRIVATE_API_KEY
 } from "~/plugins/BASE_CONFIG";
@@ -260,7 +257,7 @@ export default {
     },
     async getWompi() {
       /* document.getElementById("btn-donacion").style.display="none" */
-      const { data } = await this.$axios.get(`https://sandbox.wompi.co/v1/merchants/${SANDBOX_PUBLIC_API_KEY}`);
+      const { data } = await this.$axios.get(`https://sandbox.wompi.co/v1/merchants/${PRODUCTION_PUBLIC_API_KEY}`);
       this.wompi = data.data;
     },
     async getPse() {
