@@ -65,8 +65,8 @@
         </div>
       </div>
     </div>
-    <transition name="fade">
-      <app-modal-contactar v-model="modal" @close="closeModal" />
+    <transition name="fade" >
+      <app-modal-contactar v-model="modal" @close="closeModal"  class="modal"/>
     </transition>
   </div>
 </template>
@@ -122,6 +122,9 @@ export default {
   -moz-animation: AnimationName 7s ease infinite;
   animation: AnimationName 5s ease infinite;
 }
+.modal{
+  top: 0px;
+}
 
 @keyframes AnimationName {
 
@@ -132,6 +135,11 @@ export default {
 
   50% {
     background-position: 100% 30%;
+  }
+}
+@media (max-width: 1024px) {
+  .modal {
+    top: -158px;
   }
 }
 

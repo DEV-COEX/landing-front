@@ -12,9 +12,9 @@
         <div class="xl:px-8">
           <div class="grid justify-center lg:px-3">
             <div
-              class="md:flex justify-evenly md:p-2 sm:h-[30rem] h-[20rem] overflow-y-auto md:border-b-0 border-b-2 border-[#4736df]">
+              class="md:flex justify-evenly md:p-2 xlchikito:pt-0 lg:pt-[6rem] sm:h-[30rem] xlchikito:h-[30rem] lg:h-[18rem]  h-[20rem] overflow-y-auto md:border-b-0 border-b-2 border-[#4736df]">
               <div class="flex items-center  md:border-r-2 border-[#4736df]">
-                <div class="md:p-2 p-0">
+                <div class="xlchikito:p-2 p-0">
                   <div class="sm:flex justify-center">
                     <app-input v-model="form.name" minlength="4" required label="Nombre Completo" />
                     <app-input v-model="form.age" type="number" required label="Edad" />
@@ -36,7 +36,7 @@
                 </div>
               </div>
               <div class="sm:flex items-center">
-                <div class="md:p-2 p-0">
+                <div class="xlchikito:p-2 p-0">
                   <div class="md:block sm:flex">
                     <app-input v-model="form.address" required label="¿En que Barrio reside?" />
                     <app-input v-model="form.roomies" required label="¿Con quién vive?" />
