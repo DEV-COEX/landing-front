@@ -25,7 +25,7 @@
                     <app-metodo-donar v-model="typePay" label="Metodos de Donación" />
                   </div>
                   <div v-if="typePay === 'card'" class="lg:flex  sm:p-2">
-                    <div class="lg:border-r-2 border-[#4736df]  p-2">
+                    <div class="lg:border-r-2 border-[#6D6F76]  p-2">
                       <div class="smsm:flex justify-center">
                         <app-input v-model="formUser.name" required minlength="4" label="Nombre completo" />
                         <app-input v-model="formUser.document" type="number" required label="Cédula / NIT" />
@@ -53,7 +53,7 @@
 
                   </div>
                   <div v-if="typePay === 'pse'" class="">
-                    <div class=" lg:border-b-2 border-b-0 border-[#4736df] pb-4 ">
+                    <div class=" lg:border-b-2 border-b-0 border-[#6D6F76] pb-4 ">
                       <div class="smsm:flex ">
                         <div>
                           <div class="">
@@ -96,7 +96,7 @@
 
               </div>
             </div>
-            <div class="flex justify-center lg:py-2 py-4 border-[#4736df] lg:border-t-0 border-t-2" id="btn-donacion">
+            <div class="flex justify-center lg:py-2 py-4 border-[#6D6F76] lg:border-t-0 border-t-2" id="btn-donacion">
               <app-btn v-if="typePay !== ''" type="submit" :disabled="loadingPayment" class="
                     bg-gradient-to-r
                     from-red-500
@@ -105,7 +105,7 @@
                     mx-2
                     text-white
                     hover:from-red-400 hover:to-red-500
-                  ">{{ loadingPayment ? 'Enviando..' : 'Enviar donación' }}
+                  ">{{ loadingPayment ? 'Donando..' : 'Donar' }}
               </app-btn>
               <app-btn type="button" class="
                      bg-[#1C233A]
@@ -412,7 +412,6 @@ export default {
 .modal-principal {
   background: #2B3348;
   border-radius: 25px;
-  box-shadow: 0px 0px 10px 0px rgb(165, 182, 231);
   /* display: grid; */
 }
 

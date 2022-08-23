@@ -1,6 +1,6 @@
 <template>
   <div v-if="state" class="centrar fondo-modal md:px-[1.25rem] px-[0.25rem] z-50" style="left: 0;">
-    <div class="modal-principal opacity-95">
+    <div class="modal-principal opacity-95 mx-4 px-3 ">
       <div class="flex justify-center px-10  py-5 ">
         <p class="font-bold  text-xl text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
@@ -8,11 +8,11 @@
                       to-[#dab255]">Inscripción talento</p>
       </div>
       <form @submit.prevent="register">
-        <div class="xl:px-8">
+        <div class="xl:px-8 ">
           <div class="grid justify-center lg:px-3 ">
             <div class="md:flex justify-evenly md:p-2 xlchikito:pt-0 lg:pt-[4rem] sm:h-[30rem] xlchikito:h-[30rem] lg:h-[18rem]  h-[20rem] overflow-y-auto md:border-b-0 border-b-2 border-[#4736df] ">
               <div class="flex items-center md:border-r-2  border-[#4736df]">
-                <div class="xlchikito:p-2 p-0">
+                <div class="xlchikito:p-2 p-0 md:px-0 px-4">
                   <div class="sm:flex justify-center">
                     <app-input v-model="form.name" minlength="4" required label="Nombre Completo"/>
                     <app-input v-model="form.age" type="number" required label="Edad"/>
@@ -37,7 +37,7 @@
                 </div>
               </div>
               <div class="sm:flex items-center">
-                <div class="md:p-2 p-0">
+                <div class="md:p-2 md:px-0 px-4">
                   <div class="md:block sm:flex">
                     <app-input v-model="form.address" required label="¿En que Barrio reside?"/>
                     <app-input v-model="form.roomies" required label="¿Con quien vive?"/>
@@ -208,7 +208,6 @@ export default {
 .modal-principal {
   background: #2B3348;
   border-radius: 25px;
-   box-shadow: 0px 0px 10px 0px rgb(165, 182, 231);
   /* display: grid; */
 }
 
