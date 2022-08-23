@@ -43,10 +43,9 @@
           py-5
           lg:leading-10
         "
+        v-html="coexModel"
       >
-        {{
-          pageTexts['coex-model'] ? pageTexts['coex-model'][0].description : ' '
-        }}
+
       </div>
     </section>
     <section
@@ -72,7 +71,7 @@
           to-[#FF9838]
         "
       >
-        {{ pageTexts['historia'] ? pageTexts['historia'][0].tittle : ' ' }}
+        {{ pageTexts['historia-text'] ? pageTexts['historia-text'][0].tittle : ' ' }}
       </div>
       <div
         class="
@@ -87,8 +86,8 @@
           py-5
           lg:leading-10
         "
+        v-html="historia"
       >
-        {{ pageTexts['historia'] ? pageTexts['historia'][0].description : ' ' }}
       </div>
       <div
         class="
@@ -105,7 +104,7 @@
           to-[#FF9838]
         "
       >
-        {{ pageTexts['mision'] ? pageTexts['mision'][0].tittle : ' ' }}
+        {{ pageTexts['mision-text'] ? pageTexts['mision-text'][0].tittle : ' ' }}
       </div>
       <div
         class="
@@ -120,8 +119,8 @@
           py-5
           lg:leading-10
         "
+        v-html="mision"
       >
-        {{ pageTexts['mision'] ? pageTexts['mision'][0].description : ' ' }}
       </div>
     </section>
     <section
@@ -330,6 +329,9 @@ export default {
       employes: null,
       founders: null,
       pageTexts: {},
+      coexModel: null,
+      historia: null,
+      mision: null,
     }
   },
   async mounted() {
@@ -346,6 +348,9 @@ export default {
         this.$store.commit('filterText', String(el.name))
         this.pageTexts[el.name] = this.$store.state.text
       })
+      this.coexModel= this.$md.render(this.pageTexts['coex-model'][0].description)
+      this.historia= this.$md.render(this.pageTexts["historia-text"][0].description)
+      this.mision= this.$md.render(this.pageTexts["mision-text"][0].description)
     },
     async getTalents() {
       const { data } = await this.$axios.get('talents')
@@ -402,5 +407,10 @@ body::-webkit-scrollbar-thumb {
   /* border: 1px solid rgb(217 70 239);
   /* roundness of the scroll thumb */
   /* creates padding around scroll thumb */
+}
+strong {
+  color:transparent;
+  background-clip: text;
+  background-image: linear-gradient(to right, #ffdf8d, #ff9838);
 }
 </style>
