@@ -74,9 +74,9 @@
       <div class="flex justify-center pt-4">
 
         <app-btn class="
-         
+
             bg-white rounded-full w-10 h-10
-   
+
             text-black
             hover:from-red-400 hover:to-red-500
             " @click="close">
@@ -157,7 +157,6 @@ export default {
 .modal-principal {
   background: #2b3348;
   border-radius: 40px;
-  box-shadow: 0px 0px 10px 0px rgb(165, 182, 231);
   /* display: grid; */
 }
 
