@@ -39,7 +39,7 @@
       <div></div>
       <div class="py-1 lg:py-3 text-center lg:text-left font-extrabold text-xl lg:text-3xl">{{ job }}</div>
       <div class="py-1 lg:py-3 mb-2 text-center lg:text-left font-extrabold text-xl lg:text-3xl">{{ description }}</div>
-      <div class="text-xl text-left">
+      <div class="text-xl text-left ">
         {{ about }}
       </div>
     </div>
