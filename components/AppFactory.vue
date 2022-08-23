@@ -22,9 +22,9 @@
   >
     <div
       v-if="ShowPanel"
-      class="flex justify-end min-h-[31rem] max-h-screen w-full"
+      class="flex justify-end min-h-[31rem]  max-h-screen w-full"
     >
-      <div class="flex flex-col justify-evenly w-auto mx-auto">
+      <div class="flex flex-col justify-evenly relative w-auto mx-auto">
         <div
           v-for="(desarrollo, index) in desarrollos"
           :key="index"
@@ -46,7 +46,7 @@
               @click="SetDesarrollo(desarrollo)"
             >
               <img
-                class="cursor-pointer"
+                class="cursor-pointer z-20"
                 :src="desarrollo.icon.url"
                 alt="iconAirplane"
               />
@@ -64,16 +64,18 @@
               @click="SetDesarrollo(desarrollo)"
             >
               <img
-                class="cursor-pointer absolute"
+                class="cursor-pointer absolute z-20"
                 src="/Ellipse.svg"
                 alt="iconAirplane"
               />
             </div>
           </div>
         </div>
+      <div class="w-[1px] h-full absolute  right-[19px] md:right-[14px] z-10" style="background-image: linear-gradient(#90BEFF, #4A5B95, #8f7cff00);"></div>
       </div>
-      <!-- card -->
-      <transition name="fade" mode="out-in" class="">
+     <!-- card -->
+      <transition name="fade" mode="out-in">
+
         <div
           v-if="isCardShown"
           class="
