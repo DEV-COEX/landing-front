@@ -215,8 +215,6 @@ export default {
   width: 100%;
   background-color: rgb(131 131 131 / 40%);
   position: fixed;
-
-  top: 0;
 }
 
 /*ajuste en pantalla*/

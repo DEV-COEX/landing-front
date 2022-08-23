@@ -3,6 +3,7 @@
         <home-fabrica/>
         <home-educacion/>
         <home-coex-model/>
+        <home-aliados/>
     </div>
 </template>
 

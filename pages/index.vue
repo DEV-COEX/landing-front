@@ -24,9 +24,9 @@
         <div
           class=" w-34 h-34  ml-1 rounded-full border-2 border-bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]  p-1 flex items-center  justify-center">
           <div class="btnDos bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE] flex items-center  justify-center">
-            <span class=" text-blue-400 text-sm font-semibold text-center absolute">Conoce más</span>
-            <a href="#conoce" class="animate-ping"><button
-                class="btnDos bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]  opacity-75 "
+            <span class=" text-blue-400 text-sm font-semibold text-center absolute">Ver más</span>
+            <a href="#conoce" class=""><button
+                class="btnDos bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]  opacity-75 animate-ping"
                 @click="conoceMas"></button></a>
           </div>
         </div>
