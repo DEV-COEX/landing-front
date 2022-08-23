@@ -11,6 +11,7 @@
         flex
         justify-center
         items-center
+        px-5
       ">
       <div class="grid justify-center items-center">
         <div class="pb-5">
@@ -24,7 +25,7 @@
                 sm:w-[80%]
                 lg:w-4/6
                 text-center text-white
-               
+
               ">
               Nuestro grupo COEX te da la bienvenida, queremos que seas parte de
               nuestro grupo de desarrolladores y formadores para que tengas la
@@ -68,7 +69,7 @@
       </div>
     </div>
     <transition name="fade">
-      <app-datos-personales id="estudiantes" v-model="DatosPersonales" 
+      <app-datos-personales id="estudiantes" v-model="DatosPersonales"
         v-bind:class="[quitarclases ? '' : 'animate__animated animate__rollOut']" @metodoBoton="metodoBoton" @close="closeModal"/>
     </transition>
     <transition name="fade">

@@ -1,13 +1,13 @@
 <template>
     <div v-if="state" id="donacion" class="centrar fondo-modal md:px-[1.25rem] px-[0.50rem] z-50" style="left: 0"
         @click="close">
-        <div class="modal-principal opacity-95 ">
+        <div class="modal-principal opacity-95">
             <div class="">
                 <div class="flex flex-col justify-center items-center w-full  p-6 opacity-100">
 
                     <img src="/check.gif" alt="iconAirplane" class="w-52" />
                     <p class="text-center text-white text-xl">
-                       {{p}} 
+                       {{p}}
                     </p>
                 </div>
             </div>
@@ -66,7 +66,6 @@ export default {
 .modal-principal {
     background: #2b3348;
     border-radius: 40px;
-    box-shadow: 0px 0px 10px 0px rgb(165, 182, 231);
     /* display: grid; */
 }
 

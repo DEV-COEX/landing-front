@@ -47,19 +47,29 @@
       </div>
       <div
         class="
-          lg:flex lg:flex-col lg:items-center
-          justify-between
-          lg:justify-center
+          xl:w-[30rem]
+          w-full
+          self-center
+          px-5
+          lg:px-0
+          justify-self-center justify-between
           grid grid-cols-2
-          p-5
-          lg:p-0
+          gap-x-2
+          sm:gap-x-4
+          sm:ml-20
+          md:ml-40
+          lg:ml-0
         "
       >
-        <div v-for="(item, i) in navitems" :key="i" class="lg:mt-1 mt-4">
+        <div v-for="(item, i) in navitems" :key="i" class="my-3">
           <NuxtLink :to="item.path" class="font-medium text-white">
             <span
               class="
-                lg:mx-6 lg:font-bold
+                text-sm
+                sm:text-base
+                md:text-lg
+                lg:mx-4 lg:font-bold lg:text-sm
+                xl:mx-6 xl:text-base
                 font-normal
                 hover:text-transparent
                 bg-clip-text bg-gradient-to-r
@@ -80,18 +90,24 @@
       <div class="w-full flex justify-center">
         <div class="flex flex-col justify-center w-[70%] pb-5 lg:pb-0 lg:w-4/5">
           <div class="text-2xl text-center pb-3 lg:pb-11">SÍGUENOS</div>
-          <div class="flex w-full justify-evenly">
-            <a href="https://instagram.com/coex.ce?igshid=YmMyMTA2M2Y=" target="_blank"
+          <div class="flex w-full justify-evenly items-center">
+            <a
+              href="https://instagram.com/coex.ce?igshid=YmMyMTA2M2Y="
+              target="_blank"
               ><app-btn>
                 <img src="/footer/instLogo.svg" alt="InstagramLogo"
               /></app-btn>
             </a>
-            <a href="https://www.youtube.com/watch?v=YHq4z4_IYD8&ab_channel=CoexCe" target="_blank"
+            <a
+              href="https://www.youtube.com/watch?v=YHq4z4_IYD8&ab_channel=CoexCe"
+              target="_blank"
               ><app-btn
                 ><img src="/footer/YouTube.svg" alt="YouTubeLogo" /></app-btn
             ></a>
 
-            <a href="https://www.facebook.com/profile.php?id=100077787560481" target="_blank"
+            <a
+              href="https://www.facebook.com/profile.php?id=100077787560481"
+              target="_blank"
               ><app-btn
                 ><img src="/footer/Facebook.svg" alt="FacebookLogo" /></app-btn
             ></a>

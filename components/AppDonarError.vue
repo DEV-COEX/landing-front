@@ -54,7 +54,7 @@ export default {
         },
         close() {
             this.$emit('close', true)
-       
+
         },
     },
 }
@@ -65,7 +65,6 @@ export default {
 .modal-principal {
     background: #2b3348;
     border-radius: 40px;
-    box-shadow: 0px 0px 10px 0px rgb(165, 182, 231);
     /* display: grid; */
 }
 

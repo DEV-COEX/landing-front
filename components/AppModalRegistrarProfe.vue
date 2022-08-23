@@ -1,7 +1,7 @@
 <template>
   <div v-if="state" class="centrar fondo-modal md:px-[1.25rem] px-[0.25rem] z-50" style="left: 0;">
-    <div class="modal-principal opacity-95">
-      <div class="flex justify-center sm:px-10  py-5">
+    <div class="modal-principal opacity-95 mx-4 px-3 ">
+      <div class="flex justify-center px-10   py-5">
         <p class="font-bold  text-xl text-transparent bg-clip-text  text-center bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
@@ -195,7 +195,6 @@ export default {
 .modal-principal {
   background: #2B3348;
   border-radius: 25px;
-  box-shadow: 0px 0px 10px 0px rgb(165, 182, 231);
   /* display: grid; */
 }
 
@@ -263,8 +262,8 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
   background: linear-gradient(90deg, #4a5b95 0%, #90beff 100%);
-  
+
   border-radius: 20px;
- 
+
 }
 </style>
