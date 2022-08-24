@@ -15,7 +15,7 @@
           <div class="flex justify-center xl:p-10 lg:p-5 p-5 md:p-6">
             <p class="xl:text-xl  lg:text-xl text-white  md:text-xl text-md text-center w-full sm:w-[80%] lg:w-3/6">
               Contribuye financiando la educación de uno de
-              nuestros talentos COEX. Con un aporte de desde 1 usd puedes cambiar la vida de toda una familia.
+              nuestros talentos COEX. Con un aporte de desde <strong>1 usd</strong> puedes cambiar la vida de toda una familia.
             </p>
           </div>
           <div class="flex justify-center">
@@ -47,7 +47,7 @@
 
     </transition>
     <transition name="fade">
-      <app-donar-error v-model="modalerror" 
+      <app-donar-error v-model="modalerror"
         v-bind:class="[modalerror ? 'animate__animated animate__heartBeat animate__repeat-3' : 'animate__animated animate__rollOut']" @close="closeModalError"/>
 
     </transition>
@@ -153,5 +153,10 @@ body::-webkit-scrollbar-thumb {
   /* border: 1px solid rgb(217 70 239);
   /* roundness of the scroll thumb */
   /* creates padding around scroll thumb */
+}
+strong {
+  color:transparent;
+  background-clip: text;
+  background-image: linear-gradient(to right, #ffdf8d, #ff9838);
 }
 </style>

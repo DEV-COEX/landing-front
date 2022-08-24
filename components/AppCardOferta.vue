@@ -32,8 +32,8 @@
       {{ offer.tittle }}
     </p>
 
-
-      <p class="lg:text-xl font-medium md:text-xl text-lg text-white py-3">{{ offer.description }}</p>
+<!--{{ offer.description }}-->
+      <div class="lg:text-xl font-medium md:text-xl text-lg text-white py-3" v-html="description"></div>
 
   </div>
 </template>
@@ -46,9 +46,19 @@ export default {
       type: Object,
       required: true,
     },
+    description: {
+      type: String,
+      default: '',
+      required: true,
+    },
   },
 }
 </script>
 
 <style>
+strong {
+  color:transparent;
+  background-clip: text;
+  background-image: linear-gradient(to right, #ffdf8d, #ff9838);
+}
 </style>

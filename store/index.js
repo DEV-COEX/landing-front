@@ -88,6 +88,9 @@ export const actions = {
 
   async fetchOffers({commit}) {
     const {data} = await this.$axios.get('offers');
+    data.forEach(offer => {
+      offer.description = this.$md.render(offer.description)
+    })
     commit('setOffers', data);
   },
 
