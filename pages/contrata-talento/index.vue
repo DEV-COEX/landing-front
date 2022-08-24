@@ -42,7 +42,7 @@
           </div>
           <div class="grid justify-center items-center">
             <div class="lg:p-7">
-              <app-card-oferta v-for="offer in offers" :key="offer.id" :offer="offer" />
+              <app-card-oferta v-for="offer in offers" :key="offer.id" :offer="offer" :description="offer.description"/>
             </div>
           </div>
           <div class="flex justify-center ">
