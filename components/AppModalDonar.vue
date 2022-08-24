@@ -373,8 +373,6 @@ export default {
             }
             await this.transaction(payment, PRODUCTION_PUBLIC_API_KEY);
             await this.endTransaction();
-            this.close();
-            this.$emit("payment", true);
           } catch (error) {
             this.loadingPayment = false;
             this.$emit("error", true);
