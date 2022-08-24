@@ -32,8 +32,7 @@
       {{ offer.tittle }}
     </p>
 
-<!--{{ offer.description }}-->
-      <div class="lg:text-xl font-medium md:text-xl text-lg text-white py-3" v-html="description"></div>
+    <div class="lg:text-xl font-medium md:text-xl text-lg text-white py-3" v-html="description"></div>
 
   </div>
 </template>

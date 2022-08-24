@@ -36,20 +36,15 @@
             </p>
           </div>
           <div class="flex justify-center xl:p-10 lg:p-5 p-5 md:p-6">
-            <p class="text-white
+            <div class="text-white
                 xl:text-xl
                 lg:text-xl
                 md:text-xl
                 text-md text-center
                 w-full
                 sm:w-[80%]
-                lg:w-auto">
-              Es un Bootcamp en el cual formamos la base del hacer, del ser y el
-              saber de cada talento juvenil que quiere ser Talento, provenientes
-              de diversos tipos de comunidades de nuestra ciudad, bajo un
-              ambiente de alta productividad dónde se entrenan como
-              desarrolladores de software.
-            </p>
+                lg:w-auto" v-html="textModel">
+            </div>
           </div>
           <div class="flex justify-center">
             <app-btn
@@ -94,7 +89,7 @@
             </p>
           </div>
           <div class="flex justify-center xl:p-10 lg:p-5 p-5 md:p-6">
-            <p
+            <div
               class="
               text-white
                 xl:text-xl
@@ -106,9 +101,9 @@
                 lg:w-full
                 lg:px-10
               "
+              v-html="textFundation"
             >
-              Contribuye financiando la educación de uno de nuestros talentos COEX. Con un aporte de desde 1 usd puedes cambiar la vida de toda una familia.
-            </p>
+            </div>
           </div>
           <div class="flex justify-center">
             <app-btn
@@ -137,6 +132,8 @@ export default {
   data() {
     return {
       pageText: {},
+      textModel: null,
+      textFundation: null
     }
   },
   async mounted() {
@@ -146,8 +143,13 @@ export default {
   },
   methods: {
     getPageText() {
-      this.$store.commit('filterText', 'fabrica')
+      this.$store.commit('filterText', 'coex-model')
       this.pageText = this.$store.state.text
+      this.textModel = this.$md.render(this.pageText[0].description)
+      this.$store.commit('filterText', 'fundation')
+      this.pageText = this.$store.state.text
+      this.textFundation = this.$md.render(this.pageText[0].description)
+      console.log(this.pageText)
     },
     toAbout() {
       this.$router.push('/about')

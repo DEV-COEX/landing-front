@@ -10,13 +10,11 @@
             <p class=" lg:text-5xl md:text-3xl leading-tight text-xl w-full sm:w-[80%] pb-5 lg:w-4/6 px-7  font-bold  text-center text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
-                      to-[#dab255]">¿Quieres apoyar el talento joven en tecnología?</p>
+                      to-[#dab255]">{{ pageText[0]?.tittle }}</p>
           </div>
           <div class="flex justify-center xl:p-10 lg:p-5 p-5 md:p-6">
-            <p class="xl:text-xl  lg:text-xl text-white  md:text-xl text-md text-center w-full sm:w-[80%] lg:w-3/6">
-              Contribuye financiando la educación de uno de
-              nuestros talentos COEX. Con un aporte de desde <strong>1 usd</strong> puedes cambiar la vida de toda una familia.
-            </p>
+            <div class="xl:text-xl  lg:text-xl text-white  md:text-xl text-md text-center w-full sm:w-[80%] lg:w-3/6" v-html="text">
+            </div>
           </div>
           <div class="flex justify-center">
             <a href="#indexDonar">
@@ -60,17 +58,25 @@ export default {
   name: "IndexFundacion",
   data() {
     return {
-
       modal: false,
       modalsexo: false,
-      modalerror: false
-
+      modalerror: false,
+      pageText: {},
+      text: null
     }
   },
-  mounted() {
-
+  async mounted() {
+    await this.$store.dispatch('fetchTexts')
+    await this.getPageText()
+    await this.$store.dispatch('fetchTexts')
+    await this.getPageText()
   },
   methods: {
+    getPageText() {
+      this.$store.commit('filterText', 'fundation')
+      this.pageText = this.$store.state.text
+      this.text = this.$md.render(this.pageText[0]?.description)
+    },
     OPenModal() {
       this.modal = true
       document.getElementById('indexDonar').style.filter = 'blur(5px)'

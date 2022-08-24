@@ -28,7 +28,7 @@
 
               ">
               Nuestro grupo COEX te da la bienvenida, queremos que seas parte de
-              nuestro grupo de desarrolladores y formadores para que tengas la
+              nuestro grupo de <strong>desarrolladores y formadores</strong> para que tengas la
               posibilidad de aprender y crecer profesionalmente.
             </p>
           </div>
@@ -269,5 +269,10 @@ body::-webkit-scrollbar-thumb {
 
   border-radius: 20px;
 
+}
+strong {
+  color:transparent;
+  background-clip: text;
+  background-image: linear-gradient(to right, #ffdf8d, #ff9838);
 }
 </style>

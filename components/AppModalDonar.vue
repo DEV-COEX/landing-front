@@ -288,7 +288,6 @@ export default {
         }
       });
       this.clientCard = data.data;
-
     },
     async generatePay() {
       this.reference = generateUUID();
@@ -328,7 +327,6 @@ export default {
             Authorization: `Bearer ${PRODUCTION_PRIVATE_API_KEY}`,
           }
         });
-
         if (data.data[0].payment_method.extra) {
           if (this.typePay === "pse") {
             window.open(data.data[0].payment_method.extra.async_payment_url, '_blank');
@@ -337,7 +335,11 @@ export default {
             clearInterval(longPolling);
             this.close();
             this.$emit("payment", true);
-          } else {
+          } else if (data.data[0].status === "DECLINED") {
+            clearInterval(longPolling);
+            this.close();
+            this.$emit("error", true);
+          }else if (data.data[0].status === "ERROR"){
             clearInterval(longPolling);
             this.close();
             this.$emit("error", true);

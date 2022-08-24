@@ -54,4 +54,9 @@ body::-webkit-scrollbar-thumb {
   /* roundness of the scroll thumb */
   /* creates padding around scroll thumb */
 }
+strong {
+  color:transparent;
+  background-clip: text;
+  background-image: linear-gradient(to right, #ffdf8d, #ff9838);
+}
 </style>
