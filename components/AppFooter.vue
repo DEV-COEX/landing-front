@@ -57,8 +57,6 @@
           grid grid-cols-2
           gap-x-2
           sm:gap-x-4
-          sm:ml-20
-          md:ml-40
           lg:ml-0
         "
       >
