@@ -13,7 +13,7 @@
           <div class="grid justify-center lg:px-3">
             <div
               class="md:flex justify-evenly md:p-2 xlchikito:pt-0 lg:pt-[6rem] sm:h-[30rem] xlchikito:h-[30rem] lg:h-[18rem]  h-[20rem] overflow-y-auto md:border-b-0 border-b-2 border-[#4736df]">
-              <div class="flex items-center  md:border-r-2 border-[#4736df]">
+              <div class="flex items-center  md:border-r-2 border-[#6D6F76]">
                 <div class="xlchikito:p-2 p-0 md:px-0 px-4">
                   <div class="sm:flex justify-center">
                     <app-input v-model="form.name" minlength="4" required label="Nombre Completo" />
@@ -195,6 +195,7 @@ export default {
 .modal-principal {
   background: #2B3348;
   border-radius: 25px;
+  box-shadow: 0px 0px 10px 0px white;
   /* display: grid; */
 }
 

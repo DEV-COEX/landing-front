@@ -1,21 +1,32 @@
 <template>
   <div class="m-2">
+    <div class="flex justify-center sm:px-10  xl:py-5 py-3">
+      <p class="font-bold  text-xl text-transparent bg-clip-text bg-gradient-to-r
+                      from-[#FFDF8D]
+                      via-[#FF9838]
+                      to-[#dab255]">Formas de donar.</p>
+
+    </div>
     <label class="block text-transparent bg-clip-text bg-gradient-to-r
                       from-[#A6CBFF]
                       to-[#C8DEFF] text-base font-medium mb-2" :for='label'>{{ label }}</label>
     <div>
 
       <div class="sm:flex items-center justify-around ">
-        <div v-show="metodo"  class="flex justify-center">
-          <app-btn  type="button">
+        <div v-show="metodo" class="flex justify-center">
+          <app-btn type="button">
             <img :src="selected" />
           </app-btn>
         </div>
         <div class="flex justify-center">
           <div v-for="(item, i) in metodos" :key="i" class="flex justify-center">
-            <div class="flex">
+            <div class="flex flex-col justify-center items-center">
+              <label class="text-transparent bg-clip-text bg-gradient-to-r
+                      from-[#A6CBFF]
+                      to-[#C8DEFF] text-base font-medium mb-2">{{ item.name }}</label>
               <app-btn type="button" class="m-2" @click="changeImage(item)"><img class="h-10 " :src="item.image" />
               </app-btn>
+
             </div>
           </div>
         </div>
@@ -45,14 +56,14 @@ export default {
     return {
       metodos: [
         {
-          name: "paypal",
+          name: "PSE",
           type: "pse",
           image: "/Metodos/pse-seeklogo.com.svg"
         },
         {
-          name: "card",
+          name: "Tarjeta",
           type: "card",
-          image: "/Metodos/credit-card.svg"
+          image: "/Metodos/tarjeta.svg"
         }
       ],
       selected: "",

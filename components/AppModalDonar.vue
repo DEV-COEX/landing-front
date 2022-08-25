@@ -1,13 +1,7 @@
 <template>
   <div v-if="state" class="centrar fondo-modal md:px-[1.25rem] px-[0.50rem] " style="left: 0;">
     <div class="modal-principal opacity-95">
-      <div class="flex justify-center sm:px-10  xl:py-5 py-3">
-        <p class="font-bold  text-xl text-transparent bg-clip-text bg-gradient-to-r
-                      from-[#FFDF8D]
-                      via-[#FF9838]
-                      to-[#dab255]">Información del Donante</p>
 
-      </div>
       <form @submit.prevent="payment">
         <div class=" xl:px-8 px-2">
           <div class="grid justify-center lg:px-3 ">
@@ -15,45 +9,71 @@
               <div class="flex items-center ">
                 <div v-if="typePay === ''">
                   <div class="xl:p-2">
-                    <!--<app-select required label="Metodos de Donación" />-->
-                    <app-metodo-donar v-model="typePay" label="Metodos de Donación" />
+
+                    <app-metodo-donar v-model="typePay" />
                   </div>
                 </div>
-                <div v-else class="xl:p-2 lg:overflow-hidden  lg:h-auto  overflow-y-scroll md:h-96 sm:h-80 h-56 ">
-                  <div class="xl:p-2">
-                    <!--<app-select required label="Metodos de Donación" />-->
-                    <app-metodo-donar v-model="typePay" label="Metodos de Donación" />
-                  </div>
-                  <div v-if="typePay === 'card'" class="lg:flex  sm:p-2">
-                    <div class="lg:border-r-2 border-[#6D6F76]  p-2">
-                      <div class="smsm:flex justify-center">
-                        <app-input v-model="formUser.name" required minlength="4" label="Nombre completo" />
-                        <app-input v-model="formUser.document" type="number" required label="Cédula / NIT" />
-                      </div>
-                      <div class="lg:flex justify-center ">
-                        <app-input v-model="formUser.phone" type="text" pattern="[0-9]{10,20}" title="El número debe contener mínimo 10 caracteres" required label="Telefono" />
-                        <app-input v-model="formUser.email" type="email" required label="Correo" />
-                      </div>
-                      <div class="">
-                        <app-input v-model="amount" type="number" min="1500" required label="Cantidad" />
-                      </div>
+                <div v-else class="xl:p-2  ">
+
+                  <div v-if="typePay === 'card'" class="">
+                    <div class="flex justify-center sm:px-10  xl:py-5 py-3">
+                      <p class="font-bold  text-xl text-transparent bg-clip-text bg-gradient-to-r
+                      from-[#FFDF8D]
+                      via-[#FF9838]
+                      to-[#dab255]">Información del donante</p>
                     </div>
-                    <div class="p-2">
-                      <div class="">
-                        <app-input v-model="formCard.cardNumber" type="text" required label="Número de tarjeta"
-                          pattern="[0-9]{16}" title="Tamaño de 16 caracteres tipo número" />
-                        <app-input v-model="formCard.cvc" type="text" pattern="[0-9]{3,4}" title="Debe contener max 4 y min 3 caracteres"  required label="CVC" />
+                    <div class="lg:flex  sm:p-2 lg:overflow-hidden  lg:h-auto  overflow-y-scroll md:h-96 sm:h-80 h-56">
+                      <div class="lg:border-r-2 border-[#6D6F76]  p-2">
+
+                        <div class="smsm:flex justify-center">
+                          <app-input v-model="formUser.name" required minlength="4" label="Nombre completo" />
+                          <app-input v-model="formUser.document" type="number" required label="Cédula / NIT" />
+                        </div>
+                        <div class="lg:flex justify-center ">
+                          <app-input v-model="formUser.phone" type="text" pattern="[0-9]{10,20}"
+                            title="El número debe contener mínimo 10 caracteres" required label="Telefono" />
+                          <app-input v-model="formUser.email" type="email" required label="Correo" />
+                        </div>
+                        <div class="">
+                          <app-input v-model="amount" type="number" min="1500" required label="Cantidad" />
+                        </div>
                       </div>
                       <div class="p-2">
+                        <div class="">
+                          <app-input v-model="formCard.cardNumber" type="text" required label="Número de tarjeta"
+                            pattern="[0-9]{16}" title="Tamaño de 16 caracteres tipo número" />
+                          <app-input v-model="formCard.cvc" type="text" pattern="[0-9]{3,4}"
+                            title="Debe contener max 4 y min 3 caracteres" required label="CVC" />
+                        </div>
+                        <div class="p-2">
 
-                        <app-vencimiento v-model="formDate" />
+                          <app-vencimiento v-model="formDate" />
+                        </div>
                       </div>
                     </div>
+
 
 
                   </div>
                   <div v-if="typePay === 'pse'" class="">
-                    <div class=" lg:border-b-2 border-b-0 border-[#6D6F76] pb-4  xlchikito:h-[30rem] lg:h-[18rem]  h-[20rem] overflow-y-auto">
+                    <div class="flex justify-center sm:px-10  xl:py-5 py-3">
+                      <p class="font-bold  text-xl text-transparent bg-clip-text bg-gradient-to-r
+                      from-[#FFDF8D]
+                      via-[#FF9838]
+                      to-[#dab255]">Información del donante</p>
+                    </div>
+
+                    <div
+                      class=" lg:border-b-2 border-b-0 border-[#6D6F76] pb-4  xlchikito:h-auto lg:h-[12rem]  h-[20rem] overflow-y-auto">
+                      <div class="text-center flex flex-col">
+                        <label for="" class="block text-transparent bg-clip-text bg-gradient-to-r
+                      from-[#A6CBFF]
+                      to-[#C8DEFF] text-base font-medium mb-2">Método seleccionado</label>
+                        <img src="/Metodos/pse-seeklogo.com.svg" alt="" class="h-[5rem]">
+                        <label for="" class="block text-transparent bg-clip-text bg-gradient-to-r
+                      from-[#A6CBFF]
+                      to-[#C8DEFF] text-base font-medium mb-2">PSE</label>
+                      </div>
                       <div class="smsm:flex ">
                         <div>
                           <div class="">
@@ -61,7 +81,8 @@
                             <app-input v-model="formUser.document" required type="number" label="Cdula / NIT" />
                           </div>
                           <div class="">
-                            <app-input v-model="formUser.phone" type="text" pattern="[0-9]{10,20}" title="El número debe contener mínimo 10 caracteres" required label="Telefono" />
+                            <app-input v-model="formUser.phone" type="text" pattern="[0-9]{10,20}"
+                              title="El número debe contener mínimo 10 caracteres" required label="Telefono" />
 
                           </div>
 
@@ -149,6 +170,7 @@ export default {
   data() {
     return {
       loadingPayment: false,
+      metodo: true,
       userTypes: [
         {
           llave: "0",
@@ -336,7 +358,7 @@ export default {
             clearInterval(longPolling);
             this.close();
             this.$emit("error", true);
-          }else if (data.data[0].status === "ERROR"){
+          } else if (data.data[0].status === "ERROR") {
             clearInterval(longPolling);
             this.close();
             this.$emit("error", true);
