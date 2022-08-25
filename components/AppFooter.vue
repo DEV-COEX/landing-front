@@ -67,7 +67,7 @@
                 text-sm
                 sm:text-base
                 md:text-lg
-                lg:mx-4 lg:font-bold lg:text-sm
+                lg:mx-3 lg:font-bold lg:text-sm
                 xl:mx-6 xl:text-base
                 font-normal
                 hover:text-transparent
