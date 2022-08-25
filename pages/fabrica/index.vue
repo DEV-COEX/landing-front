@@ -14,7 +14,7 @@
     "
   >
     <app-factory id="fabrica" @openModal="openModal"></app-factory>
-    <app-modal-contactar v-model="modal" @close="closeModal" />
+    <app-modal-contactar v-model="modal" @close="closeModal" class=" xlchikito:top-0  lg:top-[-25px]  top-0" />
   </div>
 </template>
 
@@ -42,6 +42,8 @@ export default {
 </script>
 
 <style>
+
+
 body::-webkit-scrollbar {
   width: 2px;
   /* width of the entire scrollbar */
