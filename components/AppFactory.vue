@@ -9,12 +9,6 @@
       md:pr-10
       xl:px-60
       lg:px-32
-      pt-10
-      sm:pt-12
-      md:pt-18
-      lg:pt-24
-      xl:pt-32
-      pb-10
       sm:pb-12
       md:pb-18
       lg:pb-24
@@ -22,9 +16,9 @@
   >
     <div
       v-if="ShowPanel"
-      class="flex justify-end min-h-[31rem]  max-h-screen w-full"
+      class="flex justify-around lg:justify-between min-h-[31rem] max-h-screen w-full"
     >
-      <div class="flex flex-col justify-evenly relative w-auto mx-auto">
+      <div class="flex flex-col justify-evenly relative w-auto ">
         <div
           v-for="(desarrollo, index) in desarrollos"
           :key="index"
@@ -71,11 +65,13 @@
             </div>
           </div>
         </div>
-      <div class="w-[1px] h-full absolute  right-[19px] md:right-[14px] z-10" style="background-image: linear-gradient(#90BEFF, #4A5B95, #8f7cff00);"></div>
+        <div
+          class="w-[1px] h-full absolute right-[19px] md:right-[14px] z-10"
+          style="background-image: linear-gradient(#90beff, #4a5b95, #8f7cff00)"
+        ></div>
       </div>
-     <!-- card -->
+      <!-- card -->
       <transition name="fade" mode="out-in">
-
         <div
           v-if="isCardShown"
           class="
@@ -94,10 +90,20 @@
             :src="des?.image.url"
             alt="imgDev"
           />
-          <div class="text-center md:text-left w-full font-bold text-2xl py-4">
+          <div
+            class="
+              text-center
+              md:text-left
+              w-full
+              font-bold
+              lg:text-2xl
+              text-xl
+              py-4
+            "
+          >
             {{ des?.tittle }}
           </div>
-          <div class="text-left mb-4 w-full">
+          <div class="text-left text-lg mb-4 w-full">
             {{ des?.description }}
           </div>
           <div class="w-full flex justify-center md:justify-start">

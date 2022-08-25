@@ -38,11 +38,12 @@
           src="/footer/coexGroup.svg"
           alt="CoexLogo"
         />
-        <div class="text-justify">
-          Es un Bootcamp en el cual formamos la base del hacer, del ser y el
-          saber de cada talento juvenil que quiere ser Talento, provenientes de
+        <div class="text-justify whitespace-normal">
+          <span> un Bootcamp en el cual formamos la base del </span>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D]
+          to-[#FF9838]">hacer,  del ser y el saber</span> <span> de cada talento juvenil que quiere ser Talento, provenientes de
           diversos tipos de comunidades de nuestra ciudad, bajo un ambiente de
-          alta productividad dónde se entrenan como desarrolladores de software.
+          alta productividad dónde se entrenan como desarrolladores de software.</span>
         </div>
       </div>
       <div
@@ -56,8 +57,6 @@
           grid grid-cols-2
           gap-x-2
           sm:gap-x-4
-          sm:ml-20
-          md:ml-40
           lg:ml-0
         "
       >
