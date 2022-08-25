@@ -53,7 +53,7 @@
 
                   </div>
                   <div v-if="typePay === 'pse'" class="">
-                    <div class=" lg:border-b-2 border-b-0 border-[#6D6F76] pb-4 ">
+                    <div class=" lg:border-b-2 border-b-0 border-[#6D6F76] pb-4  xlchikito:h-[30rem] lg:h-[18rem]  h-[20rem] overflow-y-auto">
                       <div class="smsm:flex ">
                         <div>
                           <div class="">
