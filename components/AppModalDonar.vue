@@ -17,10 +17,16 @@
 
                   <div v-if="typePay === 'card'" class="">
                     <div class="flex justify-center sm:px-10  xl:py-5 py-3">
-                      <p class="font-bold  text-xl text-transparent bg-clip-text bg-gradient-to-r
+                      <div>
+                        <label for="">Volver</label>
+                      </div>
+                      <div>
+                        <p class="font-bold  text-xl text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
                       to-[#dab255]">Información del donante</p>
+                      </div>
+
                     </div>
                     <div class="lg:flex  sm:p-2 lg:overflow-hidden  lg:h-auto  overflow-y-scroll md:h-96 sm:h-80 h-56">
                       <div class="lg:border-r-2 border-[#6D6F76]  p-2">
@@ -56,12 +62,23 @@
 
                   </div>
                   <div v-if="typePay === 'pse'" class="">
-                    <div class="flex justify-center sm:px-10  xl:py-5 py-3">
-                      <p class="font-bold  text-xl text-transparent bg-clip-text bg-gradient-to-r
+                    <div> 
+                      <div class="px-2 pt-2 flex items-center" >
+                        <img src="/flechita.svg" alt="" class="text-transparent bg-clip-text bg-gradient-to-r
+                      from-[#A6CBFF]
+                      to-[#C8DEFF] pr-2 m-0">
+                        <label for="" class="block text-transparent bg-clip-text bg-gradient-to-r
+                      from-[#A6CBFF]
+                      to-[#C8DEFF] text-base font-medium ">Volver</label>
+                      </div>
+                      <div class="flex justify-center sm:px-10  xl:py-5 xl:pt-0 py-3 pt-0">
+                        <p class="font-bold  text-xl text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
                       to-[#dab255]">Información del donante</p>
+                      </div>
                     </div>
+
 
                     <div
                       class=" lg:border-b-2 border-b-0 border-[#6D6F76] pb-4  xlchikito:h-auto lg:h-[12rem]  h-[20rem] overflow-y-auto">
