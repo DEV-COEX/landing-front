@@ -4,12 +4,12 @@
       <p class="font-bold  text-xl text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
-                      to-[#dab255]">Formas de donar.</p>
+                      to-[#dab255]">Formas de donar</p>
 
     </div>
     <label class="block text-transparent bg-clip-text bg-gradient-to-r
                       from-[#A6CBFF]
-                      to-[#C8DEFF] text-base font-medium mb-2" :for='label'>{{ label }}</label>
+                      to-[#C8DEFF] text-base font-medium mb-2"   :for='label'>{{ label }}</label>
     <div>
 
       <div class="sm:flex items-center justify-around ">

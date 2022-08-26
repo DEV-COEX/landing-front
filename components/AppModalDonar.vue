@@ -90,7 +90,7 @@
                         <img src="/Metodos/pse-seeklogo.com.svg" alt="" class="h-[5rem]">
                         <label for="" class="block text-transparent bg-clip-text bg-gradient-to-r
                       from-[#A6CBFF]
-                      to-[#C8DEFF] text-base font-medium mb-2">PSE</label>
+                      to-[#C8DEFF] text-base font-medium mb-2 ">PSE</label>
                       </div>
                       <div class="smsm:flex ">
                         <div>
