@@ -266,7 +266,6 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
   background: linear-gradient(90deg, #4a5b95 0%, #90beff 100%);
-
   border-radius: 20px;
 
 }

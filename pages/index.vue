@@ -13,7 +13,6 @@
           <home-ser-talento />
         </div>
       </transition>
-
     </div>
     <div class=" flex  justify-center py-5 md:py-8 xl:py-16 lg:py-8 ">
       <div id="next" class="btn">

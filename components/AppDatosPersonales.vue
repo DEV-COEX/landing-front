@@ -19,7 +19,7 @@
       <div class="supersm:px-8">
         <div class="grid justify-center px-3">
           <div class="flex justify-center">
-            <p class="text-lg text-white py-5 xl:h-auto lg:h-60 overflow-y-auto md:h-52 pr-2 h-44">
+            <p class="scrollmodal text-lg text-white py-5 xl:h-auto lg:h-60 overflow-y-auto md:h-52 pr-2 h-44">
               “En cumplimiento de las disposiciones de la Ley 1581 de 2012 y del Decreto reglamentario 1377 de 2013
               que
               desarrollan el derecho de habeas data, solicitamos su autorización para que la empresa INFINITY PRIME
@@ -156,5 +156,22 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.scrollmodal::-webkit-scrollbar {
+  width: 3px;
+}
+
+.scrollmodal::-webkit-scrollbar:hover {
+  width: 5px;
+}
+
+.scrollmodal::-webkit-scrollbar-track {
+  background: rgb(41, 52, 99);
+
+}
+
+.scrollmodal::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #5f6b94 0%, #90BEFF 100%);
+  border-radius: 20px;
 }
 </style>
