@@ -1,6 +1,6 @@
 <template>
 
-  <div id="fondo" v-if="state" class="items-end flex fondo-modal supersm:px-5 px-[0.25rem] py-5 z-50" style="left: 0">
+  <div id="fondo" v-if="state" class="items-end flex fondo-modal supersm:px-5 px-[0.25rem]  z-50" style="left: 0">
     <div class="modal-principal bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477] background-animate opacity-95" id="personales">
       <div class="centrar supersm:px-10 pt-8 pb-2">
         <p class="
@@ -109,7 +109,7 @@ export default {
     },
     close() {
       this.$emit('close', true)
-      document.getElementById('personales').classList.add('animate__animated', 'animate__rollOut')
+      document.getElementById('personales').classList.add('animate__animated', 'animate__fadeOutDown')
 
     },
   },
@@ -120,7 +120,8 @@ export default {
 <style scoped>
 .modal-principal {
   /* background: #0b046e; */
-  border-radius: 25px;
+ border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
   /* display: grid; */
 }
 

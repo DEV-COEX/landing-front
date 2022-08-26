@@ -70,11 +70,11 @@
     </div>
     <transition name="fade">
       <app-datos-personales id="estudiantes" v-model="DatosPersonales"
-        v-bind:class="[quitarclases ? '' : 'animate__animated animate__rollOut']" @metodoBoton="metodoBoton" @close="closeModal"/>
+        v-bind:class="[quitarclases ? 'animate__animated animate__fadeInUp ' : 'animate__animated animate__fadeOutDown ']" @metodoBoton="metodoBoton" @close="closeModal"/>
     </transition>
     <transition name="fade">
       <app-datos-personales id="profesores" v-model="DatosPersonalesProfesor"
-        v-bind:class="[quitarclases ? '' : 'animate__animated animate__rollOut']" @metodoBoton="metodoBotonprofe"
+        v-bind:class="[quitarclases ? 'animate__animated animate__fadeInUp' : 'animate__animated animate__fadeOutDown']" @metodoBoton="metodoBotonprofe"
         @close="closeModal" />
     </transition>
     <transition name="fade">
@@ -124,6 +124,7 @@ export default {
       this.DatosPersonales = true
       this.quitarclases = true
       document.getElementById('serTalento').style.transition = '.8s'
+     
       document.getElementById('serTalento').style.filter = 'blur(5px)'
       document.querySelector('body').classList.add('overflow-hidden')
     },
@@ -142,7 +143,7 @@ export default {
       setTimeout(function () {
         this.DatosPersonales = false;
         this.DatosPersonalesProfesor = false
-        document.getElementById('personales').classList.remove('animate__animated', 'animate__rollOut')
+        document.getElementById('personales').classList.remove('animate__animated', 'animate__fadeOutDown')
         document.getElementById('estudiantes').classList.add('hidden')
         document.getElementById('profesores').classList.add('hidden')
       }, 500);
