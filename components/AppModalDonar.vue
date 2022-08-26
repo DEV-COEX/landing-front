@@ -15,13 +15,14 @@
                 </div>
                 <div v-else class="xl:p-2  ">
                   <div>
-                    <div class="px-2 pt-2 flex items-center">
-                      <img src="/flechita.svg" alt="" class="text-transparent bg-clip-text bg-gradient-to-r
+                    <div class="px-2 pt-4 ">
+                      <button class="flex items-center" @click="volver()"> <img src="/flechita.svg" alt="" class="text-transparent bg-clip-text bg-gradient-to-r
                       from-[#A6CBFF]
                       to-[#C8DEFF] pr-2 m-0">
-                      <label for="" class="block text-transparent bg-clip-text bg-gradient-to-r
+                        <label for="" class="block text-transparent bg-clip-text bg-gradient-to-r
                       from-[#A6CBFF]
-                      to-[#C8DEFF] text-base font-medium ">Volver</label>
+                      to-[#C8DEFF] text-base font-medium ">Volver</label></button>
+
                     </div>
                     <div class="flex justify-center sm:px-10  xl:py-5 xl:pt-0 py-3 pt-0">
                       <p class="font-bold  text-xl text-transparent bg-clip-text bg-gradient-to-r
@@ -262,6 +263,9 @@ export default {
     this.getPse();
   },
   methods: {
+    volver(){
+      this.typePay=""
+    },
     cerrarModal() {
 
       this.state = false
