@@ -120,8 +120,8 @@ export default {
 .background-animate {
   background-size: 150%;
   -webkit-animation: AnimationName 1s ease infinite;
-  -moz-animation: AnimationName 7s ease infinite;
-  animation: AnimationName 5s ease infinite;
+  -moz-animation: AnimationName 5s ease infinite;
+  animation: AnimationName 3s ease infinite;
 }
 
 @keyframes AnimationName {

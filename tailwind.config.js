@@ -10,6 +10,7 @@ module.exports = {
       md: '768px',
       lg: '992px',
       xlchikito: '1030px',
+      NestHubMax: '1281px',
       xl: '1400px',
     },
     extend: {

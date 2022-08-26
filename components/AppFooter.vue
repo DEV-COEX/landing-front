@@ -57,8 +57,6 @@
           grid grid-cols-2
           gap-x-2
           sm:gap-x-4
-          sm:ml-20
-          md:ml-40
           lg:ml-0
         "
       >
@@ -69,7 +67,7 @@
                 text-sm
                 sm:text-base
                 md:text-lg
-                lg:mx-4 lg:font-bold lg:text-sm
+                lg:mx-3 lg:font-bold lg:text-sm
                 xl:mx-6 xl:text-base
                 font-normal
                 hover:text-transparent

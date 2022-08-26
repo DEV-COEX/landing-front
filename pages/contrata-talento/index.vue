@@ -66,7 +66,7 @@
       </div>
     </div>
     <transition name="fade" >
-      <app-modal-contactar v-model="modal" @close="closeModal"  class="modal"/>
+      <app-modal-contactar v-model="modal" @close="closeModal"  class="xlchikito:top-0  lg:top-[-158px]  top-0"/>
     </transition>
   </div>
 </template>

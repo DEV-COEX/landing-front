@@ -10,41 +10,43 @@
       <form @submit.prevent="register">
         <div class="xl:px-8 ">
           <div class="grid justify-center lg:px-3 ">
-            <div class="md:flex justify-evenly md:p-2 xlchikito:pt-0 lg:pt-[4rem] sm:h-[30rem] xlchikito:h-[30rem] lg:h-[18rem]  h-[20rem] overflow-y-auto md:border-b-0 border-b-2 border-[#4736df] ">
-              <div class="flex items-center md:border-r-2  border-[#4736df]">
+            <div
+              class="md:flex justify-evenly md:p-2 xlchikito:pt-0 lg:pt-[4rem] sm:h-[30rem] xlchikito:h-[30rem] lg:h-[18rem]  h-[20rem] overflow-y-auto md:border-b-0 border-b-2 border-[#4736df] ">
+              <div class="flex items-center md:border-r-2  border-[#6D6F76]">
                 <div class="xlchikito:p-2 p-0 md:px-0 px-4">
                   <div class="sm:flex justify-center">
-                    <app-input v-model="form.name" minlength="4" required label="Nombre Completo"/>
-                    <app-input v-model="form.age" type="number" required label="Edad"/>
+                    <app-input v-model="form.name" minlength="4" required label="Nombre Completo" />
+                    <app-input v-model="form.age" type="number" required label="Edad" />
                   </div>
                   <div class="sm:flex justify-center md:p-2 p-0">
                     <div>
-                      <app-input v-model="form.email" type="email" required label="Correo"/>
+                      <app-input v-model="form.email" type="email" required label="Correo" />
                       <label v-if="error" id="errorPosicion" class="lbl-validation" style="display: flex">Este correo ya
                         esta registrado</label>
                     </div>
 
-                    <app-input v-model="form.phone" type="text" pattern="[0-9]{10,20}" title="El número debe contener mínimo 10 caracteres" required label="Teléfono"/>
+                    <app-input v-model="form.phone" type="text" pattern="[0-9]{10,20}"
+                      title="El número debe contener mínimo 10 caracteres" required label="Teléfono" />
                   </div>
                   <div class="md:p-2 p-0">
                     <app-input v-model="form.school" required
-                               label="Mencione el colegio en donde cursa o cursó su bachillerato"/>
+                      label="Mencione el colegio en donde cursa o cursó su bachillerato" />
 
 
                     <app-select v-model="form.schedule" :items="schedules" required
-                                label="Indique el horario en el cual podria asistir(De lunes a viernes)"/>
+                      label="Indique el horario en el cual podria asistir(De lunes a viernes)" />
                   </div>
                 </div>
               </div>
               <div class="sm:flex items-center">
                 <div class="md:p-2 md:px-0 px-4">
                   <div class="md:block sm:flex">
-                    <app-input v-model="form.address" required label="¿En que Barrio reside?"/>
-                    <app-input v-model="form.roomies" required label="¿Con quien vive?"/>
+                    <app-input v-model="form.address" required label="¿En que Barrio reside?" />
+                    <app-input v-model="form.roomies" required label="¿Con quien vive?" />
                   </div>
                   <div class="">
-                    <app-select v-model="form.gender" :items="genders"   required label="Género"/>
-                    <app-select v-model="form.education"  :items="academic"  required label="Nivel educativo Actual"/>
+                    <app-select v-model="form.gender" :items="genders" required label="Género" />
+                    <app-select v-model="form.education" :items="academic" required label="Nivel educativo Actual" />
                   </div>
                 </div>
               </div>
@@ -208,6 +210,7 @@ export default {
 .modal-principal {
   background: #2B3348;
   border-radius: 25px;
+   box-shadow: 0px 0px 10px 0px white;
   /* display: grid; */
 }
 
@@ -237,7 +240,7 @@ export default {
   width: 100%;
   background-color: rgb(131 131 131 / 40%);
   position: fixed;
-
+ 
   top: 0;
 }
 
