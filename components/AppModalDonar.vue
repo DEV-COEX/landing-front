@@ -33,7 +33,7 @@
                   </div>
                   <div v-if="typePay === 'card'" class="">
 
-                    <div class=" xlchikito:h-[20rem] NestHubMax:h-auto  lg:h-[17rem] xl:h-[19rem] h-[20rem] overflow-y-auto">
+                    <div class="scrollmodal xlchikito:h-[20rem]   lg:h-[17rem] xl:h-[19rem] h-[20rem] overflow-y-auto">
                       <div class="text-center flex flex-col">
                         <label for="" class="block text-transparent bg-clip-text bg-gradient-to-r
                       from-[#A6CBFF]
@@ -82,7 +82,7 @@
                   </div>
                   <div v-if="typePay === 'pse'" class="">
                     <div 
-                      class="scrollmodal lg:border-b-2 border-b-0 border-[#6D6F76] pb-4  xlchikito:h-[20rem] NestHubMax:h-auto xl:h-[19rem] lg:h-[12rem]  h-[20rem] overflow-y-auto">
+                      class="scrollmodal lg:border-b-2 border-b-0 border-[#6D6F76] pb-4  xlchikito:h-[20rem]  xl:h-[19rem] lg:h-[12rem]  h-[20rem] overflow-y-auto">
                       <div class="text-center flex flex-col">
                         <label for="" class="block text-transparent bg-clip-text bg-gradient-to-r
                       from-[#A6CBFF]
