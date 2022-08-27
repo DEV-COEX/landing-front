@@ -12,6 +12,7 @@ module.exports = {
       xlchikito: '1030px',
       NestHubMax: '1281px',
       xl: '1400px',
+      xlxl: '1600px'
     },
     extend: {
       animation: {
