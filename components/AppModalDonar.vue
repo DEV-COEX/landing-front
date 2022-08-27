@@ -81,8 +81,8 @@
 
                   </div>
                   <div v-if="typePay === 'pse'" class="">
-                    <div
-                      class=" lg:border-b-2 border-b-0 border-[#6D6F76] pb-4  xlchikito:h-[20rem] NestHubMax:h-auto  lg:h-[12rem]  h-[20rem] overflow-y-auto">
+                    <div 
+                      class="scrollmodal lg:border-b-2 border-b-0 border-[#6D6F76] pb-4  xlchikito:h-[20rem] NestHubMax:h-auto  lg:h-[12rem]  h-[20rem] overflow-y-auto">
                       <div class="text-center flex flex-col">
                         <label for="" class="block text-transparent bg-clip-text bg-gradient-to-r
                       from-[#A6CBFF]
@@ -518,21 +518,21 @@ export default {
   transform: translateX(30px);
 }
 
-body::-webkit-scrollbar {
+.scrollmodal::-webkit-scrollbar {
   width: 3px;
 }
 
-body::-webkit-scrollbar:hover {
+.scrollmodal::-webkit-scrollbar:hover {
   width: 5px;
 }
 
-body::-webkit-scrollbar-track {
-  background: rgb(0, 0, 0);
+.scrollmodal::-webkit-scrollbar-track {
+  background: rgb(41, 52, 99);
 
 }
 
-body::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, #4A5B95 0%, #90BEFF 100%);
+.scrollmodal::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #5f6b94 0%, #90BEFF 100%);
   border-radius: 20px;
 }
 </style>

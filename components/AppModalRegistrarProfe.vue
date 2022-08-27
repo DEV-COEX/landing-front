@@ -12,7 +12,7 @@
         <div class="xl:px-8">
           <div class="grid justify-center lg:px-3">
             <div
-              class="md:flex justify-evenly md:p-2 xlchikito:pt-0 lg:pt-[6rem] sm:h-[30rem] xlchikito:h-[30rem] lg:h-[18rem]  h-[20rem] overflow-y-auto md:border-b-0 border-b-2 border-[#4736df]">
+              class="scrollmodal md:flex justify-evenly md:p-2 xlchikito:pt-0 lg:pt-[6rem] sm:h-[30rem] xlchikito:h-[30rem] lg:h-[18rem]  h-[20rem] overflow-y-auto md:border-b-0 border-b-2 border-[#4736df]">
               <div class="flex items-center  md:border-r-2 border-[#6D6F76]">
                 <div class="xlchikito:p-2 p-0 md:px-0 px-4">
                   <div class="sm:flex justify-center">
@@ -266,5 +266,22 @@ body::-webkit-scrollbar-thumb {
 
   border-radius: 20px;
 
+}
+.scrollmodal::-webkit-scrollbar {
+  width: 3px;
+}
+
+.scrollmodal::-webkit-scrollbar:hover {
+  width: 5px;
+}
+
+.scrollmodal::-webkit-scrollbar-track {
+  background: rgb(41, 52, 99);
+
+}
+
+.scrollmodal::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #5f6b94 0%, #90BEFF 100%);
+  border-radius: 20px;
 }
 </style>
