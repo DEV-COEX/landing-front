@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="bg-black flex justify-center items-center h-screen ">
+    <div id="FabricaHome" class=" flex justify-center items-center h-screen ">
       <div class="flex justify-center items-center">
         <div class="">
           <div class="flex justify-center pt-5 xl:pt-28 lg:pt-24 md:pt-20">
@@ -66,5 +66,10 @@ export default {
 }
 </script>
 
-<style>
+<style  scoped>
+ #FabricaHome{
+    background: url(@/static/HomeFabrica.png) no-repeat;
+    background-color: black;
+ }
 </style>
+

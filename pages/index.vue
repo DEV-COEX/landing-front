@@ -14,7 +14,7 @@
         </div>
       </transition>
     </div>
-    <div class=" flex  justify-center py-5 md:py-8 xl:py-16 lg:py-8 ">
+    <div class=" flex  justify-center py-5 md:py-8 xl:py-24 lg:py-8 ">
       <div id="next" class="btn">
         <button class="btn animate-ping opacity-75" @click="metodoCambio"></button>
       </div>
