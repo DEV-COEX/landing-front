@@ -2,7 +2,7 @@
   <div v-if="state" class="centrar fondo-modal md:px-[1.25rem] px-[0.25rem] z-50" style="left: 0;">
     <div class="modal-principal opacity-95 mx-4 px-3 ">
       <div class="flex justify-center px-10  py-5 ">
-        <p class="font-bold  text-xl text-transparent bg-clip-text bg-gradient-to-r
+        <p class="font-bold  text-xl text-center text-transparent bg-clip-text bg-gradient-to-r
                       from-[#FFDF8D]
                       via-[#FF9838]
                       to-[#dab255]">Inscripción talento</p>
@@ -11,9 +11,9 @@
         <div class="xl:px-8 ">
           <div class="grid justify-center lg:px-3 ">
             <div
-              class="scrollmodal md:flex justify-evenly md:p-2 xlchikito:pt-0 lg:pt-[4rem] sm:h-[30rem] xlchikito:h-auto lg:h-[18rem]  h-[20rem] overflow-y-auto md:border-b-0 border-b-2 border-[#4736df] ">
+              class="scrollmodal md:flex justify-evenly md:p-2 md:pt-[6rem] xlchikito:pt-[6rem] xlchikito:h-[20rem]   lg:h-[17rem] xl:h-[19rem] h-[20rem]  overflow-y-auto md:border-b-0 border-b-2 border-[#4736df] ">
               <div class="flex items-center md:border-r-2  border-[#6D6F76]">
-                <div class="xlchikito:p-2 p-0 md:px-0 px-4">
+                <div class="xlchikito:p-2 p-0 ">
                   <div class="sm:flex justify-center">
                     <app-input v-model="form.name" minlength="4" required label="Nombre Completo" />
                     <app-input v-model="form.age" type="number" required label="Edad" />
