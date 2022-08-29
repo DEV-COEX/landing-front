@@ -1,7 +1,6 @@
 <template>
   <div>
-    <section
-      class="
+    <section class="
         xl:pt-28
         lg:pt-20
         md:pt-16
@@ -12,10 +11,8 @@
         justify-center
         items-center
         relative
-      "
-    >
-      <div
-        class="
+      ">
+      <div class="
           font-extrabold
           text-transparent
           xl:text-6xl
@@ -26,12 +23,10 @@
           bg-clip-text bg-gradient-to-r
           from-[#FFDF8D]
           to-[#FF9838]
-        "
-      >
+        ">
         {{ pageTexts['coex-model'] ? pageTexts['coex-model'][0].tittle : ' ' }}
       </div>
-      <div
-        class="
+      <div class="
           lg:max-w-[42%]
           w-full
           px-5
@@ -42,23 +37,18 @@
           text-white
           py-5
           lg:leading-10
-        "
-        v-html="coexModel"
-      >
+        " v-html="coexModel">
 
       </div>
     </section>
-    <section
-      class="
+    <section class="
         min-h-screen
         bg-[#1C233A]
         flex flex-col
         justify-center
         items-center
-      "
-    >
-      <div
-        class="
+      ">
+      <div class="
           font-extrabold
           text-transparent
           xl:text-6xl
@@ -69,12 +59,10 @@
           bg-clip-text bg-gradient-to-r
           from-[#FFDF8D]
           to-[#FF9838]
-        "
-      >
+        ">
         {{ pageTexts['historia-text'] ? pageTexts['historia-text'][0].tittle : ' ' }}
       </div>
-      <div
-        class="
+      <div class="
           lg:max-w-[42%]
           w-full
           px-5
@@ -85,12 +73,9 @@
           text-white
           py-5
           lg:leading-10
-        "
-        v-html="historia"
-      >
+        " v-html="historia">
       </div>
-      <div
-        class="
+      <div class="
           mt-10
           font-extrabold
           text-transparent
@@ -102,12 +87,10 @@
           bg-clip-text bg-gradient-to-r
           from-[#FFDF8D]
           to-[#FF9838]
-        "
-      >
+        ">
         {{ pageTexts['mision-text'] ? pageTexts['mision-text'][0].tittle : ' ' }}
       </div>
-      <div
-        class="
+      <div class="
           lg:max-w-[42%]
           w-full
           px-5
@@ -118,13 +101,10 @@
           text-white
           py-5
           lg:leading-10
-        "
-        v-html="mision"
-      >
+        " v-html="mision">
       </div>
     </section>
-    <section
-      class="
+    <section class="
         h-auto
         lg:py-40
         py-10
@@ -133,11 +113,9 @@
         from-[#000A65]
         via-[#321586]
         to-[#474EFF]
-      "
-    >
+      ">
       <div class="flex flex-col items-center">
-        <div
-          class="
+        <div class="
             flex flex-col
             items-center
             w-full
@@ -145,11 +123,8 @@
             rounded-[40px]
             px-6
             py-8
-          "
-          style="background: rgba(47, 50, 125, 0.2)"
-        >
-          <div
-            class="
+          " style="background: rgba(47, 50, 125, 0.2)">
+          <div class="
               mb-2
               text-center
               font-extrabold
@@ -162,44 +137,25 @@
               bg-clip-text bg-gradient-to-r
               from-[#FFDF8D]
               to-[#FF9838]
-            "
-          >
+            ">
             Nuestros primeros talentos COEX:
           </div>
           <div class="w-full justify-center lg:hidden">
-            <carousel
-              class="w-full justify-center"
-              :per-page-custom="[
-                [0, 1],
-                [768, 2],
-              ]"
-              :pagination-enabled="true"
-              :autoplay="true"
-              :autoplay-hover-pause="true"
-              :loop="true"
-              pagination-active-color="#F8CB5A"
-            >
+            <carousel class="w-full justify-center" :per-page-custom="[
+              [0, 1],
+              [768, 2],
+            ]" :pagination-enabled="true" :autoplay="true" :autoplay-hover-pause="true" :loop="true"
+              pagination-active-color="#F8CB5A">
               <slide v-for="talent in talents" :key="talent.id">
-                <app-talents-card
-                  :name="talent.name"
-                  :job="talent.job"
-                  :image="talent.imagen.url"
-                />
+                <app-talents-card :name="talent.name" :job="talent.job" :image="talent.imagen.url" />
               </slide>
             </carousel>
           </div>
           <div class="w-full flex-wrap justify-center lg:flex hidden">
-            <app-talents-card
-              v-for="talent in talents"
-              :key="talent.id"
-              :name="talent.name"
-              :job="talent.job"
-              :image="talent.imagen.url"
-              class="lg:w-[12rem]"
-            />
+            <app-talents-card v-for="talent in talents" :key="talent.id" :name="talent.name" :job="talent.job"
+              :image="talent.imagen.url" class="lg:w-[12rem]" />
           </div>
-          <app-btn
-            class="
+          <app-btn class="
               bg-gradient-to-r
               mt-2
               from-red-500
@@ -208,16 +164,12 @@
               mx-6
               text-white
               hover:from-red-400 hover:to-red-500
-            "
-            @click="goToSerTalento"
-            >Ser talento COEX</app-btn
-          >
+            " @click="goToSerTalento">Ser talento COEX</app-btn>
         </div>
       </div>
 
       <div class="flex flex-col items-center mt-3 lg:mt-14">
-        <div
-          class="
+        <div class="
             flex flex-col
             items-center
             w-full
@@ -225,10 +177,8 @@
             rounded-[40px]
             lg:py-12
             py-3
-          "
-        >
-          <div
-            class="
+          ">
+          <div class="
               mb-2
               font-extrabold
               text-transparent
@@ -238,58 +188,37 @@
               bg-clip-text bg-gradient-to-r
               from-[#FFDF8D]
               to-[#FF9838]
-            "
-          >
+            ">
             Nuestro Equipo:
           </div>
           <div class="w-full justify-center lg:hidden">
-            <carousel
-              class="w-full justify-center"
-              :per-page-custom="[
-                [0, 1],
-                [768, 2],
-              ]"
-              :pagination-enabled="true"
-              :autoplay="true"
-              :autoplay-hover-pause="true"
-              :loop="true"
-              pagination-active-color="#F8CB5A"
-            >
+            <carousel class="w-full justify-center" :per-page-custom="[
+              [0, 1],
+              [768, 2],
+            ]" :pagination-enabled="true" :autoplay="true" :autoplay-hover-pause="true" :loop="true"
+              pagination-active-color="#F8CB5A">
               <slide v-for="employe in employes" :key="employe.id">
-                <app-talents-card
-                  :name="employe.name"
-                  :job="employe.job"
-                  :image="employe.image.url"
-                  :details="employe.description"
-                />
+                <app-talents-card :name="employe.name" :job="employe.job" :image="employe.image.url"
+                  :details="employe.description" />
               </slide>
             </carousel>
           </div>
           <div class="w-full flex-wrap justify-center lg:flex hidden">
-            <app-talents-card
-              v-for="employe in employes"
-              :key="employe.id"
-              :name="employe.name"
-              :job="employe.job"
-              :image="employe.image.url"
-              :details="employe.description"
-              class="lg:w-[20rem] xl:w-[25rem]"
-            />
+            <app-talents-card v-for="employe in employes" :key="employe.id" :name="employe.name" :job="employe.job"
+              :image="employe.image.url" :details="employe.description" class="lg:w-[20rem] xl:w-[25rem] hoverTarjeta
+        " />
           </div>
         </div>
       </div>
     </section>
-    <section
-      class="
+    <section class="
         min-h-screen
         bg-[#1C233A]
         flex flex-col
         justify-center
         items-center
-      "
-    >
-      <div
-        class="
+      ">
+      <div class="
           font-extrabold
           text-transparent
           lg:text-6xl
@@ -301,20 +230,12 @@
           bg-clip-text bg-gradient-to-r
           from-[#FFDF8D]
           to-[#FF9838]
-        "
-      >
+        ">
         Founders
       </div>
-      <app-founder-card
-        v-for="founder in founders"
-        :key="founder.id"
-        :image="founder.image.url"
-        :name="founder.name"
-        :job="founder.job"
-        :description="`${founder.age} years old, ${founder.country}`"
-        :about="founder.description"
-        class="lg:mb-[10rem] mb-[7rem] flex flex-col lg:flex-row"
-      />
+      <app-founder-card v-for="founder in founders" :key="founder.id" :image="founder.image.url" :name="founder.name"
+        :job="founder.job" :description="`${founder.age} years old, ${founder.country}`" :about="founder.description"
+        class="lg:mb-[10rem] mb-[7rem] flex flex-col lg:flex-row" />
     </section>
   </div>
 </template>
@@ -348,9 +269,9 @@ export default {
         this.$store.commit('filterText', String(el.name))
         this.pageTexts[el.name] = this.$store.state.text
       })
-      this.coexModel= this.$md.render(this.pageTexts['coex-model'][0].description)
-      this.historia= this.$md.render(this.pageTexts["historia-text"][0].description)
-      this.mision= this.$md.render(this.pageTexts["mision-text"][0].description)
+      this.coexModel = this.$md.render(this.pageTexts['coex-model'][0].description)
+      this.historia = this.$md.render(this.pageTexts["historia-text"][0].description)
+      this.mision = this.$md.render(this.pageTexts["mision-text"][0].description)
     },
     async getTalents() {
       const { data } = await this.$axios.get('talents')
@@ -397,20 +318,30 @@ body::-webkit-scrollbar:hover {
 
 body::-webkit-scrollbar-track {
   background: rgb(0, 0, 0);
-  /* color of the tracking area */
+
 }
 
 body::-webkit-scrollbar-thumb {
   background: linear-gradient(90deg, #4a5b95 0%, #90beff 100%);
-  /* color of the scroll thumb */
+
   border-radius: 20px;
-  /* border: 1px solid rgb(217 70 239);
-  /* roundness of the scroll thumb */
-  /* creates padding around scroll thumb */
+
 }
+
 strong {
-  color:transparent;
+  color: transparent;
   background-clip: text;
   background-image: linear-gradient(to right, #ffdf8d, #ff9838);
+}
+
+.hoverTarjeta {
+  background: rgba(47, 50, 125, 0.2);
+  margin: 10px;
+}
+
+.hoverTarjeta:hover {
+  transition-delay: 150ms;
+  transition-duration: 1000ms;
+  background: rgba(24, 4, 60, 0.2);
 }
 </style>

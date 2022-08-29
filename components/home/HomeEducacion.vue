@@ -1,6 +1,6 @@
 <template>
     <div
-        id="educacion"
+        id="educacionHome"
         class=" background-animatee  h-screen w-full flex justify-center items-center">
         <div class="flex justify-center items-center">
             <div class="">
@@ -50,7 +50,7 @@ export default {
     },
     methods: {
         getPageText() {
-            this.$store.commit("filterText", "educacion")
+            this.$store.commit("filterText", "educacionHome")
             this.pageText = this.$store.state.text
         },
         btnStarEducacion() {
@@ -105,7 +105,7 @@ export default {
     opacity: 0;
     transition: opacity .1s
 }
- #educacion{
+ #educacionHome{
     background: url(@/static/HomeEducacion.png) no-repeat;
     background-color: black;
  }

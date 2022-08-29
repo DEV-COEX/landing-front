@@ -112,7 +112,7 @@
 
 <script>
 export default {
-  name: 'HomeEducacion',
+  name: 'EducacionIndex',
   data() {
     return {
       pageText: {},

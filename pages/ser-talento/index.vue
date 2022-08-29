@@ -124,7 +124,6 @@ export default {
       this.DatosPersonales = true
       this.quitarclases = true
       document.getElementById('serTalento').style.transition = '.8s'
-     
       document.getElementById('serTalento').style.filter = 'blur(5px)'
       document.querySelector('body').classList.add('overflow-hidden')
     },
