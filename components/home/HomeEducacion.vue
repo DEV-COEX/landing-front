@@ -1,7 +1,7 @@
 <template>
     <div
         id="educacion"
-        class=" background-animate  h-screen w-full flex justify-center items-center">
+        class=" background-animatee  h-screen w-full flex justify-center items-center">
         <div class="flex justify-center items-center">
             <div class="">
                 <div class="flex justify-center pt-5 xl:pt-28 lg:pt-24 md:pt-20 ">
@@ -68,11 +68,11 @@ export default {
 </script>
 
 <style>
-.background-animate {
+.background-animatee {
     background-size: 150%;
     -webkit-animation: AnimationName 1s ease infinite;
     -moz-animation: AnimationName 7s ease infinite;
-    animation: AnimationName 5s ease infinite;
+    animation: AnimationName 6s ease infinite;
 }
 
 @keyframes AnimationName {
