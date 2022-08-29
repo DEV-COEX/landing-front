@@ -1,7 +1,5 @@
 <template>
-  <div
-    id="educacion"
-    class="
+  <div id="educacion" class="
       bg-gradient-to-r
       from-[#000A65]
       via-[#2c2191]
@@ -12,13 +10,11 @@
       flex
       justify-center
       items-center
-    "
-  >
+    ">
     <div class="flex justify-center items-center">
       <div class="">
         <div class="flex justify-center pt-20 xl:pt-28 lg:pt-24 md:pt-20">
-          <p
-            class="
+          <p class="
               xl:text-5xl
               lg:text-4xl
               md:text-3xl
@@ -35,15 +31,13 @@
               from-[#FFDF8D]
               via-[#FF9838]
               to-[#dab255]
-            "
-          >
+            ">
             Especialízate en desarrollo de software con nuestra increíble
             metodología en tan solo 10 meses.
           </p>
         </div>
         <div class="flex justify-center xl:p-10 lg:p-5 p-5 md:p-6">
-          <p
-            class="
+          <p class="
               xl:text-xl
               text-white
               lg:text-xl
@@ -52,16 +46,13 @@
               w-full
               sm:w-[80%]
               lg:w-3/6
-            "
-          >
+            ">
             ¡Conoce como!
           </p>
         </div>
         <div class="grid justify-center items-center mt-5 lg:mt-7">
           <div class="grid items-center justify-center">
-            <div
-              v-bind:class="[isActive ? 'animate-bounce' : '']"
-              class="
+            <div v-bind:class="[isActive ? 'animate-bounce' : '']" class="
                 w-32
                 h-32
                 ml-1
@@ -73,10 +64,8 @@
                 flex
                 items-center
                 justify-center
-              "
-            >
-              <button
-                class="
+              ">
+              <button class="
                   bg-gradient-to-r
                   from-[#E0EAF9]
                   to-[#DBEAFE]
@@ -88,9 +77,7 @@
                   rounded-full
                   text-xl
                   font-semibold
-                "
-                @click="btnStarEducacion"
-              >
+                " @click="btnStarEducacion">
                 Start
               </button>
             </div>
@@ -98,16 +85,16 @@
           <transition name="fade">
             <div v-if="show" class="grid items-center justify-center lg:pb-44 pb-28 md:pb-36 px-5 md:px-0">
               <!--Aqui va el v-for-->
-              <div  v-for="(card, index) in cards" :key="index" class="flex-col">
+              <div v-for="(card, index) in cards" :key="index" class="flex-col">
                 <div class="flex justify-center">
-                  <div
-                    class="linea bg-gradient-to-r from-[#4A5B95] to-[#90BEFF]"
-                  ></div>
+                  <div class="linea bg-gradient-to-r from-[#4A5B95] to-[#90BEFF]"></div>
                 </div>
 
-                <div class="cuadrado object-cover lg:w-[38rem] lg:h-[22rem] md:w-[31rem] md:h-[18rem] sm:w-[25.5rem] sm:h-[15rem] px-5 md:px-0 w-full h-[11rem] border-2">
+                <div
+                  class="cuadrado object-cover lg:w-[38rem] lg:h-[22rem] md:w-[31rem] md:h-[18rem] sm:w-[25.5rem] sm:h-[15rem] px-5 md:px-0 w-full h-[11rem] border-2">
                   <div>
-                    <img :src="card.image.url" alt="" class="img lg:w-[36rem] lg:h-[20rem] md:w-[29rem] md:h-[16rem] sm:w-[23.5rem] sm:h-[13rem] w-full h-[9rem] " />
+                    <img :src="card.image.url" alt=""
+                      class="img lg:w-[36rem] lg:h-[20rem] md:w-[29rem] md:h-[16rem] sm:w-[23.5rem] sm:h-[13rem] w-full h-[9rem] " />
                   </div>
                 </div>
                 <div class="p-4 text-white absolute">
@@ -155,13 +142,18 @@ export default {
       this.isActive = !this.isActive
       this.show = !this.show
       if (this.show === false) {
+        if (process.client) {
+          window.scrollTo(0, 0)
+        }
         document.getElementById('educacion').style.alignItems = 'center'
         document.getElementById('educacion').style.height = '100vh'
         document.getElementById('educacion').style.transition = '2s'
       } else {
+
         document.getElementById('educacion').style.paddingBottom = '10rem'
         document.getElementById('educacion').style.alignItems = 'center'
         document.getElementById('educacion').style.height = '100%'
+
       }
     },
   },
@@ -177,6 +169,7 @@ export default {
 }
 
 @keyframes AnimationName {
+
   0%,
   100% {
     background-position: 0% 100%;
@@ -209,38 +202,34 @@ export default {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.2s;
+  transition: opacity 5s;
 }
 
 .fade-enter,
-.fade-leave-to
-
-  /* .fade-leave-active below version 2.1.8 */ {
+.fade-leave-to {
   opacity: 0;
-  transition: opacity 0.1s;
+  transition: opacity 1s;
 }
+
 body::-webkit-scrollbar {
   width: 2px;
-  /* width of the entire scrollbar */
+
 }
 
 body::-webkit-scrollbar:hover {
   width: 5px;
 
-  /* width of the entire scrollbar */
 }
 
 body::-webkit-scrollbar-track {
   background: rgb(0, 0, 0);
-  /* color of the tracking area */
+
 }
 
 body::-webkit-scrollbar-thumb {
   background: linear-gradient(90deg, #4a5b95 0%, #90beff 100%);
-  /* color of the scroll thumb */
+
   border-radius: 20px;
-  /* border: 1px solid rgb(217 70 239);
-  /* roundness of the scroll thumb */
-  /* creates padding around scroll thumb */
+
 }
 </style>

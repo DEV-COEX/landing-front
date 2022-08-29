@@ -35,7 +35,7 @@
                 ease-in-out
                 delay-150
                 hover:-translate-y-1 hover:scale-110
-                duration-300
+                duration-500
               " @click="item.method">
               {{ item.name }}
             </span>

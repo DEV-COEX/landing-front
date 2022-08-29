@@ -12,9 +12,9 @@
         <div class="xl:px-8">
           <div class="grid justify-center lg:px-3">
             <div
-              class="scrollmodal md:flex justify-evenly md:p-2 xlchikito:pt-0 lg:pt-[6rem] sm:h-[30rem] xlchikito:h-auto lg:h-[18rem]  overflow-y-auto md:border-b-0 border-b-2 border-[#4736df]">
+              class="scrollmodal md:flex justify-evenly  md:pt-[9rem] xlchikito:pt-[6rem] xlchikito:h-[20rem]  xl:h-[19rem] lg:h-[16rem]  h-[20rem]  overflow-y-auto md:border-b-0 border-b-2 border-[#6D6F76]">
               <div class="flex items-center  md:border-r-2 border-[#6D6F76]">
-                <div class="xlchikito:p-2 p-0 md:px-0 px-4">
+                <div class="xlchikito:p-2 p-0 ">
                   <div class="sm:flex justify-center">
                     <app-input v-model="form.name" minlength="4" required label="Nombre Completo" />
                     <app-input v-model="form.age" type="number" required label="Edad" />
