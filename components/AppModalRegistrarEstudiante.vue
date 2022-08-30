@@ -39,7 +39,7 @@
                 </div>
               </div>
               <div class="sm:flex items-center">
-                <div class="md:p-2 md:px-0 px-4">
+                <div class="md:p-2 ">
                   <div class="md:block sm:flex">
                     <app-input v-model="form.address" required label="¿En que Barrio reside?" />
                     <app-input v-model="form.roomies" required label="¿Con quien vive?" />
