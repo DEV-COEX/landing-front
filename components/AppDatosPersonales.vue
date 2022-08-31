@@ -119,10 +119,8 @@ export default {
 
 <style scoped>
 .modal-principal {
-  /* background: #0b046e; */
  border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
-  /* display: grid; */
+   border-top-left-radius: 20px;
 }
 
 .logo {
