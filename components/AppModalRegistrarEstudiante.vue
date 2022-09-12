@@ -16,7 +16,7 @@
                 <div class="xlchikito:p-2 p-0 ">
                   <div class="sm:flex justify-center">
                     <app-input v-model="form.name" type="text" minlength="4" required label="Nombre Completo" />
-                    <app-input v-model="form.age" type="text"  pattern="[0-9]{3,3}" title="El número debe contener maximo 3 caracteres" required label="Edad" />
+                    <app-input v-model="form.age" type="text"  pattern="[0-9]{2,3}" title="El número debe contener maximo 3 caracteres" required label="Edad" />
                   </div>
                   <div class="sm:flex justify-center md:p-2 p-0">
                     <div>
