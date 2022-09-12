@@ -78,8 +78,7 @@
         @close="closeModal" />
     </transition>
     <transition name="fade">
-      <app-modal-registrar-profe v-model="Profesor" @close="closeProfe" @exito="OPenModalexito"
-        @metodoBoton="OPenModalexito" />
+      <app-modal-registrar-profe v-model="Profesor" @close="closeProfe" @exito="OPenModalexito" />
     </transition>
     <transition name="fade">
       <app-modal-registrar-estudiante v-model="Estudiante" @close="closeEstudents" @exito="OPenModalexito" />
