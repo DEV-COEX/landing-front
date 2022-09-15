@@ -119,6 +119,20 @@
               @click="openModal"
               >Quiero mi {{ des?.tittle }}</app-btn
             >
+            <app-btn
+              v-if="des?.tittle === 'E-COMMERCE'"
+              class="
+                bg-gradient-to-r
+                from-red-500
+                to-red-400
+                p-1
+                text-white
+                hover:from-red-400 hover:to-red-500
+                mx-3
+              "
+              @click="openService"
+            >Ver nuestros {{ des?.tittle }}</app-btn
+            >
           </div>
         </div>
       </transition>
@@ -183,6 +197,9 @@ export default {
     closeModal() {
       this.modal = false
     },
+    openService(){
+      window.open('https://ecommerce.coex.com.co/', '_blank')
+    }
   },
 }
 </script>
