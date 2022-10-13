@@ -2015,7 +2015,6 @@ var FontManager = (function(){
           //Canvas version
           //fontData.cache[index] = tHelper.measureText(char).width / 100;
           //SVG version
-          //console.log(tHelper.getBBox().width)
           if (char === ' ') {
               tHelper.textContent = '|' + char + '|';
               var doubleSize = tHelper.getComputedTextLength();
@@ -6047,8 +6046,6 @@ SVGRenderer.prototype.renderFrame = function(num){
   }else{
       this.renderedFrame = num;
   }
-  // console.log('-------');
-  // console.log('FRAME ',num);
   this.globalData.frameNum = num;
   this.globalData.frameId += 1;
   this.globalData.projectInterface.currentFrame = num;
@@ -9712,9 +9709,7 @@ HCameraElement.prototype.renderFrame = function(){
           len = this.hierarchy.length - 1;
           for (i = len; i >= 0; i -= 1) {
               /*mat = this.hierarchy[i].finalTransform.mProp.v.props;
-              console.log(mat)
-              this.mat.transform(-mat[0],-mat[1],-mat[2],-mat[3],-mat[4],-mat[5],-mat[6],-mat[7],-mat[8],-mat[9],-mat[10],-mat[11],-mat[12],-mat[13],-mat[14],mat[15]);
-              console.log(this.mat.props)*/
+              this.mat.transform(-mat[0],-mat[1],-mat[2],-mat[3],-mat[4],-mat[5],-mat[6],-mat[7],-mat[8],-mat[9],-mat[10],-mat[11],-mat[12],-mat[13],-mat[14],mat[15]);*/
               var mTransf = this.hierarchy[i].finalTransform.mProp;
               this.mat.translate(-mTransf.p.v[0],-mTransf.p.v[1],mTransf.p.v[2]);
               this.mat.rotateX(-mTransf.or.v[0]).rotateY(-mTransf.or.v[1]).rotateZ(mTransf.or.v[2]);
