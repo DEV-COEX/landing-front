@@ -47,6 +47,7 @@
                   <div class="">
                     <app-select v-model="form.gender" :items="genders" required label="Género" />
                     <app-select v-model="form.education" :items="academic" required label="Nivel educativo Actual" />
+                    <app-select v-model="form.advertising" :items="advertising" required label = "Me enteré de COEX por" />
                   </div>
                 </div>
               </div>
@@ -151,6 +152,37 @@ export default {
           attribute: 'Ninguno de los horarios ofrecidos',
         },
       ],
+      advertising: [
+        {
+          llave: 'feria empresarial',
+          attribute: 'Feria Empresarial',
+        },
+        {
+          llave: 'colegio',
+          attribute: 'Visita a colegio',
+        },
+        {
+          llave: 'universidad',
+          attribute: 'Visita a universidad',
+        },
+        {
+          llave: 'comercial',
+          attribute: 'Contacto comercial',
+        },
+        {
+          llave: 'referido',
+          attribute: 'Referido',
+        },
+        {
+          llave: 'redes sociales',
+          attribute: 'Redes Sociales',
+        },
+        {
+          llave: 'otro',
+          attribute: '  Otro',
+        },
+
+      ],
       form: {
         name: null,
         age: null,
@@ -162,6 +194,7 @@ export default {
         roomies: null,
         gender: null,
         education: null,
+        advertising: null,
       }
     }
   },
