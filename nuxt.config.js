@@ -60,7 +60,7 @@ export default {
   build: {},
 
   sitemap: {
-    hostname: 'https://www.coex.com.co',
+    hostname: 'https://coex.com.co',
     path: '/sitemap.xml',
     cacheTime: 1000 * 60 * 60 * 2,
     exclude: ['/404'],
