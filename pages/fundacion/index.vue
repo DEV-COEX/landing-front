@@ -65,6 +65,18 @@ export default {
       text: null
     }
   },
+  head() {
+    return {
+      title: "Fundación",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Quieres apoyar el talento joven TI? Apyanos donando para el entrenamiento de los jóvenes en el campo de la tecnología y programacion. Puedes donar desde un solo dolar.",
+        },
+      ],
+    };
+  },
   async mounted() {
     await this.$store.dispatch('fetchTexts')
     await this.getPageText()

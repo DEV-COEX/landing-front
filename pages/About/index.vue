@@ -256,6 +256,18 @@ export default {
       mision: null,
     }
   },
+  head() {
+    return {
+      title: 'Nosotros',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'COEX, es el primer bootcamp de desarrollo de software web y movil en la region de Santander, Colombia. Nuestro objetivo es formar a los mejores talentos en el desarrollo de software, para que puedan ser contratados por las mejores empresas del mundo.',
+        },
+      ],
+    }
+  },
   async mounted() {
     await this.getPageText()
     await this.getTalents()

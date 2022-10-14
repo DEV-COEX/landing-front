@@ -134,6 +134,18 @@ export default {
       cards: {},
     }
   },
+  head() {
+    return {
+      title: 'Educación',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Especialízate en desarrollo de software con nuestra increíble metodología en tan solo 10 meses. Aprende a programar con nuestros entrenamientos enfocados en frontend, backend y desarrollo móvil.',
+        },
+      ],
+    }
+  },
   async mounted() {
     this.getPageText()
     this.getCards()

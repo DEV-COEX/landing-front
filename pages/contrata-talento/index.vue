@@ -83,6 +83,18 @@ export default {
       prueba: null
     }
   },
+  head() {
+    return {
+      title: 'Contrata talento',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Necesitas desarrolladores? Necesitas talentos TI para tu empresa? Nosotros te ayudamos, contactanos y encuentra el perfil mas adecuado a tu problema.'
+        }
+      ]
+    }
+  },
   async mounted() {
     this.getOffers()
     this.getPageText()

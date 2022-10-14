@@ -109,6 +109,18 @@ export default {
 
     }
   },
+  head() {
+    return {
+      title: 'Ser Talento',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Nuestro grupo COEX te da la bienvenida, queremos que seas parte de nuestro grupo de desarrolladores y formadores para que tengas la posibilidad de aprender y crecer profesionalmente.'
+        }
+      ]
+    }
+  },
   async mounted() {
     this.getPageText()
     await this.$store.dispatch('fetchTexts')

@@ -26,6 +26,18 @@ export default {
       modal: false,
     }
   },
+  head() {
+    return {
+      title: 'Fabrica de Software',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'En COEX tenemos soluciones integrales y tecnologicas para tu empresa. Somos una fabrica de software que desarrolla soluciones a la medida de tu negocio, con las tecnologÍas mas vanguardistas del mercado.',
+        },
+      ],
+    }
+  },
   methods: {
     openModal() {
       this.modal = true
