@@ -4,17 +4,17 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Coex',
+    title: 'COEX - Conocimiento Exponencial, Contrata talentos TI, Conviertete en desarrollador',
     htmlAttrs: {
       lang: 'en',
     },
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' },
+      {charset: 'utf-8'},
+      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      {hid: 'description', name: 'description', content: 'Coviertete en un desarrollador de software y haz de eso tu profesion. Buscas talentos TI para tu empresa?, contrata con nosotros desarrolladores en Colombia. Node.js, Laravel, PHP, Javascript'},
+      {name: 'format-detection', content: 'telephone=no'},
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -40,6 +40,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/markdownit',
+    '@nuxtjs/sitemap'
   ],
 
   markdownit: {
@@ -57,6 +58,13 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  sitemap: {
+    hostname: 'https://www.coex.com.co',
+    path: '/sitemap.xml',
+    cacheTime: 1000 * 60 * 60 * 2,
+    exclude: ['/404'],
+  },
 
   generate: {
     fallback: true
