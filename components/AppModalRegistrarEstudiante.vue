@@ -38,8 +38,8 @@
                   </div>
                 </div>
               </div>
-              <div class="sm:flex items-center">
-                <div class="md:p-2 ">
+              <div class="sm:flex items-center h-[inherit]">
+                <div class="md:p-2">
                   <div class="md:block sm:flex">
                     <app-input v-model="form.address" required label="¿En que Barrio reside?" />
                     <app-input v-model="form.roomies" required label="¿Con quien vive?" />
@@ -48,6 +48,7 @@
                     <app-select v-model="form.gender" :items="genders" required label="Género" />
                     <app-select v-model="form.education" :items="academic" required label="Nivel educativo Actual" />
                     <app-select v-model="form.advertising" :items="advertising" required label = "Me enteré de COEX por" />
+                    <app-select v-model="form.place" :items="places" required label = "Sede: " />
                   </div>
                 </div>
               </div>
@@ -183,6 +184,16 @@ export default {
         },
 
       ],
+      places: [
+        {
+          llave: 'Punto vía digital',
+          attribute: 'Punto vía digital',
+        },
+        {
+          llave: 'Sede principal',
+          attribute: 'Sede principal'
+        }
+      ],
       form: {
         name: null,
         age: null,
@@ -195,6 +206,7 @@ export default {
         gender: null,
         education: null,
         advertising: null,
+        place: null
       }
     }
   },
@@ -269,7 +281,7 @@ export default {
   width: 100%;
   background-color: rgb(131 131 131 / 40%);
   position: fixed;
- 
+
   top: 0;
 }
 
