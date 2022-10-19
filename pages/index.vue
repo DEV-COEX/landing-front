@@ -72,23 +72,23 @@ export default {
         await this.$store.dispatch("fetchTexts");
         this.getPageText();
         //  animacion para el div HomeSerTalento y HomeContrataTalento
-        window.addEventListener("scroll", this.showInformation)
+        // window.addEventListener("scroll", this.showInformation)
         const divHomeContrataTalento = document.getElementById('aparecer1')
         divHomeContrataTalento.style.animation = 'mover .7s ease-out'
 
 
     },
     methods: {
-        showInformation(){
-          const divHomeSerTalento = document.getElementById('aparecer2')
-          const positionDiv = divHomeSerTalento.getBoundingClientRect().top
-          const elementHeigth = positionDiv - window.innerHeight/3
-          if (elementHeigth < 280) {
-            divHomeSerTalento.style.animation = 'mover 1s ease-out'
-            divHomeSerTalento.style.opacity = '1'
-          }
+        // showInformation(){
+        //   const divHomeSerTalento = document.getElementById('aparecer2')
+        //   const positionDiv = divHomeSerTalento.getBoundingClientRect().top
+        //   const elementHeigth = positionDiv - window.innerHeight/3
+        //   if (elementHeigth < 280) {
+        //     divHomeSerTalento.style.animation = 'mover 1s ease-out'
+        //     divHomeSerTalento.style.opacity = '1'
+        //   }
 
-        },
+        // },
         getPageText() {
             this.$store.commit("filterText", "contratar-talento");
             this.pageText = this.$store.state.text;

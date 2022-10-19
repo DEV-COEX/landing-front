@@ -41,7 +41,7 @@
         <div class="text-justify whitespace-normal">
           <span> un Bootcamp en el cual formamos la base del </span>
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D]
-          to-[#FF9838]">hacer,  del ser y el saber</span> <span> de cada talento juvenil que quiere ser Talento, provenientes de
+          to-[#FF9838]">hacer,  del ser y el saber</span> <span> de cada talento juvenil que quiere ser desarrollador de software, provenientes de
           diversos tipos de comunidades de nuestra ciudad, bajo un ambiente de
           alta productividad dónde se entrenan como desarrolladores de software.</span>
         </div>
