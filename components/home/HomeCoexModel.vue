@@ -149,7 +149,6 @@ export default {
       this.$store.commit('filterText', 'fundation')
       this.pageText = this.$store.state.text
       this.textFundation = this.$md.render(this.pageText[0].description)
-      console.log(this.pageText)
     },
     toAbout() {
       this.$router.push('/about')
