@@ -186,8 +186,8 @@ export default {
       ],
       places: [
         {
-          llave: 'Punto vía digital',
-          attribute: 'Punto vía digital',
+          llave: 'Punto vive digital',
+          attribute: 'Punto vive digital',
         },
         {
           llave: 'Sede principal',
