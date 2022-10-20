@@ -2,7 +2,7 @@
   <div class="flex justify-center w-full">
     <div class=" z-10  text-white  flex justify-center items-center"
     >
-      <div id="aparecer2" class="opacity-0">
+      <div id="aparecer2" >
         <div class="flex-col justify-center items-center ">
           <div class="flex justify-center pt-5 xl:pt-28 lg:pt-24 md:pt-20">
             <p id="segundo" class="xl:text-5xl lg:text-4xl md:text-3xl text-xl w-full sm:w-[80%] lg:w-4/6 font-bold px-7 text-center text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D] via-[#FF9838] to-[#dab255]"> {{ pageText[0] ? pageText[0].tittle : '' }} </p>
@@ -19,9 +19,9 @@
                     p-1
                     mx-6
                     text-white
-                    hover:from-red-400 hover:to-red-500
-
-                  " @click="toTalent">Quiero ser talento Coex
+                    hover:from-red-400
+                    hover:to-red-500"
+                   @click="toTalent">Quiero ser talento Coex
             </app-btn>
           </div>
         </div>

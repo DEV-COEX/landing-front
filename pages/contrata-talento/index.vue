@@ -1,197 +1,95 @@
 <template>
-  <div>
-    <div id="indexContrata" class="
-        pt-[5rem]
-        lg:pt-[6rem]
-        min-h-screen
-        lg:bg-gradient-to-r
-        lg:from-[#000A65]
-        lg:via-[#2c2191]
-        lg:to-[#2F00B5]
-        bg-[#171929]
-        background-animate
-        w-full
-        flex
-        justify-center
-        items-center
-        px-5 lg:px-0
-      ">
-      <div class="flex justify-center items-center">
-        <div>
-          <div class="flex justify-center w-full">
-            <p class="
-                px-2
-                md:px-4
-                lg:text-5xl
-                md:text-3xl
-                lg:leading-relaxed
-                font-bold
-                text-2xl text-center text-transparent
-                bg-clip-text bg-gradient-to-r
-                from-[#FFDF8D]
-                via-[#FF9838]
-                to-[#dab255]
-              ">
-              {{ pageText?.tittle }}
-            </p>
-          </div>
-          <div class="flex justify-center">
-            <p class="lg:text-3xl w-full md:text-xl text-lg px-2 lg:w-2/5 text-center text-white pb-5 pt-1 lg:py-10">
-              {{ pageText?.description }}
-            </p>
-          </div>
-          <div class="grid justify-center items-center">
-            <div class="lg:p-7">
-              <app-card-oferta v-for="offer in offers" :key="offer.id" :offer="offer" :description="offer.description"/>
+
+        <div class="relative">
+            <div>
+                <div>
+                  <div class="layer"></div>
+                  <img class="contenedor-nuevo-image" src="@/static/background-contrata.jpg" alt="contrata-image">
+                </div>
             </div>
-          </div>
-          <div class="flex justify-center ">
-            <a href="#indexContrata">
-              <app-btn class="
+            <div class="relative flex flex-wrap min-h-[100vh] w-full justify-center items-center gap-10 z-10">
+              <div class="w-full md:max-w-[40%] mt-10 p-5 flex flex-col gap-5">
+                  <div>
+                      <p class="
+                          px-2
+                          md:px-4
+                          lg:text-1xl
+                          md:text-4xl
+                          lg:leading-relaxed
+                          font-bold
+                          text-4xl text-center text-transparent
+                          bg-clip-text bg-gradient-to-r
+                          from-[#FFDF8D]
+                          via-[#FF9838]
+                          to-[#dab255]
+                      ">¿Necesitas Talento tecnológico para tu empresa?</p>
+                  </div>
+                  <div>
+                  <p class="
+                      text-white
+                      font-bold
+                      lg:text-lg
+                      md:text-lg
+                      text-center
+                  ">
+                      En coex, formamos el mejor talento para tu empresa, aplicando las tecnologías mas utilizadas en la industria
+                  </p>
+                  </div >
+                  <div class="flex flex-row justify-center ">
+                      <img src="/tecnologias/python.svg" alt="">
+                      <img src="/tecnologias/nosql.svg" alt="">
+                      <img src="/tecnologias/js.svg" alt="">
+                      <img src="/tecnologias/nest.svg" alt="">
+                      <img src="/tecnologias/vue.svg" alt="">
+                      <img src="/tecnologias/laravel.svg" alt="">
 
-                bg-gradient-to-r
-                from-red-500
-                to-red-400
-                mx-6
-                md:mb-6
-                sm:mb-3
-                mb-2
-                text-white
-                hover:from-red-400 hover:to-red-500
-              " @click="OPenModal">Contactar</app-btn>
-            </a>
-
-          </div>
+                  </div>
+              </div>
+              <div class="flex justify-center mb-5">
+                  <prueba-formulario/>
+              </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <transition name="fade" >
-      <app-modal-contactar v-model="modal" @close="closeModal"  class="xlchikito:top-0  lg:top-[-158px]  top-0"/>
-    </transition>
-  </div>
 </template>
 
 <script>
-export default {
-  name: 'ContrataTalento',
+    export default {
+    name: 'ContrataTalento',
 
-  data() {
-    return {
-      pageText: {},
-      offers: [],
-      modal: false,
-      prueba: null
-    }
-  },
-  head() {
-    return {
-      title: 'Contrata talento',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'Necesitas desarrolladores? Necesitas talentos TI para tu empresa? Nosotros te ayudamos, contactanos y encuentra el perfil mas adecuado a tu problema.'
+    data() {
+        return {
+            pageText: {},
+            offers: [],
+            modal: false,
         }
-      ]
+        }
     }
-  },
-  async mounted() {
-    this.getOffers()
-    this.getPageText()
-    await this.$store.dispatch('fetchOffers')
-    await this.$store.dispatch('fetchTexts')
-    this.getOffers()
-    this.getPageText()
-  },
-  methods: {
-    getPageText() {
-      this.$store.commit('filterText', 'contratar-talento')
-      this.pageText = this.$store.state.text[0]
-    },
-    getOffers() {
-      this.offers = this.$store.state.offers
-
-    },
-    OPenModal() {
-      this.modal = true
-      document.getElementById('indexContrata').style.filter = 'blur(5px)'
-      document.querySelector('body').classList.add('overflow-hidden')
-    },
-    closeModal() {
-      this.modal = false
-      document.getElementById('indexContrata').style.filter = 'blur(0)'
-      document.querySelector('body').classList.remove('overflow-hidden')
-    },
-  },
-}
 </script>
+
 <style scoped>
-.fondo {
-  height: 80vh;
+.contenedor-nuevo-image{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.background-animate {
-  background-size: 150%;
-  -webkit-animation: AnimationName 1s ease infinite;
-  -moz-animation: AnimationName 7s ease infinite;
-  animation: AnimationName 5s ease infinite;
-}
-.modal{
-  top: 0px;
-}
-
-@keyframes AnimationName {
-
-  0%,
-  100% {
-    background-position: 0% 100%;
-  }
-
-  50% {
-    background-position: 100% 30%;
-  }
-}
-@media (max-width: 1024px) {
-  .modal {
-    top: -158px;
-  }
+.layer{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: .8;
+  z-index: 1;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 1s;
-}
-
-.fade-enter,
-.fade-leave-to
-
-/* .fade-leave-active below version 2.1.8 */
-  {
-  transition: opacity 0.7s;
-}
-
-body::-webkit-scrollbar {
-  width: 2px;
-  /* width of the entire scrollbar */
-}
-
-body::-webkit-scrollbar:hover {
-  width: 5px;
-
-  /* width of the entire scrollbar */
-}
-
-body::-webkit-scrollbar-track {
-  background: rgb(0, 0, 0);
-  /* color of the tracking area */
-}
-
-body::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, #4A5B95 0%, #90BEFF 100%);
-  /* color of the scroll thumb */
-  border-radius: 20px;
-  /* border: 1px solid rgb(217 70 239);
-  /* roundness of the scroll thumb */
-  /* creates padding around scroll thumb */
-}
+/* .layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0.8;
+  z-index: 1;
+} */
 </style>

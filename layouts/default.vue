@@ -49,20 +49,34 @@
             </span>
           </NuxtLink>
         </div>
-        <div>
-          <app-btn
-            class="
+
+        <div class="flex flex-wrap justify-center max-w-[200px] gap-y-2.5 ">
+          <div>
+            <app-btn class="
+              bg-gradient-to-r
+              from-blue-500
+              to-blue-400
+              p-[2px]
+              text-white
+              hover:from-blue-400
+              hover:to-blue-500"
+              @click="contrataTalento">Contratar talento
+            </app-btn>
+          </div>
+          <div>
+            <app-btn class="
               bg-gradient-to-r
               from-red-500
               to-red-400
               p-[2px]
               text-white
-              hover:from-red-400 hover:to-red-500
-            "
-            @click="serTalento"
-            >Ser talento Coex
-          </app-btn>
+              hover:from-red-400
+              hover:to-red-500"
+              @click="serTalento">Ser talento coex
+            </app-btn>
+          </div>
         </div>
+
       </div>
     </div>
     <div :class="[show ? 'blur-sm' : '']" class="lg:p-2 fixed z-40 w-full bg-clip-padding"
@@ -127,6 +141,19 @@
               lg:text-sm
               xl:text-base
               bg-gradient-to-r
+              from-blue-500
+              to-blue-400
+              hidden
+              lg:block
+              p-1
+              text-white
+              hover:from-blue-400 hover:to-blue-500"
+            @click="contrataTalento">Contratar talento
+          </app-btn>
+          <app-btn class="
+              lg:text-sm
+              xl:text-base
+              bg-gradient-to-r
               from-red-500
               to-red-400
               hidden
@@ -138,6 +165,7 @@
             @click="serTalento"
             >Ser talento Coex
           </app-btn>
+
           <div class="text-white lg:hidden" @click="ChangeShow">
             <img src="/Nav/menu.svg" alt="desplegable" />
           </div>
@@ -175,21 +203,21 @@ export default {
               window.scrollTo(0, 0)
             }
             document.querySelector('body').classList.remove('overflow-hidden')
-            const estado = true
-            const estadoHome = false
-            if (this.$route.path === '/') {
-              this.$store.dispatch('home', estadoHome)
-              this.$store.dispatch('animation', estado)
-            } else {
-              this.$store.commit('changeHomeState', estadoHome)
-              this.$store.commit('changetransitionState', estado)
-            }
+            // const estado = true
+            // const estadoHome = false
+            // if (this.$route.path === '/') {
+            //   this.$store.dispatch('home', estadoHome)
+            //   this.$store.dispatch('animation', estado)
+            // } else {
+            //   this.$store.commit('changeHomeState', estadoHome)
+            //   this.$store.commit('changetransitionState', estado)
+            // }
           },
         },
 
         {
           name: '¿Quienes somos?',
-          path: '/about',
+          path: '/quienes-somos',
           method: () => {
             if (process.client) {
               window.scrollTo(0, 0)
@@ -219,8 +247,8 @@ export default {
           },
         },
         {
-          name: 'Contrata talentos',
-          path: '/contrata-talento',
+          name: 'Oferta de talentos',
+          path: '/oferta-de-talento',
           method: () => {
             if (process.client) {
               window.scrollTo(0, 0)
@@ -276,6 +304,13 @@ export default {
         window.scrollTo(0, 0)
       }
     },
+    contrataTalento() {
+      this.$router.push('/contrata-talento')
+      if (process.client) {
+        window.scrollTo(0, 0)
+      }
+    },
+
     ChangeShow() {
       this.show = !this.show
       if (this.show) {

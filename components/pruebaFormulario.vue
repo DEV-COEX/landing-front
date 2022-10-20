@@ -1,22 +1,28 @@
 <template>
-  <div v-if="state" class="centrar fondo-modal md:px-[1.25rem] px-[0.25rem] z-50" style="left: 0;">
-    <div class="modal-principal opacity-95 mx-4 px-3 ">
-      <div class="flex justify-center px-10  py-5 ">
-        <p class="font-bold  text-xl text-center text-transparent bg-clip-text bg-gradient-to-r
-                      from-[#FFDF8D]
-                      via-[#FF9838]
-                      to-[#dab255]">Inscripción talento</p>
+    <div >
+        <div class="flex justify-center px-10  py-5  ">
+        <p class="
+                px-2
+                md:px-4
+                lg:text-4xl
+                md:text-2xl
+                lg:leading-relaxed
+                font-bold
+                text-2xl text-center text-transparent
+                bg-clip-text bg-gradient-to-r
+                from-[#FFDF8D]
+                via-[#FF9838]
+                to-[#dab255]
+              ">Formulario de contacto</p>
       </div>
-      <form @submit.prevent="register">
+      <form @submit.prevent="register" class="bg-[rgba(255,255,255,0.1)] border-solid  rounded-3xl pt-5">
         <div class="xl:px-8 ">
           <div class="grid justify-center lg:px-3 ">
-            <div
-              class="scrollmodal md:flex justify-evenly md:p-2 md:pt-[6rem] xlchikito:pt-[6rem] xlchikito:h-[20rem]   lg:h-[17rem] xl:h-[19rem] h-[20rem]  overflow-y-auto md:border-b-0 border-b-2 border-[#4736df] ">
-              <div class="flex items-center md:border-r-2  border-[#6D6F76]">
+              <div class="flex items-center   border-[#6D6F76]">
                 <div class="xlchikito:p-2 p-0 ">
                   <div class="sm:flex justify-center">
-                    <app-input v-model="form.name" type="text" minlength="4" required label="Nombre Completo" />
-                    <app-input v-model="form.age" type="text"  pattern="[0-9]{2,3}" title="El número debe contener maximo 3 caracteres" required label="Edad" />
+                    <app-input v-model="form.name" type="text" minlength="4" required label="Nombre" />
+                    <app-input v-model="form.charge" type="text"  pattern="[0-9]{2,3}" title="El número debe contener maximo 3 caracteres" required label="Cargo" />
                   </div>
                   <div class="sm:flex justify-center md:p-2 p-0">
                     <div>
@@ -28,32 +34,13 @@
                     <app-input v-model="form.phone" type="text" pattern="[0-9]{10,20}"
                       title="El número debe contener mínimo 10 caracteres" required label="Teléfono" />
                   </div>
-                  <div class="md:p-2 p-0">
-                    <app-input v-model="form.school" required
-                      label="Mencione el colegio en donde cursa o cursó su bachillerato" />
-
-
-                    <app-select v-model="form.schedule" :items="schedules" required
-                      label="Indique el horario en el cual podria asistir(De lunes a viernes)" />
-                  </div>
                 </div>
-              </div>
-              <div class="sm:flex items-center h-[inherit]">
-                <div class="md:p-2">
-                  <div class="md:block sm:flex">
-                    <app-input v-model="form.address" required label="¿En que Barrio reside?" />
-                    <app-input v-model="form.roomies" required label="¿Con quien vive?" />
-                  </div>
-                  <div class="">
-                    <app-select v-model="form.gender" :items="genders" required label="Género" />
-                    <app-select v-model="form.education" :items="academic" required label="Nivel educativo Actual" />
-                    <app-select v-model="form.advertising" :items="advertising" required label = "Me enteré de COEX por" />
-                    <app-select v-model="form.place" :items="places" required label = "Sede: " />
-                  </div>
-                </div>
-              </div>
+            </div>
+            <div class="flex m-2 justify-center gap-2">
+                <input type="checkbox"/> <p class="text-white">Autorizo ser contactado por COEX</p>
             </div>
             <div class="flex justify-center py-4 ">
+                
               <app-btn type="submit" class="
                     bg-gradient-to-r
                     from-red-500
@@ -64,25 +51,17 @@
                     hover:from-red-400 hover:to-red-500
                   " @click="metodoBoton">Enviar Formulario
               </app-btn>
-              <app-btn type="button" class="
-                     bg-[#1C233A]
-                    p-1
-                    mx-4
-                    text-white
-                  " @click="close">Cerrar
-              </app-btn>
+              
             </div>
           </div>
         </div>
       </form>
     </div>
-  </div>
 </template>
-
 
 <script>
 export default {
-  name: "AppModalEstudiante",
+  name: "PruebaFormulario",
   props: {
     disabled: {
       type: Boolean
@@ -129,10 +108,6 @@ export default {
         {
           llave: 'femenino',
           attribute: 'Femenino',
-        },
-        {
-          llave: 'otro',
-          attribute: 'No binario',
         },
       ],
       schedules: [
@@ -188,16 +163,6 @@ export default {
         },
 
       ],
-      places: [
-        {
-          llave: 'Punto vive digital',
-          attribute: 'Punto vive digital',
-        },
-        {
-          llave: 'Sede principal',
-          attribute: 'Sede principal'
-        }
-      ],
       form: {
         name: null,
         age: null,
@@ -210,7 +175,6 @@ export default {
         gender: null,
         education: null,
         advertising: null,
-        place: null
       }
     }
   },
@@ -249,77 +213,3 @@ export default {
   }
 }
 </script>
-
-
-<style scoped>
-.modal-principal {
-  background: #2B3348;
-  border-radius: 25px;
-   box-shadow: 0px 0px 10px 0px white;
-  /* display: grid; */
-}
-
-
-.logo {
-  width: 105px;
-  height: 105px;
-  border-radius: 50%;
-  background: #2B3348;
-  position: absolute;
-  right: -51px;
-
-}
-
-
-.btn-cerrar {
-  right: 0;
-  top: 13px;
-  height: 30px;
-  width: 30px;
-  margin-right: 10px;
-  position: relative;
-}
-
-.fondo-modal {
-  height: 100%;
-  width: 100%;
-  background-color: rgb(131 131 131 / 40%);
-  position: fixed;
-
-  top: 0;
-}
-
-.lbl-validation {
-  text-align: left;
-  font: normal 13px/15px sans-serif;
-  letter-spacing: 0px;
-  color: #df0909;
-  margin-bottom: 0;
-  margin-left: 10px;
-}
-
-
-/*ajuste en pantalla*/
-.centrar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.scrollmodal::-webkit-scrollbar {
-  width: 3px;
-}
-
-.scrollmodal::-webkit-scrollbar:hover {
-  width: 5px;
-}
-
-.scrollmodal::-webkit-scrollbar-track {
-  background: rgb(41, 52, 99);
-
-}
-
-.scrollmodal::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, #5f6b94 0%, #90BEFF 100%);
-  border-radius: 20px;
-}
-</style>
