@@ -10,7 +10,7 @@
       </div>
       <!-- <transition name="fade"> -->
         <!-- <div  v-if="this.$store.state.transition"  id="contrataTalento" class=" h-[80vh] w-full flex justify-center"> -->
-          <home-contrata-talento />
+          <home-contrata-talento v-if="showHomeContrataTalento" />
         <!-- </div> -->
       <!-- </transition> -->
       <!-- <transition name="fade"> -->
@@ -49,13 +49,13 @@
     <!-- <transition name="fade" class="animate__animated animate__zoomInUp"> -->
       <!-- v-if="this.$store.state.home" -->
       <!-- <div id="conoce">
-        <home />
       </div> -->
-    <!-- </transition> -->
-    <home-fabrica />
+      <!-- </transition> -->
+    <home />
+    <!-- <home-fabrica />
     <home-educacion />
     <home-coex-model />
-    <home-aliados />
+    <home-aliados /> -->
 
 
   </div>
@@ -69,19 +69,19 @@ export default {
         return {
             pageText: {},
             isActive: true,
-            show: false
+            show: false,
+            showHomeContrataTalento: false
         };
     },
     async mounted() {
-        this.getPageText();
+        // this.getPageText();
         await this.$store.dispatch("fetchTexts");
         this.getPageText();
+        this.showHomeContrataTalento=true
         //  animacion para el div HomeSerTalento y HomeContrataTalento
         // window.addEventListener("scroll", this.showInformation)
         // const divHomeContrataTalento = document.getElementById('aparecer1')
         // divHomeContrataTalento.style.animation = 'mover .7s ease-out'
-
-
     },
     methods: {
         // showInformation(){
