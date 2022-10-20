@@ -190,7 +190,7 @@ export default {
 
         {
           name: '¿Quienes somos?',
-          path: '/about',
+          path: '/quienes-somos',
           method: () => {
             if (process.client) {
               window.scrollTo(0, 0)
@@ -220,8 +220,8 @@ export default {
           },
         },
         {
-          name: 'Contrata talentos',
-          path: '/contrata-talento',
+          name: 'Oferta de talentos',
+          path: '/oferta-de-talento',
           method: () => {
             if (process.client) {
               window.scrollTo(0, 0)

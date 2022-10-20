@@ -49,22 +49,6 @@
               " @click="OPenDatosPersonales">Inscripción talento
             </app-btn>
           </a>
-          <a href="#serTalento">
-            <app-btn class="
-                bg-gradient-to-r
-                from-red-500
-                to-red-400
-                p-1
-                text-sm
-                sm:text-base
-                md:text-lg md:mx-6
-                mx-4
-                text-white
-                hover:from-red-400 hover:to-red-500
-              " @click="OPenDatosPersonalesProfe">
-              Inscripción coach
-            </app-btn>
-          </a>
         </div>
       </div>
     </div>

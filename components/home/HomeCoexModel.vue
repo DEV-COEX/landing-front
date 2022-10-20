@@ -149,7 +149,7 @@ export default {
       this.textFundation = this.$md.render(this.pageText[0].description)
     },
     toAbout() {
-      this.$router.push('/about')
+      this.$router.push('/quienes-somos')
       if (process.client) {
         window.scrollTo(0, 0)
       }
