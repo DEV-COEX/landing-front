@@ -19,9 +19,9 @@
                     p-1
                     mx-6
                     text-white
-                    hover:from-red-400 hover:to-red-500
-
-                  " @click="toTalent">Quiero ser talento Coex
+                    hover:from-red-400
+                    hover:to-red-500"
+                   @click="toTalent">Quiero ser talento Coex
             </app-btn>
           </div>
         </div>
