@@ -46,11 +46,16 @@
         </div>
       </div>
     </div> -->
-    <transition name="fade" class="animate__animated animate__zoomInUp">
-      <div v-if="this.$store.state.home" id="conoce">
+    <!-- <transition name="fade" class="animate__animated animate__zoomInUp"> -->
+      <!-- v-if="this.$store.state.home" -->
+      <!-- <div id="conoce">
         <home />
-      </div>
-    </transition>
+      </div> -->
+    <!-- </transition> -->
+    <home-fabrica />
+    <home-educacion />
+    <home-coex-model />
+    <home-aliados />
 
 
   </div>
@@ -73,8 +78,8 @@ export default {
         this.getPageText();
         //  animacion para el div HomeSerTalento y HomeContrataTalento
         // window.addEventListener("scroll", this.showInformation)
-        const divHomeContrataTalento = document.getElementById('aparecer1')
-        divHomeContrataTalento.style.animation = 'mover .7s ease-out'
+        // const divHomeContrataTalento = document.getElementById('aparecer1')
+        // divHomeContrataTalento.style.animation = 'mover .7s ease-out'
 
 
     },
@@ -99,11 +104,11 @@ export default {
         //   const estado = false;
         //   this.$store.dispatch('animation', estado);
         // },
-        conoceMas() {
-            const estadoHome = true;
-            this.$store.dispatch("home", estadoHome);
+        // conoceMas() {
+        //     const estadoHome = true;
+        //     this.$store.dispatch("home", estadoHome);
             // document.querySelector('body').classList.add('overflow-hidden')
-        }
+        // }
     },
 }
 </script>

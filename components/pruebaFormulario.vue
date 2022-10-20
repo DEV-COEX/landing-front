@@ -40,7 +40,7 @@
                 <input type="checkbox"/> <p class="text-white">Autorizo ser contactado por COEX</p>
             </div>
             <div class="flex justify-center py-4 ">
-                
+
               <app-btn type="submit" class="
                     bg-gradient-to-r
                     from-red-500
@@ -51,7 +51,7 @@
                     hover:from-red-400 hover:to-red-500
                   " @click="metodoBoton">Enviar Formulario
               </app-btn>
-              
+
             </div>
           </div>
         </div>
@@ -82,99 +82,99 @@ export default {
   data() {
     return {
       error: false,
-      academic: [
-        {
-          llave: 'bachiller',
-          attribute: 'Bachiller',
-        },
-        {
-          llave: 'tecnico',
-          attribute: 'Técnico',
-        },
-        {
-          llave: 'tecnologico',
-          attribute: 'Técnologico',
-        },
-        {
-          llave: 'universitario',
-          attribute: 'Universitario',
-        },
-      ],
-      genders: [
-        {
-          llave: 'masculino',
-          attribute: 'Masculino',
-        },
-        {
-          llave: 'femenino',
-          attribute: 'Femenino',
-        },
-      ],
-      schedules: [
-        {
-          llave: '6am a 10am',
-          attribute: '6am a 10am',
-        },
-        {
-          llave: '10am a 2pm',
-          attribute: '10am a 2pm',
-        },
-        {
-          llave: '2pm a 6pm',
-          attribute: '2pm a 6pm',
-        },
-        {
-          llave: '6pm a 10pm',
-          attribute: '6pm a 10pm',
-        },
-        {
-          llave: 'ninguno',
-          attribute: 'Ninguno de los horarios ofrecidos',
-        },
-      ],
-      advertising: [
-        {
-          llave: 'feria empresarial',
-          attribute: 'Feria Empresarial',
-        },
-        {
-          llave: 'colegio',
-          attribute: 'Visita a colegio',
-        },
-        {
-          llave: 'universidad',
-          attribute: 'Visita a universidad',
-        },
-        {
-          llave: 'comercial',
-          attribute: 'Contacto comercial',
-        },
-        {
-          llave: 'referido',
-          attribute: 'Referido',
-        },
-        {
-          llave: 'redes sociales',
-          attribute: 'Redes Sociales',
-        },
-        {
-          llave: 'otro',
-          attribute: '  Otro',
-        },
+      // academic: [
+      //   {
+      //     llave: 'bachiller',
+      //     attribute: 'Bachiller',
+      //   },
+      //   {
+      //     llave: 'tecnico',
+      //     attribute: 'Técnico',
+      //   },
+      //   {
+      //     llave: 'tecnologico',
+      //     attribute: 'Técnologico',
+      //   },
+      //   {
+      //     llave: 'universitario',
+      //     attribute: 'Universitario',
+      //   },
+      // ],
+      // genders: [
+      //   {
+      //     llave: 'masculino',
+      //     attribute: 'Masculino',
+      //   },
+      //   {
+      //     llave: 'femenino',
+      //     attribute: 'Femenino',
+      //   },
+      // ],
+      // schedules: [
+      //   {
+      //     llave: '6am a 10am',
+      //     attribute: '6am a 10am',
+      //   },
+      //   {
+      //     llave: '10am a 2pm',
+      //     attribute: '10am a 2pm',
+      //   },
+      //   {
+      //     llave: '2pm a 6pm',
+      //     attribute: '2pm a 6pm',
+      //   },
+      //   {
+      //     llave: '6pm a 10pm',
+      //     attribute: '6pm a 10pm',
+      //   },
+      //   {
+      //     llave: 'ninguno',
+      //     attribute: 'Ninguno de los horarios ofrecidos',
+      //   },
+      // ],
+      // advertising: [
+      //   {
+      //     llave: 'feria empresarial',
+      //     attribute: 'Feria Empresarial',
+      //   },
+      //   {
+      //     llave: 'colegio',
+      //     attribute: 'Visita a colegio',
+      //   },
+      //   {
+      //     llave: 'universidad',
+      //     attribute: 'Visita a universidad',
+      //   },
+      //   {
+      //     llave: 'comercial',
+      //     attribute: 'Contacto comercial',
+      //   },
+      //   {
+      //     llave: 'referido',
+      //     attribute: 'Referido',
+      //   },
+      //   {
+      //     llave: 'redes sociales',
+      //     attribute: 'Redes Sociales',
+      //   },
+      //   {
+      //     llave: 'otro',
+      //     attribute: '  Otro',
+      //   },
 
-      ],
+      // ],
       form: {
         name: null,
-        age: null,
+        charge: null,
         email: null,
         phone: null,
-        school: null,
-        schedule: null,
-        address: null,
-        roomies: null,
-        gender: null,
-        education: null,
-        advertising: null,
+        // school: null,
+        // schedule: null,
+        // address: null,
+        // roomies: null,
+        // gender: null,
+        // education: null,
+        // advertising: null,
       }
     }
   },

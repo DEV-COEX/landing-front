@@ -10,6 +10,7 @@
                       to-[#dab255]">{{ pageText[0] ? pageText[0].tittle : '' }}</p>
           </div>
           <div class="flex justify-center xl:p-10 lg:p-5 p-5 md:p-6">
+            <!-- v-html="text" -->
             <div class="xl:text-xl text-white lg:text-xl md:text-xl text-md text-center w-full sm:w-[80%] lg:w-3/6" v-html="text">
             </div>
           </div>
@@ -46,15 +47,18 @@ export default {
     }
   },
   async mounted() {
-    this.getPageText();
+    // this.getPageText();
     await this.$store.dispatch("fetchTexts");
     this.getPageText();
+    this.text = this.pageText[0].description
+
   },
   methods: {
     getPageText() {
       this.$store.commit("filterText", "fabrica")
       this.pageText = this.$store.state.text;
-      this.text = this.$md.render(this.pageText[0].description)
+      // this.text = this.$md.render(this.pageText[0].description)
+
     },
     toFactory() {
       this.$router.push("/fabrica");
