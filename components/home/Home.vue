@@ -1,9 +1,9 @@
 <template>
     <div>
-        <home-fabrica/>
-        <home-educacion/>
-        <home-coex-model/>
-        <home-aliados/>
+        <lazy-home-fabrica/>
+        <lazy-home-educacion/>
+        <lazy-home-coex-model/>
+        <lazy-home-aliados/>
     </div>
 </template>
 
