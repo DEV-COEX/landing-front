@@ -47,10 +47,6 @@ export default {
       isActive: true,
       show: false,
       loader: true,
-      showElement3: false,
-      showElement4: false,
-      showElement5: false,
-      showElement6: false,
       showElements: false,
     };
   },

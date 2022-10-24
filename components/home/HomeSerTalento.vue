@@ -59,7 +59,7 @@ export default {
       const divHomeSerTalento = document.getElementById('aparecer2')
       const positionDiv = divHomeSerTalento.getBoundingClientRect().top
       const elementHeigth = positionDiv - window.innerHeight / 3
-      if (elementHeigth < 200) {
+      if (elementHeigth < 300) {
         divHomeSerTalento.style.animation = 'mover 1s ease-out'
         divHomeSerTalento.style.opacity = '1'
       }

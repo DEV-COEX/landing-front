@@ -1,5 +1,5 @@
 <template>
-    <div >
+    <div class="px-4 py-5 sm:p-0" >
         <div class="flex justify-center px-10  py-5  ">
         <p class="
                 px-2
@@ -19,7 +19,7 @@
         <div class="xl:px-8 ">
           <div class="grid justify-center lg:px-3 ">
               <div class="flex items-center   border-[#6D6F76]">
-                <div class="xlchikito:p-2 p-0 ">
+                <div class="xlchikito:p-2 p-0 w-full ">
                   <div class="sm:flex justify-center">
                     <app-input v-model="form.name" type="text" minlength="4" required label="Nombre" />
                     <app-input v-model="form.charge" type="text"  pattern="[0-9]{2,3}" title="El número debe contener maximo 3 caracteres" required label="Cargo" />

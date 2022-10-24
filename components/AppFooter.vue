@@ -1,7 +1,7 @@
 <template>
   <div
     class="
-      h-[40rem]
+      min-h-[40rem]
       flex flex-col
       justify-end
       lg:block lg:h-auto
