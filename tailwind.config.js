@@ -20,6 +20,7 @@ module.exports = {
         'modal-llega': 'animate__animated animate__heartBeat'
       }
     },
+    
   },
   variants: {
     extend: {},
