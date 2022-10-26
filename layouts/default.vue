@@ -71,7 +71,7 @@
 
       </div>
     </div>
-    <div :class="[show ? 'blur-sm' : '']" class="lg:p-2 sticky top-0 z-40 w-full bg-clip-padding"
+    <div :class="[show ? 'blur-sm' : '']" class="lg:p-2 fixed top-0 z-40 w-full bg-clip-padding"
       style="backdrop-filter: blur(5px)">
       <aside class="bg-opacity-70 lg:rounded-[50px] lg:px-14 h-full w-full bg-[#25262A]">
         <div class="
