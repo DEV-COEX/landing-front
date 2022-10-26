@@ -1,6 +1,15 @@
 <template>
   <div class="flex flex-col items-center">
-    <div class="flex flex-col items-center justify-around w-11/12 h-[34.375em] lg:w-5/6">
+    <div
+      class="
+        flex flex-col
+        items-center
+        justify-around
+        w-11/12
+        h-[34.375em]
+        xl:w-5/6
+      "
+    >
       <h1
         class="
           text-2xl
@@ -24,7 +33,6 @@
           box-content
           h-[28.125em]
           lg:flex-row
-          lg:gap-6
         "
       >
         <img
@@ -32,7 +40,15 @@
           alt=""
           class="h-1/2 rounded-md w-full lg:h-full lg:w-1/2"
         />
-        <div class="flex flex-col justify-around h-1/2 w-11/12 lg:h-full lg:w-1/2">
+        <div
+          class="
+            flex flex-col
+            justify-around
+            h-1/2
+            w-11/12
+            lg:h-full lg:w-1/2 lg:px-6 lg:box-border
+          "
+        >
           <p class="text-[8px] text-white lg:text-sm">Artículo Destacado</p>
           <h1
             class="
@@ -67,7 +83,18 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-col items-center justify-around w-11/12 h-[28.125em] lg:w-5/6">
+    <div
+      class="
+        flex flex-col
+        items-center
+        justify-around
+        w-11/12
+        h-[31.125em]
+        lg:h-auto
+        lg:gap-7
+        xl:w-5/6
+      "
+    >
       <h2
         class="
           font-bold
@@ -77,13 +104,40 @@
           bg-clip-text bg-gradient-to-r
           from-[#FFDF8D]
           to-[#FF9838]
+          lg:text-5xl
         "
       >
         Entradas destacadas
       </h2>
-      <div class="flex gap-4 w-full overflow-x-scroll">
-        <app-card-blog v-for="i in 5" :key="i"></app-card-blog>
+      <div
+        class="
+          flex
+          gap-4
+          w-full
+          h-auto
+          overflow-x-scroll
+          lg:gap-9
+          lg:overflow-x-visible
+          lg:h-[28.125em]
+          lg:justify-between
+        "
+      >
+        <app-card-blog v-for="i in 3" :key="i"></app-card-blog>
       </div>
+      <app-btn
+        class="
+          bg-gradient-to-r
+          from-blue-500
+          to-blue-400
+          p-[2px]
+          text-white
+          hover:from-blue-400
+          hover:to-blue-500
+          mb-5
+        "
+        >
+        Ver todas las entradas
+        </app-btn>
     </div>
   </div>
 </template>

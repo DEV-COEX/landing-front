@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="flex flex-col items-center w-72 h-96">
+    <div class="flex flex-col items-center w-72 h-96 lg:h-[28.125em] xl:w-80">
       <img
         src="https://www.nationalgeographic.com.es/medio/2022/10/24/muy-alta-resolucion_dc6e619a_960x620.jpg"
         alt=""
-        class="h-1/2"
+        class="h-1/2 w-full"
       />
       <div class="flex flex-col justify-around h-1/2 w-full">
         <h1
@@ -33,7 +33,9 @@
             to-red-400
             p-[2px]
             text-white
-            hover:from-red-400 hover:to-red-500
+            hover:from-red-400
+            hover:to-red-500
+            lg:w-1/2
           "
         >
           Leer artículo
