@@ -18,24 +18,24 @@
           <div>Compartir</div>
         </div>
       </div>
-      <div class=" mt-4 bg-red-700">
+      <div class=" mt-4 ">
         <img class="object-cover bg-fixed h-96 w-full" v-for="blog in blogs" :key="blog.id" :src="blog.image.url">
       </div>
-      <div class=" mt-4 bg-red-700">
+      <div class=" mt-4 text-white">
         <img v-for="blog in blogs" :key="blog.id" :src="blog.autor_image.url">
         <h3 v-for="blog in blogs" :key="blog.id">{{ blog.autor_name }}</h3>
       </div>
 
-      <div class=" mt-4 bg-red-700">
+      <div class=" mt-4 text-white">
         <li v-for="(topic,index) in topic_blogs" :key="topic.id">
           {{index+1}}.{{topic}}
         </li>
       </div>
 
-      <div class=" mt-4 bg-red-700">
+      <div class=" mt-4 text-white">
         <h1 v-for="blog in blogs" :key="blog.id">{{ blog.introduction_blog }}</h1>
       </div>
-      <div class=" mt-4 bg-red-700">
+      <div class=" mt-4 pb-8 text-white">
         <h1 v-for="blog in blogs" :key="blog.id">{{ blog.content_blog }}</h1>
       </div>
     </div>
