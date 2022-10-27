@@ -1,15 +1,14 @@
 <template>
   <div class="bg-[#1C233A] h-screen flex justify-center">
     <div class="w-100 mt-6 md:px-4 ">
-      <h1
-        class="lg:text-5xl md:text-3xl lg:leading-relaxed font-bold text-2xl text-center text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D] via-[#FF9838] to-[#dab255]"
-      >
-        {{ blogText?.title }}
+      <h1 v-for="blog in blogs" :key="blog.id"
+        class="lg:text-5xl md:text-3xl lg:leading-relaxed font-bold text-2xl text-center text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D] via-[#FF9838] to-[#dab255]">
+        {{ blog.title }}
       </h1>
       <div class="flex text-white place-content-between mt-4">
         <div class="flex space-x-4">
-          <div>{{ blogText?.date }}</div>
-          <div>{{ blogText?.timeReading }} min read</div>
+          <div v-for="blog in blogs" :key="blog.id">{{ blog.blog_created_date }}</div>
+          <div v-for="blog in blogs" :key="blog.id">{{ blog.time_reading }} min read</div>
         </div>
         <div class="flex flex-row-reverse space-x-4 space-x-reverse">
           <div>Twitter</div>
@@ -20,12 +19,27 @@
         </div>
       </div>
       <div class=" mt-4 bg-red-700">
-        <img class="object-cover bg-fixed h-96 w-full" v-bind:src="blogText?.imageBlog" alt="blog" >
+        <img class="object-cover bg-fixed h-96 w-full" v-for="blog in blogs" :key="blog.id" :src="blog.image.url">
       </div>
-      <div>
-        
+      <div class=" mt-4 bg-red-700">
+        <img v-for="blog in blogs" :key="blog.id" :src="blog.autor_image.url">
+        <h3 v-for="blog in blogs" :key="blog.id">{{ blog.autor_name }}</h3>
+      </div>
+
+      <div class=" mt-4 bg-red-700">
+        <li v-for="(topic,index) in topic_blogs" :key="topic.id">
+          {{index+1}}.{{topic}}
+        </li>
+      </div>
+
+      <div class=" mt-4 bg-red-700">
+        <h1 v-for="blog in blogs" :key="blog.id">{{ blog.introduction_blog }}</h1>
+      </div>
+      <div class=" mt-4 bg-red-700">
+        <h1 v-for="blog in blogs" :key="blog.id">{{ blog.content_blog }}</h1>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -36,20 +50,26 @@ export default {
   layout: 'NavbarDefault',
   data() {
     return {
-      blogText: {
-        title: ' Problemáticas sociales: Una realidad oculta.',
-        author: 'George Costanza',
-        timeReading: '7',
-        date: 'Aug 1, 2021',
-        imageAuthor: '',
-        imageBlog:
-          'https://images.ecestaticos.com/vv0OmTQPBED01Y5IcWY2GzESoMU=/0x37:1415x830/1600x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F82c%2F622%2F6d1%2F82c6226d10694cdab0b1d3d538dfdac2.jpg',
-        introduction: '',
-        paragrah:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices dui diam arcu pharetra at laoreet pellentesque. Imperdiet sit ut ornare nulla risus id fames nascetur urna. Eros in neque tincidunt.',
-      },
+      blogs: null,
+      topic_blogs: null,
     }
   },
-  methods: {},
+  async mounted() {
+    await this.getBlogs()
+  },
+  methods: {
+    async getBlogs() {
+      const { data } = await this.$axios.get('Blogs')
+      this.blogs = data
+      this.blogs.forEach((el, index) => {
+        el.image.url = `https://api.cms.coex.com.co${el.image.formats.large.url}`
+        el.autor_image.url = `https://api.cms.coex.com.co${el.autor_image.url}`
+        el.relevant_topic_blog = el.relevant_topic_blog.split(',')
+        this.topic_blogs = el.relevant_topic_blog
+        this.topic_blogs.id = index
+      })
+    },
+
+  },
 }
 </script>
