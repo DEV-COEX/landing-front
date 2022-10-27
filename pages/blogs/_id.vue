@@ -19,11 +19,11 @@
         </div>
       </div>
       <div class=" mt-4 ">
-        <img class="object-cover bg-fixed h-96 w-full" :src="blog.image.url">
+        <img class="object-cover bg-fixed h-96 w-full" :src="blog.image?.url">
       </div>
       <div class="flex text-white space-x-4 items-center mt-4">
         <div>
-          <img class="object-cover bg-fixed max-h-14 w-full" :src="blog.autor_image.url">
+          <img class="object-cover bg-fixed max-h-14 w-full" :src="blog.autor_image?.url">
         </div>
         <div>
           <h3>{{ blog.autor_name }}</h3>
@@ -41,7 +41,7 @@
         from-[#FFDF8D] 
         via-[#FF9838] 
         to-[#dab255]">In this article </h6>
-        <li class="pl-12 py-4" v-for="(topic,index) in topic_blogs" :key="topic.id">
+        <li class="pl-12 py-4" v-for="(topic,index) in topic_blog" :key="topic.id">
           {{index+1}}. {{topic}}
         </li>
       </div>
@@ -93,7 +93,7 @@ export default {
     await this.getBlog()
   },
   methods: {
-    //TRAERME TODOS LOS BLOGS
+      // TRAERME TODOS LOS BLOGS
     // async getBlogs() {
     //   const { data } = await this.$axios.get('Blogs')
     //   this.blogs = data
@@ -106,10 +106,9 @@ export default {
     //   })
     // },
 
-    //TRAERME UN BLOG
+      // TRAERME UN BLOG
     async getBlog() {
-      const { data } = await this.$axios.get('Blogs/4')
-       console.log(data);
+      const { data } = await this.$axios.get('Blogs/1')
         this.blog = data
         this.blog.image.url = `https://api.cms.coex.com.co${this.blog.image.formats.large.url}`
         this.blog.autor_image.url = `https://api.cms.coex.com.co${this.blog.autor_image.url}`
