@@ -21,9 +21,13 @@
       <div class=" mt-4 ">
         <img class="object-cover bg-fixed h-96 w-full" v-for="blog in blogs" :key="blog.id" :src="blog.image.url">
       </div>
-      <div class=" mt-4 text-white">
-        <img v-for="blog in blogs" :key="blog.id" :src="blog.autor_image.url">
-        <h3 v-for="blog in blogs" :key="blog.id">{{ blog.autor_name }}</h3>
+      <div class="flex text-white space-x-4 items-center mt-4">
+        <div>
+          <img class="object-cover bg-fixed max-h-14 w-full" v-for="blog in blogs" :key="blog.id" :src="blog.autor_image.url">
+        </div>
+        <div>
+          <h3 v-for="blog in blogs" :key="blog.id">{{ blog.autor_name }}</h3>
+        </div>
       </div>
 
       <div class=" mt-4 text-white">
