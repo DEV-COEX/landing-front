@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center pt-24">
     <div
       class="
         flex flex-col
@@ -7,7 +7,7 @@
         justify-around
         w-11/12
         h-[34.375em]
-        xl:w-5/6
+        xl:w-9/12
       "
     >
       <h1
@@ -92,7 +92,7 @@
         h-[31.125em]
         lg:h-auto
         lg:gap-7
-        xl:w-5/6
+        xl:w-9/12
       "
     >
       <h2
@@ -146,7 +146,9 @@ export default {
   name: 'IndexBlog',
   layout: 'NavbarDefault',
   data() {
-    return {}
+    return {
+
+    }
   },
   methods: {},
 }
