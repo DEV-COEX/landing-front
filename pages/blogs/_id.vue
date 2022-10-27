@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#1C233A] flex justify-center ">
+  <div class="bg-[#1C233A] flex justify-center">
     <div class="w-3/5 h-auto mt-6 md:px-4">
       <h1
         class="lg:text-5xl md:text-3xl lg:leading-relaxed font-bold text-2xl text-center text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D] via-[#FF9838] to-[#dab255]">
@@ -67,6 +67,24 @@
         </p>
 
       </div>
+      <div class="text-center">
+        <app-btn
+        class="
+          bg-gradient-to-r
+          from-blue-500
+          to-blue-400
+          p-[2px]
+          text-white
+          hover:from-blue-400
+          hover:to-blue-500
+          mb-5
+        "
+        >
+        Ver todas las entradas
+        </app-btn>
+
+      </div>
+      
       
 
     </div>
