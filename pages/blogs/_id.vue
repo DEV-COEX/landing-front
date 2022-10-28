@@ -2,7 +2,8 @@
   <div class="bg-[#1C233A] flex justify-center pt-20">
     <div class="w-3/5 h-auto mt-6 md:px-4">
       <h1
-        class="lg:text-5xl md:text-3xl lg:leading-relaxed font-bold text-2xl text-center text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D] via-[#FF9838] to-[#dab255]">
+        class="lg:text-5xl md:text-3xl lg:leading-relaxed font-bold text-2xl text-center text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D] via-[#FF9838] to-[#dab255]"
+      >
         {{ blog.title }}
       </h1>
       <div class="flex text-white place-content-between mt-4">
@@ -10,62 +11,98 @@
           <div>{{ blog.blog_created_date }}</div>
           <div>{{ blog.time_reading }} min read</div>
         </div>
-        <div class="flex flex-row-reverse space-x-4 space-x-reverse">
-          <div>Twitter</div>
-          <div>Facebook</div>
-          <div>Linkind</div>
-          <div>Copiar link</div>
-          <div>Compartir</div>
+        <div class="flex ">
+          <div>
+            <a
+              href=""
+              target="_blank"
+              ><app-btn
+                ><img src="@/static/twitter.svg" alt="TwitterLogo" /></app-btn
+            ></a>
+          </div>
+          <div>
+            <a
+              href=""
+              target="_blank"
+              ><app-btn
+                ><img src="@/static/facebook.svg" alt="FacebookLogo" /></app-btn
+            ></a>
+          </div>
+          <div>
+            <a
+              href=""
+              target="_blank"
+              ><app-btn
+                ><img src="@/static/linkedin.svg" alt="LinkedinLogo" /></app-btn
+            ></a>
+          </div>
+          <div>
+            <a
+              href=""
+              target="_blank"
+              ><app-btn
+                ><img src="@/static/link.svg" alt="LinkLogo" /></app-btn
+            ></a>
+          </div>
+          <div>
+            <a
+              href=""
+              target="_blank"
+              ><app-btn
+                ><img src="@/static/share.svg" alt="ShareLogo" /></app-btn
+            ></a>
+          </div>
         </div>
       </div>
-      <div class=" mt-4 ">
-        <img class="object-cover bg-fixed h-96 w-full" :src="'https://api.cms.coex.com.co'+blog.image?.url">
+      <div class="mt-4">
+        <img
+          class="object-cover bg-fixed h-96 w-full"
+          :src="'https://api.cms.coex.com.co' + blog.image?.url"
+        />
       </div>
       <div class="flex text-white space-x-4 items-center mt-4">
         <div>
-          <img class="object-cover bg-fixed max-h-14 w-full" :src="'https://api.cms.coex.com.co'+blog.autor_image?.url">
+          <img
+            class="object-cover bg-fixed max-h-14 w-full"
+            :src="'https://api.cms.coex.com.co' + blog.autor_image?.url"
+          />
         </div>
         <div>
           <h3>{{ blog.autor_name }}</h3>
         </div>
       </div>
 
-      <div class=" bg-white bg-opacity-10 mt-10 text-white list-none">
+      <div class="bg-white bg-opacity-10 mt-10 text-white list-none">
         <h6
-        class="
-        pl-12 md:text-3xl
-        lg:leading-relaxed
-        font-bold
-        text-left text-transparent
-        bg-clip-text bg-gradient-to-r
-        from-[#FFDF8D]
-        via-[#FF9838]
-        to-[#dab255]">In this article </h6>
-        <li class="pl-12 py-4" v-for="(topic,index) in topic_blog" :key="topic.id">
-          {{index+1}}. {{topic}}
+          class="pl-12 md:text-3xl lg:leading-relaxed font-bold text-left text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D] via-[#FF9838] to-[#dab255]"
+        >
+          In this article
+        </h6>
+        <li
+          class="pl-12 py-4"
+          v-for="(topic, index) in topic_blog"
+          :key="topic.id"
+        >
+          {{ index + 1 }}. {{ topic }}
         </li>
       </div>
 
-      <div class=" mt-4 font-bold text-white text-xl">
+      <div class="mt-4 font-bold text-white text-xl">
         <h1>{{ blog.introduction_blog }}</h1>
       </div>
-      <div class=" mt-4 pb-8 text-white">
+      <div class="mt-4 pb-8 text-white">
         <h1>{{ blog.content_blog }}</h1>
       </div>
       <div class="text-center justify-center">
-        <a class=" pl-12 md:text-3xl
-        lg:leading-relaxed
-        font-bold
-        text-left text-transparent
-        bg-clip-text bg-gradient-to-r
-        from-[#FFDF8D]
-        via-[#FF9838]
-        to-[#dab255]
-        " :href="''">Sigue leyendo </a>
+        <a
+          class="pl-12 md:text-3xl lg:leading-relaxed font-bold text-left text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D] via-[#FF9838] to-[#dab255]"
+          :href="''"
+          >Sigue leyendo
+        </a>
         <p class="text-white w-3/4 m-auto">
-          Blogs are a great method to increase traffic and generate leads. Make a profit. Get compensated for your efforts.
+          Blogs are a great method to increase traffic and generate leads. Make
+          a profit. Get compensated for your efforts.
         </p>
-
       </div>
 
       <div class="grid grid-cols-3 content-center my-8">
@@ -78,13 +115,14 @@
           <h3
             class="lg:leading-relaxed font-medium text-left text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D] via-[#FF9838] to-[#dab255]"
           >
-          {{ blog.title }}
+            {{ blog.title }}
           </h3>
           <div class="grid grid-rows-3 grid-flow-col gap-0.5">
             <div class="row-span-3 ...">
               <img
                 class="object-cover bg-fixed h-4/6 w-3/4"
-                :src="'https://api.cms.coex.com.co'+blog.autor_image?.url">
+                :src="'https://api.cms.coex.com.co' + blog.autor_image?.url"
+              />
             </div>
             <div class="col-span-2 content-center">
               <h3
@@ -102,32 +140,17 @@
           </div>
         </div>
       </div>
-      
+
       <div class="text-center">
         <app-btn
-        class="
-          bg-gradient-to-r
-          from-blue-500
-          to-blue-400
-          p-[2px]
-          text-white
-          hover:from-blue-400
-          hover:to-blue-500
-          mb-5
-        "
+          class="bg-gradient-to-r from-blue-500 to-blue-400 p-[2px] text-white hover:from-blue-400 hover:to-blue-500 mb-5"
         >
-        Ver todas las entradas
+          Ver todas las entradas
         </app-btn>
-
       </div>
-
-
-
     </div>
-
   </div>
 </template>
-
 
 <script>
 export default {
@@ -136,10 +159,10 @@ export default {
   data() {
     return {
       blogs: null,
-      blog:{},
+      blog: {},
       topic_blogs: null,
       topic_blog: null,
-      markdown:null,
+      markdown: null,
     }
   },
   async mounted() {
@@ -147,7 +170,7 @@ export default {
     await this.getBlog()
   },
   methods: {
-      // TRAERME TODOS LOS BLOGS
+    // TRAERME TODOS LOS BLOGS
     // async getBlogs() {
     //   const { data } = await this.$axios.get('Blogs')
     //   this.blogs = data
@@ -160,14 +183,12 @@ export default {
     //   })
     // },
 
-      // TRAERME UN BLOG
+    // TRAERME UN BLOG
     async getBlog() {
       const { data } = await this.$axios.get(`Blogs/${this.$route.params.id}`)
-        this.blog = data
-        this.topic_blog = this.blog.relevant_topic_blog.split(',')
-      },
-
-
+      this.blog = data
+      this.topic_blog = this.blog.relevant_topic_blog.split(',')
+    },
   },
 }
 </script>
