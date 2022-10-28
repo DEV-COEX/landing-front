@@ -171,9 +171,14 @@ export default {
         {
           name: 'Inicio',
           path: '/',
-          method: () => {
+          method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
+              this.changeActive()
+              console.log(document.querySelector('.text-color'));
+              
+              // document.querySelectorAll('span').classList.remove('text-color');
+              e.target.classList.add('text-color');
             }
             document.querySelector('body').classList.remove('overflow-hidden')
             // const estado = true
@@ -191,9 +196,11 @@ export default {
         {
           name: '¿Quienes somos?',
           path: '/quienes-somos',
-          method: () => {
+          method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
+              this.changeActive()
+              e.target.classList.add('text-color');
             }
             document.querySelector('body').classList.remove('overflow-hidden')
           },
@@ -202,9 +209,11 @@ export default {
         {
           name: 'Educación',
           path: '/educacion',
-          method: () => {
+          method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
+              this.changeActive()
+              e.target.classList.add('text-color');
             }
             document.querySelector('body').classList.remove('overflow-hidden')
           },
@@ -212,9 +221,11 @@ export default {
         {
           name: 'Fábrica de software',
           path: '/fabrica',
-          method: () => {
+          method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
+              this.changeActive()
+              e.target.classList.add('text-color');
             }
             document.querySelector('body').classList.remove('overflow-hidden')
           },
@@ -222,9 +233,11 @@ export default {
         {
           name: 'Oferta de talentos',
           path: '/oferta-de-talento',
-          method: () => {
+          method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
+              this.changeActive()
+              e.target.classList.add('text-color');
             }
             document.querySelector('body').classList.remove('overflow-hidden')
           },
@@ -232,9 +245,11 @@ export default {
         {
           name: 'Fundación',
           path: '/fundacion',
-          method: () => {
+          method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
+              this.changeActive()
+              e.target.classList.add('text-color');
             }
             document.querySelector('body').classList.remove('overflow-hidden')
           },
@@ -258,6 +273,11 @@ export default {
     }
   },
   methods: {
+    changeActive(){
+      if(document.querySelector('.text-color') !== null){
+        document.querySelector('.text-color').classList.remove('text-color');
+      }
+    },
     onResize() {
       if (process.client) {
         this.windowWidth = window.innerWidth
@@ -291,9 +311,12 @@ export default {
 }
 </script>
 
-
 <style scoped>
 .fade-enter-active,
+
+.text-color{
+  color:hsl(29deg 100% 61%)
+}
 .fade-leave-active {
   transition: 3s;
 }
