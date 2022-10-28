@@ -76,7 +76,7 @@
           In this article
         </h6>
         <li
-          class="pl-12 py-4"
+          class="mx-12 py-4"
           v-for="(topic, index) in topic_blog"
           :key="topic.id"
         >
@@ -102,10 +102,10 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-3 content-center my-8">
+      <div class="grid grid-cols-3 content-center my-8 mx-8 ">
         <div v-for="item in blogs" :key="item.id">
           <h6
-            class="items-start border-b-2 border-[rgba(78, 146, 249, 0.2)] text-white"
+            class="mr-12 items-start border-b-2 border-[rgba(78, 146, 249, 0.2)] text-white"
           >
             {{item.blog_category.name}}
           </h6>
@@ -114,7 +114,7 @@
           >
           {{ item.title }}
           </h3>
-          <div class="grid grid-rows-3 grid-flow-col gap-0.5">
+          <div class="mt-2 grid grid-rows-3 grid-flow-col gap-0.5">
             <div class="row-span-3 ...">
               <img
                 class="object-cover bg-fixed h-4/6 w-3/4 rounded-[50%]"
