@@ -23,7 +23,7 @@
       </div>
       <div class="flex text-white space-x-4 items-center mt-4">
         <div>
-          <img class="object-cover bg-fixed max-h-14 w-full" :src="'https://api.cms.coex.com.co'+blog.autor_image?.url">
+          <img class="object-cover bg-fixed max-h-14 w-full rounded-[50%]" :src="'https://api.cms.coex.com.co'+blog.autor_image?.url">
         </div>
         <div>
           <h3>{{ blog.autor_name }}</h3>
@@ -69,40 +69,40 @@
       </div>
 
       <div class="grid grid-cols-3 content-center my-8">
-        <div>
+        <div v-for="item in blogs" :key="item.id">
           <h6
             class="items-start border-b-2 border-[rgba(78, 146, 249, 0.2)] text-white"
           >
-            Category
+            {{item.blog_category.name}}
           </h6>
           <h3
             class="lg:leading-relaxed font-medium text-left text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D] via-[#FF9838] to-[#dab255]"
           >
-          {{ blog.title }}
+          {{ item.title }}
           </h3>
           <div class="grid grid-rows-3 grid-flow-col gap-0.5">
             <div class="row-span-3 ...">
               <img
-                class="object-cover bg-fixed h-4/6 w-3/4"
-                :src="'https://api.cms.coex.com.co'+blog.autor_image?.url">
+                class="object-cover bg-fixed h-4/6 w-3/4 rounded-[50%]"
+                :src="'https://api.cms.coex.com.co'+item.autor_image?.url">
             </div>
             <div class="col-span-2 content-center">
               <h3
                 class="lg:leading-relaxed font-medium text-left text-transparent bg-clip-text bg-gradient-to-r from-[#87B8FF] via-[#4490F9] to-[#4490F9]"
               >
-                {{ blog.autor_name }}
+                {{ item.autor_name }}
               </h3>
             </div>
             <div class="row-span-2 col-span-2 text-white text-sm leading-4">
               <div class="flex space-x-4">
-                <div>{{ blog.blog_created_date }}</div>
-                <div>{{ blog.time_reading }} min read</div>
+                <div>{{ item.blog_created_date }}</div>
+                <div>{{ item.time_reading }} min read</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
+
       <div class="text-center">
         <app-btn
         class="
@@ -135,14 +135,14 @@ export default {
   layout: 'NavbarDefault',
   data() {
     return {
-      blogs: null,
+      blogs: [],
       blog:{},
       topic_blogs: null,
-      topic_blog: null,
+      topic_blog: [],
       markdown:null,
     }
   },
-  async mounted() {
+  async mounted(){
     // await this.getBlogs()
     await this.getBlog()
   },
@@ -162,8 +162,13 @@ export default {
 
       // TRAERME UN BLOG
     async getBlog() {
-      const { data } = await this.$axios.get(`Blogs/${this.$route.params.id}`)
-        this.blog = data
+        const { data } = await this.$axios.get(`blogs`)
+        this.blogs = data;
+        this.blog = this.blogs.find((e)=>e.id===parseInt(this.$route.params.id))
+        const indexBlog = this.blogs.findIndex((e)=>e.id===parseInt(this.$route.params.id))
+        this.blogs.splice(indexBlog-1, 1);
+        this.blogs.sort(()=> Math.random() - 0.5);
+        this.blogs.length=3
         this.topic_blog = this.blog.relevant_topic_blog.split(',')
       },
 
