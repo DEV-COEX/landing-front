@@ -2,7 +2,7 @@
   <div>
     <div class="flex flex-col items-center w-72 h-96 lg:h-[28.125em] xl:w-80">
       <img
-        src="https://www.nationalgeographic.com.es/medio/2022/10/24/muy-alta-resolucion_dc6e619a_960x620.jpg"
+        :src="'https://api.cms.coex.com.co'+image_url"
         alt=""
         class="h-1/2 w-full"
       />
@@ -20,10 +20,10 @@
             to-[#FF9838]
           "
         >
-          Tendencias económicas para Latinoamerica
+          {{title}}
         </h1>
         <p class="text-xs font-medium leading-3 text-white text-justify">
-          Una revisión del estado actual y las posibles oportunidades
+          {{introduction}}
         </p>
         <app-btn
           class="
@@ -47,5 +47,19 @@
 <script>
 export default {
   name: 'CardBlog',
+  props:{
+    image_url:{
+      type:String,
+      default:''
+    },
+    title: {
+      type:String,
+      default:''
+    },
+    introduction:{
+      type:String,
+      default:''
+    }
+  }
 }
 </script>
