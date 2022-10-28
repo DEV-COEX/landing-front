@@ -174,12 +174,9 @@ export default {
           method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
-              this.changeActive()
-              console.log(document.querySelector('.text-color'));
-              
-              // document.querySelectorAll('span').classList.remove('text-color');
-              e.target.classList.add('text-color');
             }
+            this.changeActive()
+            e.target.classList.add('text-color');
             document.querySelector('body').classList.remove('overflow-hidden')
             // const estado = true
             // const estadoHome = false
@@ -199,9 +196,9 @@ export default {
           method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
-              this.changeActive()
-              e.target.classList.add('text-color');
             }
+            this.changeActive()
+            e.target.classList.add('text-color');
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
@@ -212,9 +209,9 @@ export default {
           method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
-              this.changeActive()
-              e.target.classList.add('text-color');
             }
+            this.changeActive()
+            e.target.classList.add('text-color');
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
@@ -224,9 +221,9 @@ export default {
           method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
-              this.changeActive()
-              e.target.classList.add('text-color');
             }
+            this.changeActive()
+            e.target.classList.add('text-color');
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
@@ -236,9 +233,9 @@ export default {
           method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
-              this.changeActive()
-              e.target.classList.add('text-color');
             }
+            this.changeActive()
+            e.target.classList.add('text-color');
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
@@ -248,9 +245,9 @@ export default {
           method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
-              this.changeActive()
-              e.target.classList.add('text-color');
             }
+            this.changeActive()
+            e.target.classList.add('text-color');
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
