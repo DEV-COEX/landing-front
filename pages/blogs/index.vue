@@ -76,6 +76,7 @@
               text-white
               hover:from-red-400 hover:to-red-500
             "
+            @click="redirectBlog"
             >Leer artículo</app-btn
           >
         </div>
@@ -125,7 +126,8 @@
         <app-card-blog
           v-for="item in lastsBlogs"
           :key="item.id"
-          :image_url="item.image?.url"
+          :iditem="item.id"
+          :imageurl="item.image?.url"
           :title="item.title"
           :introduction="item.introduction_blog"
         ></app-card-blog>
@@ -170,8 +172,10 @@ export default {
       this.lastsBlogs = this.blogsHighlights.splice(this.blogsHighlights.length-4, this.blogsHighlights.length)
       this.lastBlog = this.lastsBlogs[this.lastsBlogs.length - 1]
       this.lastsBlogs.pop()
-      console.log(this.lastsBlogs)
     },
+    redirectBlog(){
+      this.$router.push(`/blogs/${this.lastBlog.id}`);
+    }
   },
 }
 </script>

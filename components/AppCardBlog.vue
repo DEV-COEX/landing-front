@@ -2,7 +2,7 @@
   <div>
     <div class="flex flex-col items-center w-72 h-96 lg:h-[28.125em] xl:w-80">
       <img
-        :src="'https://api.cms.coex.com.co'+image_url"
+        :src="'https://api.cms.coex.com.co'+imageurl"
         alt=""
         class="h-1/2 w-full"
       />
@@ -37,6 +37,7 @@
             hover:to-red-500
             lg:w-1/2
           "
+          @click="onRedirect"
         >
           Leer artículo
         </app-btn>
@@ -48,7 +49,11 @@
 export default {
   name: 'CardBlog',
   props:{
-    image_url:{
+    iditem:{
+      type:Number,
+      default:0
+    },
+    imageurl:{
       type:String,
       default:''
     },
@@ -59,6 +64,11 @@ export default {
     introduction:{
       type:String,
       default:''
+    }
+  },
+  methods:{
+    onRedirect(){
+      this.$router.push(`/blogs/${this.iditem}`)
     }
   }
 }
