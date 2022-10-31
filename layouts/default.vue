@@ -100,7 +100,7 @@
                 xl:text-lg
                 w-full
                 text-white
-              ">
+              " @click.native="changeState">
               <span class="
                   hover:text-transparent
                   bg-clip-text bg-gradient-to-r
@@ -111,7 +111,7 @@
                   delay-150
                   hover:-translate-y-1 hover:scale-110
                   duration-500
-                " :id="item.path" :class="[getUrl == item.path ? 'text-color': '']" 
+                " :class="[getUrl == item.path ? 'text-color': '']" 
                 @click="item.method">
                 {{ item.name }}
               </span>
@@ -178,10 +178,7 @@ export default {
             if (process.client) {
               window.scrollTo(0, 0)
             }
-            // this.changeActive()
-            // this.getUrl()
-            // console.log(this.currentPath)
-            // e.target.classList.add('text-color');
+            this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
             // const estado = true
             // const estadoHome = false
@@ -202,9 +199,7 @@ export default {
             if (process.client) {
               window.scrollTo(0, 0)
             }
-            this.changeActive()
-            
-            e.target.classList.add('text-color');
+            this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
@@ -216,8 +211,7 @@ export default {
             if (process.client) {
               window.scrollTo(0, 0)
             }
-            this.changeActive()
-            e.target.classList.add('text-color');
+            this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
@@ -228,9 +222,7 @@ export default {
             if (process.client) {
               window.scrollTo(0, 0)
             }
-            this.changeActive()
-            console.log(this.$router)
-            e.target.classList.add('text-color');
+            this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
@@ -241,18 +233,18 @@ export default {
             if (process.client) {
               window.scrollTo(0, 0)
             }
-            this.changeActive()
-            e.target.classList.add('text-color');
+            this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
         {
           name: 'Blogs',
           path: '/blogs',
-          method: () => {
+          method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
             }
+            this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
           }
         },
@@ -263,8 +255,7 @@ export default {
             if (process.client) {
               window.scrollTo(0, 0)
             }
-            this.changeActive()
-            e.target.classList.add('text-color');
+            this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
@@ -301,6 +292,10 @@ export default {
       if(document.querySelector('.text-color') !== null){
         document.querySelector('.text-color').classList.remove('text-color');
       }
+    },
+    changeState(e){
+      this.changeActive()
+      e.target.classList.add('text-color');
     },
     onResize() {
       if (process.client) {
