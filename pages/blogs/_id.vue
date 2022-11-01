@@ -15,7 +15,7 @@
           <div>
             <ShareNetwork
               network="twitter"
-              :url="`https://coex.com.co`"
+              :url="myurl"
               :title="blog.title"
               :description="blog.introduction_blog"
               quote="Bootcamp en el cual formamos la base del hacer, del ser y el saber de cada talento juvenil que quiere ser desarrollador de software"
@@ -29,7 +29,7 @@
           <div>
             <ShareNetwork
               network="facebook"
-              :url="`https://coex.com.co`"
+              :url="`${myurl}`"
               :title="blog.title"
               :description="blog.introduction_blog"
               quote="Bootcamp en el cual formamos la base del hacer, del ser y el saber de cada talento juvenil que quiere ser desarrollador de software"
@@ -55,7 +55,9 @@
             </ShareNetwork>
           </div>
           <div>
-            <app-btn><img src="@/static/link.svg" alt="LinkLogo" /></app-btn>
+            <button v-clipboard="myurl">
+              <app-btn><img src="@/static/link.svg" alt="LinkLogo" /></app-btn>
+            </button>
           </div>
           <div>
             <a href="" target="_blank"
@@ -181,7 +183,6 @@ export default {
       topic_blog: [],
       topic_content: [],
       markdown: null,
-      text: 'This will get copied!',
     }
   },
   async mounted() {
@@ -218,11 +219,15 @@ export default {
       this.topic_blog = this.blog.relevant_topic_blog.split(',')
       this.topic_content = this.blog.content_blog.split('\n\n')
     },
-
-    copy() {
-      this.$refs.myinput.focus();
-      document.execCommand('copy')
-    },
   },
+  computed: {
+    myurl(){
+      if(process.client){
+        const url = window.location.href
+        return url
+      }
+      return false
+    }
+  }
 }
 </script>
