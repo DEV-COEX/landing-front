@@ -242,10 +242,12 @@ export default {
         {
           name: 'Blogs',
           path: '/blogs',
-          method: () => {
+          method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
             }
+            this.changeActive()
+            e.target.classList.add('text-color');
             document.querySelector('body').classList.remove('overflow-hidden')
           }
         },
