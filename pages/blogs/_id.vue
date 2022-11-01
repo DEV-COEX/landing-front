@@ -88,7 +88,7 @@
         <h1>{{ blog.introduction_blog }}</h1>
       </div>
       
-      <div :id=index v-for="(content, index) in topic_content" :key="content.id" class="mt-4 pb-8 text-white">
+      <div :id=index v-for="(content, index) in topic_content" :key="index" class="mt-4 pb-8 text-white">
         <div v-html="$md.render(content)"></div>
       </div>
       <div class="text-center justify-center">
@@ -190,7 +190,7 @@ export default {
         this.blogs.sort(()=> Math.random() - 0.5);
         this.blogs.length=3
         this.topic_blog = this.blog.relevant_topic_blog.split(',')
-        this.topic_content = this.blog.content_blog.split('.\n\n')
+        this.topic_content = this.blog.content_blog.split('\n\n')
         console.log(this.topic_content);
       },
 
