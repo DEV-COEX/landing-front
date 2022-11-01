@@ -36,7 +36,7 @@
                 delay-150
                 hover:-translate-y-1 hover:scale-110
                 duration-500
-              " @click="item.method">
+              " :id="item.path" @click="item.method">
               {{ item.name }}
             </span>
           </NuxtLink>
@@ -100,7 +100,7 @@
                 xl:text-lg
                 w-full
                 text-white
-              ">
+              " @click.native="changeState">
               <span class="
                   hover:text-transparent
                   bg-clip-text bg-gradient-to-r
@@ -111,7 +111,8 @@
                   delay-150
                   hover:-translate-y-1 hover:scale-110
                   duration-500
-                " @click="item.method">
+                " :class="[getUrl == item.path ? 'text-color': '']"
+                @click="item.method">
                 {{ item.name }}
               </span>
             </NuxtLink>
@@ -160,11 +161,13 @@
 </template>
 
 <script>
+
 export default {
   name: 'NavbarDefault',
   data() {
     return {
       scroll: 0,
+      windowPath:null,
       windowWidth: null,
       show: false,
       navItems: [
@@ -175,8 +178,7 @@ export default {
             if (process.client) {
               window.scrollTo(0, 0)
             }
-            this.changeActive()
-            e.target.classList.add('text-color');
+            this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
             // const estado = true
             // const estadoHome = false
@@ -197,8 +199,7 @@ export default {
             if (process.client) {
               window.scrollTo(0, 0)
             }
-            this.changeActive()
-            e.target.classList.add('text-color');
+            this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
@@ -210,8 +211,7 @@ export default {
             if (process.client) {
               window.scrollTo(0, 0)
             }
-            this.changeActive()
-            e.target.classList.add('text-color');
+            this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
@@ -222,8 +222,7 @@ export default {
             if (process.client) {
               window.scrollTo(0, 0)
             }
-            this.changeActive()
-            e.target.classList.add('text-color');
+            this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
@@ -234,8 +233,7 @@ export default {
             if (process.client) {
               window.scrollTo(0, 0)
             }
-            this.changeActive()
-            e.target.classList.add('text-color');
+            this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
@@ -247,6 +245,7 @@ export default {
               window.scrollTo(0, 0)
             }
             this.changeActive()
+            this.changeState(e)
             e.target.classList.add('text-color');
             document.querySelector('body').classList.remove('overflow-hidden')
           }
@@ -258,12 +257,19 @@ export default {
             if (process.client) {
               window.scrollTo(0, 0)
             }
-            this.changeActive()
-            e.target.classList.add('text-color');
+            this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
       ],
+    }
+  },
+  computed:{
+    getUrl(){
+        if(process.client){
+          return window.location.pathname
+        }
+        return false;
     }
   },
   mounted() {
@@ -271,6 +277,7 @@ export default {
       /* eslint-disable-next-line */
       if (process.client) {
         this.windowWidth = window.innerWidth
+        this.currentPath = window.location.pathname
         window.addEventListener('resize', this.onResize)
       }
     })
@@ -279,6 +286,7 @@ export default {
     /* eslint-disable-next-line */
     if (process.client) {
       window.removeEventListener('resize', this.onResize)
+      console.log('a');
     }
   },
   methods: {
@@ -286,6 +294,10 @@ export default {
       if(document.querySelector('.text-color') !== null){
         document.querySelector('.text-color').classList.remove('text-color');
       }
+    },
+    changeState(e){
+      this.changeActive()
+      e.target.classList.add('text-color');
     },
     onResize() {
       if (process.client) {
