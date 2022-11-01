@@ -80,15 +80,16 @@
           v-for="(topic, index) in topic_blog"
           :key="topic.id"
         >
-          {{ index + 1 }}. {{ topic }}
+          <a :href= "`#${index}`" > {{ index + 1 }}. {{ topic }} </a>
         </li>
       </div>
 
       <div class="mt-4 font-bold text-white text-xl">
         <h1>{{ blog.introduction_blog }}</h1>
       </div>
-      <div class="mt-4 pb-8 text-white">
-        <h1>{{ blog.content_blog }}</h1>
+      
+      <div :id=index v-for="(content, index) in topic_content" :key="content.id" class="mt-4 pb-8 text-white">
+        <div v-html="$md.render(content)"></div>
       </div>
       <div class="text-center justify-center">
         <a
@@ -158,7 +159,7 @@ export default {
       blog:{},
       topic_blogs: null,
       topic_blog: [],
-      markdown:null,
+      topic_content: [],
     }
   },
   async mounted(){
@@ -189,6 +190,8 @@ export default {
         this.blogs.sort(()=> Math.random() - 0.5);
         this.blogs.length=3
         this.topic_blog = this.blog.relevant_topic_blog.split(',')
+        this.topic_content = this.blog.content_blog.split('.\n\n')
+        console.log(this.topic_content);
       },
 
 
