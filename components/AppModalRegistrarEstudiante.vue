@@ -17,8 +17,8 @@
                   <div class="sm:flex justify-center">
                     <app-input v-model="form.name" type="text" minlength="4" required label="Nombre Completo" />
                     <div>
-                      <app-input v-model="form.age" type="number" pattern="[0-9]{2,3}" title="El número debe contener maximo 3 caracteres" required label="Edad" :min="minAge" :max="maxAge"/>
-                      <label v-if="!verifyAge" class="lblage-validation">
+                      <app-input v-model.number="form.age" type="number" pattern="[0-9]{2,3}" title="El número debe contener maximo 3 caracteres" required label="Edad"  @input="verify"/>
+                      <label v-if="validAge" class="lblage-validation">
                         la edad debe estar entre {{minAge}} y {{maxAge}}
                       </label>
                     </div>
@@ -116,6 +116,7 @@ export default {
   data() {
     return {
       error: false,
+      validAge:'',
       academic: [
         {
           llave: 'bachiller',
@@ -232,14 +233,18 @@ export default {
         return this.value
       }
     },
-    verifyAge(){
-      return this.form.age >= 17 && this.form.age <= 29;
-    },
-    
   },
   methods: {
     cerrarModal() {
       this.state = false
+    },
+    verify(){
+      if(this.form.age >= 17 && this.form.age <= 29){
+        this.validAge = false
+      }
+      else{
+        this.validAge = true
+      }
     },
     metodoBoton() {
       this.$emit("metodoBoton")
