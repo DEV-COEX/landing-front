@@ -17,7 +17,7 @@
                   <div class="sm:flex justify-center">
                     <app-input v-model="form.name" type="text" minlength="4" required label="Nombre Completo" />
                     <div>
-                      <app-input v-model.number="form.age" type="number" pattern="[0-9]{2,3}" title="El número debe contener maximo 3 caracteres" required label="Edad"  @input="verify"/>
+                      <app-input v-model.number="form.age" type="number" pattern="[0-9]{2,3}" title="El número debe contener maximo 3 caracteres" required label="Edad" :min="minAge" :max="maxAge" @input="verify"/>
                       <label v-if="validAge" class="lblage-validation">
                         la edad debe estar entre {{minAge}} y {{maxAge}}
                       </label>
