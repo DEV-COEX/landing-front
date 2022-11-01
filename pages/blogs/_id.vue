@@ -15,12 +15,11 @@
           <div>
             <ShareNetwork
               network="twitter"
-              :url="`http://localhost:3000/blogs/${blog.id}`"
+              :url="`https://coex.com.co`"
               :title="blog.title"
-              description="This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
-              quote="The hot reload is so fast it\'s near instant. - Evan You"
-              hashtags="vuejs,vite,javascript"
-              twitterUser=""
+              :description="blog.introduction_blog"
+              quote="Bootcamp en el cual formamos la base del hacer, del ser y el saber de cada talento juvenil que quiere ser desarrollador de software"
+              hashtags="coex,bootcamp,desarrollo,web"
             >
               <app-btn
                 ><img src="@/static/twitter.svg" alt="TwitterLogo"
@@ -30,11 +29,11 @@
           <div>
             <ShareNetwork
               network="facebook"
-              url="https://news.vuejs.org/issues/180"
-              title="Say hi to Vite! A brand new, extremely fast development setup for Vue."
-              description="This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
-              quote="The hot reload is so fast it\'s near instant. - Evan You"
-              hashtags="vuejs,vite"
+              :url="`https://coex.com.co`"
+              :title="blog.title"
+              :description="blog.introduction_blog"
+              quote="Bootcamp en el cual formamos la base del hacer, del ser y el saber de cada talento juvenil que quiere ser desarrollador de software"
+              hashtags="coex,bootcamp,desarrollo,web"
             >
               <app-btn
                 ><img src="@/static/facebook.svg" alt="FacebookLogo"
@@ -44,23 +43,19 @@
           <div>
             <ShareNetwork
               network="linkedin"
-              url="https://news.vuejs.org/issues/180"
-              title="Say hi to Vite! A brand new, extremely fast development setup for Vue."
-              description="This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
-              quote="The hot reload is so fast it\'s near instant. - Evan You"
-              hashtags="vuejs,vite,javascript"
-              
+              :url="`https://coex.com.co`"
+              :title="blog.title"
+              :description="blog.introduction_blog"
+              quote="Bootcamp en el cual formamos la base del hacer, del ser y el saber de cada talento juvenil que quiere ser desarrollador de software"
+              hashtags="coex,bootcamp,desarrollo,web"
             >
-            <app-btn
-                ><img src="@/static/linkedin.svg" alt="LinkedinLogo" /></app-btn
-            >
-          </ShareNetwork>
-
+              <app-btn
+                ><img src="@/static/linkedin.svg" alt="LinkedinLogo"
+              /></app-btn>
+            </ShareNetwork>
           </div>
           <div>
-            <a href="" target="_blank"
-              ><app-btn><img src="@/static/link.svg" alt="LinkLogo" /></app-btn
-            ></a>
+            <app-btn><img src="@/static/link.svg" alt="LinkLogo" /></app-btn>
           </div>
           <div>
             <a href="" target="_blank"
@@ -99,15 +94,20 @@
           v-for="(topic, index) in topic_blog"
           :key="topic.id"
         >
-          <a :href= "`#${index}`" > {{ index + 1 }}. {{ topic }} </a>
+          <a :href="`#${index}`"> {{ index + 1 }}. {{ topic }} </a>
         </li>
       </div>
 
       <div class="mt-4 font-bold text-white text-xl">
         <h1>{{ blog.introduction_blog }}</h1>
       </div>
-      
-      <div :id=index v-for="(content, index) in topic_content" :key="index" class="mt-4 pb-8 text-white">
+
+      <div
+        :id="index"
+        v-for="(content, index) in topic_content"
+        :key="index"
+        class="mt-4 my-16 pb-8 text-white"
+      >
         <div v-html="$md.render(content)"></div>
       </div>
       <div class="text-center justify-center">
@@ -181,6 +181,7 @@ export default {
       topic_blog: [],
       topic_content: [],
       markdown: null,
+      text: 'This will get copied!',
     }
   },
   async mounted() {
@@ -216,6 +217,11 @@ export default {
       this.blogs.length = 3
       this.topic_blog = this.blog.relevant_topic_blog.split(',')
       this.topic_content = this.blog.content_blog.split('\n\n')
+    },
+
+    copy() {
+      this.$refs.myinput.focus();
+      document.execCommand('copy')
     },
   },
 }
