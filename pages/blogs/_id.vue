@@ -96,7 +96,7 @@
           v-for="(topic, index) in topic_blog"
           :key="topic.id"
         >
-          <a :href="`#${index}`"> {{ index + 1 }}. {{ topic }} </a>
+          <a :href="`#${index}`" @click="moveDown" > {{ index + 1 }}. {{ topic }} </a>
         </li>
       </div>
 
@@ -202,7 +202,11 @@ export default {
     //     this.topic_blogs.id = index
     //   })
     // },
-
+    moveDown(e){
+      e.preventDefault()
+      const url = e.target.href
+      document.getElementById(url.split('#')[1]).scrollIntoView({block:"center",behavior:"smooth"})
+    },
     // TRAERME UN BLOG
     async getBlog() {
       const { data } = await this.$axios.get(`blogs`)
