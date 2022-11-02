@@ -137,18 +137,34 @@ export default {
     }
   },
   async mounted() {
-    this.getPageText()
+    // this.getPageText()
     await this.$store.dispatch('fetchTexts')
-    this.getPageText()
+    this.getPageTextModel()
+    console.log({hola: this.pageText[0].description})
+    this.textModel = this.pageText[0].description
+    this.getPageTextFundation()
+    // console.log("prueba")
+    console.log({ hola2: this.pageText[0].description })
+
+    this.textFundation = this.pageText[0].description
+
   },
   methods: {
-    getPageText() {
+    getPageTextModel() {
       this.$store.commit('filterText', 'coex-model')
       this.pageText = this.$store.state.text
-      this.textModel = this.$md.render(this.pageText[0].description)
+      // this.text = this.$md.render(this.pageText[0].description)
+      // this.$store.commit('filterText', 'fundation')
+      // this.pageText = this.$store.state.text
+      // this.textn = this.$md.render(this.pageText[0].description)
+    },
+    getPageTextFundation() {
       this.$store.commit('filterText', 'fundation')
       this.pageText = this.$store.state.text
-      this.textFundation = this.$md.render(this.pageText[0].description)
+      // this.text = this.$md.render(this.pageText[0].description)
+      // this.$store.commit('filterText', 'fundation')
+      // this.pageText = this.$store.state.text
+      // this.textn = this.$md.render(this.pageText[0].description)
     },
     toAbout() {
       this.$router.push('/quienes-somos')

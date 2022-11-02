@@ -35,13 +35,13 @@
                       En coex, formamos el mejor talento para tu empresa, aplicando las tecnologías mas utilizadas en la industria
                   </p>
                   </div >
-                  <div class="flex flex-row justify-center ">
-                      <img src="/tecnologias/python.svg" alt="">
-                      <img src="/tecnologias/nosql.svg" alt="">
-                      <img src="/tecnologias/js.svg" alt="">
-                      <img src="/tecnologias/nest.svg" alt="">
-                      <img src="/tecnologias/vue.svg" alt="">
-                      <img src="/tecnologias/laravel.svg" alt="">
+                  <div class="image-container flex flex-row justify-center ">
+                      <img src="/tecnologias/python.svg" alt="python">
+                      <img src="/tecnologias/nosql.svg" alt="nosql">
+                      <img src="/tecnologias/js.svg" alt="js">
+                      <img src="/tecnologias/nest.svg" alt="nest">
+                      <img src="/tecnologias/vue.svg" alt="vue">
+                      <img src="/tecnologias/laravel.svg" alt="laravel">
 
                   </div>
               </div>
@@ -82,6 +82,14 @@
   background: black;
   opacity: .8;
   z-index: 1;
+}
+
+@media screen and (max-width: 500px) {
+  .image-container > img {
+    width: 40px;
+    height: 40px;
+  }
+
 }
 
 /* .layer {

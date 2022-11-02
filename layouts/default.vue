@@ -17,7 +17,7 @@
         w-full
         z-30
         bg-[#1719298c]
-        fixed
+        sticky
         top-0
         bottom-0
         overflow-hidden
@@ -44,7 +44,7 @@
                 delay-150
                 hover:-translate-y-1 hover:scale-110
                 duration-500
-              " @click="item.method">
+              " :id="item.path" @click="item.method">
               {{ item.name }}
             </span>
           </NuxtLink>
@@ -79,7 +79,7 @@
 
       </div>
     </div>
-    <div :class="[show ? 'blur-sm' : '']" class="lg:p-2 fixed z-40 w-full bg-clip-padding"
+    <div :class="[show ? 'blur-sm' : '']" class="lg:p-2 fixed top-0 z-40 w-full bg-clip-padding"
       style="backdrop-filter: blur(5px)">
       <aside class="bg-opacity-70 lg:rounded-[50px] lg:px-14 h-full w-full bg-[#25262A]">
         <div class="
@@ -118,10 +118,8 @@
                 xl:text-lg
                 w-full
                 text-white
-              "
-            >
-              <span
-                class="
+              " @click.native="changeState">
+              <span class="
                   hover:text-transparent
                   bg-clip-text bg-gradient-to-r
                   from-red-500
@@ -131,7 +129,8 @@
                   delay-150
                   hover:-translate-y-1 hover:scale-110
                   duration-500
-                " @click="item.method">
+                " :class="[getUrl == item.path ? 'text-color': '']" 
+                @click="item.method">
                 {{ item.name }}
               </span>
             </NuxtLink>
@@ -187,21 +186,24 @@
 </template>
 
 <script>
+
 export default {
   name: 'NavbarDefault',
   data() {
     return {
       scroll: 0,
+      windowPath:null,
       windowWidth: null,
       show: false,
       navItems: [
         {
           name: 'Inicio',
           path: '/',
-          method: () => {
+          method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
             }
+            this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
             // const estado = true
             // const estadoHome = false
@@ -218,10 +220,11 @@ export default {
         {
           name: '¿Quienes somos?',
           path: '/quienes-somos',
-          method: () => {
+          method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
             }
+            this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
@@ -229,44 +232,67 @@ export default {
         {
           name: 'Educación',
           path: '/educacion',
-          method: () => {
+          method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
             }
+            this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
         {
           name: 'Fábrica de software',
           path: '/fabrica',
-          method: () => {
+          method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
             }
+            this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
         {
           name: 'Oferta de talentos',
           path: '/oferta-de-talento',
-          method: () => {
+          method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
             }
+            this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
         {
-          name: 'Fundación',
-          path: '/fundacion',
-          method: () => {
+          name: 'Blogs',
+          path: '/blogs',
+          method: (e) => {
             if (process.client) {
               window.scrollTo(0, 0)
             }
+            this.changeState(e)
+            document.querySelector('body').classList.remove('overflow-hidden')
+          }
+        },
+        {
+          name: 'Fundación',
+          path: '/fundacion',
+          method: (e) => {
+            if (process.client) {
+              window.scrollTo(0, 0)
+            }
+            this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
       ],
+    }
+  },
+  computed:{
+    getUrl(){
+        if(process.client){
+          return window.location.pathname
+        }
+        return false;
     }
   },
   mounted() {
@@ -274,6 +300,7 @@ export default {
       /* eslint-disable-next-line */
       if (process.client) {
         this.windowWidth = window.innerWidth
+        this.currentPath = window.location.pathname
         window.addEventListener('resize', this.onResize)
       }
     })
@@ -282,9 +309,19 @@ export default {
     /* eslint-disable-next-line */
     if (process.client) {
       window.removeEventListener('resize', this.onResize)
+      console.log('a');
     }
   },
   methods: {
+    changeActive(){
+      if(document.querySelector('.text-color') !== null){
+        document.querySelector('.text-color').classList.remove('text-color');
+      }
+    },
+    changeState(e){
+      this.changeActive()
+      e.target.classList.add('text-color');
+    },
     onResize() {
       if (process.client) {
         this.windowWidth = window.innerWidth
@@ -323,9 +360,12 @@ export default {
 }
 </script>
 
-
 <style scoped>
 .fade-enter-active,
+
+.text-color{
+  color:hsl(29deg 100% 61%)
+}
 .fade-leave-active {
   transition: 3s;
 }

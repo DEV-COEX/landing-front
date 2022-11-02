@@ -16,7 +16,12 @@
                 <div class="xlchikito:p-2 p-0 ">
                   <div class="sm:flex justify-center">
                     <app-input v-model="form.name" type="text" minlength="4" required label="Nombre Completo" />
-                    <app-input v-model="form.age" type="text"  pattern="[0-9]{2,3}" title="El número debe contener maximo 3 caracteres" required label="Edad" />
+                    <div>
+                      <app-input v-model.number="form.age" type="number" pattern="[0-9]{2,3}" title="El número debe contener maximo 3 caracteres" required label="Edad" :min="minAge" :max="maxAge" @input="verify"/>
+                      <label v-if="validAge" class="lblage-validation">
+                        la edad debe estar entre {{minAge}} y {{maxAge}}
+                      </label>
+                    </div>
                   </div>
                   <div class="sm:flex justify-center md:p-2 p-0">
                     <div>
@@ -84,6 +89,14 @@
 export default {
   name: "AppModalEstudiante",
   props: {
+    minAge:{
+      type:Number,
+      default:17
+    },
+    maxAge:{
+      type:Number,
+      default:29
+    },
     disabled: {
       type: Boolean
     },
@@ -103,6 +116,7 @@ export default {
   data() {
     return {
       error: false,
+      validAge:'',
       academic: [
         {
           llave: 'bachiller',
@@ -222,11 +236,19 @@ export default {
       get() {
         return this.value
       }
-    }
+    },
   },
   methods: {
     cerrarModal() {
       this.state = false
+    },
+    verify(){
+      if(this.form.age >= 17 && this.form.age <= 29){
+        this.validAge = false
+      }
+      else{
+        this.validAge = true
+      }
     },
     metodoBoton() {
       this.$emit("metodoBoton")
@@ -298,6 +320,14 @@ export default {
   margin-left: 10px;
 }
 
+.lblage-validation{
+  text-align: center;
+  font: normal 13px/15px sans-serif;
+  letter-spacing: 0px;
+  color: hsl(0deg 84% 60%);
+  margin-bottom: 0;
+  margin-left: 10px; 
+}
 
 /*ajuste en pantalla*/
 .centrar {

@@ -1,128 +1,92 @@
 <template>
-  <div
-    id="home"
-    class=" w-full min-h-screen bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477] bg-black">
+  <div>
+    <loader-component v-if="loader" />
+    <div
+      v-if="!loader"
+      id="home"
+      class=" w-full min-h-screen bg-gradient-to-r from-[#321586] via-[#4736df] to-[#2E1477] bg-black">
 
-    <div id="contenedor-nuevo" class="relative flex content-center h-[100vh]   text-white">
-      <div>
-        <div class="layer"></div>
-        <img class="contenedor-nuevo-image" src="@/static/coding.gif" alt="codingImage">
-      </div>
-      <!-- <transition name="fade"> -->
-        <!-- <div  v-if="this.$store.state.transition"  id="contrataTalento" class=" h-[80vh] w-full flex justify-center"> -->
-          <home-contrata-talento />
-        <!-- </div> -->
-      <!-- </transition> -->
-      <!-- <transition name="fade"> -->
-        <!-- <div v-if="!this.$store.state.transition" class=" h-[70vh] w-full flex justify-center"> -->
-          <!-- </div> -->
-          <!-- </transition> -->
-          <!-- <contenedor-cris></contenedor-cris> -->
+      <div id="contenedor-nuevo" class="relative flex content-center h-[100vh]   text-white">
+        <div>
+          <div class="layer"></div>
+          <img class="contenedor-nuevo-image" src="@/static/coding.gif" alt="codingImage">
         </div>
-    <div id="contenedor-nuevo" class="relative flex content-center justify-center h-[100vh] text-white">
-      <div>
-        <div class="layer"></div>
-        <img class="contenedor-nuevo-image" src="@/static/binarios.gif" alt="binary">
+        <home-contrata-talento />
       </div>
-      <home-ser-talento />
+      <div id="contenedor-nuevo" class="relative flex content-center justify-center h-[100vh] text-white">
+        <div>
+          <div class="layer"></div>
+          <img class="contenedor-nuevo-image" src="@/static/binarios.gif" alt="binary">
+        </div>
+        <home-ser-talento />
+      </div>
+
+      <div id="3" class="elemento">
+        <lazy-home-fabrica v-if="showElements" />
+      </div>
+      <div id="4" class="elemento">
+        <lazy-home-educacion v-if="showElements" />
+      </div>
+      <div id="5" class="elemento">
+        <lazy-home-coex-model v-if="showElements" />
+      </div>
+      <div id="6" class="elemento">
+        <lazy-home-aliados v-if="showElements" />
+      </div>
     </div>
-
-    <!-- <div class=" flex  justify-center py-5 md:py-8 xl:py-24 lg:py-8 "> -->
-
-
-       <!-- <div id="next" class="btn"> -->
-        <!-- <button class="btn animate-ping opacity-75" @click="metodoCambio"></button> -->
-      <!-- </div> -->
-
-      <!-- <div id="conoceMas" class="hidden">
-        <div
-          class=" w-34 h-34  ml-1 rounded-full border-2 border-bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]  p-1 flex items-center  justify-center">
-          <div class="btnDos bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE] flex items-center  justify-center">
-            <span class=" text-blue-400 text-sm font-semibold text-center absolute">Ver más</span>
-            <a href="#conoce" class=""><button
-                class="btnDos bg-gradient-to-r from-[#E0EAF9]   to-[#DBEAFE]  opacity-75 animate-ping"
-                @click="conoceMas"></button></a>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <transition name="fade" class="animate__animated animate__zoomInUp">
-      <div v-if="this.$store.state.home" id="conoce">
-        <home />
-      </div>
-    </transition>
-
-
   </div>
 </template>
 
 <script>
 
 export default {
-    name: "AppHome",
-    data() {
-        return {
-            pageText: {},
-            isActive: true,
-            show: false
-        };
-    },
-    async mounted() {
-        this.getPageText();
-        await this.$store.dispatch("fetchTexts");
-        this.getPageText();
-        //  animacion para el div HomeSerTalento y HomeContrataTalento
-        // window.addEventListener("scroll", this.showInformation)
-        const divHomeContrataTalento = document.getElementById('aparecer1')
-        divHomeContrataTalento.style.animation = 'mover .7s ease-out'
+  name: "AppHome",
+  data() {
+    return {
+      pageText: {},
+      isActive: true,
+      show: false,
+      loader: true,
+      showElements: false,
+    };
+  },
+  mounted() {
+    this.getPageText();
+    this.$store.dispatch("fetchTexts");
+    this.getPageText();
+    //  animacion para el div HomeSerTalento y HomeContrataTalento
+    window.addEventListener("scroll", this.lazyLoading)
+    this.loader = false
 
-
+  },
+  methods: {
+    lazyLoading() {
+      const elemento3 = document.getElementById('3')
+      if (elemento3.getBoundingClientRect().top < 700 && elemento3.getBoundingClientRect().top > 600) this.showElements = true
     },
-    methods: {
-        // showInformation(){
-        //   const divHomeSerTalento = document.getElementById('aparecer2')
-        //   const positionDiv = divHomeSerTalento.getBoundingClientRect().top
-        //   const elementHeigth = positionDiv - window.innerHeight/3
-        //   if (elementHeigth < 280) {
-        //     divHomeSerTalento.style.animation = 'mover 1s ease-out'
-        //     divHomeSerTalento.style.opacity = '1'
-        //   }
-
-        // },
-        getPageText() {
-            this.$store.commit("filterText", "contratar-talento");
-            this.pageText = this.$store.state.text;
-        },
-        gethome() {
-        },
-        // metodoCambio() {
-        //   const estado = false;
-        //   this.$store.dispatch('animation', estado);
-        // },
-        conoceMas() {
-            const estadoHome = true;
-            this.$store.dispatch("home", estadoHome);
-            // document.querySelector('body').classList.add('overflow-hidden')
-        }
+    getPageText() {
+      this.$store.commit("filterText", "contratar-talento");
+      this.pageText = this.$store.state.text;
     },
+  },
 }
 </script>
-<!-- Quite el scoped para poder afectar a los componentes hijos -->
+
+
 <style >
 @keyframes mover {
   from {
     opacity: 0;
-    transform: translateY(200%)
+    transform: translateY(200%);
   }
 
   to {
+    transform: translateY(0);
     opacity: 1;
-    transform: translateY(0)
   }
 }
 
-
-.contenedor-nuevo-image{
+.contenedor-nuevo-image {
   position: absolute;
   width: 100%;
   height: 100%;

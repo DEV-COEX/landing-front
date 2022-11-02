@@ -1,7 +1,9 @@
 <template>
   <div class="flex justify-center w-full">
-    <div class=" z-10  text-white  flex justify-center items-center ">
-      <div id="aparecer1" >
+    <div v-show="aparecerInfo" class=" z-10  text-white  flex justify-center items-center ">
+      <div
+      id="aparecer1"
+       >
         <div>
           <div class="flex justify-center pt-5 xl:pt-28 lg:pt-24 md:pt-20 ">
             <p class="xl:text-5xl lg:text-4xl md:text-3xl text-xl w-full sm:w-[80%] lg:w-4/6 font-bold px-7 text-center text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D] via-[#FF9838] to-[#dab255]"> {{ pageText[0] ? pageText[0].tittle : '' }} </p>
@@ -56,7 +58,8 @@ export default {
   name: "HomeContrataTalento",
   data() {
     return {
-      pageText: {}
+      pageText: {},
+      aparecerInfo: false
     }
   },
   async mounted() {
@@ -64,6 +67,10 @@ export default {
     await this.$store.dispatch("fetchTexts");
     await this.$store.dispatch("fetchOffers");
     this.getPageText()
+    this.aparecerInfo = true
+    const divHomeContrataTalento = document.getElementById('aparecer1')
+    divHomeContrataTalento.style.animation = 'mover .7s ease-out'
+
   },
   methods: {
     getPageText() {
@@ -80,6 +87,7 @@ export default {
 }
 </script>
 <style scoped>
+
 .fondo {
   height: 80vh;
 
