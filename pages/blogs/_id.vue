@@ -11,43 +11,56 @@
           <div>{{ blog.blog_created_date }}</div>
           <div>{{ blog.time_reading }} min read</div>
         </div>
-        <div class="flex ">
+        <div class="flex">
           <div>
-            <a
-              href=""
-              target="_blank"
-              ><app-btn
-                ><img src="@/static/twitter.svg" alt="TwitterLogo" /></app-btn
-            ></a>
+            <ShareNetwork
+              network="twitter"
+              :url="myurl"
+              :title="blog.title"
+              :description="blog.introduction_blog"
+              quote="Bootcamp en el cual formamos la base del hacer, del ser y el saber de cada talento juvenil que quiere ser desarrollador de software"
+              hashtags="coex,bootcamp,desarrollo,web"
+            >
+              <app-btn
+                ><img src="@/static/twitter.svg" alt="TwitterLogo"
+              /></app-btn>
+            </ShareNetwork>
           </div>
           <div>
-            <a
-              href=""
-              target="_blank"
-              ><app-btn
-                ><img src="@/static/facebook.svg" alt="FacebookLogo" /></app-btn
-            ></a>
+            <ShareNetwork
+              network="facebook"
+              :url="`${myurl}`"
+              :title="blog.title"
+              :description="blog.introduction_blog"
+              quote="Bootcamp en el cual formamos la base del hacer, del ser y el saber de cada talento juvenil que quiere ser desarrollador de software"
+              hashtags="coex,bootcamp,desarrollo,web"
+            >
+              <app-btn
+                ><img src="@/static/facebook.svg" alt="FacebookLogo"
+              /></app-btn>
+            </ShareNetwork>
           </div>
           <div>
-            <a
-              href=""
-              target="_blank"
-              ><app-btn
-                ><img src="@/static/linkedin.svg" alt="LinkedinLogo" /></app-btn
-            ></a>
+            <ShareNetwork
+              network="linkedin"
+              :url="`https://coex.com.co`"
+              :title="blog.title"
+              :description="blog.introduction_blog"
+              quote="Bootcamp en el cual formamos la base del hacer, del ser y el saber de cada talento juvenil que quiere ser desarrollador de software"
+              hashtags="coex,bootcamp,desarrollo,web"
+            >
+              <app-btn
+                ><img src="@/static/linkedin.svg" alt="LinkedinLogo"
+              /></app-btn>
+            </ShareNetwork>
           </div>
           <div>
-            <a
-              href=""
-              target="_blank"
-              ><app-btn
-                ><img src="@/static/link.svg" alt="LinkLogo" /></app-btn
-            ></a>
+            <button v-clipboard="myurl">
+              <app-btn><img src="@/static/link.svg" alt="LinkLogo" /></app-btn>
+            </button>
           </div>
           <div>
-            <a
-              href=""
-              target="_blank"
+            <a href="" target="_blank"
               ><app-btn
                 ><img src="@/static/share.svg" alt="ShareLogo" /></app-btn
             ></a>
@@ -62,7 +75,10 @@
       </div>
       <div class="flex text-white space-x-4 items-center mt-4">
         <div>
-          <img class="object-cover bg-fixed max-h-14 w-full rounded-[50%]" :src="'https://api.cms.coex.com.co'+blog.autor_image?.url">
+          <img
+            class="object-cover bg-fixed max-h-14 w-full rounded-[50%]"
+            :src="'https://api.cms.coex.com.co' + blog.autor_image?.url"
+          />
         </div>
         <div>
           <h3>{{ blog.autor_name }}</h3>
@@ -80,15 +96,21 @@
           v-for="(topic, index) in topic_blog"
           :key="topic.id"
         >
-          {{ index + 1 }}. {{ topic }}
+          <a :href="`#${index}`"> {{ index + 1 }}. {{ topic }} </a>
         </li>
       </div>
 
       <div class="mt-4 font-bold text-white text-xl">
         <h1>{{ blog.introduction_blog }}</h1>
       </div>
-      <div class="mt-4 pb-8 text-white">
-        <h1>{{ blog.content_blog }}</h1>
+
+      <div
+        :id="index"
+        v-for="(content, index) in topic_content"
+        :key="index"
+        class="mt-4 my-16 pb-8 text-white"
+      >
+        <div v-html="$md.render(content)"></div>
       </div>
       <div class="text-center justify-center">
         <a
@@ -102,23 +124,24 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-3 content-center my-8 mx-8 ">
+      <div class="grid grid-cols-3 content-center my-8 mx-8">
         <div v-for="item in blogs" :key="item.id">
           <h6
             class="mr-12 items-start border-b-2 border-[rgba(78, 146, 249, 0.2)] text-white"
           >
-            {{item.blog_category.name}}
+            {{ item.blog_category.name }}
           </h6>
           <h3
             class="lg:leading-relaxed font-medium text-left text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D] via-[#FF9838] to-[#dab255]"
           >
-          {{ item.title }}
+            {{ item.title }}
           </h3>
           <div class="mt-2 grid grid-rows-3 grid-flow-col gap-0.5">
             <div class="row-span-3 ...">
               <img
                 class="object-cover bg-fixed h-4/6 w-3/4 rounded-[50%]"
-                :src="'https://api.cms.coex.com.co'+item.autor_image?.url">
+                :src="'https://api.cms.coex.com.co' + item.autor_image?.url"
+              />
             </div>
             <div class="col-span-2 content-center">
               <h3
@@ -155,13 +178,14 @@ export default {
   data() {
     return {
       blogs: [],
-      blog:{},
+      blog: {},
       topic_blogs: null,
       topic_blog: [],
-      markdown:null,
+      topic_content: [],
+      markdown: null,
     }
   },
-  async mounted(){
+  async mounted() {
     // await this.getBlogs()
     await this.getBlog()
   },
@@ -181,17 +205,29 @@ export default {
 
     // TRAERME UN BLOG
     async getBlog() {
-        const { data } = await this.$axios.get(`blogs`)
-        this.blogs = data;
-        this.blog = this.blogs.find((e)=>e.id===parseInt(this.$route.params.id))
-        const indexBlog = this.blogs.findIndex((e)=>e.id===parseInt(this.$route.params.id))
-        this.blogs.splice(indexBlog-1, 1);
-        this.blogs.sort(()=> Math.random() - 0.5);
-        this.blogs.length=3
-        this.topic_blog = this.blog.relevant_topic_blog.split(',')
-      },
-
-
+      const { data } = await this.$axios.get(`blogs`)
+      this.blogs = data
+      this.blog = this.blogs.find(
+        (e) => e.id === parseInt(this.$route.params.id)
+      )
+      const indexBlog = this.blogs.findIndex(
+        (e) => e.id === parseInt(this.$route.params.id)
+      )
+      this.blogs.splice(indexBlog - 1, 1)
+      this.blogs.sort(() => Math.random() - 0.5)
+      this.blogs.length = 3
+      this.topic_blog = this.blog.relevant_topic_blog.split(',')
+      this.topic_content = this.blog.content_blog.split('\n\n')
+    },
   },
+  computed: {
+    myurl(){
+      if(process.client){
+        const url = window.location.href
+        return url
+      }
+      return false
+    }
+  }
 }
 </script>
