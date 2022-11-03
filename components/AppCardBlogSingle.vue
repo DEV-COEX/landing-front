@@ -1,7 +1,10 @@
 <template>
+<div>
   <div
     class="
-      lg:w-[414px]
+      lg:text-base
+      w-[23.4375em]
+      h-[14em]
       my-3
       p-3
       box-border
@@ -75,6 +78,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 <script>
 export default {
