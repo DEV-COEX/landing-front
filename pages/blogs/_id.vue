@@ -65,15 +65,15 @@
             </ShareNetwork>
           </div>
           <div>
-            <button v-clipboard="myurl">
+            <button v-clipboard="myurl" v-clipboard:success="copied">
               <app-btn><img src="@/static/link.svg" alt="LinkLogo" /></app-btn>
             </button>
           </div>
           <div>
-            <a href="" target="_blank"
+            <a href="" @click="shareContent"
               ><app-btn
                 ><img src="@/static/share.svg" alt="ShareLogo" /></app-btn
-            ></a>
+             ></a>
           </div>
         </div>
       </div>
@@ -116,7 +116,7 @@
           v-for="(topic, index) in topic_blog"
           :key="topic.id"
         >
-          <a :href="`#${index}`"> {{ index + 1 }}. {{ topic }} </a>
+          <a :href="`#${index}`" @click="moveDown" > {{ index + 1 }}. {{ topic }} </a>
         </li>
       </div>
 
@@ -218,7 +218,30 @@ export default {
     //     this.topic_blogs.id = index
     //   })
     // },
-
+    copied({value,event}){
+      alert('Copiado!')
+      console.log(value)
+    },
+    async shareContent(e){
+      e.preventDefault()
+      const data = {
+        title:this.blog.title,
+        text:this.blog.introduction_blog,
+        url:this.myurl
+      }
+      try{
+        await navigator.share(data)
+      }
+      catch(err){
+        console.log(err);
+      }
+      // console.log(this.blog.title)
+    },
+    moveDown(e){
+      e.preventDefault()
+      const url = e.target.href
+      document.getElementById(url.split('#')[1]).scrollIntoView({block:"center",behavior:"smooth"})
+    },
     // TRAERME UN BLOG
     async getBlog() {
       const { data } = await this.$axios.get(`blogs`)
@@ -250,3 +273,30 @@ export default {
   },
 }
 </script>
+
+
+<style>
+.tooltip {
+  position: absolute;
+  top: 30px;
+  left: -30px;
+  background: #373737;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  opacity: 0;
+}
+.appear {
+    animation: appear 1s ease;
+  }
+
+@keyframes appear {
+  0%{opacity:0}
+  20%{ transform: translateY(10px); opacity:1}
+  80%{transform: translateY(0px); opacity:1}
+  100%{opacity:0}}
+</style>
