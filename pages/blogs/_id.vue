@@ -1,6 +1,6 @@
 <template>
   <div class="bg-[#1C233A] flex justify-center pt-20">
-    <div class="w-3/5 h-auto mt-6 md:px-4">
+    <div class="w-4/6 h-auto mt-6 md:px-4">
       <h1
         class="
           lg:text-5xl
@@ -16,7 +16,7 @@
       >
         {{ blog.title }}
       </h1>
-      <div class="flex text-white place-content-between mt-4">
+      <div class="flex text-white lg:flex-row lg:place-content-between flex-col-reverse mt-4">
         <div class="flex space-x-4">
           <div>{{ blog.blog_created_date }}</div>
           <div>{{ blog.time_reading }} min read</div>
@@ -135,7 +135,7 @@
       <div class="text-center justify-center">
         <a
           class="
-            pl-12
+            lg:pl-12
             md:text-3xl
             lg:leading-relaxed
             font-bold
@@ -154,7 +154,7 @@
         </p>
       </div>
 
-      <div class="flex justify-between gap-4 w-full my-8">
+      <div class="lg:overflow-x-visible lg:justify-between flex gap-4 overflow-x-scroll w-full my-8">
         <app-card-blog-single
           v-for="item in blogs"
           :key="item.id"

@@ -58,18 +58,13 @@
         class="lg:w-32 w-1/2 mx-3 my-2"
       ></app-select>
     </section>
-    <section
-      class="
-        flex
-        flex-col
-        items-center
-        w-11/12
-        py-6
-      "
-    >
+    <section class="flex flex-col items-center w-11/12 py-6">
       <div
         class="
-          lg:flex-row lg:flex-wrap lg:gap-5
+          lg:flex-row
+          lg:flex-wrap
+          lg:gap-5
+          lg:justify-between
           flex flex-col
           items-center
           w-full
@@ -113,8 +108,8 @@ export default {
       page: 0,
       maxPage: 0,
       blogs: [],
-      allBlogs:[],
-      blogsSearch:[],
+      allBlogs: [],
+      blogsSearch: [],
       filterValue: 'Más recientes',
       valueInputSearch: '',
       filter: [
@@ -152,7 +147,7 @@ export default {
       this.maxPage = data.length
       // save tbe data
       this.blogs = data
-      this.allBlogs = data;
+      this.allBlogs = data
       // and organize according the value of select
       if (this.filterValue === 'Más antiguos') {
         this.blogs.sort((a, b) => {
@@ -203,11 +198,11 @@ export default {
       }
       return 3
     },
-    handleSearch(){
-      this.blogs = this.allBlogs.filter((e)=>{
+    handleSearch() {
+      this.blogs = this.allBlogs.filter((e) => {
         return e.title.startsWith(this.valueInputSearch)
       })
-    }
+    },
   },
 }
 </script>
