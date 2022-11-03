@@ -9366,7 +9366,7 @@ uuid@^8.3.2:
 
 v-clipboard@^2.2.3:
   version "2.2.3"
-  resolved "https://registry.yarnpkg.com/v-clipboard/-/v-clipboard-2.2.3.tgz#f5db3d7004145041b6d7d06ca48236de4cee3a41"
+  resolved "https://registry.npmjs.org/v-clipboard/-/v-clipboard-2.2.3.tgz"
   integrity sha512-Wg+ObZoYK6McHb5OOCFWvm0R7xHp0/p0G1ocx/8bO22jvA/yVY05rADbfiztwCokXBNfQuGv/XSd1ozcTFgekw==
 
 v8-compile-cache@^2.0.3:
@@ -9480,7 +9480,7 @@ vue-server-renderer@^2.6.12, vue-server-renderer@^2.6.14:
 
 vue-social-sharing@^3.0.9:
   version "3.0.9"
-  resolved "https://registry.yarnpkg.com/vue-social-sharing/-/vue-social-sharing-3.0.9.tgz#72fda1e343cdb47cf52e3327a84a3612e9f82c11"
+  resolved "https://registry.npmjs.org/vue-social-sharing/-/vue-social-sharing-3.0.9.tgz"
   integrity sha512-Yg4oz5cSkr7ieMAgumwoRLnFhAaoUGCsN8lZE9yUkuQzbKid8yBOn4mLjfx/DA/E8nxYjunAfIUFs7eKIkBjPA==
 
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.3:

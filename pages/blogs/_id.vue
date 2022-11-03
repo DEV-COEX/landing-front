@@ -2,7 +2,17 @@
   <div class="bg-[#1C233A] flex justify-center pt-20">
     <div class="w-3/5 h-auto mt-6 md:px-4">
       <h1
-        class="lg:text-5xl md:text-3xl lg:leading-relaxed font-bold text-2xl text-center text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D] via-[#FF9838] to-[#dab255]"
+        class="
+          lg:text-5xl
+          md:text-3xl
+          lg:leading-relaxed
+          font-bold
+          text-2xl text-center text-transparent
+          bg-clip-text bg-gradient-to-r
+          from-[#FFDF8D]
+          via-[#FF9838]
+          to-[#dab255]
+        "
       >
         {{ blog.title }}
       </h1>
@@ -87,7 +97,17 @@
 
       <div class="bg-white bg-opacity-10 mt-10 text-white list-none">
         <h6
-          class="pl-12 md:text-3xl lg:leading-relaxed font-bold text-left text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D] via-[#FF9838] to-[#dab255]"
+          class="
+            pl-12
+            md:text-3xl
+            lg:leading-relaxed
+            font-bold
+            text-left text-transparent
+            bg-clip-text bg-gradient-to-r
+            from-[#FFDF8D]
+            via-[#FF9838]
+            to-[#dab255]
+          "
         >
           In this article
         </h6>
@@ -105,8 +125,8 @@
       </div>
 
       <div
-        :id="index"
         v-for="(content, index) in topic_content"
+        :id="index"
         :key="index"
         class="mt-4 my-16 pb-8 text-white"
       >
@@ -114,7 +134,17 @@
       </div>
       <div class="text-center justify-center">
         <a
-          class="pl-12 md:text-3xl lg:leading-relaxed font-bold text-left text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D] via-[#FF9838] to-[#dab255]"
+          class="
+            pl-12
+            md:text-3xl
+            lg:leading-relaxed
+            font-bold
+            text-left text-transparent
+            bg-clip-text bg-gradient-to-r
+            from-[#FFDF8D]
+            via-[#FF9838]
+            to-[#dab255]
+          "
           :href="''"
           >Sigue leyendo
         </a>
@@ -124,45 +154,31 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-3 content-center my-8 mx-8">
-        <div v-for="item in blogs" :key="item.id">
-          <h6
-            class="mr-12 items-start border-b-2 border-[rgba(78, 146, 249, 0.2)] text-white"
-          >
-            {{ item.blog_category.name }}
-          </h6>
-          <h3
-            class="lg:leading-relaxed font-medium text-left text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D] via-[#FF9838] to-[#dab255]"
-          >
-            {{ item.title }}
-          </h3>
-          <div class="mt-2 grid grid-rows-3 grid-flow-col gap-0.5">
-            <div class="row-span-3 ...">
-              <img
-                class="object-cover bg-fixed h-4/6 w-3/4 rounded-[50%]"
-                :src="'https://api.cms.coex.com.co' + item.autor_image?.url"
-              />
-            </div>
-            <div class="col-span-2 content-center">
-              <h3
-                class="lg:leading-relaxed font-medium text-left text-transparent bg-clip-text bg-gradient-to-r from-[#87B8FF] via-[#4490F9] to-[#4490F9]"
-              >
-                {{ item.autor_name }}
-              </h3>
-            </div>
-            <div class="row-span-2 col-span-2 text-white text-sm leading-4">
-              <div class="flex space-x-4">
-                <div>{{ item.blog_created_date }}</div>
-                <div>{{ item.time_reading }} min read</div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="flex justify-between gap-4 w-full my-8">
+        <app-card-blog-single
+          v-for="item in blogs"
+          :key="item.id"
+          :category="item.blog_category.name"
+          :title="item.title"
+          :urlimage="item.autor_image.url"
+          :author="item.autor_name"
+          :blogcreate="item.blog_created_date"
+          :timereading="item.time_reading"
+        ></app-card-blog-single>
       </div>
 
       <div class="text-center">
         <app-btn
-          class="bg-gradient-to-r from-blue-500 to-blue-400 p-[2px] text-white hover:from-blue-400 hover:to-blue-500 mb-5"
+          class="
+            bg-gradient-to-r
+            from-blue-500
+            to-blue-400
+            p-[2px]
+            text-white
+            hover:from-blue-400 hover:to-blue-500
+            mb-5
+          "
+          @click="redirect"
         >
           Ver todas las entradas
         </app-btn>
@@ -219,15 +235,18 @@ export default {
       this.topic_blog = this.blog.relevant_topic_blog.split(',')
       this.topic_content = this.blog.content_blog.split('\n\n')
     },
+    redirect(){
+      this.$router.push('/blogs/all')
+    }
   },
   computed: {
-    myurl(){
-      if(process.client){
+    myurl() {
+      if (process.client) {
         const url = window.location.href
         return url
       }
       return false
-    }
-  }
+    },
+  },
 }
 </script>

@@ -4,6 +4,7 @@
       <label for="searchInput" class="lg:w-80 w-full relative px-3">
         <input
           id="searchInput"
+          v-model="valueInputSearch"
           type="text"
           placeholder="Buscar"
           class="
@@ -16,6 +17,7 @@
             placeholder-white
             hover:border-[#C8DEFF]
           "
+          @input="handleSearch"
         />
         <div
           class="
@@ -56,70 +58,35 @@
         class="lg:w-32 w-1/2 mx-3 my-2"
       ></app-select>
     </section>
-    <section class="flex flex-col items-center w-11/12 py-6">
-      <div class="lg:flex-row lg:flex-wrap flex flex-col items-center w-full py-6">
-        <div
+    <section
+      class="
+        flex
+        flex-col
+        items-center
+        w-11/12
+        py-6
+      "
+    >
+      <div
+        class="
+          lg:flex-row lg:flex-wrap lg:gap-5
+          flex flex-col
+          items-center
+          w-full
+          py-6
+        "
+      >
+        <app-card-blog-single
           v-for="item in blogs"
           :key="item.id"
-          class="lg:w-[414px] my-3 p-3 box-border hover:bg-white/30 hover:rounded-md"
-        >
-          <h6
-            class="
-              mr-12
-              items-start
-              border-b-2 border-[rgba(78,
-              146,
-              249,
-              0.2)]
-              text-transparent
-              bg-clip-text bg-gradient-to-r
-              from-[#A6CBFF]
-              to-[#C8DEFF]
-            "
-          >
-            {{ item.blog_category.name }}
-          </h6>
-          <h3
-            class="
-              lg:leading-relaxed
-              h-[70px]
-              hover:h-auto
-              font-medium
-              text-left text-transparent text-[22px]
-              bg-clip-text bg-gradient-to-r
-              from-[#FFDF8D]
-              via-[#FF9838]
-              to-[#dab255]
-            "
-          >
-            {{ item.title }}
-          </h3>
-          <div class="flex justify-between items-center w-7/12">
-            <img
-              class="object-cover bg-fixed h-8 w-8 rounded-[50%]"
-              :src="'https://api.cms.coex.com.co' + item.autor_image?.url"
-            />
-            <div class="flex flex-col">
-              <h3
-                class="
-                  lg:leading-relaxed
-                  font-bold
-                  text-left text-transparent
-                  bg-clip-text bg-gradient-to-r
-                  from-[#87B8FF]
-                  via-[#4490F9]
-                  to-[#4490F9]
-                "
-              >
-                {{ item.autor_name }}
-              </h3>
-              <div class="flex space-x-4 text-white text-xs">
-                <span>{{ item.blog_created_date }}</span>
-                <span>{{ item.time_reading }} min read</span>
-              </div>
-            </div>
-          </div>
-        </div>
+          :idblog="item.id"
+          :category="item.blog_category.name"
+          :title="item.title"
+          :urlimage="item.autor_image.url"
+          :author="item.autor_name"
+          :blogcreate="item.blog_created_date"
+          :timereading="item.time_reading"
+        ></app-card-blog-single>
       </div>
       <app-btn
         v-if="page < maxPage"
@@ -143,10 +110,13 @@ export default {
   layout: 'NavbarDefault',
   data() {
     return {
-      page: 3,
+      page: 0,
       maxPage: 0,
       blogs: [],
-      filterValue: null,
+      allBlogs:[],
+      blogsSearch:[],
+      filterValue: 'Más recientes',
+      valueInputSearch: '',
       filter: [
         {
           llave: 'Más recientes',
@@ -173,6 +143,7 @@ export default {
   },
   created() {
     this.getAllBlogsRecent()
+    this.page = this.pageInitial()
   },
   methods: {
     // Get data
@@ -181,6 +152,7 @@ export default {
       this.maxPage = data.length
       // save tbe data
       this.blogs = data
+      this.allBlogs = data;
       // and organize according the value of select
       if (this.filterValue === 'Más antiguos') {
         this.blogs.sort((a, b) => {
@@ -223,6 +195,19 @@ export default {
       }
       this.page = this.page + difference
     },
+    pageInitial() {
+      if (process.client) {
+        if (window.screen.width >= 1024) {
+          return 6
+        }
+      }
+      return 3
+    },
+    handleSearch(){
+      this.blogs = this.allBlogs.filter((e)=>{
+        return e.title.startsWith(this.valueInputSearch)
+      })
+    }
   },
 }
 </script>
