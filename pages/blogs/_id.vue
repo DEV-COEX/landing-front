@@ -202,8 +202,9 @@ export default {
     //     this.topic_blogs.id = index
     //   })
     // },
-    copied(){
+    copied({value,event}){
       alert('Copiado!')
+      console.log(value)
     },
     async shareContent(e){
       e.preventDefault()
