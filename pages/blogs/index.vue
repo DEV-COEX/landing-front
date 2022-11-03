@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center pt-24">
-    <div
+    <section
       class="
         flex flex-col
         items-center
@@ -24,7 +24,7 @@
       >
         BLOGS
       </h1>
-      <div
+      <article
         class="
           flex flex-col
           items-center
@@ -80,9 +80,9 @@
             >Leer artículo</app-btn
           >
         </div>
-      </div>
-    </div>
-    <div
+      </article>
+    </section>
+    <section
       class="
         flex flex-col
         items-center
@@ -145,10 +145,11 @@
           hover:from-blue-400 hover:to-blue-500
           mb-5
         "
+        @click="redirectMoreBlogs"
       >
         Ver todas las entradas
       </app-btn>
-    </div>
+    </section>
   </div>
 </template>
 <script>
@@ -175,6 +176,9 @@ export default {
     },
     redirectBlog(){
       this.$router.push(`/blogs/${this.lastBlog.id}`);
+    },
+    redirectMoreBlogs(){
+      this.$router.push(`/blogs/all`);
     }
   },
 }

@@ -163,10 +163,6 @@ export default {
           attribute: '2pm a 6pm',
         },
         {
-          llave: '6pm a 10pm',
-          attribute: '6pm a 10pm',
-        },
-        {
           llave: 'ninguno',
           attribute: 'Ninguno de los horarios ofrecidos',
         },
@@ -326,7 +322,7 @@ export default {
   letter-spacing: 0px;
   color: hsl(0deg 84% 60%);
   margin-bottom: 0;
-  margin-left: 10px; 
+  margin-left: 10px;
 }
 
 /*ajuste en pantalla*/

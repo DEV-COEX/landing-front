@@ -129,7 +129,7 @@
                   delay-150
                   hover:-translate-y-1 hover:scale-110
                   duration-500
-                " :class="[getUrl == item.path ? 'text-color': '']" 
+                " :class="[getUrl == item.path ? 'text-color': '']"
                 @click="item.method">
                 {{ item.name }}
               </span>
@@ -269,7 +269,9 @@ export default {
             if (process.client) {
               window.scrollTo(0, 0)
             }
+            this.changeActive()
             this.changeState(e)
+            e.target.classList.add('text-color');
             document.querySelector('body').classList.remove('overflow-hidden')
           }
         },
