@@ -56,7 +56,7 @@
               bg-clip-text bg-gradient-to-r
               from-[#FFDF8D]
               to-[#FF9838]
-              text-2xl
+              text-xl
               font-medium
               lg:text-5xl
             "
@@ -68,7 +68,7 @@
           </p>
           <app-btn
             class="
-              w-1/3
+              w-2/4
               bg-gradient-to-r
               from-red-500
               to-red-400

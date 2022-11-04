@@ -77,6 +77,7 @@
         <div class="
             flex
             justify-between
+            gap-1
             p-5
             lg:p-0
             w-full
