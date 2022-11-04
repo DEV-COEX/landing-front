@@ -25,7 +25,7 @@
           <div>
             <ShareNetwork
               network="twitter"
-              :url="myurl"
+              :url="`${myurl}`"
               :title="blog.title"
               :description="blog.introduction_blog"
               quote="Bootcamp en el cual formamos la base del hacer, del ser y el saber de cada talento juvenil que quiere ser desarrollador de software"
@@ -53,7 +53,7 @@
           <div>
             <ShareNetwork
               network="linkedin"
-              :url="`https://coex.com.co`"
+              :url="`${myurl}`"
               :title="blog.title"
               :description="blog.introduction_blog"
               quote="Bootcamp en el cual formamos la base del hacer, del ser y el saber de cada talento juvenil que quiere ser desarrollador de software"
@@ -70,10 +70,10 @@
             </button>
           </div>
           <div>
-            <a href="" @click="shareContent"
+            <button @click="shareContent"
               ><app-btn
                 ><img src="@/static/share.svg" alt="ShareLogo" /></app-btn
-             ></a>
+             ></button>
           </div>
         </div>
       </div>
@@ -112,7 +112,7 @@
           In this article
         </h6>
         <li
-          class="mx-12 py-4"
+          class="mx-12 py-2"
           v-for="(topic, index) in topic_blog"
           :key="topic.id"
         >
@@ -120,7 +120,7 @@
         </li>
       </div>
 
-      <div class="mt-4 font-bold text-white text-xl">
+      <div class="my-8 font-bold text-white text-xl">
         <h1>{{ blog.introduction_blog }}</h1>
       </div>
 
@@ -128,26 +128,25 @@
         v-for="(content, index) in topic_content"
         :id="index"
         :key="index"
-        class="mt-4 my-16 pb-8 text-white"
+        class="pb-8 text-white"
       >
         <div v-html="$md.render(content)"></div>
       </div>
       <div class="text-center justify-center">
-        <a
+        <p
           class="
             lg:pl-12
             md:text-3xl
             lg:leading-relaxed
             font-bold
-            text-left text-transparent
+            text-center text-transparent
             bg-clip-text bg-gradient-to-r
             from-[#FFDF8D]
             via-[#FF9838]
             to-[#dab255]
           "
-          :href="''"
           >Sigue leyendo
-        </a>
+      </p>
         <p class="text-white w-3/4 m-auto">
           Blogs are a great method to increase traffic and generate leads. Make
           a profit. Get compensated for your efforts.
@@ -221,7 +220,6 @@ export default {
     // },
     copied({value,event}){
       alert('Copiado!')
-      console.log(value)
     },
     async shareContent(e){
       e.preventDefault()
