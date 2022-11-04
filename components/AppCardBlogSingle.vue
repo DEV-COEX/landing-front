@@ -115,6 +115,9 @@ export default {
   },
   methods:{
     redirectBlog(){
+      if(window.scrollY){
+        window.scroll(0,0)
+      }
       this.$router.push(`/blogs/${this.idblog}`)
     }
   }

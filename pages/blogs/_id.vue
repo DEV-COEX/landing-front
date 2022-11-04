@@ -158,6 +158,7 @@
         <app-card-blog-single
           v-for="item in blogs"
           :key="item.id"
+          :idblog="item.id"
           :category="item.blog_category.name"
           :title="item.title"
           :urlimage="item.autor_image.url"
