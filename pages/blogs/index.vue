@@ -58,7 +58,7 @@
               to-[#FF9838]
               text-xl
               font-medium
-              lg:text-5xl
+              lg:text-3xl
             "
           >
             {{ lastBlog.title }}
