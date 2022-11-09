@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center pt-24">
-    <section class="lg:flex-row lg:items-center flex flex-col w-11/12">
+    <section class="lg:flex-row lg:items-center flex flex-col w-10/12">
       <label for="searchInput" class="lg:w-80 w-full relative px-3">
         <input
           id="searchInput"
@@ -58,13 +58,12 @@
         class="lg:w-32 w-1/2 mx-3 my-2"
       ></app-select>
     </section>
-    <section class="flex flex-col items-center w-11/12 py-6">
+    <section class="flex flex-col items-center w-10/12 py-6">
       <div
         class="
           lg:flex-row
           lg:flex-wrap
-          lg:gap-5
-          lg:justify-between
+          lg:justify-around
           flex flex-col
           items-center
           w-full
