@@ -28,7 +28,7 @@
         class="
           flex flex-col
           items-center
-          rounded-md
+          rounded-2xl
           bg-white/30
           box-content
           h-[28.125em]
@@ -38,7 +38,7 @@
         <img
           :src="'https://api.cms.coex.com.co' + lastBlog.image?.url"
           alt=""
-          class="h-1/2 rounded-md w-full lg:h-full lg:w-1/2"
+          class="h-1/2 rounded-l-2xl w-full lg:h-full lg:w-1/2"
         />
         <div
           class="

@@ -12,7 +12,7 @@
       ease-in-out
       hover:duration-1000
       cursor-pointer
-    
+
     "
     @click="redirectBlog"
   >
@@ -33,23 +33,22 @@
     >
       {{ category }}
     </h6>
-    <p
+    <h3
       class="
         mx-8
-        lg:leading-relaxed
+        lg:leading-tight
         h-[70px]
-        leading-none        
         font-medium
-        text-left text-transparent text-[22px]
+        text-left text-transparent text-[18px]
         bg-clip-text bg-gradient-to-r
         from-[#FFDF8D]
         via-[#FF9838]
-        to-[#dab255]  
+        to-[#dab255]
         hover:text-base
       "
     >
       {{ title }}
-  </p>
+  </h3>
     <div class=" mx-8 flex justify-between items-center w-7/12">
       <img
         class="object-cover bg-fixed h-8 w-8 rounded-[50%]"
