@@ -142,6 +142,7 @@
               to-red-400
               hidden
               lg:block
+              lg:mr-3
               md:py-0
               md:px-1
               lg:p-2
