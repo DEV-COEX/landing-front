@@ -76,9 +76,9 @@
       <aside class="bg-opacity-70 lg:rounded-[50px] lg:px-2 h-full w-full bg-[#25262A]">
         <div class="
             flex
-            justify-between
-            gap-1
-            p-5
+            justify-around
+            p-2
+            lg:px-1
             lg:p-0
             w-full
             h-[3.5rem]
@@ -127,6 +127,7 @@
               to-blue-400
               hidden
               lg:block
+              lg:-mr-1
               md:py-0
               md:px-1
               lg:p-2
@@ -142,7 +143,7 @@
               to-red-400
               hidden
               lg:block
-              lg:mr-3
+              lg:mr-1
               md:py-0
               md:px-1
               lg:p-2
