@@ -201,7 +201,7 @@ export default {
         },
 
         {
-          name: '¿Quienes somos?',
+          name: '¿Quiénes somos?',
           path: '/quienes-somos',
           method: (e) => {
             if (process.client) {

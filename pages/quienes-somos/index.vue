@@ -12,7 +12,7 @@
         items-center
         relative
       ">
-      <img class="contenedor-nuevo-image" src="@/static/backgroundGif.gif" alt="binary">
+      <img class="contenedor-nuevo-image-qs" src="@/static/backgroundGif.gif" alt="binary">
       <div class="
           font-extrabold
           text-transparent
@@ -331,7 +331,7 @@ body::-webkit-scrollbar-thumb {
 
 }
 
-.contenedor-nuevo-image {
+.contenedor-nuevo-image-qs {
   position: absolute;
   width: 100%;
   height: 100%;
