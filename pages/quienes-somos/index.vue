@@ -12,6 +12,7 @@
         items-center
         relative
       ">
+      <img class="contenedor-nuevo-image" src="@/static/backgroundGif.gif" alt="binary">
       <div class="
           font-extrabold
           text-transparent
@@ -23,6 +24,7 @@
           bg-clip-text bg-gradient-to-r
           from-[#FFDF8D]
           to-[#FF9838]
+          z-50
         ">
         {{ pageTexts['coex-model'] ? pageTexts['coex-model'][0].tittle : ' ' }}
       </div>
@@ -37,6 +39,7 @@
           text-white
           py-5
           lg:leading-10
+          z-50
         " v-html="coexModel">
 
       </div>
@@ -326,6 +329,14 @@ body::-webkit-scrollbar-thumb {
 
   border-radius: 20px;
 
+}
+
+.contenedor-nuevo-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 
 strong {
