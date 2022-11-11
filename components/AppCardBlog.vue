@@ -2,12 +2,14 @@
   <div>
     <div
       class="
-        flex flex-col
+        flex
+        flex-col
         items-center
         w-72
         h-96
-        lg:h-[25.125em]
+        lg:h-[27.125em]
         xl:w-80
+        hover:bg-white/30
       "
     >
       <img
@@ -15,12 +17,13 @@
         alt=""
         class="h-3/5 w-full"
       />
-      <div class="grid grid-rows-3 h-2/5 w-full py-3">
+      <div class="grid grid-rows-3 h-2/5 w-full py-3 px-3">
         <h1
           class="
+            h-10
             text-lg
             font-bold
-            leading-[21px]
+            leading-[20px]
             traking-[0.093px]
             text-transparent
             bg-clip-text bg-gradient-to-r
@@ -34,7 +37,7 @@
           class="
             text-sm
             font-medium
-            leading-3
+            leading-5
             text-white
             h-9
             overflow-hidden

@@ -49,7 +49,7 @@
     >
       {{ title }}
   </h3>
-    <div class=" mx-8 flex justify-between items-center w-7/12">
+    <div class=" mx-8 flex justify-between items-center w-[52%]">
       <img
         class="object-cover bg-fixed h-8 w-8 rounded-[50%]"
         :src="'https://api.cms.coex.com.co' + urlimage"
@@ -58,6 +58,7 @@
         <h3
           class="
             lg:leading-relaxed
+            lg:w-full
             font-bold
             text-left text-transparent
             bg-clip-text bg-gradient-to-r

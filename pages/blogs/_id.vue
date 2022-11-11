@@ -16,7 +16,15 @@
       >
         {{ blog.title }}
       </h1>
-      <div class="flex text-white lg:flex-row lg:place-content-between flex-col-reverse mt-4">
+      <div
+        class="
+          flex
+          text-white
+          lg:flex-row lg:place-content-between
+          flex-col-reverse
+          mt-4
+        "
+      >
         <div class="flex space-x-4">
           <div>{{ blog.blog_created_date }}</div>
           <div>{{ blog.time_reading }} min read</div>
@@ -70,10 +78,11 @@
             </button>
           </div>
           <div>
-            <button @click="shareContent"
-              ><app-btn
-                ><img src="@/static/share.svg" alt="ShareLogo" /></app-btn
-             ></button>
+            <button @click="shareContent">
+              <app-btn
+                ><img src="@/static/share.svg" alt="ShareLogo"
+              /></app-btn>
+            </button>
           </div>
         </div>
       </div>
@@ -111,13 +120,21 @@
         >
           In this article
         </h6>
-        <li
-          class="mx-12 py-2"
-          v-for="(topic, index) in topic_blog"
-          :key="topic.id"
-        >
-          <a :href="`#${index}`" @click="moveDown" > {{ index + 1 }}. {{ topic }} </a>
-        </li>
+        <ol>
+          <li
+            v-for="(topic, index) in topic_blog"
+            :key="topic.id"
+            class="mx-12 py-2"
+          >
+            {{ index + 1 }}.
+            <a
+              :href="`#${index}`"
+              class="underline decoration-solid"
+              @click="moveDown"
+              >{{ topic }}
+            </a>
+          </li>
+        </ol>
       </div>
 
       <div class="my-8 font-bold text-white text-xl">
@@ -145,15 +162,25 @@
             via-[#FF9838]
             to-[#dab255]
           "
-          >Sigue leyendo
-      </p>
+        >
+          Sigue leyendo
+        </p>
         <p class="text-white w-3/4 m-auto">
           Blogs are a great method to increase traffic and generate leads. Make
           a profit. Get compensated for your efforts.
         </p>
       </div>
 
-      <div class="lg:overflow-x-visible lg:justify-between flex gap-4 overflow-x-scroll w-full my-8">
+      <div
+        class="
+          xl:overflow-x-visible xl:justify-center
+          flex
+          gap-4
+          overflow-x-scroll
+          w-full
+          my-8
+        "
+      >
         <app-card-blog-single
           v-for="item in blogs"
           :key="item.id"
@@ -166,7 +193,6 @@
           :timereading="item.time_reading"
         ></app-card-blog-single>
       </div>
-
       <div class="text-center">
         <app-btn
           class="
@@ -218,28 +244,29 @@ export default {
     //     this.topic_blogs.id = index
     //   })
     // },
-    copied({value,event}){
+    copied({ value, event }) {
       alert('Copiado!')
     },
-    async shareContent(e){
+    async shareContent(e) {
       e.preventDefault()
       const data = {
-        title:this.blog.title,
-        text:this.blog.introduction_blog,
-        url:this.myurl
+        title: this.blog.title,
+        text: this.blog.introduction_blog,
+        url: this.myurl,
       }
-      try{
+      try {
         await navigator.share(data)
-      }
-      catch(err){
-        console.log(err);
+      } catch (err) {
+        console.log(err)
       }
       // console.log(this.blog.title)
     },
-    moveDown(e){
+    moveDown(e) {
       e.preventDefault()
       const url = e.target.href
-      document.getElementById(url.split('#')[1]).scrollIntoView({block:"center",behavior:"smooth"})
+      document
+        .getElementById(url.split('#')[1])
+        .scrollIntoView({ block: 'center', behavior: 'smooth' })
     },
     // TRAERME UN BLOG
     async getBlog() {
@@ -257,9 +284,9 @@ export default {
       this.topic_blog = this.blog.relevant_topic_blog.split(',')
       this.topic_content = this.blog.content_blog.split('\n\n')
     },
-    redirect(){
+    redirect() {
       this.$router.push('/blogs/all')
-    }
+    },
   },
   computed: {
     myurl() {
@@ -290,12 +317,23 @@ export default {
   opacity: 0;
 }
 .appear {
-    animation: appear 1s ease;
-  }
+  animation: appear 1s ease;
+}
 
 @keyframes appear {
-  0%{opacity:0}
-  20%{ transform: translateY(10px); opacity:1}
-  80%{transform: translateY(0px); opacity:1}
-  100%{opacity:0}}
+  0% {
+    opacity: 0;
+  }
+  20% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 </style>
