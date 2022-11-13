@@ -73,11 +73,12 @@
     </div>
     <div :class="[show ? 'blur-sm' : '']" class="lg:p-2 fixed top-0 z-40 w-full bg-clip-padding"
       style="backdrop-filter: blur(5px)">
-      <aside class="bg-opacity-70 lg:rounded-[50px] lg:px-14 h-full w-full bg-[#25262A]">
+      <aside class="bg-opacity-70 lg:rounded-[50px] lg:px-2 h-full w-full bg-[#25262A]">
         <div class="
             flex
-            justify-between
-            p-5
+            justify-around
+            p-2
+            lg:px-1
             lg:p-0
             w-full
             h-[3.5rem]
@@ -95,6 +96,7 @@
                 lg:flex
                 items-center
                 p-2
+                lg:p-0
                 hidden
                 lg:text-sm
                 xl:text-lg
@@ -125,7 +127,10 @@
               to-blue-400
               hidden
               lg:block
-              p-1
+              lg:-mr-1
+              md:py-0
+              md:px-1
+              lg:p-2
               text-white
               hover:from-blue-400 hover:to-blue-500"
             @click="contrataTalento">Contratar talento
@@ -138,7 +143,10 @@
               to-red-400
               hidden
               lg:block
-              p-1
+              lg:mr-1
+              md:py-0
+              md:px-1
+              lg:p-2
               text-white
               hover:from-red-400 hover:to-red-500
             " @click="serTalento">Ser talento Coex
@@ -193,7 +201,7 @@ export default {
         },
 
         {
-          name: '¿Quienes somos?',
+          name: '¿Quiénes somos?',
           path: '/quienes-somos',
           method: (e) => {
             if (process.client) {
