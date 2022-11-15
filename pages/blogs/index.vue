@@ -28,7 +28,7 @@
         class="
           flex flex-col
           items-center
-          rounded-md
+          rounded-2xl
           bg-white/30
           box-content
           h-[28.125em]
@@ -38,7 +38,7 @@
         <img
           :src="'https://api.cms.coex.com.co' + lastBlog.image?.url"
           alt=""
-          class="h-1/2 rounded-md w-full lg:h-full lg:w-1/2"
+          class="h-1/2 rounded-l-2xl w-full lg:h-full lg:w-1/2"
         />
         <div
           class="
@@ -56,9 +56,9 @@
               bg-clip-text bg-gradient-to-r
               from-[#FFDF8D]
               to-[#FF9838]
-              text-2xl
+              text-xl
               font-medium
-              lg:text-5xl
+              lg:text-3xl
             "
           >
             {{ lastBlog.title }}
@@ -68,7 +68,7 @@
           </p>
           <app-btn
             class="
-              w-1/3
+              w-2/4
               bg-gradient-to-r
               from-red-500
               to-red-400
