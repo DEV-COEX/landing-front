@@ -3,7 +3,7 @@
   <div
     class="
       lg:text-base
-      w-[320px]
+      w-full
       h-[100%]
       py-2
       box-content
