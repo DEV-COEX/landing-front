@@ -3,7 +3,7 @@
   <div
     class="
       lg:text-base
-      w-[23.4375em]
+      w-[320px]
       h-[10em]
       py-2
       box-content
@@ -12,7 +12,6 @@
       ease-in-out
       hover:duration-1000
       cursor-pointer
-
     "
     @click="redirectBlog"
   >
@@ -37,14 +36,13 @@
       class="
         mx-8
         lg:leading-tight
-        h-[70px]
+        h-[80px]
         font-medium
         text-left text-transparent text-[18px]
         bg-clip-text bg-gradient-to-r
         from-[#FFDF8D]
         via-[#FF9838]
         to-[#dab255]
-        hover:text-base
       "
     >
       {{ title }}
