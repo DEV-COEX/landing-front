@@ -55,7 +55,8 @@
             p-[2px]
             text-white
             hover:from-red-400 hover:to-red-500
-            lg:w-1/2
+            text-sm
+            lg:w-28
           "
           @click="onRedirect"
         >

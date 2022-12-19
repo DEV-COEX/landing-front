@@ -126,11 +126,7 @@
                   bg-clip-text bg-gradient-to-r
                   from-red-500
                   to-red-400
-                  transition
-                  ease-in-out
-                  delay-150
-                  hover:-translate-y-1 hover:scale-110
-                  duration-500
+                  
                 " :class="[getUrl == item.path ? 'text-color': '']"
                 @click="item.method">
                 {{ item.name }}
@@ -151,7 +147,8 @@
               md:px-1
               lg:p-2
               text-white
-              hover:from-blue-400 hover:to-blue-500"
+              hover:from-blue-400 hover:to-blue-500
+              transition ease-in-out delay-0 hover:-translate-y-1 hover:scale-110 duration-200"
             @click="contrataTalento">Contratar talento
           </app-btn>
           <app-btn class="
@@ -168,7 +165,8 @@
               lg:p-2
               text-white
               hover:from-red-400 hover:to-red-500
-            "
+              transition ease-in-out delay-0 hover:-translate-y-1 hover:scale-110 duration-200"
+            
             @click="serTalento"
             >Ser talento Coex
           </app-btn>
