@@ -9,11 +9,8 @@
       rounded-md
       disabled:bg-gradient-to-r disabled:from-[#fa645c] disabled:via-[#ff847e] disabled:to-[#fcc5c3]
       bx-shadow
-      transition
-      ease-in-out
-      delay-150
-      hover:-translate-y-1 hover:scale-110
-      duration-1000
+      
+      
     "
     @click="click"
   >

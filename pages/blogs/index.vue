@@ -68,13 +68,15 @@
           </p>
           <app-btn
             class="
-              w-2/4
+              w-3/12
               bg-gradient-to-r
               from-red-500
               to-red-400
               p-[2px]
               text-white
               hover:from-red-400 hover:to-red-500
+              hover:-translate-y-0 hover:scale-1
+              
             "
             @click="redirectBlog"
             >Leer artículo</app-btn
@@ -144,7 +146,9 @@
           text-white
           hover:from-blue-400 hover:to-blue-500
           mb-5
-        "
+          hover:-translate-y-0 hover:scale-1
+          transition ease-in-out delay-0 hover:-translate-y-1 hover:scale-110 duration-200"
+        
         @click="redirectMoreBlogs"
       >
         Ver todas las entradas
