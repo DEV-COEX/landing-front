@@ -47,6 +47,8 @@
             h-1/2
             w-11/12
             lg:h-full lg:w-1/2 lg:px-6 lg:box-border
+            supersm:pb-7
+            lg:pb-0
           "
         >
           <p class="text-[8px] text-white lg:text-sm">Artículo Destacado</p>
@@ -68,13 +70,14 @@
           </p>
           <app-btn
             class="
-              w-2/4
+              w-max
               bg-gradient-to-r
               from-red-500
               to-red-400
               p-[2px]
               text-white
               hover:from-red-400 hover:to-red-500
+              
             "
             @click="redirectBlog"
             >Leer artículo</app-btn
