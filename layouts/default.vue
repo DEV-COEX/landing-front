@@ -248,7 +248,7 @@ export default {
             document.querySelector('body').classList.remove('overflow-hidden')
           },
         },
-        {
+        /* {
           name: 'Fábrica de software',
           path: '/fabrica',
           method: (e) => {
@@ -258,7 +258,7 @@ export default {
             this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
           },
-        },
+        }, */
         {
           name: 'Oferta de talentos',
           path: '/oferta-de-talento',
@@ -283,7 +283,7 @@ export default {
             document.querySelector('body').classList.remove('overflow-hidden')
           }
         },
-        {
+        /* {
           name: 'Fundación',
           path: '/fundacion',
           method: (e) => {
@@ -293,7 +293,7 @@ export default {
             this.changeState(e)
             document.querySelector('body').classList.remove('overflow-hidden')
           },
-        },
+        }, */
       ],
     }
   },
