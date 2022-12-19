@@ -30,6 +30,7 @@
           xl:p-20 xl:pb-10
           px-5
           py-8
+          
         "
       >
         <img

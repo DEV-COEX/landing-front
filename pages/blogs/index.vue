@@ -20,6 +20,7 @@
           from-[#FFDF8D]
           to-[#FF9838]
           lg:text-5xl
+          my-7
         "
       >
         BLOGS
@@ -103,6 +104,8 @@
           from-[#FFDF8D]
           to-[#FF9838]
           lg:text-5xl
+          mt-8
+          my-3
         "
       >
         Entradas destacadas
@@ -140,10 +143,11 @@
           bg-gradient-to-r
           from-blue-500
           to-blue-400
-          p-[2px]
           text-white
           hover:from-blue-400 hover:to-blue-500
-          mb-5
+          mt-0
+          mb-11
+          py-3
         "
         @click="redirectMoreBlogs"
       >
