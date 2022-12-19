@@ -69,13 +69,15 @@
           </p>
           <app-btn
             class="
-              w-2/4
+              w-3/12
               bg-gradient-to-r
               from-red-500
               to-red-400
               p-[2px]
               text-white
               hover:from-red-400 hover:to-red-500
+              hover:-translate-y-0 hover:scale-1
+              
             "
             @click="redirectBlog"
             >Leer artículo</app-btn

@@ -21,7 +21,8 @@
                p-1
                mb-5
                text-white
-               hover:from-blue-400 hover:to-blue-500"
+               hover:from-blue-400 hover:to-blue-500
+               transition ease-in-out delay-0 hover:-translate-y-1 hover:scale-110 duration-200"
               @click="goTo">Contrata talentos
             </app-btn>
           </div>

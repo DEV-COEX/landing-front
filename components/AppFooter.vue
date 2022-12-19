@@ -1,37 +1,12 @@
 <template>
   <div
-    class="
-      flex flex-col
-      justify-end
-      lg:block lg:h-auto
-      bg-[#171929]
-      text-white
-      z-10
-      relative
-      text-sm
-      lg:text-base
-      md:text-lg
-    "
+    class="flex flex-col justify-end lg:block lg:h-auto bg-[#171929] text-white z-10 relative text-sm lg:text-base md:text-lg"
   >
     <div
-      class="
-        flex flex-col
-        justify-between
-        lg:grid lg:grid-cols-3 lg:justify-between
-      "
+      class="flex flex-col justify-between lg:grid lg:grid-cols-3 lg:justify-between"
     >
       <div
-        class="
-          flex
-          items-center
-          lg:items-start
-          flex-col
-          lg:p-10
-          xl:p-20 xl:pb-10
-          px-5
-          py-8
-          
-        "
+        class="flex items-center lg:items-start flex-col lg:p-10 xl:p-20 xl:pb-10 px-5 py-8"
       >
         <img
           class="lg:w-[18rem] w-[10rem] pb-5"
@@ -40,46 +15,25 @@
         />
         <div class="text-justify whitespace-normal">
           <span> un Bootcamp en el cual formamos la base del </span>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D]
-          to-[#FF9838]">hacer,  del ser y el saber</span> <span> de cada talento juvenil que quiere ser desarrollador de software, provenientes de
-          diversos tipos de comunidades de nuestra ciudad, bajo un ambiente de
-          alta productividad dónde se entrenan como desarrolladores de software.</span>
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D] to-[#FF9838]"
+            >hacer, del ser y el saber</span
+          >
+          <span>
+            de cada talento juvenil que quiere ser desarrollador de software,
+            provenientes de diversos tipos de comunidades de nuestra ciudad,
+            bajo un ambiente de alta productividad dónde se entrenan como
+            desarrolladores de software.</span
+          >
         </div>
       </div>
       <div
-        class="
-          xl:w-[30rem]
-          w-full
-          self-center
-          px-5
-          lg:px-0
-          justify-self-center justify-between
-          grid grid-cols-2
-          gap-x-2
-          sm:gap-x-4
-          lg:ml-0
-        "
+        class="xl:w-[30rem] w-full self-center px-5 lg:px-0 justify-self-center justify-between grid grid-cols-2 gap-x-2 sm:gap-x-4 lg:ml-0"
       >
         <div v-for="(item, i) in navitems" :key="i" class="my-3">
           <NuxtLink :to="item.path" class="font-medium text-white">
             <span
-              class="
-                text-sm
-                sm:text-base
-                md:text-lg
-                lg:mx-3 lg:font-bold lg:text-sm
-                xl:mx-6 xl:text-base
-                font-normal
-                hover:text-transparent
-                bg-clip-text bg-gradient-to-r
-                from-red-500
-                to-red-400
-                transition
-                ease-in-out
-                delay-150
-                hover:-translate-y-1 hover:scale-110
-                duration-300
-              "
+              class="text-sm sm:text-base md:text-lg lg:mx-3 lg:font-bold lg:text-sm xl:mx-6 xl:text-base font-normal hover:text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-400 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
               @click="item.method"
               >{{ item.name }}</span
             >
@@ -93,21 +47,21 @@
             <a
               href="https://instagram.com/coex.ce?igshid=YmMyMTA2M2Y="
               target="_blank"
-              ><app-btn>
+              ><app-btn class="transition ease-in-out delay-0 hover:-translate-y-1 hover:scale-110 duration-200">
                 <img src="/footer/instLogo.svg" alt="InstagramLogo"
               /></app-btn>
             </a>
             <a
               href="https://www.youtube.com/watch?v=YHq4z4_IYD8&ab_channel=CoexCe"
               target="_blank"
-              ><app-btn
+              ><app-btn class="transition ease-in-out delay-0 hover:-translate-y-1 hover:scale-110 duration-200"
                 ><img src="/footer/YouTube.svg" alt="YouTubeLogo" /></app-btn
             ></a>
 
             <a
               href="https://www.facebook.com/profile.php?id=100077787560481"
               target="_blank"
-              ><app-btn
+              ><app-btn class="transition ease-in-out delay-0 hover:-translate-y-1 hover:scale-110 duration-200"
                 ><img src="/footer/Facebook.svg" alt="FacebookLogo" /></app-btn
             ></a>
           </div>
@@ -120,15 +74,7 @@
       <div class="flex flex-col w-full lg:w-[55%]">
         <span class="hidden lg:block">Coex</span>
         <div
-          class="
-            flex
-            lg:flex-row
-            flex-col
-            mt-6
-            lg:mt-0
-            items-center
-            justify-between
-          "
+          class="flex lg:flex-row flex-col mt-6 lg:mt-0 items-center justify-between"
         >
           <div>Derechos reservados.</div>
           <div>Desarrollado por COEX</div>
@@ -150,5 +96,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>
