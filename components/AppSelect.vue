@@ -1,17 +1,10 @@
 <template>
 
   <div class="m-2 ">
-    <label class="block text-transparent bg-clip-text bg-gradient-to-r
-                      from-[#A6CBFF]
-                      to-[#C8DEFF] text-base font-medium mb-2" :for='label'>{{ label }}</label>
-    <select :id='label' v-model='val' class=" appearance-none bg-transparent
-      inp w-full py-2 px-3 text-[#B8B8B8] leading-tight
-      border-[#FFFFFF] border-solid border
-      focus:outline-none focus:shadow-outline focus:border-[#dab255] focus:bg-transparent active:bg-[#2B3348]
-                     hover:border-[#FFDF8D]" :name='label' :required='required' :placeholder="placeholder" :disabled='disabled'>
-      <option selected :value='null' class='hover:bg-[#E2DCFF]'>{{ firstOpt }}</option>
-      <option v-for='(item, key) in items' :key='key' :value='item?.llave'
-              class=' hover:bg-[#E2DCFF]'>
+    <label class="block text-transparent bg-clip-text bg-gradient-to-r from-[#A6CBFF] to-[#C8DEFF] text-base font-medium mb-2" :for='label'>{{ label }}</label>
+    <select :id='label' v-model='val' class=" appearance-none bg-transparent inp w-full py-2 px-3 text-[#B8B8B8] leading-tight border-[#FFFFFF] border-solid border focus:outline-none focus:shadow-outline focus:border-[#dab255] focus:bg-transparent active:bg-[#2B3348] hover:border-[#FFDF8D]" :name='label' :required='required' :placeholder="placeholder" :disabled='disabled'>
+      <option selected :value='null' class='option bg-[#2B3348]'>{{ firstOpt }}</option>
+      <option v-for='(item, key) in items' :key='key' :value='item?.llave' class=' hover:bg-[red] bg-[#2B3348]'>
         {{ item?.attribute }}
       </option>
     </select>
@@ -71,10 +64,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-option{
-        background:transparent;
-        border-radius: 10px;
-    }
-</style>
