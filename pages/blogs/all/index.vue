@@ -58,7 +58,7 @@
         class="lg:w-32 w-1/2 mx-3 my-2"
       ></app-select>
     </section>
-    <section class="flex flex-col items-center w-10/12 py-6">
+    <section class="flex flex-col xl:grid xl:grid-flow-col-3 items-center w-10/12 py-6">
       <div
         class="
           lg:flex-row
