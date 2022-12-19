@@ -3,10 +3,8 @@
     class="
       min-h-screen
       w-full
-      bg-gradient-to-r
-      from-[#321586]
-      via-[#4736df]
-      to-[#2E1477]
+      bg-[#151639]
+      
     "
   >
     <!-- navbar mobile -->
