@@ -12,10 +12,13 @@
             rounded-md
             h-10
             pl-5
-            bg-[#2D2E4D]/.1
+            border-[#2C2D4D]
+            border-[1px]
+            bg-[#2C2D4D]
             text-white
             placeholder-white
-            hover:border-[#C8DEFF]
+            hover:border-[1px]
+            hover:border-[#ffffff]
           "
           @input="handleSearch"
         />
