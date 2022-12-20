@@ -34,7 +34,7 @@
             bg-gradient-to-r
             from-[#A6CBFF]
             to-[#C8DEFF]
-            hover:from-[#A6CBFF] hover:to-[#A6CBFF]
+            hover:from-[#4087ea99] hover:to-[#4087ea99]
             focus:
             right-4
             top-[6px]
