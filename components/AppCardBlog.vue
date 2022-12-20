@@ -49,7 +49,7 @@
         </p>
         <app-btn
           class="
-            w-2/5
+            w-max
             h-10
             bg-gradient-to-r
             from-red-500
@@ -57,6 +57,7 @@
             p-[2px]
             text-white
             hover:from-red-400 hover:to-red-500
+            sm:text-sm
             lg:w-1/2
             font-Montserrat
           "

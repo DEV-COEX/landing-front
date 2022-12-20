@@ -4,7 +4,7 @@
       class="
         bg-black
         flex-col flex
-        lg:grid lg:grid-cols-2
+        lg:grid lg:grid-cols-1
         justify-center
         items-center
         min-h-screen
@@ -63,7 +63,7 @@
           </div>
         </div>
       </div>
-      <div class="flex justify-center items-center">
+      <!-- <div class="flex justify-center items-center">
         <div class="">
           <div class="flex justify-center pt-5 lg:pt-0 md:pt-20">
             <p
@@ -121,7 +121,7 @@
             </app-btn>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
