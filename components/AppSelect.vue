@@ -1,20 +1,38 @@
 <template>
 
-  <div class="m-2 ">
-    <label class="block text-transparent bg-clip-text bg-gradient-to-r from-[#A6CBFF] to-[#C8DEFF] text-base font-medium mb-2" :for='label'>{{ label }}</label>
-    <select :id='label' v-model='val' class=" appearance-none bg-transparent inp w-full py-2 px-3 text-[#B8B8B8] leading-tight border-[#FFFFFF] border-solid border focus:outline-none focus:shadow-outline focus:border-[#dab255] focus:bg-transparent active:bg-[#2B3348] hover:border-[#FFDF8D]" :name='label' :required='required' :placeholder="placeholder" :disabled='disabled'>
-      <option selected :value='null' class='option bg-[#2B3348]'>{{ firstOpt }}</option>
-      <option v-for='(item, key) in items' :key='key' :value='item?.llave' class=' hover:bg-[red] bg-[#2B3348]'>
+  <div class=" bg-[#2C2D4D] h-[40px] items-center flex rounded-md cursor-pointer text-white">
+
+
+    <!-- {{ items }}
+    <label :for='label'>{{ label }}</label>
+    <select v-model='val' :required='required'>
+       <option selected :value='null'>{{ firstOpt }}</option>
+      <option v-for='(item, key) in items' :key='key' :value='item?.llave'>
         {{ item?.attribute }}
       </option>
-    </select>
+    </select> -->
+    <div class="relative w-full">
+      <p class="flex items-center w-full h-full justify-evenly" @click="changestatusCheck">{{ itemClick }}
+        <svg v-if="!statusCheck" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 0.999999L6 6L11 1" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <svg v-if="statusCheck" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 6L6 1L1 6" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </p>
+      <div :class="statusCheck ? 'block' : 'hidden '" class="bg-[#2C2D4D] fixed mt-3 w-[144px] flex flex-col gap-y-3 py-3 rounded-md">
+        <p v-for='(item, key) in items' :key='key' :value='item?.llave' class="hover:bg-[#3B3C55] w-full p-2 px-4" @click="[prueba(item?.attribute), changestatusCheck()]"  > {{ item?.attribute }}</p>
+<!--         <p class="hover:bg-[#3B3C55] w-full p-2 px-4">Ver menos</p> -->
+      </div>
+    </div>
+
   </div>
 
 
 </template>
 
 <script>
-export default {
+  export default {
   name: 'AppSelect',
   props: {
     label: {
@@ -52,6 +70,13 @@ export default {
       default: "Seleccionar..."
     }
   },
+  data()
+  {
+    return{
+    statusCheck: false,
+    itemClick: this.firstOpt
+  }
+  },
   computed: {
     val: {
       set(value) {
@@ -61,6 +86,18 @@ export default {
         return this.value
       }
     }
+  },
+  methods: {
+    prueba(value){
+      this.val = value
+      this.itemClick = value
+
+      /* value = this.
+      this.val = value */
+    },
+    changestatusCheck(){
+      this.statusCheck =! this.statusCheck
+    }
+  },
   }
-}
 </script>
