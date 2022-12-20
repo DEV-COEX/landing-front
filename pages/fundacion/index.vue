@@ -26,6 +26,11 @@
                     mx-6
                     text-white
                      hover:from-red-400 hover:to-red-500
+                     transition
+                    ease-in-out
+                    delay-0
+                    hover:-translate-y-1 hover:scale-110
+                    duration-200
                   " @click="OPenModal">Quiero donar
               </app-btn>
             </a>

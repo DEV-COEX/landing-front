@@ -10,7 +10,6 @@
       disabled:bg-gradient-to-r disabled:from-[#fa645c] disabled:via-[#ff847e] disabled:to-[#fcc5c3]
       bx-shadow
       
-      
     "
     @click="click"
   >
