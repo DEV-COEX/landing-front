@@ -26,7 +26,7 @@
             {{ lastBlog.title }}
           </h1>
           <p class="text-xs text-white lg:text-2xl">
-            {{ lastBlog.introduction_blog }}
+            {{ lastBlog.introduction_blog }} 
           </p>
           <app-btn
             class="w-max bg-gradient-to-r from-red-500 to-red-400 p-[2px] text-white hover:from-red-400 hover:to-red-500"
