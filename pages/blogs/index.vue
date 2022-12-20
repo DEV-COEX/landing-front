@@ -14,7 +14,7 @@
         <img
           :src="'https://api.cms.coex.com.co' + lastBlog.image?.url"
           alt=""
-          class="h-1/2 rounded-l-2xl w-full lg:h-full lg:w-1/2"
+          class="h-1/2 lg:rounded-l-2xl lg:rounded-r-none w-full lg:h-full lg:w-1/2 supersm:rounded-t-2xl"
         />
         <div
           class="flex flex-col justify-around h-1/2 w-11/12 lg:h-full lg:w-1/2 lg:px-6 lg:box-border supersm:pb-7 lg:pb-0 pt-5"
@@ -26,7 +26,7 @@
             {{ lastBlog.title }}
           </h1>
           <p class="text-xs text-white lg:text-2xl">
-            {{ lastBlog.introduction_blog }} 
+            {{ lastBlog.introduction_blog }}
           </p>
           <app-btn
             class="w-max bg-gradient-to-r from-red-500 to-red-400 p-[2px] text-white hover:from-red-400 hover:to-red-500"

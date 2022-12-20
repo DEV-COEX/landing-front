@@ -17,7 +17,7 @@
       <img
         :src="'https://api.cms.coex.com.co' + imageurl"
         alt=""
-        class="h-full w-full object-cover object-top"
+        class="h-full w-full object-cover object-top rounded-t-2xl"
       />
     </div>
       <div class="grid grid-rows-3 h-2/5 w-full py-3 px-3">
