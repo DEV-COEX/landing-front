@@ -3,8 +3,8 @@
   <div
     class="
       lg:text-base
-      w-[23.4375em]
-      h-[10em]
+      w-full
+      h-[100%]
       py-2
       box-content
       hover:bg-white/30 hover:rounded-md
@@ -12,7 +12,6 @@
       ease-in-out
       hover:duration-1000
       cursor-pointer
-
     "
     @click="redirectBlog"
   >
@@ -36,15 +35,15 @@
     <h3
       class="
         mx-8
+        my-5
         lg:leading-tight
-        h-[70px]
         font-medium
         text-left text-transparent text-[18px]
         bg-clip-text bg-gradient-to-r
         from-[#FFDF8D]
         via-[#FF9838]
         to-[#dab255]
-        hover:text-base
+        line-clamp-2
       "
     >
       {{ title }}

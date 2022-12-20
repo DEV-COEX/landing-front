@@ -55,7 +55,6 @@
             p-[2px]
             text-white
             hover:from-red-400 hover:to-red-500
-            
             sm:text-sm
             lg:w-1/2
           "
