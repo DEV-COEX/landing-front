@@ -12,7 +12,7 @@
             rounded-md
             h-10
             pl-5
-            bg-[#2D2E4D]/.1
+            bg-[#2D2E4D]
             text-white
             placeholder-white
             hover:border-[#C8DEFF]
@@ -55,7 +55,7 @@
       <app-select
         v-model="filterValue"
         :items="filter"
-        class="lg:w-32 w-1/2 mx-3 my-2"
+        class="lg:w-36 w-1/2 mx-3"
       ></app-select>
     </section>
     <section class="flex flex-col items-center w-10/12 py-6">
@@ -64,7 +64,7 @@
 
           xl:grid
           xl:grid-cols-3
-          
+
           items-center
           w-full
           py-6
