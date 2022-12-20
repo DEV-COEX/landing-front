@@ -63,10 +63,8 @@
     <section class="flex flex-col items-center w-10/12 py-6">
       <div
         class="
-
           xl:grid
           xl:grid-cols-3
-
           items-center
           w-full
           py-6

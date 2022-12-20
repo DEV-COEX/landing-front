@@ -22,7 +22,7 @@
       </div>
 
       <div id="3" class="elemento">
-        <lazy-home-fabrica v-if="showElements" />
+        <!-- <lazy-home-fabrica v-if="showElements" /> -->
       </div>
       <div id="4" class="elemento">
         <lazy-home-educacion v-if="showElements" />
