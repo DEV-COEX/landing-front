@@ -144,6 +144,7 @@
           text-white
           hover:from-blue-400 hover:to-blue-500
           mb-5
+          
         "
         @click="redirectMoreBlogs"
       >
