@@ -19,7 +19,7 @@
         <div
           class="flex flex-col justify-around h-1/2 w-11/12 lg:h-full lg:w-1/2 lg:px-6 lg:box-border supersm:pb-7 lg:pb-0 pt-5"
         >
-          <p class="text-[8px] text-white lg:text-sm">Artículo Destacado</p>
+          <p class="text-[8px] text-white lg:text-xl ">Artículo Destacado</p>
           <h1
             class="text-transparent bg-clip-text bg-gradient-to-r from-[#FFDF8D] to-[#FF9838] text-xl font-medium lg:text-3xl"
           >

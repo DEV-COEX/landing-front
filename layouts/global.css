@@ -1,0 +1,11 @@
+
+
+@font-face {
+    font-family: 'GrotesqueTitle';
+    src: url('~assets/galano/GalanoGrotesqueAltBold.otf') format('truetype');
+}
+@font-face {
+  font-family: 'GalanoGrotesque';
+  
+  src: url('~assets/galano/GalanoGrotesqueRegular.otf') format('truetype');
+}

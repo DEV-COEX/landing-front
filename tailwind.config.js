@@ -20,7 +20,11 @@ module.exports = {
         'modal-llega': 'animate__animated animate__heartBeat'
       }
     },
-
+    fontFamily: {
+      'Grotesque':['GalanoGrotesque'],
+      'GrotesqueTitle':['GrotesqueTitle'],
+      'Montserrat':['Montserrat']
+    }
   },
   lineClamp: {
     7: '7',

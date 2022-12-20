@@ -10,6 +10,7 @@
         lg:h-[27.125em]
         xl:w-80
         hover:bg-white/30
+        font-Grotesque
       "
     >
       <img
@@ -29,6 +30,7 @@
             bg-clip-text bg-gradient-to-r
             from-[#FFDF8D]
             to-[#FF9838]
+            font-GrotesqueTitle
           "
         >
           {{ title }}
@@ -57,6 +59,7 @@
             hover:from-red-400 hover:to-red-500
             sm:text-sm
             lg:w-1/2
+            font-Montserrat
           "
           @click="onRedirect"
         >
