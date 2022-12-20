@@ -12,11 +12,14 @@
             rounded-md
             h-10
             pl-5
-            bg-[#2D2E4D]/.1
+            bg-[#2C2D4D]
             text-white
             placeholder-white
-            hover:border-[#C8DEFF]
           "
+          :class="(statusfocus) ? 'hover:border-[#ffff] hover:border-[1px] border-[1px] border-[#2C2D4D]' : 'outline-[#FFDB89] hover:border-[#FFDB89] border-[#FFDB89] border-solid hover:border-[1px] border-[1px]'"
+
+          @focus="changeStatusFocus"
+          @blur="changeStatusFocus"
           @input="handleSearch"
         />
         <div
@@ -33,21 +36,20 @@
             to-[#C8DEFF]
             hover:from-[#4087ea99] hover:to-[#4087ea99]
             focus:
-            bg-white
             right-4
             top-[6px]
           "
+          :class="(statusfocus) ? [] : ['bg-white']"
         >
           <svg
             width="16"
             height="16"
             viewBox="0 0 16 16"
-            fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            :class="(statusfocus) ? 'fill-[#4087EA] ' : 'fill-[#FFDB89]'"
           >
             <path
               d="M11.4351 10.0629H10.7124L10.4563 9.81589C11.3528 8.77301 11.8925 7.4191 11.8925 5.94625C11.8925 2.66209 9.23042 0 5.94625 0C2.66209 0 0 2.66209 0 5.94625C0 9.23042 2.66209 11.8925 5.94625 11.8925C7.4191 11.8925 8.77301 11.3528 9.81589 10.4563L10.0629 10.7124V11.4351L14.6369 16L16 14.6369L11.4351 10.0629ZM5.94625 10.0629C3.66838 10.0629 1.82962 8.22413 1.82962 5.94625C1.82962 3.66838 3.66838 1.82962 5.94625 1.82962C8.22413 1.82962 10.0629 3.66838 10.0629 5.94625C10.0629 8.22413 8.22413 10.0629 5.94625 10.0629Z"
-              class="fill-[#4087EA]"
             />
           </svg>
         </div>
@@ -61,10 +63,8 @@
     <section class="flex flex-col items-center w-10/12 py-6">
       <div
         class="
-
           xl:grid
           xl:grid-cols-3
-
           items-center
           w-full
           py-6
@@ -104,6 +104,7 @@ export default {
   layout: 'NavbarDefault',
   data() {
     return {
+      statusfocus: true,
       page: 0,
       maxPage: 0,
       blogs: [],
@@ -140,6 +141,10 @@ export default {
     this.page = this.pageInitial()
   },
   methods: {
+    changeStatusFocus(){
+      this.statusfocus =! this.statusfocus
+      console.log(this.statusfocus);
+    },
     // Get data
     async getAllBlogsRecent() {
       const { data } = await this.$axios.get('blogs')
