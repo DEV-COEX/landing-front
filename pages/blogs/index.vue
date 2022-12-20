@@ -20,6 +20,7 @@
           from-[#FFDF8D]
           to-[#FF9838]
           lg:text-5xl
+          font-GrotesqueTitle
         "
       >
         BLOGS
@@ -33,6 +34,8 @@
           box-content
           h-[28.125em]
           lg:flex-row
+          font-Grotesque
+          
         "
       >
         <img
@@ -47,9 +50,10 @@
             h-1/2
             w-11/12
             lg:h-full lg:w-1/2 lg:px-6 lg:box-border
+            
           "
         >
-          <p class="text-[8px] text-white lg:text-sm">Artículo Destacado</p>
+          <p class="text-[8px] text-white lg:text-xl ">Artículo Destacado</p>
           <h1
             class="
               text-transparent
@@ -75,6 +79,7 @@
               p-[2px]
               text-white
               hover:from-red-400 hover:to-red-500
+              font-Montserrat
             "
             @click="redirectBlog"
             >Leer artículo</app-btn
@@ -103,6 +108,7 @@
           from-[#FFDF8D]
           to-[#FF9838]
           lg:text-5xl
+          font-GrotesqueTitle
         "
       >
         Entradas destacadas
@@ -144,6 +150,7 @@
           text-white
           hover:from-blue-400 hover:to-blue-500
           mb-5
+          font-Montserrat
         "
         @click="redirectMoreBlogs"
       >
