@@ -14,11 +14,16 @@ export default {
       {hid: 'description', name: 'description', content: 'Coviertete en un desarrollador de software y haz de eso tu profesion. Buscas talentos TI para tu empresa?, contrata con nosotros desarrolladores en Colombia. Node.js, Laravel, PHP, Javascript'},
       {name: 'format-detection', content: 'telephone=no'},
     ],
-    link: [{rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}],
+    link: [{rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
+      {
+        rel: 'stylesheet',
+        href:'https://fonts.googleapis.com/css2?family=Montserrat&display=swap'
+      }
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['~layouts/global.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [{src: '~/plugins/main.js', mode: 'client'}],
@@ -32,6 +37,7 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-analytics',
   ],
 
 
@@ -40,7 +46,8 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/markdownit',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/google-analytics',
   ],
 
   markdownit: {
@@ -68,5 +75,14 @@ export default {
 
   generate: {
     fallback: true
+  },
+
+  googleAnalytics: {
+    id: 'G-LMY8Q8K6DK', // Use as fallback if no runtime config is provided
+  },
+  publicRuntimeConfig: {
+    googleAnalytics: {
+      id: 'G-LMY8Q8K6DK'
+    }
   }
 }

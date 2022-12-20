@@ -10,6 +10,7 @@
         lg:h-[27.125em]
         xl:w-96
         hover:bg-white/30
+        rounded-2xl
       "
     >
     <div class="h-3/5 w-full">
@@ -31,6 +32,7 @@
             bg-clip-text bg-gradient-to-r
             from-[#FFDF8D]
             to-[#FF9838]
+            font-GrotesqueTitle
           "
         >
           {{ title }}
@@ -49,7 +51,7 @@
         </p>
         <app-btn
           class="
-            w-2/5
+            w-max
             h-10
             bg-gradient-to-r
             from-red-500
@@ -57,8 +59,9 @@
             p-[2px]
             text-white
             hover:from-red-400 hover:to-red-500
-            text-sm
-            lg:w-28
+            sm:text-sm
+            lg:w-1/2
+            font-Montserrat
           "
           @click="onRedirect"
         >
