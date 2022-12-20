@@ -37,6 +37,7 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-analytics',
   ],
 
 
@@ -45,7 +46,8 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/markdownit',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/google-analytics',
   ],
 
   markdownit: {
@@ -73,5 +75,14 @@ export default {
 
   generate: {
     fallback: true
+  },
+
+  googleAnalytics: {
+    id: 'G-LMY8Q8K6DK', // Use as fallback if no runtime config is provided
+  },
+  publicRuntimeConfig: {
+    googleAnalytics: {
+      id: 'G-LMY8Q8K6DK'
+    }
   }
 }
