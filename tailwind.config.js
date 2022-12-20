@@ -20,10 +20,22 @@ module.exports = {
         'modal-llega': 'animate__animated animate__heartBeat'
       }
     },
-    
+    fontFamily: {
+      'Grotesque':['GalanoGrotesque'],
+      'GrotesqueTitle':['GrotesqueTitle'],
+      'Montserrat':['Montserrat']
+    }
   },
-  variants: {
-    extend: {},
+  lineClamp: {
+    7: '7',
+    8: '8',
+    9: '9',
+    10: '10',
+  },variants: {
+    lineClamp: ['responsive', 'hover']
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+    // ...
+  ],
 }

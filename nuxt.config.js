@@ -14,11 +14,16 @@ export default {
       {hid: 'description', name: 'description', content: 'Coviertete en un desarrollador de software y haz de eso tu profesion. Buscas talentos TI para tu empresa?, contrata con nosotros desarrolladores en Colombia. Node.js, Laravel, PHP, Javascript'},
       {name: 'format-detection', content: 'telephone=no'},
     ],
-    link: [{rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}],
+    link: [{rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
+      {
+        rel: 'stylesheet',
+        href:'https://fonts.googleapis.com/css2?family=Montserrat&display=swap'
+      }
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['~layouts/global.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [{src: '~/plugins/main.js', mode: 'client'}],
