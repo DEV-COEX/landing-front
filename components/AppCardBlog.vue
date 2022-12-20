@@ -8,18 +8,16 @@
         w-72
         h-96
         lg:h-[27.125em]
-        xl:w-96
+        xl:w-80
         hover:bg-white/30
         rounded-2xl
       "
     >
-    <div class="h-3/5 w-full">
       <img
         :src="'https://api.cms.coex.com.co' + imageurl"
         alt=""
-        class="h-full w-full object-cover object-top"
+        class="h-3/5 w-full  rounded-t-2xl"
       />
-    </div>
       <div class="grid grid-rows-3 h-2/5 w-full py-3 px-3">
         <h1
           class="
