@@ -78,7 +78,8 @@ export default {
   },
 
   googleAnalytics: {
-    id: 'G-LMY8Q8K6DK', // Use as fallback if no runtime config is provided
+    id: 'G-LMY8Q8K6DK',
+    // Use as fallback if no runtime config is provided
   },
   publicRuntimeConfig: {
     googleAnalytics: {
